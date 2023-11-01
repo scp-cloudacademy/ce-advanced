@@ -1,1 +1,15 @@
+yum update –y                     // 패키지 업데이트
+yum install open-vm-tools         // vm tools 설치
+yum install perl –y               // perl 패키지 설치
+reboot                            // 재부팅
 
+firewall-cmd --zone=public --permanent --add-port=22/tcp    // 22번 포트 오픈
+firewall-cmd --zone=public --permanent --add-port=80/tcp    // 80번 포트 오픈
+firewall-cmd --reload                                       // 리로드
+firewall-cmd --zone=public --list-all                       // 리스트 불러오기
+
+yum install httpd -y               // web 설치
+systemctl start httpd              // web 시작
+hostname -I                        // IP 확인
+
+cat /etc/*release*                 // OS 버전 확인
