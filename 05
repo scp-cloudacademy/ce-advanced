@@ -16,3 +16,5 @@ systemctl start httpd              // web 시작
 hostname -I                        // IP 확인
 
 cat /etc/*release*                 // OS 버전 확인
+
+https://github.com/scp-cloudacademy/ce-advanced/blame/83dbf3bd14d8eeb1aff2d982b6a6fc92ba878e0c/05#L1
