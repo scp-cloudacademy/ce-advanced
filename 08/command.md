@@ -164,10 +164,21 @@ yum repolist | grep epel
 ```
 sudo yum -y install epel-release
 ```
-
-
-      
-
-
++ Certbot 설치하기
+Certbot과 Certbot Apache 웹서버 플러그인을 설치한다.
+```
+sudo yum -y install certbot python2-certbot-apache
+```
+※인증서 발급 전 주의사항
+   --standalone 방식으로 인증서를 발급할 예정이며, 발급 시 웹서버를 stop으로 변경을 꼭 해야된다.
+   + 웹서버 Stop
+```
+sudo systemctl stop httpd
+```
+- ###### 인증서 발급하기      
+```
+sudo certbot certonly --standalone -d "등록할 도메인"
+```
+설치 시, 사용할 이메일등록, ACME 서버등록 동의, 이메일 수신여부를 등록하면 인증서가 발급이 완료된다.
 
 
