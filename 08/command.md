@@ -1,4 +1,4 @@
-# SSH 접속하기
+-# SSH 접속하기
 [Putty 다운로드](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html) </br></br>
 본인이 사용하는 pc 사양에 맞는 버전을 다운로드 받고, 설치를 한다.</br>
 설치가 완료된 후, [접속방법](https://cloud.samsungsds.com/manual/ko/scp_user_guide.html#61ddd538a41cdb3d)을 참고하여 접속해준다
@@ -151,7 +151,19 @@ url/wp-admin/setup-config.php</br>
 
 # HTTP 환경구성
 1. SSL Certificate 발급</br>
-[인증서발급](https://blog.jiniworld.me/137#a02-1)
+[인증서발급 참조](https://blog.jiniworld.me/137#a02-1)
+
++ epel-release 설치여부 확인
+```
+yum repolist | grep epel
+```
+![image](https://github.com/scp-cloudacademy/ce-advanced/assets/147478897/a2a2c6a8-505d-46dd-b459-def90cda93bb)</br>
+그림과 같이 나온다면 설치가 되었다. </br>
+만약 설치가 필요하면 다음 명령어를 통해 설치를 해준다.
++ 설치하기
+```
+sudo yum -y install epel-release
+```
 
 
       
