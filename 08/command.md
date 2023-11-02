@@ -95,8 +95,12 @@ sudo mount -t nfs -O vers=3 마운트정보/var/www/html/wordpress
 ```
  ※ 마운트정보는 파일 스토리지 상세현황에서 확인할 수 있음
 
+ - 마운트 확인
+```
+df -k
+```
 - 마운트 설정하기
-vi편집기로 /etc/fstab경로  접속</br>
+vi편집기로 /etc/fstab경로  접속 후 아래내용 추가</br>
 ```
 마운트정보/var/www/html/wordpress   nfs   default   0 0
 ```
