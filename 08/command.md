@@ -181,4 +181,9 @@ sudo certbot certonly --standalone -d "등록할 도메인"
 ```
 설치 시, 사용할 이메일등록, ACME 서버등록 동의, 이메일 수신여부를 등록하면 인증서가 발급이 완료된다.
 
+- ##### SSL 패키지 설치
+```
+sudo yum -y install openssl mod ssl
+```
+
 
