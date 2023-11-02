@@ -209,3 +209,10 @@ ls -l /etc/httpd/modules/
     - SSLCertificateChainFile /etc/letsencrypt/archive/도메인/chain1.pem     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;            \#  Server Certificate Chain
     - SSLCACertificateFile /etc/letsencrypt/archive/도메인/fullchain1.pem      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;          \#  Certificate Authority (CA)
 
+# SCP 인증서 등록하기
+![image](https://github.com/scp-cloudacademy/ce-advanced/assets/147478897/95ff01c3-8854-49d0-907a-bfe14322b865)
+
+※ 발급한 인증서 정보를 조회하여 각 항목에 맞게 입력, 그리고 나서 유효성 체크를 해본다.</br> 
+&nbsp;유효성 체크 시 유효하다는 알림과 떠야 인증서가 등록이 가능하다.
+
+[인증서 등록 가이드](https://cloud.samsungsds.com/manual/ko/scp_user_guide.html#83211ce5e21a5607)
