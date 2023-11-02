@@ -105,3 +105,57 @@ vi편집기로 /etc/fstab경로  접속 후 아래내용 추가</br>
 마운트정보/var/www/html/wordpress   nfs   default   0 0
 ```
 
+# wordpress 설치하기
+wordpress 최신 패키지 다운 후 압축해제를 하고</br>
+시스템 재시작을 한다.
+
+- wordpress 다운로드
+```
+sudo wget http://wordpress.org/latest.tar.gz
+sudo tar –zxvf latest.tar.gz –C /var/www/html
+sudo chown –R apache /var/www/html/wordpress
+```
+
+- 루트경로 설정</br>
+http.comf 파일 루트경로 설정 (/etc/httpd/conf/httpd.conf)</br>
+  + DocumentRoot /var/www/html/wordpress</br>
+- 시스템 재시작
+```
+sudo systemctl restart httpd.service
+```
+# Wordpress Admin 설정
+url/wp-admin/setup-config.php</br>
+워드프레스 설치를 하고, 로그인을 하면 해준다.</br>
+![image](https://github.com/scp-cloudacademy/ce-advanced/assets/147478897/b4c067f2-f8ab-4190-a45d-dd8aefee0b66)
+
+여기서 플러그인 캐시를 설치하고 구성한다.
+* ###### 1. W3 Total Cache
+     W3 total cache 플러그인 설치 후 활성화를 해준다. </br>
+     활성화를 한 후 일반설정에 들어가서 CDN을 활성화 체크를 해주고, 유형에는 Akamai를 선택한다 </br>
+     저장을 하고 그 다음에 CDN 세부사항을 구성한다.</br>
+     여기서 구성부분과, 고급에 다음역할에 CDN 비활성화에 Administrator를 선택 후 최종 저장을 해주면 끝~</br>
+     ![image](https://github.com/scp-cloudacademy/ce-advanced/assets/147478897/0e04d973-0364-42d5-91fe-4a46c768bd42)
+     ![image](https://github.com/scp-cloudacademy/ce-advanced/assets/147478897/060cbdef-39b8-424a-b53a-aeca74b5ce61) </br>
+* ###### 2. Redis Object
+   Cache플러그인에서 Redis Object Cache 설치 후 활성화를 해준다.</br>
+   활성화를 해 준 다음에 VI편집기에서 Wordpress 환경설정을 해준다. </br></br>
+     경로: /var/www/html/wordpress/wp-config.php </br>
+         define('WP_REDIS_HOST','Redis IP'); </br>
+         define('WP_REDIS_DATABASE','0'); </br>
+         define('WP_CACHE_KEY_SALT','wf_'); </br>
+         define('WP_REDIS_MAXTTL','86400'); </br>
+         define('WP_REDIS_PORT','6378'); </br>
+         define('WP_REDIS_PASSWORD','지정 패스워드'); </br>
+  </br> 연동이 끝나고 브라우저에서 확인을 해보면 연결됨을 확인할 수 있다.</br>
+![image](https://github.com/scp-cloudacademy/ce-advanced/assets/147478897/795ca323-ff20-42c0-8f27-7985df08ecaf)
+
+# HTTP 환경구성
+1. SSL Certificate 발급</br>
+[인증서발급](https://blog.jiniworld.me/137#a02-1)
+
+
+      
+
+
+
+
