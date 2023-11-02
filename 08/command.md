@@ -216,3 +216,5 @@ ls -l /etc/httpd/modules/
 &nbsp;유효성 체크 시 유효하다는 알림과 떠야 인증서가 등록이 가능하다.
 
 [Chain.pem 확인방법](https://cloud.samsungsds.com/manual/ko/scp_user_guide.html#121d80fb4c7cb39f)
+<br> 해당링크 참고하여, 인증서를 등록해준다.
+※chain.pem은 sub CA → Root CA 순으로 적어준다 </br>
