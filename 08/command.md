@@ -179,11 +179,33 @@ sudo systemctl stop httpd
 ```
 sudo certbot certonly --standalone -d "등록할 도메인"
 ```
-설치 시, 사용할 이메일등록, ACME 서버등록 동의, 이메일 수신여부를 등록하면 인증서가 발급이 완료된다.
+설치 시, 사용할 이메일등록, ACME 서버등록 동의, 이메일 수신여부를 등록하면 인증서가 발급이 완료된다.</br>
+발급이 완료가 되면 시스템을 다시 재시작을 해준다.
+
+- 시스템 재시작
+```
+sudo systemctl restart httpd.service
+```
 
 - ##### SSL 패키지 설치
 ```
 sudo yum -y install openssl mod ssl
 ```
+- 설치된 패키지 확인
+```
+sudo cat /etc/httpd/conf.modules.d/oo-ssl.conf
+```
+```
+ls -l /etc/httpd/modules/
+```
+- ##### Apache HTTP Server 설정변경
+  SSL 설정변경 </br>
+  + 경로: /etc/httpd/conf.d/ssl.conf
+    - DocumentRoot "/var/www/html/wordpress"   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; \# General setup for the virtual host, inherited from global configuration
+    - ServerName 도메인:443</br></br>
 
+    - SSLCertificateFile /etc/letsencrypt/archive/도메인/cert1.pem        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;       \#  Server Certificate
+    - SSLCertificateKeyFile /etc/letsencrypt/archive/도메인/privkey1.pem   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;              \#  Server Private Key
+    - SSLCertificateChainFile /etc/letsencrypt/archive/도메인/chain1.pem     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;            \#  Server Certificate Chain
+    - SSLCACertificateFile /etc/letsencrypt/archive/도메인/fullchain1.pem      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;          \#  Certificate Authority (CA)
 
