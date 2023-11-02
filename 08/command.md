@@ -215,4 +215,4 @@ ls -l /etc/httpd/modules/
 ※ 발급한 인증서 정보를 조회하여 각 항목에 맞게 입력, 그리고 나서 유효성 체크를 해본다.</br> 
 &nbsp;유효성 체크 시 유효하다는 알림과 떠야 인증서가 등록이 가능하다.
 
-[인증서 등록 가이드](https://cloud.samsungsds.com/manual/ko/scp_user_guide.html#83211ce5e21a5607)
+[인증서 등록 가이드](https://cloud.samsungsds.com/manual/ko/scp_user_guide.html#121d80fb4c7cb39f)
