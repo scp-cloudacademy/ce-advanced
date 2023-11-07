@@ -10,12 +10,12 @@ $ curl https://rclone.org/install.sh | sudo bash
 
 ```bash
 $ rclone config
+$ rclone ls [config name]:[bucket name]
 ```
 
 <h3>Migration 수행</h3>
 
 ```bash
-$ rclone ls [config name]:[bucket name]
 $ rclone sync [source config name]:[bucket] [target config name]:[bucket] --dry-run --progress
 $ rclone sync [source config name]:[bucket] [target config name]:[bucket] --progress
 ```
