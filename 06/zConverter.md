@@ -1,3 +1,7 @@
+-환경</br>
+사용 OS : Ubuntu 22.04</br>
+Source VM : VMware Workstation
+Target VM : Samsung Cloud Platform
 
 관리포탈 접속 포트 : 58080</br>
 관리포탈 포트 : 50001,50000</br>
