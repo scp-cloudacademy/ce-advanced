@@ -5,10 +5,15 @@ AWS와 SCP 사이에 VPN 연결이 필요합니다.
 
 <h2>AWS</h2>
 <h3>EFS 배포</h3>
+콘솔에서 진행</br>
+
 <h3>VPN 구성</h3>
+콘솔에서 진행</br>
 
 <h2>SCP</h2>
 <h3>VPN 구성</h3>
+콘솔에서 진행</br>
+
 <h3>VM 배포 및 설정</h3>
 VPN 상세에서 Local Subnet 추가 후 IP 및 MAC 확인</br>
 IP정보 확인
