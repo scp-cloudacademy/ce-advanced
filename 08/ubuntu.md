@@ -52,4 +52,39 @@ sudo service apache2 restart
 sudo apt-get zip unzip
 ```
 
+추가예정
+
+
+##### File-Storage Mount
+###### 1 마운트 설정
+```
+sudo mount -t nfs -o vers=3 마운트정보 경로
+```
+</br>
+
+###### 2. 마운트 학인 
+```
+df -k
+```
+
+###### 3. 마운트 항시설정
+```
+sudo vi /etc/fstab
+```
+
+내용추가
+```
+마운트정보 /var/www/html/contents	nfs      defaults        0 0
+```
+
+
+
+
+
+
+
+
+
+
+
 
