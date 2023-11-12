@@ -71,6 +71,7 @@ df -k
 sudo vi /etc/fstab
 ```
 
+
 ###### 3-1 내용추가
 ```
 마운트정보 /var/www/html/contents	nfs      defaults        0 0
