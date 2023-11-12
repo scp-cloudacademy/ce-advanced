@@ -3,7 +3,7 @@
 #### 1. Install JAVA from either one.
 OpenJDK link or
 
-    https://github.com/ojdkbuild/ojdkbuild
+    https://jdk.java.net/21/
     
 Oracle JDK link
 
