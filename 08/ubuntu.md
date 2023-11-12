@@ -5,7 +5,7 @@ sudo service apache2 start </br>
 sudo service apache2 enable </br></br>
 
 ##### PHP 설치 (was-server)
-※ https://t-okk.tistory.com/153 참조 </br>
+※ [참조](https://t-okk.tistory.com/153) </br>
 
 sudo apt-get update </br>
 sudo apt-get -y install apache2 </br>
