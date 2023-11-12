@@ -1,4 +1,4 @@
-# 1. Apache http 설치 (web-server) </br>
+##### Apache http 설치 (web-server) </br>
 sudo apt-get update </br>
 sudo apt-get -y install apache2 </br>
 sudo service apache2 start </br>
