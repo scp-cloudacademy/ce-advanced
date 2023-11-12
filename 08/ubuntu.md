@@ -21,7 +21,7 @@ sudo apt install php-{bz2,imagick,imap,intl,gd,mbstring,pspell,curl,readline,xml
 아래 내용을 추가하여 저장해 준다. </br>
 ```
 sudo vi /var/www/html/index.php
-``` </br>
+```
 ```
 <?php
 phpinfo();
