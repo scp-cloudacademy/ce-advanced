@@ -1,10 +1,10 @@
-###### Apache http 설치 (web-server) </br>
+##### Apache http 설치 (web-server) </br>
 sudo apt-get update </br>
 sudo apt-get -y install apache2 </br>
 sudo service apache2 start </br>
 sudo service apache2 enable </br></br>
 
-###### PHP 설치 (was-server) </br>
+##### PHP 설치 (was-server) </br>
 ※ https://t-okk.tistory.com/153 참조 </br>
 
 sudo apt-get update </br>
