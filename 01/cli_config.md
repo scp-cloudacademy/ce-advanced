@@ -1,4 +1,4 @@
-# Samsung Cloud Platform ClI 환경 구성하기
+# Configuring Samsung Cloud Platform ClI 
 
 #### 1. Install JAVA from either one.
 OpenJDK link or
