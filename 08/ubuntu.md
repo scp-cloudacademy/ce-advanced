@@ -42,9 +42,14 @@ mysqli.default_host = Mysql IP address </br>
 mysqli.default_user = Mysql user name </br>
 mysqli.default_pw = Password PHRASE </br>
 
-시스템 재시작
+##### 시스템 재시작
 ```
 sudo service apache2 restart
+```
+
+##### zip 파일 압축해제를 위한 설치
+```
+sudo apt-get zip unzip
 ```
 
 
