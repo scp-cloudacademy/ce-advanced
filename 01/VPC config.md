@@ -1,9 +1,9 @@
 
-Network Architecture
+##Network Architecture
 ![image](https://github.com/scp-cloudacademy/ce-advanced/assets/147478897/acc127cf-7062-4e11-81fa-5de138961341)
 
 
-Network Configuration
+##Network Configuration
 
 |Location|VPC name|Subnet name|Subnet Usage|CIDR|
 |:------------:|:----:|:---------|:----------|:-----------------:|
