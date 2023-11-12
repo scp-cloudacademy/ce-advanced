@@ -24,6 +24,10 @@ sudo yum -y install php-redis
 
 ※ Centos7.8의 경우, PHP version 5.4가 기본으로 설치되지만, Wordpress 최신버전과 호환성을 위해 PHP 8 이상의 버전으로 설치한다</br> 
 
+![image](https://github.com/scp-cloudacademy/ce-advanced/assets/147478897/c800d091-6248-415d-addd-2fa5a1b7066a)
+
+
+
 ### PHP 구성
 1. info파일 구성 </br>
 경로: /var/www/html/info.php </br>
