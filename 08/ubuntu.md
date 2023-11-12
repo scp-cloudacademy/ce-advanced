@@ -19,9 +19,11 @@ sudo apt install php-{bz2,imagick,imap,intl,gd,mbstring,pspell,curl,readline,xml
 ##### info파일 구성하기
 경로: /var/www/html/index.php </br>
 아래 내용을 추가하여 저장해 준다. </br>
+∴ sudo vi /var/www/html/index.php </br>
 ```
 <?php
 phpinfo();
 ?>
 ```
+
 
