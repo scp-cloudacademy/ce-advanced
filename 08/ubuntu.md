@@ -54,7 +54,6 @@ sudo apt-get zip unzip
 
 추가예정
 
-
 ##### File-Storage Mount
 ###### 1 마운트 설정
 ```
@@ -72,10 +71,11 @@ df -k
 sudo vi /etc/fstab
 ```
 
-내용추가
+###### 3-1 내용추가
 ```
 마운트정보 /var/www/html/contents	nfs      defaults        0 0
 ```
+
 
 
 
