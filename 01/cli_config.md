@@ -47,7 +47,7 @@ example) scp-tool-cli configure set project-id PROJECT-Q8ob-g8rt8pO
 
     scp-tool-cli vpc create-vpc-v3 --req "{  \"serviceZoneId\" : \"West ZoneID\",  \"vpcName\" : \"VPCa\"}" 
     scp-tool-cli vpc create-vpc-v3 --req "{  \"serviceZoneId\" : \"West ZoneID\",  \"vpcName\" : \"VPCb\"}"
-    scp-tool-cli vpc create-vpc-v3 --req "{  \"serviceZoneId\" : \"EAST-1 ZoneID\",  \"vpcName\" : \"VPCc\"}"
+    scp-tool-cli vpc create-vpc-v3 --req "{  \"serviceZoneId\" : \"East-1 ZoneID\",  \"vpcName\" : \"VPCc\"}"
 
 #### 9. Create Internet Gateway
 
@@ -57,8 +57,68 @@ example) scp-tool-cli configure set project-id PROJECT-Q8ob-g8rt8pO
 
 #### 10. Create Subnet
 
-###### 1. Bastion Subnet (public)
+###### 1. Bastion Subnet (Public)
 
     scp-tool-cli subnet create-subnet-v2 --req-vo "{  \"subnetCidrBlock\" : \"192.168.0.0/24\",  \"subnetName\" : \"BASTIONa\",  \"subnetType\" : \"PUBLIC\",  \"vpcId\" : \"VPCa ID\"}"
     scp-tool-cli subnet create-subnet-v2 --req-vo "{  \"subnetCidrBlock\" : \"192.168.10.0/24\",  \"subnetName\" : \"BASTIONb\",  \"subnetType\" : \"PUBLIC\",  \"vpcId\" : \"VPCb ID\"}"
     scp-tool-cli subnet create-subnet-v2 --req-vo "{  \"subnetCidrBlock\" : \"192.168.20.0/24\",  \"subnetName\" : \"BASTIONc\",  \"subnetType\" : \"PUBLIC\",  \"vpcId\" : \"VPCc ID\"}"
+
+###### 2. WEB Subnet (Private)
+
+    scp-tool-cli subnet create-subnet-v2 --req-vo "{  \"subnetCidrBlock\" : \"192.168.1.0/24\",  \"subnetName\" : \"WEBa\",  \"subnetType\" : \"PRIVATE\",  \"vpcId\" : \"VPCa ID\"}"
+    scp-tool-cli subnet create-subnet-v2 --req-vo "{  \"subnetCidrBlock\" : \"192.168.21.0/24\",  \"subnetName\" : \"WEBc\",  \"subnetType\" : \"PRIVATE\",  \"vpcId\" : \"VPCc ID\"}"
+
+###### 3. Application Subnet (Private)
+
+    scp-tool-cli subnet create-subnet-v2 --req-vo "{  \"subnetCidrBlock\" : \"192.168.2.0/24\",  \"subnetName\" : \"APPa\",  \"subnetType\" : \"PRIVATE\",  \"vpcId\" : \"VPCa ID\"}"
+    scp-tool-cli subnet create-subnet-v2 --req-vo "{  \"subnetCidrBlock\" : \"192.168.22.0/24\",  \"subnetName\" : \"APPc\",  \"subnetType\" : \"PRIVATE\",  \"vpcId\" : \"VPCc ID\"}"
+
+###### 4. DataBase Subnet (Private)
+
+    scp-tool-cli subnet create-subnet-v2 --req-vo "{  \"subnetCidrBlock\" : \"192.168.3.0/24\",  \"subnetName\" : \"Dba\",  \"subnetType\" : \"PRIVATE\",  \"vpcId\" : \"VPCa ID\"}"
+    scp-tool-cli subnet create-subnet-v2 --req-vo "{  \"subnetCidrBlock\" : \"192.168.12.0/24\",  \"subnetName\" : \"Dbb\",  \"subnetType\" : \"PRIVATE\",  \"vpcId\" : \"VPCb ID\"}"
+    scp-tool-cli subnet create-subnet-v2 --req-vo "{  \"subnetCidrBlock\" : \"192.168.23.0/24\",  \"subnetName\" : \"Dbc\",  \"subnetType\" : \"PRIVATE\",  \"vpcId\" : \"VPCb ID\"}"
+
+###### 5. Local Subnet (Private)
+
+    scp-tool-cli subnet create-subnet-v2 --req-vo "{  \"subnetCidrBlock\" : \"192.168.4.0/24\",  \"subnetName\" : \"LOCALa\",  \"subnetType\" : \"PRIVATE\",  \"vpcId\" : \"VPCa ID\"}"
+    scp-tool-cli subnet create-subnet-v2 --req-vo "{  \"subnetCidrBlock\" : \"192.168.24.0/24\",  \"subnetName\" : \"LOCALc\",  \"subnetType\" : \"PRIVATE\",  \"vpcId\" : \"VPCc ID\"}"
+
+###### 6. Kubernetes Subnet (Private)
+
+    scp-tool-cli subnet create-subnet-v2 --req-vo "{  \"subnetCidrBlock\" : \"192.168.11.0/24\",  \"subnetName\" : \"K8sb\",  \"subnetType\" : \"PRIVATE\",  \"vpcId\" : \"VPCb ID\"}"
+
+#### 11. Create Security Group
+
+###### 1. Bastion Security Group
+
+    scp-tool-cli security-group create-security-group-v3 --req "{  \"loggable\" : false,  \"securityGroupName\" : \"BASTIONa\",  \"serviceZoneId\" : \"West ZoneID\",  \"vpcId\" : \"VPCa ID\"}"
+    scp-tool-cli security-group create-security-group-v3 --req "{  \"loggable\" : false,  \"securityGroupName\" : \"BASTIONb\",  \"serviceZoneId\" : \"West ZoneID\",  \"vpcId\" : \"VPCb ID\"}"
+    scp-tool-cli security-group create-security-group-v3 --req "{  \"loggable\" : false,  \"securityGroupName\" : \"BASTIONc\",  \"serviceZoneId\" : \"East-1 ZoneID\",  \"vpcId\" : \"VPCc ID\"}"
+
+###### 2. Web Security Group
+
+    scp-tool-cli security-group create-security-group-v3 --req "{  \"loggable\" : false,  \"securityGroupName\" : \"WEBa1\",  \"serviceZoneId\" : \"West ZoneID\",  \"vpcId\" : \"VPCa ID\"}"
+    scp-tool-cli security-group create-security-group-v3 --req "{  \"loggable\" : false,  \"securityGroupName\" : \"WEBa2\",  \"serviceZoneId\" : \"West ZoneID\",  \"vpcId\" : \"VPCa ID\"}"
+    scp-tool-cli security-group create-security-group-v3 --req "{  \"loggable\" : false,  \"securityGroupName\" : \"WEBc1\",  \"serviceZoneId\" : \"East-1 ZoneID\",  \"vpcId\" : \"VPCc ID\"}"
+    scp-tool-cli security-group create-security-group-v3 --req "{  \"loggable\" : false,  \"securityGroupName\" : \"WEBc2\",  \"serviceZoneId\" : \"East-1 ZoneID\",  \"vpcId\" : \"VPCc ID\"}"
+
+###### 3. Application Security Group
+
+    scp-tool-cli security-group create-security-group-v3 --req "{  \"loggable\" : false,  \"securityGroupName\" : \"APPa1\",  \"serviceZoneId\" : \"West ZoneID\",  \"vpcId\" : \"VPCa ID\"}"
+    scp-tool-cli security-group create-security-group-v3 --req "{  \"loggable\" : false,  \"securityGroupName\" : \"APPa2\",  \"serviceZoneId\" : \"West ZoneID\",  \"vpcId\" : \"VPCa ID\"}"
+    scp-tool-cli security-group create-security-group-v3 --req "{  \"loggable\" : false,  \"securityGroupName\" : \"APPc1\",  \"serviceZoneId\" : \"East-1 ZoneID\",  \"vpcId\" : \"VPCa ID\"}"
+    scp-tool-cli security-group create-security-group-v3 --req "{  \"loggable\" : false,  \"securityGroupName\" : \"APPc2\",  \"serviceZoneId\" : \"East-1 ZoneID\",  \"vpcId\" : \"VPCa ID\"}"
+
+###### 4. DataBase Security Group
+
+    scp-tool-cli security-group create-security-group-v3 --req "{  \"loggable\" : false,  \"securityGroupName\" : \"dba1\",  \"serviceZoneId\" : \"West ZoneID\",  \"vpcId\" : \"VPCa ID\"}"
+    scp-tool-cli security-group create-security-group-v3 --req "{  \"loggable\" : false,  \"securityGroupName\" : \"dba2\",  \"serviceZoneId\" : \"West ZoneID\",  \"vpcId\" : \"VPCa ID\"}"
+    scp-tool-cli security-group create-security-group-v3 --req "{  \"loggable\" : false,  \"securityGroupName\" : \"dbb1\",  \"serviceZoneId\" : \"West ZoneID\",  \"vpcId\" : \"VPCb ID\"}"
+    scp-tool-cli security-group create-security-group-v3 --req "{  \"loggable\" : false,  \"securityGroupName\" : \"dbb2\",  \"serviceZoneId\" : \"West ZoneID\",  \"vpcId\" : \"VPCb ID\"}"
+    scp-tool-cli security-group create-security-group-v3 --req "{  \"loggable\" : false,  \"securityGroupName\" : \"dbc1\",  \"serviceZoneId\" : \"East-1 ZoneID\",  \"vpcId\" : \"VPCc ID\"}"
+    scp-tool-cli security-group create-security-group-v3 --req "{  \"loggable\" : false,  \"securityGroupName\" : \"dbc2\",  \"serviceZoneId\" : \"East-1 ZoneID\",  \"vpcId\" : \"VPCc ID\"}"    
+
+###### 5. Kubernetes Security Group
+
+    scp-tool-cli security-group create-security-group-v3 --req "{  \"loggable\" : false,  \"securityGroupName\" : \"K8sb\",  \"serviceZoneId\" : \"West ZoneID\",  \"vpcId\" : \"VPCb ID\"}"
