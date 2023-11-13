@@ -9,10 +9,10 @@ https://www.vmware.com/kr/products/workstation-pro/workstation-pro-evaluation.ht
 <h3>vm tools 설치</h3>
 
 ```bash
-$ yum update –y                     # 업데이트 (필요한 경우에 진행)
-$ yum install open-vm-tools         # vm tools 설치
-$ yum install perl –y               # perl 패키지 설치
-$ reboot                            # 재부팅
+sudo apt-get update –y                     # 업데이트 (필요한 경우에 진행)
+sudo apt-get install open-vm-tools         # vm tools 설치
+sudo apt-get install perl –y               # perl 패키지 설치
+sudo reboot now                            # 재부팅
 ```
 </br>
 
