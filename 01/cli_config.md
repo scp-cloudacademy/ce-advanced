@@ -42,3 +42,14 @@ example) scp-tool-cli configure set access-secret Bk1fp6BlWGhN
 example) scp-tool-cli configure set project-id PROJECT-Q8ob-g8rt8pO
 
     scp-tool-cli configure set project-id ${ProjectID} 
+
+#### 8. Create VPC
+
+    scp-tool-cli vpc create-vpc-v3 --req "{  \"serviceZoneId\" : \"West ZoneID\",  \"vpcName\" : \"VPCa\"}" 
+    scp-tool-cli vpc create-vpc-v3 --req "{  \"serviceZoneId\" : \"West ZoneID\",  \"vpcName\" : \"VPCb\"}"
+    scp-tool-cli vpc create-vpc-v3 --req "{  \"serviceZoneId\" : \"EAST-1 ZoneID\",  \"vpcName\" : \"VPCc\"}"
+
+#### 9. Create Internet Gateway
+
+     scp-tool-cli internet-gateway create-internet-gateway-v3 --request "{  \"firewallEnabled\" : true,  \"firewallLoggable\" : false,  \"internetGatewayType\" : \"SHARED\",  \"serviceZoneId\" : \"West ZoneID\", \"vpcId\" : \"VPC-XXXX\"}"
+    
