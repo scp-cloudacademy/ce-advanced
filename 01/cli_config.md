@@ -138,3 +138,5 @@ example) scp-tool-cli configure set project-id PROJECT-Q8ob-g8rt8pO
     scp-tool-cli file-storage-new create-file-storage-v4 --create-file-storage-v4-request "{ \"diskType\" : \"HDD\",  \"fileStorageName\" : \"fsce\",  \"fileStorageProtocol\" : \"NFS\", \"productNames\" : [ \"HDD\" ],  \"serviceZoneId\" : \"East-1 ZoneID\"}"
 
 #### 15. Create Object Storage
+
+    scp-tool-cli file-storage-new create-file-storage-v4 --create-file-storage-v4-request "{ \"diskType\" : \"HDD\",  \"fileStorageName\" : \"objce\",  \"fileStorageProtocol\" : \"NFS\", \"productNames\" : [ \"HDD\" ],  \"serviceZoneId\" : \"East-1 ZoneId\"}"
