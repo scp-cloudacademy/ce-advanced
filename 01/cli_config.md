@@ -43,6 +43,10 @@ example) scp-tool-cli configure set project-id PROJECT-Q8ob-g8rt8pO
 
     scp-tool-cli configure set project-id ${ProjectID} 
 
+※ Project ServiceZone Infomation (ServicezoneID, BlockID)
+
+    scp-tool-cli project list-service-zones-of-project-v3 --project-id ${ProjectID}  
+
 #### 8. Create VPC
 
     scp-tool-cli vpc create-vpc-v3 --req "{  \"serviceZoneId\" : \"West ZoneID\",  \"vpcName\" : \"VPCa\"}" 
@@ -122,3 +126,7 @@ example) scp-tool-cli configure set project-id PROJECT-Q8ob-g8rt8pO
 ###### 5. Kubernetes Security Group
 
     scp-tool-cli security-group create-security-group-v3 --req "{  \"loggable\" : false,  \"securityGroupName\" : \"K8sb\",  \"serviceZoneId\" : \"West ZoneID\",  \"vpcId\" : \"VPCb ID\"}"
+
+#### 12. Create LoadBalancer
+
+    scp-tool-cli loadbalancer create-load-balancer-v3 --request "{  \"blockId\" : \"West BlockID\",  \"firewallEnabled\" : false,  \"isLoggable\" : false,  \"linkIpCidr\" : \"192.168.254.0/30\",  \"loadBalancerName\" : \"LByj\",  \"loadBalancerSize\" : \"SMALL\",  \"serviceIpCidr\" : \"192.168.150.0/27\",  \"serviceZoneId\" : \"ZONE-lxu6F_ntqxeIMaZZwh2I-p\", \"vpcId\" : \"VPC-idx9uQkPsanQTBcaTFkPTa\"}"
