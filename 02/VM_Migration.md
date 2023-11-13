@@ -42,7 +42,7 @@ $ cat /etc/*release*                 # OS 버전 확인
 ```
 </br>
 
-$$ OVA 파일 Object Storage에 업로드 하기
+## OVA 파일 Object Storage에 업로드 하기
 
     aws s3 cp (파일명) s3://(버킷명)/ --endpoint-url (Public Endpoint명)
     
