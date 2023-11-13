@@ -51,5 +51,14 @@ example) scp-tool-cli configure set project-id PROJECT-Q8ob-g8rt8pO
 
 #### 9. Create Internet Gateway
 
-     scp-tool-cli internet-gateway create-internet-gateway-v3 --request "{  \"firewallEnabled\" : true,  \"firewallLoggable\" : false,  \"internetGatewayType\" : \"SHARED\",  \"serviceZoneId\" : \"West ZoneID\", \"vpcId\" : \"VPC-XXXX\"}"
-    
+     scp-tool-cli internet-gateway create-internet-gateway-v3 --request "{  \"firewallEnabled\" : true,  \"firewallLoggable\" : false,  \"internetGatewayType\" : \"SHARED\",  \"serviceZoneId\" : \"West ZoneID\", \"vpcId\" : \"VPCa ID\"}"
+    scp-tool-cli internet-gateway create-internet-gateway-v3 --request "{  \"firewallEnabled\" : true,  \"firewallLoggable\" : false,  \"internetGatewayType\" : \"SHARED\",  \"serviceZoneId\" : \"West ZoneID\", \"vpcId\" : \"VPCb ID\"}"
+    scp-tool-cli internet-gateway create-internet-gateway-v3 --request "{  \"firewallEnabled\" : true,  \"firewallLoggable\" : false,  \"internetGatewayType\" : \"SHARED\",  \"serviceZoneId\" : \"East-1 ZoneID\", \"vpcId\" : \"VPCc ID\"}"
+
+#### 10. Create Subnet
+
+###### 1. Bastion Subnet (public)
+
+  scp-tool-cli subnet create-subnet-v2 --req-vo "{  \"subnetCidrBlock\" : \"192.168.0.0/24\",  \"subnetName\" : \"BASTIONa\",  \"subnetType\" : \"PUBLIC\",  \"vpcId\" : \"VPCa ID\"}"
+  scp-tool-cli subnet create-subnet-v2 --req-vo "{  \"subnetCidrBlock\" : \"192.168.10.0/24\",  \"subnetName\" : \"BASTIONb\",  \"subnetType\" : \"PUBLIC\",  \"vpcId\" : \"VPCb ID\"}"
+  scp-tool-cli subnet create-subnet-v2 --req-vo "{  \"subnetCidrBlock\" : \"192.168.20.0/24\",  \"subnetName\" : \"BASTIONc\",  \"subnetType\" : \"PUBLIC\",  \"vpcId\" : \"VPCc ID\"}"
