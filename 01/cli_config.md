@@ -59,6 +59,6 @@ example) scp-tool-cli configure set project-id PROJECT-Q8ob-g8rt8pO
 
 ###### 1. Bastion Subnet (public)
 
-  scp-tool-cli subnet create-subnet-v2 --req-vo "{  \"subnetCidrBlock\" : \"192.168.0.0/24\",  \"subnetName\" : \"BASTIONa\",  \"subnetType\" : \"PUBLIC\",  \"vpcId\" : \"VPCa ID\"}"
-  scp-tool-cli subnet create-subnet-v2 --req-vo "{  \"subnetCidrBlock\" : \"192.168.10.0/24\",  \"subnetName\" : \"BASTIONb\",  \"subnetType\" : \"PUBLIC\",  \"vpcId\" : \"VPCb ID\"}"
-  scp-tool-cli subnet create-subnet-v2 --req-vo "{  \"subnetCidrBlock\" : \"192.168.20.0/24\",  \"subnetName\" : \"BASTIONc\",  \"subnetType\" : \"PUBLIC\",  \"vpcId\" : \"VPCc ID\"}"
+    scp-tool-cli subnet create-subnet-v2 --req-vo "{  \"subnetCidrBlock\" : \"192.168.0.0/24\",  \"subnetName\" : \"BASTIONa\",  \"subnetType\" : \"PUBLIC\",  \"vpcId\" : \"VPCa ID\"}"
+    scp-tool-cli subnet create-subnet-v2 --req-vo "{  \"subnetCidrBlock\" : \"192.168.10.0/24\",  \"subnetName\" : \"BASTIONb\",  \"subnetType\" : \"PUBLIC\",  \"vpcId\" : \"VPCb ID\"}"
+    scp-tool-cli subnet create-subnet-v2 --req-vo "{  \"subnetCidrBlock\" : \"192.168.20.0/24\",  \"subnetName\" : \"BASTIONc\",  \"subnetType\" : \"PUBLIC\",  \"vpcId\" : \"VPCc ID\"}"
