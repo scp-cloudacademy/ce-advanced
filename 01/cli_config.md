@@ -43,23 +43,23 @@ example) scp-tool-cli configure set project-id PROJECT-Q8ob-g8rt8pO
 
     scp-tool-cli configure set project-id ${ProjectID} 
 
-※ Project ServiceZone Infomation (ServicezoneID, BlockID)
+#### 8. Project ServiceZone Infomation (ServicezoneID, BlockID)
 
     scp-tool-cli project list-service-zones-of-project-v3 --project-id ${ProjectID}  
 
-#### 8. Create VPC
+#### 9. Create VPC
 
     scp-tool-cli vpc create-vpc-v3 --req "{  \"serviceZoneId\" : \"West ZoneID\",  \"vpcName\" : \"VPCa\"}" 
     scp-tool-cli vpc create-vpc-v3 --req "{  \"serviceZoneId\" : \"West ZoneID\",  \"vpcName\" : \"VPCb\"}"
     scp-tool-cli vpc create-vpc-v3 --req "{  \"serviceZoneId\" : \"East-1 ZoneID\",  \"vpcName\" : \"VPCc\"}"
 
-#### 9. Create Internet Gateway
+#### 10. Create Internet Gateway
 
      scp-tool-cli internet-gateway create-internet-gateway-v3 --request "{  \"firewallEnabled\" : true,  \"firewallLoggable\" : false,  \"internetGatewayType\" : \"SHARED\",  \"serviceZoneId\" : \"West ZoneID\", \"vpcId\" : \"VPCa ID\"}"
     scp-tool-cli internet-gateway create-internet-gateway-v3 --request "{  \"firewallEnabled\" : true,  \"firewallLoggable\" : false,  \"internetGatewayType\" : \"SHARED\",  \"serviceZoneId\" : \"West ZoneID\", \"vpcId\" : \"VPCb ID\"}"
     scp-tool-cli internet-gateway create-internet-gateway-v3 --request "{  \"firewallEnabled\" : true,  \"firewallLoggable\" : false,  \"internetGatewayType\" : \"SHARED\",  \"serviceZoneId\" : \"East-1 ZoneID\", \"vpcId\" : \"VPCc ID\"}"
 
-#### 10. Create Subnet
+#### 11. Create Subnet
 
 ###### 1. Bastion Subnet (Public)
 
@@ -92,7 +92,7 @@ example) scp-tool-cli configure set project-id PROJECT-Q8ob-g8rt8pO
 
     scp-tool-cli subnet create-subnet-v2 --req-vo "{  \"subnetCidrBlock\" : \"192.168.11.0/24\",  \"subnetName\" : \"K8sb\",  \"subnetType\" : \"PRIVATE\",  \"vpcId\" : \"VPCb ID\"}"
 
-#### 11. Create Security Group
+#### 12. Create Security Group
 
 ###### 1. Bastion Security Group
 
@@ -127,6 +127,14 @@ example) scp-tool-cli configure set project-id PROJECT-Q8ob-g8rt8pO
 
     scp-tool-cli security-group create-security-group-v3 --req "{  \"loggable\" : false,  \"securityGroupName\" : \"K8sb\",  \"serviceZoneId\" : \"West ZoneID\",  \"vpcId\" : \"VPCb ID\"}"
 
-#### 12. Create LoadBalancer
+#### 13. Create LoadBalancer
 
-    scp-tool-cli loadbalancer create-load-balancer-v3 --request "{  \"blockId\" : \"West BlockID\",  \"firewallEnabled\" : false,  \"isLoggable\" : false,  \"linkIpCidr\" : \"192.168.254.0/30\",  \"loadBalancerName\" : \"LByj\",  \"loadBalancerSize\" : \"SMALL\",  \"serviceIpCidr\" : \"192.168.150.0/27\",  \"serviceZoneId\" : \"ZONE-lxu6F_ntqxeIMaZZwh2I-p\", \"vpcId\" : \"VPC-idx9uQkPsanQTBcaTFkPTa\"}"
+    scp-tool-cli loadbalancer create-load-balancer-v3 --request "{  \"blockId\" : \"West BlockID\",  \"firewallEnabled\" : false,  \"isLoggable\" : false,  \"linkIpCidr\" : \"192.168.254.0/30\",  \"loadBalancerName\" : \"LBa\",  \"loadBalancerSize\" : \"SMALL\",  \"serviceIpCidr\" : \"192.168.5.0/27\",  \"serviceZoneId\" : \"West ZoneID\", \"vpcId\" : \"VPCa ID\"}"
+    scp-tool-cli loadbalancer create-load-balancer-v3 --request "{  \"blockId\" : \"West BlockID\",  \"firewallEnabled\" : false,  \"isLoggable\" : false,  \"linkIpCidr\" : \"192.168.254.0/30\",  \"loadBalancerName\" : \"LBb\",  \"loadBalancerSize\" : \"SMALL\",  \"serviceIpCidr\" : \"192.168.15.0/27\",  \"serviceZoneId\" : \"West ZoneID\", \"vpcId\" : \"VPCb ID\"}"
+    scp-tool-cli loadbalancer create-load-balancer-v3 --request "{  \"blockId\" : \"West BlockID\",  \"firewallEnabled\" : false,  \"isLoggable\" : false,  \"linkIpCidr\" : \"192.168.254.0/30\",  \"loadBalancerName\" : \"LBa\",  \"loadBalancerSize\" : \"SMALL\",  \"serviceIpCidr\" : \"192.168.25.0/27\",  \"serviceZoneId\" : \"East-1 ZoneID\", \"vpcId\" : \"VPCc ID\"}"
+
+#### 14. Create File-Storage
+
+    scp-tool-cli file-storage-new create-file-storage-v4 --create-file-storage-v4-request "{ \"diskType\" : \"HDD\",  \"fileStorageName\" : \"fsce\",  \"fileStorageProtocol\" : \"NFS\", \"productNames\" : [ \"HDD\" ],  \"serviceZoneId\" : \"East-1 ZoneID\"}"
+
+#### 15. Create Object Storage
