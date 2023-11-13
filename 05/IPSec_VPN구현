@@ -1,1 +1,224 @@
+<h1>VMware</h1>
+</br>
+</br>
+</br>
+
+<h3>1. 방화벽 활성화</h3>
+
+```bash
+sudo 
+sudo systemctl status firewalld
+sudo systemctl start firewalld
+sudo systemctl enable firewalld
+```
+
+</br>
+
+<h3>2. Port오픈</h3>
+
+```bash
+sudo firewall-cmd --zone=public --add-port=22/tcp --permanent
+sudo firewall-cmd --zone=public --add-port=500/udp --permanent
+sudo firewall-cmd --zone=public --add-port=4500/udp --permanent
+sudo firewall-cmd --reload
+sudo firewall-cmd --list-ports
+```
+</br>
+
+<h3>3. strongswan install</h3>
+
+```bash
+sudo yum install epel-release
+sudo yum install strongswan
+```
+
+</br>
+
+<h1>SCP Console</h1>
+</br>
+</br>
+</br>
+
+<h3>4. VPN 생성</h3>
+
+```bash
+Name : VPCce
+VPN Public IP : 123,37,16,15
+Local subnet IP : 192.168.25.0/24
+```
+
+</br>
+
+<h3>5. VPN Tunnel</h3>
+
+```bash
+Name : VPNTunnelce
+Peer VPN GW IP : 121.166.171.190  # 로컬 Public IP
+Local tunnel IP : 169.254.200.6/30
+Peer tunnel IP : 169.254.200.5
+Remote subnet : 192.168.45.0/24   # 로컬 Subnet IP대역
+Pre-shared key : 12345678
+```
+
+</br>
+
+<h1>VMware</h1>
+</br>
+</br>
+</br>
+
+<h3>6. 패킷 포워딩 활성화 설정</h3>
+
+```bash
+vi /etc/sysctl.conf
+
+net.ipv4.ip_forward = 1 
+net.ipv4.conf.all.accept_redirects = 0 
+net.ipv4.conf.all.send_redirects = 0
+
+sysctl -p  # 설정값 적용
+```
+
+</br>
+
+<h3>7. VPN 환경 설정</h3>
+
+```bash
+vi /etc/strongswan/ipsec.conf
+
+config setup
+	strictcrlpolicy=yes
+	uniqueids = no
+	charondebug="cfg 2, ike 2, knl 2"
+
+conn SCP-VPN
+	left=192.168.45.130		    	  # VMware Private IP
+	leftid="121.166.171.190"		  # Local Public IP
+	right=123.37.16.15		        # VPN Public IP
+	rightsubnet=192.168.25.0/24		# VPN Local Subnet (CIDR)
+	leftsubnet=192.168.45.0/24    # VMware Subnet IP
+	ike=aes256-sha256-modp1024!
+	keyexchange=ikev2
+	reauth=yes
+	ikelifetime=86400s
+	dpddelay=15s
+	dpdtimeout=60s
+	dpdaction=restart
+	closeaction=none
+	esp=aes256-sha256-modp1024!
+	keylife=3600s
+	rekeymargin=540s
+	type=tunnel
+	compress=no
+	authby=secret
+	auto=start
+	keyingtries=%forever
+```
+
+</br>
+
+<h3>8. VPN 환경 설정</h3>
+
+```bash
+vi /etc/strongswan/ipsec.secrets
+
+192.168.45.129 123.37.16.13 121.166.171.190 : PSK "12345678"
+[VMware Private IP]  [VPN Public IP] [Local Public IP] : PSK "Password"
+```
+
+</br>
+
+<h3>7. IPSec 연결 및 디버깅</h3>
+
+```bash
+strongswan start
+strongswan statusall
+```
+
+</br>
+
+<h1>SCP Console</h1>
+</br>
+</br>
+</br>
+
+<h3>8. VPC 생성</h3>
+
+```bash
+VPCdmz
+```
+
+</br>
+
+<h3>9. Subnet 생성</h3>
+
+```bash
+VPCdmz (192.168.0.1)
+```
+
+</br>
+
+<h3>11. Internet Gateway 연결</h3>
+
+```bash
+VPC : VPCdmz
+```
+
+</br>
+
+<h3>12. Security Group 생성</h3>
+
+```bash
+  Inbound : 22 Port (121.166.171.190, 192.168.45.130)
+```
+
+</br>
+
+<h3>13. VPN에 가상머신 연결 및 내부설정</h3>
+
+```bash
+sudo systemctl status firewalld
+sudo systemctl start firewalld
+sudo systemctl enable firewalld
+```
+
+</br>
+
+<h3>14. 방화벽 설정</h3>
+
+```bash
+sudo firewall-cmd --zone=public --add-port=22/tcp --permanent
+sudo firewall-cmd --zone=public --add-port=500/udp --permanent
+sudo firewall-cmd --zone=public --add-port=4500/udp --permanent
+sudo firewall-cmd --reload
+sudo firewall-cmd --list-ports
+```
+
+</br>
+
+<h3>15. 어댑터 설정</h3>
+
+```bash
+sudo vi /etc/sysconfig/network-scripts/ifcfg-ens33
+
+TYPE=Ethernet
+BOOTPROTO=static
+IPADDR=192.168.25.2
+PREFIX=24
+NAME=ens33
+DEVICE=ens33
+ONBOOT=yes
+```
+
+</br>
+
+<h3>16. 네트워크 설정</h3>
+
+```bash
+sudo vi /etc/sysconfig/network-scripts/route-ens33
+
+192.168.45.0/24 via 192.168.25.1
+[로컬 Subnet IP] via [VPN Gateway IP]
+```
+
 
