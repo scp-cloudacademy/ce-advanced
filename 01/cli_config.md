@@ -139,4 +139,4 @@ example) scp-tool-cli configure set project-id PROJECT-Q8ob-g8rt8pO
 
 #### 15. Create Object Storage
 
-    scp-tool-cli file-storage-new create-file-storage-v4 --create-file-storage-v4-request "{ \"diskType\" : \"HDD\",  \"fileStorageName\" : \"objce\",  \"fileStorageProtocol\" : \"NFS\", \"productNames\" : [ \"HDD\" ],  \"serviceZoneId\" : \"East-1 ZoneId\"}"
+    scp-tool-cli object-storage create-object-storage-bucket-v4 --request "{  \"accessControlRules\" : [ {    \"ruleType\" : \"IP_ADDRESS_RANGE\",    \"ruleValue\" : \"PublicIP\"  } ],  \"objectStorageBucketAccessControlEnabled\" : true,  \"objectStorageBucketFileEncryptionEnabled\" : false,  \"objectStorageBucketName\" : \"objce\",  \"objectStorageBucketVersionEnabled\" : false,  \"objectStorageId\" : \"S3OBJECTSTORAGE-XXXXXX\",  \"productNames\" : [ \"Object Storage\" ],  \"serviceZoneId\" : \"East-1 ZoneId\"}"
