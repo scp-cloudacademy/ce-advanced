@@ -96,19 +96,25 @@ SGb    (VPCc)
 
 <h3>아파치 설치 명령어</h3>
 ```bash
-sudo apt-get update
-sudo apt-get install apache2
-sudo service apachd2 status
-sudo service apache2 start
+sudo yum update
+sudo yum install httpd
+sudo systemctl start httpd
+sudo systemctl enable httpd
+sudo systemctl status httpd
 ```
 
 </br>
 
 <h3>방화벽 설정</h3>
 ```bash
-sudo ufw allow 80/tcp
-sudo ufw enable
-sudo ufw status
+sudo systmectl status firewalld
+sudo systmectl start firewalld
+sudo systmectl enable firewalld
+
+sudo firewall-cmd --zone=public --add-port=80/tcp --permanent
+sudo firewall-cmd --reload
+
+sudo firewall-cmd --list-all
 ```
 
 
