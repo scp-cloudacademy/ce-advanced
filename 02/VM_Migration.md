@@ -19,17 +19,36 @@ reboot now                            # 재부팅
 <h3>방화벽 포트 오픈</h3>
 
 ```bash
-$ firewall-cmd --zone=public --permanent --add-port=22/tcp    # 22번 포트 오픈
-$ firewall-cmd --zone=public --permanent --add-port=80/tcp    # 80번 포트 오픈
-$ firewall-cmd --reload                                       # 리로드
-$ firewall-cmd --zone=public --list-all                       # 리스트 불러오기
+firewall-cmd --zone=public --permanent --add-port=22/tcp    # 22번 포트 오픈
+firewall-cmd --zone=public --permanent --add-port=80/tcp    # 80번 포트 오픈
+firewall-cmd --reload                                       # 리로드
+firewall-cmd --zone=public --list-all                       # 리스트 불러오기
 ```
 </br>
 
-<h3>httpd 설치</h3>
+# Web VM 웹서버 세팅 
+<h3>nginx 설치를 위한 repo 설정</h3>
 
 ```bash
-$ yum install httpd -y               # web 설치
+vi /etc/yum.repos.d/nginx.repo
+```
+</br>
+
+<h3>nginx nginx repo입력</h3>
+
+```bash
+[nginx]
+name=nginx repo
+baseurl=https://nginx.org/packages/centos/$releasever/$basearch/
+gpgcheck=0
+enabled=1
+```
+</br>
+
+<h3>nginx 설치</h3>
+
+```bash
+yum install nginx -y               # web 설치
 $ systemctl start httpd              # web 시작
 $ hostname -I                        # IP 확인
 ```
