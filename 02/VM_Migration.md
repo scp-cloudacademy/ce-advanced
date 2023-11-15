@@ -12,7 +12,7 @@ https://www.vmware.com/kr/products/workstation-pro/workstation-pro-evaluation.ht
 yum update –y                     # 업데이트 (필요한 경우에 진행)
 yum install open-vm-tools         # vm tools 설치
 yum install perl –y               # perl 패키지 설치
-yum reboot now                            # 재부팅
+reboot now                            # 재부팅
 ```
 </br>
 
