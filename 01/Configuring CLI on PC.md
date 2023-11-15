@@ -14,9 +14,15 @@ Oracle JDK link
 ![image](https://github.com/scp-cloudacademy/ce-advanced/assets/147478897/cf4bba6d-cbf7-4b9d-9ff1-0c55967025d8)
 
 
-#### 3. Download SCP CLI
+#### 3. Download SCP CLI and Access Key
+##### CLI download
 
     https://cloud.samsungsds.com/openapiguide/#/docs/download
+
+##### Create Accesskey
+
+![image](https://github.com/scp-cloudacademy/ce-advanced/assets/147478897/3a75925a-9698-41d7-905e-eb1198513321)
+![image](https://github.com/scp-cloudacademy/ce-advanced/assets/147478897/79395f9b-ec46-4d40-9f7f-3edda07ce31d)
 
 #### 4. List current CLI configuration
 
