@@ -26,29 +26,11 @@ firewall-cmd --zone=public --list-all                       # 리스트 불러�
 ```
 </br>
 
-# Web VM 웹서버 세팅 
-<h3>nginx 설치를 위한 repo 설정</h3>
+
+<h3>Install Web Server</h3>
 
 ```bash
-vi /etc/yum.repos.d/nginx.repo
-```
-</br>
-
-<h3>nginx nginx repo입력</h3>
-
-```bash
-[nginx]
-name=nginx repo
-baseurl=https://nginx.org/packages/centos/$releasever/$basearch/
-gpgcheck=0
-enabled=1
-```
-</br>
-
-<h3>nginx 설치</h3>
-
-```bash
-yum install nginx -y               # web 설치
+yum install httpd -y               # web 설치
 $ systemctl start httpd              # web 시작
 $ hostname -I                        # IP 확인
 ```
