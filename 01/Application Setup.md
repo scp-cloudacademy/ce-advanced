@@ -1,4 +1,3 @@
-
 https://link2me.tistory.com/1838
 https://cwiki.apache.org/confluence/display/HTTPD/PHPFPMWordpress
 https://www.stephenrlang.com/2018/02/centos-7-apache-2-4-with-php-fpm/
