@@ -28,7 +28,7 @@ sudo wget https://github.com/scp-cloudacademy/ce-advanced/raw/main/01/web.tar [�
 
 다운로드 완료 후 다른 서버에 마운트한 위치에 가보면 다운로드 된 파일을 확인할 수 있다.
 
-######7. 압축해제
+###### 7. 압축해제
 ```
 sudo tar -xvf web.tar
 ```
