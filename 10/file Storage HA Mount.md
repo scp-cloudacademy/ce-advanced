@@ -23,4 +23,12 @@ sudo vi /etc/fstab
 ###### 5. 다른 서버도 동일하게 마운트 실시해준다.
 ###### 6. 마운트 완료 후 마운트 한 위치에 github에 올려놓은 자료를 다운로드 해준다.
 ```
-sudo wget 
+sudo wget https://github.com/scp-cloudacademy/ce-advanced/raw/main/01/web.tar [마운트 위치]
+```
+
+다운로드 완료 후 다른 서버에 마운트한 위치에 가보면 다운로드 된 파일을 확인할 수 있다.
+
+######7. 압축해제
+```
+sudo tar -xvf web.tar
+```
