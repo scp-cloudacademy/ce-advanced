@@ -6,3 +6,15 @@
 ```
 sudo mount -t nfs -o ver=3 [마운트 정보] [마운트 위치]
 ```
+###### 3. 마운트 확인
+```
+df -k
+```
+![image](https://github.com/scp-cloudacademy/ce-advanced/assets/147478897/cd401e8d-4bee-4d56-a580-5154a665d2e8)
+
+###### 4. 마운트 항시 설정
+```
+sudo vi /etc/fstab
+```
+
+198.19.212.11:/fsxy_yqgphp /var/www/html	nfs	default	0 0 추가 후 저장해준다.
