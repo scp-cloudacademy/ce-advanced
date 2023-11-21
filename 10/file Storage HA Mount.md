@@ -17,4 +17,5 @@ df -k
 sudo vi /etc/fstab
 ```
 
-198.19.212.11:/fsxy_yqgphp /var/www/html	nfs	default	0 0 추가 후 저장해준다.
+"198.19.212.11:/fsxy_yqgphp /var/www/html	nfs	default	0 0" </br> 
+추가 후 저장해준다.
