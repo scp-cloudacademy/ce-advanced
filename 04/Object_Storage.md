@@ -46,12 +46,11 @@ $ rclone ls [config name]:[bucket name]
 
 <h3>Samsung Cloud Platform Rclone Remote 구성</h3>
 
-<h3>Migration 수행</h3>
-
 ```bash
 $ rclone config
 ```
 
+<h3>Migration 수행</h3>
 
 ```bash
 $ rclone sync [source config name]:[bucket] [target config name]:[bucket] --dry-run --progress
