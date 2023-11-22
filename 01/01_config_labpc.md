@@ -17,58 +17,29 @@
 
 ### 2. Download CentOS 7.8
 
-     https://ftp.iij.ad.jp/pub/linux/centos-vault/7.8.2003/isos/x86_64/CentOS-7-x86_64-Minimal-2003.iso
+[CentOS 7.8.2003 Download Link](https://ftp.iij.ad.jp/pub/linux/centos-vault/7.8.2003/isos/x86_64/CentOS-7-x86_64-Minimal-2003.iso)
 
+### 3. Install CentOS 7.8 
 
+- In Workstation Pro menu, [Edit] > [Preference]:    Select Default Hardware compatibility : *** Workstation 16.2x ***
+![image](https://github.com/scp-cloudacademy/ce-advanced/assets/147478897/d4c977e8-95e6-4fad-b094-dfd1c963d55c)
+
+- After Completing CentOS installation,
+  log in as root account,
+
+ ```
+yum update -y
+shutdown now
+```
+
+### 4. Clone VM Image for Wen/App/DB VM
+- In Workstation Pro left Library pane, select Vm Image just created and right mouse click
+![image](https://github.com/scp-cloudacademy/ce-advanced/assets/147478897/450c23a0-8c25-454e-9519-2e3e34e3e6a8)
+
+- Clone 3 VMs and rename webvm, appvm dbvm
+![image](https://github.com/scp-cloudacademy/ce-advanced/assets/147478897/0812f214-a99c-4ab0-bdda-916f839213a1)
 ---
 
-
-## SCP Command Line Interface
-
-### 1. Install JAVA from either one.
-OpenJDK link or
-
-    https://jdk.java.net/21/
-    
-Oracle JDK link
-
-    https://www.oracle.com/kr/java/technologies/downloads/
-
-Setting JDK path to JAVA_HOME at Windows System Property
-
-![image](https://github.com/scp-cloudacademy/ce-advanced/assets/147478897/cf4bba6d-cbf7-4b9d-9ff1-0c55967025d8)
-
-### 2. CLI download
-[SCP CLI Download Link](https://cloud.samsungsds.com/openapiguide/#/docs/download)
-
-### 3. Create Accesskey (In Management Console)
-![image](https://github.com/scp-cloudacademy/ce-advanced/assets/147478897/3a75925a-9698-41d7-905e-eb1198513321)
-![image](https://github.com/scp-cloudacademy/ce-advanced/assets/147478897/79395f9b-ec46-4d40-9f7f-3edda07ce31d)
-
-### 4. List current CLI configuration
-
-    scp-tool-cli configure list
-
-### 5. Set SCP API address
-
-    scp-tool-cli configure set cmp-url https://openapi.samsungsdscloud.com
-
-### 6. Set SCP Access Keys 
-example) scp-tool-cli configure set access-key MJ12125+s
-
-    scp-tool-cli configure set access-key ${AccessKey} 
-
-example) scp-tool-cli configure set access-secret Bk1fp6BlWGhN
-
-    scp-tool-cli configure set access-secret ${AccessSecretKey} 
-
-#### 7. List current project setting and set project to work at
-
-    scp-tool-cli project list-project-summaries-v3
-
-example) scp-tool-cli configure set project-id PROJECT-Q8ob-g8rt8pO
-
-    scp-tool-cli configure set project-id ${ProjectID} 
 
 
 
