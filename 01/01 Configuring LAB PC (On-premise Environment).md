@@ -6,11 +6,18 @@
 
   **Prerequisition :** Windows 10 above 
 
+---
+
+
 ## VM Environment
 
 ### 1. Download and Install VMware Workstation pro 
 
-[VMware Workstation Pro Evaluation Download Link](https://www.vmware.com/products/workstation-pro/workstation-pro-evaluation.html)
+    https://www.vmware.com/products/workstation-pro/workstation-pro-evaluation.html
+
+
+---
+
 
 ## SCP Command Line Interface
 
@@ -27,13 +34,10 @@ Setting JDK path to JAVA_HOME at Windows System Property
 
 ![image](https://github.com/scp-cloudacademy/ce-advanced/assets/147478897/cf4bba6d-cbf7-4b9d-9ff1-0c55967025d8)
 
-
 ### 2. CLI download
-
 [SCP CLI Download Link](https://cloud.samsungsds.com/openapiguide/#/docs/download)
 
 ### 3. Create Accesskey (In Management Console)
-
 ![image](https://github.com/scp-cloudacademy/ce-advanced/assets/147478897/3a75925a-9698-41d7-905e-eb1198513321)
 ![image](https://github.com/scp-cloudacademy/ce-advanced/assets/147478897/79395f9b-ec46-4d40-9f7f-3edda07ce31d)
 
