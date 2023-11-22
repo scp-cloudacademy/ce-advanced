@@ -35,5 +35,16 @@ tar -xzf ZConverter_CloudTargetClient_Setup_V4.1_Build_4003.tar.gz
 cd zconverter_install_target/
 ./install.sh
 ```
+<img src=https://github.com/scp-cloudacademy/ce-advanced/assets/147478897/38d31953-4504-41db-a93b-1af50b23fd29><br>
+Enter<br>
+<img src=https://github.com/scp-cloudacademy/ce-advanced/assets/147478897/e6dc9346-1ce5-4fb1-bd9b-267bb9ee298b><br>
+2. ZCM 선택<br>
+<img src=https://github.com/scp-cloudacademy/ce-advanced/assets/147478897/3107e7ab-4247-4187-ad8a-f4962e76b0a8><br>
+관리포탈 IP 입력<br>
+<img src=https://github.com/scp-cloudacademy/ce-advanced/assets/147478897/9eb4085f-82c2-4dec-aeb6-ed4f9e39daf4><br>
+관리포탈 접속 ID 입력<br>
+<img src=https://github.com/scp-cloudacademy/ce-advanced/assets/147478897/f24e959e-4365-4b44-96a5-89dcfee12c3b><br>
+Target VM에 구성될 ZConverter 저장소 추가 확인<br>
 
 <h3>ZConverter</h3>
+관리포탈에서 진행
