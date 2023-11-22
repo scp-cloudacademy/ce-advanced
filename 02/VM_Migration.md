@@ -51,3 +51,7 @@ $ cat /etc/*release*                 # OS 버전 확인
 ```bash
 aws s3 cp [파일명] s3://[버킷명]/ --endpoint-url [Public Endpoint명]
 ```
+
+<h3>OVA 파일을 Migration Image로 만들기</h3>
+
+<h3>Virtual Server 배포</h3>
