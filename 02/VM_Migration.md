@@ -46,6 +46,8 @@ $ cat /etc/*release*                 # OS 버전 확인
 ```
 </br>
 
+<h3>OVA로 Export 하기</h3>
+
 <h3>OVA 파일 Object Storage에 업로드 하기</h3>
 
 ```bash
