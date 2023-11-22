@@ -3,13 +3,14 @@
 <h3>Rclone 설치</h3>
 
 ```bash
-$ curl https://rclone.org/install.sh | sudo bash
+sudo yum install rclone -y                      // Oracle 계열 Linux
+curl https://rclone.org/install.sh | sudo bash  // 기타 Linux
 ```
 
 <h3>Azure Rclone Remote 구성</h3>
 
 ```bash
-$ rclone config
+rclone config
 ```
 <img src=https://github.com/scp-cloudacademy/ce-advanced/assets/147478897/b150088f-24d7-4311-8649-09c14a2f4c28><br>
 n을 입력하여 신규 Remote를 생성<br>
@@ -39,7 +40,7 @@ Azure의 Storage Account의 액세스 키 입력<br>
 <h3>구성된 Rclone 확인</h3>
 
 ```bash
-$ rclone ls [config name]:[bucket name]
+rclone ls [config name]:[bucket name]
 ```
 <img src=https://github.com/scp-cloudacademy/ce-advanced/assets/147478897/d9d2cbf6-2fb8-4de1-800a-5154bdb85e9b><br>
 명령어 입력으로 확인할 경우 사진과 같이 bucket 내부의 Object를 출력합니다.
@@ -47,12 +48,12 @@ $ rclone ls [config name]:[bucket name]
 <h3>Samsung Cloud Platform Rclone Remote 구성</h3>
 
 ```bash
-$ rclone config
+rclone config
 ```
 
 <h3>Migration 수행</h3>
 
 ```bash
-$ rclone sync [source config name]:[bucket] [target config name]:[bucket] --dry-run --progress
-$ rclone sync [source config name]:[bucket] [target config name]:[bucket] --progress
+rclone sync [source config name]:[bucket] [target config name]:[bucket] --dry-run --progress
+rclone sync [source config name]:[bucket] [target config name]:[bucket] --progress
 ```
