@@ -20,7 +20,7 @@ cd zconverter_install_source/
 ```
 <br/>
 <img src=https://github.com/scp-cloudacademy/ce-advanced/assets/147478897/de093b96-737b-43ff-aae8-7aac1e811fad>
-
+<img src=https://github.com/scp-cloudacademy/ce-advanced/assets/147478897/a4c44cde-37f1-48ac-bf31-a7a384664754>
 
 <h3>Target Agent 설치</h3>
 
