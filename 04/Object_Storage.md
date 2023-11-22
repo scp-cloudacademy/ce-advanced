@@ -69,7 +69,7 @@ Samsung Cloud Platform Object Storage의 Endpoint 입력<br>
 <img src=https://github.com/scp-cloudacademy/ce-advanced/assets/147478897/4c5ad4df-dccf-4893-afa0-b212f95d1795><br>
 입력하지 않고 Enter 입력<br>
 <img src=https://github.com/scp-cloudacademy/ce-advanced/assets/147478897/f792fc5d-d7f2-4934-a971-a0c4f1a55f14><br>
-Private 선택
+Private 선택<br>
 <img src=https://github.com/scp-cloudacademy/ce-advanced/assets/147478897/033f1e48-97c4-4693-8db0-a6fc62d2262e><br>
 입력하지 않고 Enter 입력<br>
 <img src=https://github.com/scp-cloudacademy/ce-advanced/assets/147478897/896cb876-07d7-45d2-875f-2e491c97d4b0><br>
