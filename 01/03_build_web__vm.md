@@ -14,10 +14,13 @@ Install httpd
 ```
 yum install httpd -y
 systemctl start httpd
+ls
 
 ```
 
 ### 2. Install Web Source
 ```
 cd /var/www/html
-wget 
+wget https://github.com/scp-cloudacademy/ce-advanced/raw/main/01/web.tar
+tar -xvf web.tar
+ls
