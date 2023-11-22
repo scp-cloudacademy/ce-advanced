@@ -3,7 +3,7 @@
 </br>
 </br>
 
-<h3>1. 방화벽 활성화</h3>
+<h3>01. 방화벽 활성화</h3>
 
 ```bash
 sudo 
@@ -14,18 +14,16 @@ sudo systemctl enable firewalld
 
 </br>
 
-<h3>2. Port오픈</h3>
+<h3>02. Port오픈</h3>
 
 ```bash
-sudo firewall-cmd --zone=public --add-port=22/tcp --permanent
-sudo firewall-cmd --zone=public --add-port=500/udp --permanent
-sudo firewall-cmd --zone=public --add-port=4500/udp --permanent
+sudo firewall-cmd --zone=public --add-port=3389/tcp --permanent
 sudo firewall-cmd --reload
 sudo firewall-cmd --list-ports
 ```
 </br>
 
-<h3>3. strongswan install</h3>
+<h3>03. strongswan 설치</h3>
 
 ```bash
 sudo yum install epel-release
@@ -39,25 +37,25 @@ sudo yum install strongswan
 </br>
 </br>
 
-<h3>4. VPN 생성</h3>
+<h3>04. VPN 생성</h3>
 
 ```bash
-Name : VPCce
-VPN Public IP : 123,37,16,15
-Local subnet IP : 192.168.25.0/24
+Name : VPNce
+VPN Public IP : 123.37.255.139		# VPN 에서 사용하는 Public IP
+Local subnet IP : 192.168.50.0/24	# VPN Gateway가 사용할 Local subnet
 ```
 
 </br>
 
-<h3>5. VPN Tunnel</h3>
+<h3>05. VPN Tunnel 생성</h3>
 
 ```bash
 Name : VPNTunnelce
-Peer VPN GW IP : 121.166.171.190  # 로컬 Public IP
-Local tunnel IP : 169.254.200.6/30
-Peer tunnel IP : 169.254.200.5
-Remote subnet : 192.168.45.0/24   # 로컬 Subnet IP대역
-Pre-shared key : 12345678
+Peer VPN GW IP : 121.166.171.190  	# VMware Public IP
+Local tunnel IP : 169.254.200.6/30	# VPN Tunnel 인터페이스에 할당하는 IP 주소
+Peer tunnel IP : 169.254.200.5		# 상대방 VPN Gateway의 VPN Tunnel 인터페이스에 할당하는 IP 주소
+Remote subnet : 192.168.45.0/24   	# VMware Subnet IP대역
+Pre-shared key :			# VPN Gateway간 IKE 상호 인증에 사용할 공유키
 ```
 
 </br>
@@ -67,21 +65,21 @@ Pre-shared key : 12345678
 </br>
 </br>
 
-<h3>6. 패킷 포워딩 활성화 설정</h3>
+<h3>06. 패킷 포워딩 활성화 설정</h3>
 
 ```bash
-vi /etc/sysctl.conf
+vi /etc/sysctl.conf				# 경로
 
-net.ipv4.ip_forward = 1 
-net.ipv4.conf.all.accept_redirects = 0 
-net.ipv4.conf.all.send_redirects = 0
+net.ipv4.ip_forward = 1 			# IP포워딩 활성화 (리눅스 시스템이 다른 네트워크로 패킷을 전달 할 수 있게 도와줌)
+net.ipv4.conf.all.accept_redirects = 0 		# ICMP Redirect 메시지를 수락하지 않도록 설정 (보안강화 및 중간자 공격을 방지)
+net.ipv4.conf.all.send_redirects = 0		# ICMP Redirect 메시지를 보내지 않도록 설정 (보안강화)
 
-sysctl -p  # 설정값 적용
+sysctl -p 					# 설정값 적용
 ```
 
 </br>
 
-<h3>7. VPN 환경 설정</h3>
+<h3>07. VPN 환경 설정</h3>
 
 ```bash
 vi /etc/strongswan/ipsec.conf
@@ -92,11 +90,11 @@ config setup
 	charondebug="cfg 2, ike 2, knl 2"
 
 conn SCP-VPN
-	left=192.168.45.130		    	  # VMware Private IP
-	leftid="121.166.171.190"		  # Local Public IP
-	right=123.37.16.15		        # VPN Public IP
-	rightsubnet=192.168.25.0/24		# VPN Local Subnet (CIDR)
-	leftsubnet=192.168.45.0/24    # VMware Subnet IP
+	left=192.168.45.131		# VMware Private IP
+	leftid=121.166.171.190		# Local Public IP
+	right=123.37.255.139		# VPN Public IP
+	rightsubnet=192.168.50.0/24	# VPN Local Subnet (CIDR)
+	leftsubnet=192.168.45.0/24   	# VMware Subnet IP
 	ike=aes256-sha256-modp1024!
 	keyexchange=ikev2
 	reauth=yes
@@ -117,18 +115,18 @@ conn SCP-VPN
 
 </br>
 
-<h3>8. VPN 환경 설정</h3>
+<h3>08. VPN 환경 설정</h3>
 
 ```bash
 vi /etc/strongswan/ipsec.secrets
 
-192.168.45.129 123.37.16.13 121.166.171.190 : PSK "12345678"
+192.168.45.131 123.37.255.139 121.166.171.190 : PSK "########"
 [VMware Private IP]  [VPN Public IP] [Local Public IP] : PSK "Password"
 ```
 
 </br>
 
-<h3>7. IPSec 연결 및 디버깅</h3>
+<h3>09. IPSec 연결 및 디버깅</h3>
 
 ```bash
 strongswan start
@@ -142,81 +140,100 @@ strongswan statusall
 </br>
 </br>
 
-<h3>8. VPC 생성</h3>
+<h3>10. Security Group 규칙생성</h3>
 
 ```bash
-VPCdmz
+  Inbound : 3389 Port (121.166.171.190,192.168.45.131)	# [VMware Public IP],[VMware Private IP]
 ```
 
 </br>
 
-<h3>9. Subnet 생성</h3>
+<h3>11. VPN에 Virtual Server 연결</h3>
 
 ```bash
-VPCdmz (192.168.0.1)
+모든상품 > Networking > VPN > VPN > VPNce 선택[배포되어있는 VPN] > Local Subnet > VPN 연결 추가 > Virtual Server 연결	# VPN 연결 추가시 가상머신 내부에 새로운 Ethernet이 생성됨
 ```
 
 </br>
 
-<h3>11. Internet Gateway 연결</h3>
+<h3>12. 연결된 Virtual Server 내부 설정</h3>
 
 ```bash
-VPC : VPCdmz
+1. c:\> ipconfig/all	# VPN용 네트워크 어댑터 정보를 확인(VPN 연결 추가시 새로 생성됨)
+2. Search > Control Panel > Network and internet > Network and sharing Center > Change adapter settings > VPN용 어댑터 확인 후 속성
+3. 인터넷 프로토콜 버전 4(TCP/IPv4) 속성
+4. Use the follwing IP address
+	IP address	: 192.168.50.2	# VPN에 연결된 Local Subnet IP
+	Subnet mask	: 255.255.255.0	# Subnet mask
+	Default Gateway	: 공백
 ```
 
 </br>
 
-<h3>12. Security Group 생성</h3>
+<h1>VMware</h1>
+</br>
+</br>
+</br>
+
+<h3>13. Linux -> Windows RDP 연결 환경 세팅</h3>
 
 ```bash
-  Inbound : 22 Port (121.166.171.190, 192.168.45.130)
+# GUI GroupInstall
+sudo yum groups list | grep -i desktop
+   Cinnamon Desktop
+   MATE Desktop
+   GNOME Desktop
+   General Purpose Desktop
+   LXQt Desktop
+
+# GNOME이 제대로 설치되지 않을 경우 "Server with GUI" 그룹을 설치
+sudo yum groupinstall "GNOME Desktop"
+
+# GUI init
+systemctl get-default
+systemctl set-default graphical.target
+systemctl get-default
+
+# 재부팅
+reboot
 ```
 
 </br>
 
-<h3>13. VPN에 가상머신 연결 및 내부설정</h3>
+<h3>14. 원격 접속 설정</h3>
 
 ```bash
-sudo systemctl status firewalld
-sudo systemctl start firewalld
-sudo systemctl enable firewalld
+# XRDP Install
+sudo yum install epel-release
+sudo yum install xrdp
+sudo systemctl enable xrdp && systemctl start xrdp
 ```
 
 </br>
 
-<h3>14. 방화벽 설정</h3>
+<h3>15. rdesktop 설치</h3>
 
 ```bash
-sudo firewall-cmd --zone=public --add-port=22/tcp --permanent
-sudo firewall-cmd --zone=public --add-port=500/udp --permanent
-sudo firewall-cmd --zone=public --add-port=4500/udp --permanent
-sudo firewall-cmd --reload
-sudo firewall-cmd --list-ports
+# 컴파일러와 openssl-devel 이 패키지 컴파일 선행조건입니다.
+ yum -y install gcc openssl-devel
+ wget https://github.com/rdesktop/rdesktop/releases/download/v1.8.6/rdesktop-1.8.6.tar.gz
+ tar xvzf rdesktop-1.8.6.tar.gz
+ cd rdesktop-1.8.6/
+ ./configure --disable-credssp --disable-smartcard
+ make 
+ make install
 ```
 
-</br>
-
-<h3>15. 어댑터 설정</h3>
+<h3>16. VMware -> Virtual Server 접속</h3>
 
 ```bash
-sudo vi /etc/sysconfig/network-scripts/ifcfg-ens33
-
-TYPE=Ethernet
-BOOTPROTO=static
-IPADDR=192.168.25.2
-PREFIX=24
-NAME=ens33
-DEVICE=ens33
-ONBOOT=yes
+rdesktop -u vmuser 192.168.50.2	# rdesktop -u [User] [ip]
 ```
 
-</br>
 
-<h3>16. 네트워크 설정</h3>
 
-```bash
-sudo vi /etc/sysconfig/network-scripts/route-ens33
 
-192.168.45.0/24 via 192.168.25.1
-[로컬 Subnet IP] via [VPN Gateway IP]
-```
+
+
+
+
