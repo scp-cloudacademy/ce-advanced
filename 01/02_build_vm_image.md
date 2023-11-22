@@ -22,4 +22,12 @@
 
  ```
 yum update -y
+shutdown now
 ```
+
+### 3. Clone VM Image for Wen/App/DB VM
+- In Workstation Pro left Library pane, select Vm Image just created and right mouse click
+![image](https://github.com/scp-cloudacademy/ce-advanced/assets/147478897/450c23a0-8c25-454e-9519-2e3e34e3e6a8)
+
+- Clone 3 VMs and rename webvm, appvm dbvm
+![image](https://github.com/scp-cloudacademy/ce-advanced/assets/147478897/0812f214-a99c-4ab0-bdda-916f839213a1)
