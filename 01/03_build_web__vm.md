@@ -18,7 +18,7 @@ ls
 
 ```
 
-### 2. Install Web Source
+### 2. Import Web Source
 ```
 cd /var/www/html
 wget https://github.com/scp-cloudacademy/ce-advanced/raw/main/01/web.tar
