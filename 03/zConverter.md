@@ -12,7 +12,6 @@ Target VM : Samsung Cloud Platform </br>
 
 <h3>Source Agent 설치</h3>
 
-
 ```bash
 wget http://[zconverter 관리포탈]:58080/Download/ZConverter_CloudSourceClient_Setup_V4.1_Build_4003.tar.gz
 tar -xzf ZConverter_CloudSourceClient_Setup_V4.1_Build_4003.tar.gz
@@ -20,6 +19,8 @@ cd zconverter_install_source/
 ./install.sh
 ```
 <br/>
+<img src=https://github.com/scp-cloudacademy/ce-advanced/assets/147478897/de093b96-737b-43ff-aae8-7aac1e811fad>
+
 
 <h3>Target Agent 설치</h3>
 
