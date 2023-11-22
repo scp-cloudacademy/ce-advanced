@@ -1,4 +1,4 @@
-# Configuring Local Vertual Machines
+# Creating VM Image
 
   **Scenario :** Cosmetic Evolution Shoppingmall severs
 
