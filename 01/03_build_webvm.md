@@ -7,8 +7,7 @@
   **Prerequisition :** Windows 10 above, VM Workstation Pro, [CentOS 7.9 VM Image](https://github.com/scp-cloudacademy/ce-advanced/blob/main/01/02_build_vm_image.md))
 
 ### 1. Install HTTPD
-
-Log in as root account
+Start webvm in the VMware Workstation Pro and Log in as root account
 
 Install httpd
 ```
