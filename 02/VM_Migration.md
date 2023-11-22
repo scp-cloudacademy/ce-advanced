@@ -1,7 +1,11 @@
-<h1>VM migration</h1> 
+<h1>Migration Image</h1> 
 
-VMware Workstation Pro 17 다운로드 링크</br>
-https://www.vmware.com/kr/products/workstation-pro/workstation-pro-evaluation.html
+사용 OS : CentOS 7.8</br>
+사용 Tools</br>
+VMware Workstation Pro 17</br>
+다운로드 링크 : https://www.vmware.com/kr/products/workstation-pro/workstation-pro-evaluation.html</br>
+AWS Cli</br>
+다운로드 링크 : https://docs.aws.amazon.com/ko_kr/cli/latest/userguide/getting-started-install.html</br>
 </br>
 </br>
 </br>
@@ -9,10 +13,9 @@ https://www.vmware.com/kr/products/workstation-pro/workstation-pro-evaluation.ht
 <h3>vm tools 설치</h3>
 
 ```bash
-yum update –y                     # 업데이트 (필요한 경우에 진행)
 yum install open-vm-tools         # vm tools 설치
 yum install perl –y               # perl 패키지 설치
-reboot now                            # 재부팅
+reboot now                        # 재부팅
 ```
 </br>
 
@@ -43,7 +46,8 @@ $ cat /etc/*release*                 # OS 버전 확인
 ```
 </br>
 
-## OVA 파일 Object Storage에 업로드 하기
+<h3>OVA 파일 Object Storage에 업로드 하기</h3>
 
-    aws s3 cp (파일명) s3://(버킷명)/ --endpoint-url (Public Endpoint명)
-    
+```bash
+aws s3 cp [파일명] s3://[버킷명]/ --endpoint-url [Public Endpoint명]
+```
