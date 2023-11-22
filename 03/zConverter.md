@@ -18,7 +18,6 @@ tar -xzf ZConverter_CloudSourceClient_Setup_V4.1_Build_4003.tar.gz
 cd zconverter_install_source/
 ./install.sh
 ```
-<br/>
 <img src=https://github.com/scp-cloudacademy/ce-advanced/assets/147478897/de093b96-737b-43ff-aae8-7aac1e811fad><br>
 Enter<br>
 <img src=https://github.com/scp-cloudacademy/ce-advanced/assets/147478897/a4c44cde-37f1-48ac-bf31-a7a384664754><br>
