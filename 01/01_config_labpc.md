@@ -1,6 +1,6 @@
-# Configuring LAB PC
+# Configuring Local Vertual Machines
 
-  **Scenario :** Cosmetic Evolution IT Administrator's Management PC
+  **Scenario :** Cosmetic Evolution Shoppingmall severs
 
   **Hands-on Location :** Your Labtop
 
