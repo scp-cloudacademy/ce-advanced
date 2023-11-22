@@ -109,7 +109,7 @@ sysctl -p 					# 설정값 적용
 <h3>07. VPN 환경 설정</h3>
 
 ```bash
-vi /etc/strongswan/ipsec.conf
+vi /etc/strongswan/ipsec.conf		# 경로
 
 config setup
 	strictcrlpolicy=yes
@@ -145,7 +145,7 @@ conn SCP-VPN
 <h3>08. VPN 환경 설정</h3>
 
 ```bash
-vi /etc/strongswan/ipsec.secrets
+vi /etc/strongswan/ipsec.secrets	# 경로
 
 192.168.45.131 123.37.255.139 121.166.171.190 : PSK "########"
 [VMware Private IP]  [VPN Public IP] [Local Public IP] : PSK "Password"
@@ -157,7 +157,7 @@ vi /etc/strongswan/ipsec.secrets
 
 ```bash
 strongswan start
-strongswan statusall
+strongswan statusall	# 연결이 안될경우 reboot
 ```
 
 </br>
