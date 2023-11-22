@@ -15,6 +15,10 @@
 
     https://www.vmware.com/products/workstation-pro/workstation-pro-evaluation.html
 
+### 2. Download CentOS 7.8
+
+     https://ftp.iij.ad.jp/pub/linux/centos-vault/7.8.2003/isos/x86_64/CentOS-7-x86_64-Minimal-2003.iso
+
 
 ---
 
