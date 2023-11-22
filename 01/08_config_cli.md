@@ -1,4 +1,4 @@
-# Building Server Image
+# Configure Commnad Line Interface(CLI)
 
   **Scenario :** Cosmetic Evolution IT Administrator's Management PC
 
