@@ -7,7 +7,7 @@ Target VM : Samsung Cloud Platform </br>
 
 - 사용 PORT </br>
 관리포탈 사용 포트 : 58080</br>
-관리포탈 포트 : 50001,50000</br>
+Agent 확인 포트 : 50001,50000</br>
 마이그레이션 포트 : 50005</br>
 
 <h3>Source Agent 설치</h3>
