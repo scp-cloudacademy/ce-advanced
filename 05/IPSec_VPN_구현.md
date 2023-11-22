@@ -40,9 +40,10 @@ sudo yum install strongswan
 <h3>04. VPN 생성</h3>
 
 ```bash
-Name : VPNce
-VPN Public IP : 123.37.255.139		# VPN 에서 사용하는 Public IP
-Local subnet IP : 192.168.50.0/24	# VPN Gateway가 사용할 Local subnet
+VPN Gateway명 : VPNce
+QoS 대역폭 : 10 Mbps
+Public IP : 123.37.255.139		# VPN 에서 사용하는 Public IP
+Local subnet IP : 192.168.50.0/24	# VPN Gateway가 사용할 Local subnet 대역
 ```
 
 </br>
@@ -50,12 +51,38 @@ Local subnet IP : 192.168.50.0/24	# VPN Gateway가 사용할 Local subnet
 <h3>05. VPN Tunnel 생성</h3>
 
 ```bash
-Name : VPNTunnelce
+# 필수 정보 입력
+VPN Gateway : VPNce
+VPN Tunnel명 : VPNTunnelce
 Peer VPN GW IP : 121.166.171.190  	# VMware Public IP
 Local tunnel IP : 169.254.200.6/30	# VPN Tunnel 인터페이스에 할당하는 IP 주소
 Peer tunnel IP : 169.254.200.5		# 상대방 VPN Gateway의 VPN Tunnel 인터페이스에 할당하는 IP 주소
 Remote subnet : 192.168.45.0/24   	# VMware Subnet IP대역
 Pre-shared key :			# VPN Gateway간 IKE 상호 인증에 사용할 공유키
+
+# IKE 추가 설정
+IKE version : IKE_V2
+Encryption algorithm : AES_256
+Digest algorithm : SHA2_256
+Diffie-hellman : GROUP2
+SA lifeTime(sec.) : 86400
+
+# IPSEC 추가 설정
+Encryption algorithm : AES_256
+Digest algorithm : SHA2_256
+PFS group : USE
+Diffie-hellman : GROUP2
+SA lifeTime(sec.) : 3600
+DF bit : COPY
+
+# DPD 추가 설정
+DPD probe interval(sec.) : 60
+
+# 기타 설정
+Connection initiation mode : INITIATOR
+TCP MSS clamping : UNUSED
+TCP MSS direction : OUTBOUND_CONNECTION
+TCP MSS value : AUTO
 ```
 
 </br>
