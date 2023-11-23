@@ -28,3 +28,4 @@ sudo systemctl stop httpd
 ```
 sudo certbot --standalone -d (발급받을 도메인주소)
 ```
+** 한번에 여러개의 도메인의 인증서를 발급받을 수 있으며 "-d 발급받을 도메인주소"를 넣어주면 된다.
