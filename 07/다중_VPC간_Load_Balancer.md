@@ -73,9 +73,6 @@ K8SbSG (VPCb)
 
 ```bash
 : VPCa <--Peering--> VPCb
-  Routing_Table_VPCdmz (192.168.11.0/24), Routing_Table_VPCa (192.168.0.0/24,192.168.254.28/30)
-
-: VPCa <--Peering--> VPCb
  Routing_Table_VPCa : 추가설정 x
  Routing_Table_VPCb : 192.168.254.28/30 # VPCb -> LB로가는 라우팅설정
 ```
