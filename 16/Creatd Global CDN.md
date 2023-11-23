@@ -1,5 +1,5 @@
 ##### 1. Global CDN 생성하기
-(CDN 가이드)[https://cloud.samsungsds.com/manual/ko/scp_user_guide.html#getting_started_with_global_cdn]
+[CDN 가이드](https://cloud.samsungsds.com/manual/ko/scp_user_guide.html#getting_started_with_global_cdn)
 
 SCP 콘솔에서 '모든상품' ▶ 'Network' ▶ 'Global CDN' ▶ '상품신청 클릭 </br>
 CDN 설정하기 </br>
