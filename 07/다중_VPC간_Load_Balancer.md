@@ -3,93 +3,81 @@
 </br>
 </br>
 
-<h3>1. VPC 생성</h3>
+<h3>01. Load Balancer 생성</h3>
 
 ```bash
-VPCdmz
-VPCa
-VPCb
+모든상품 > Networking > Load Balancer > 상품신청
+
+Load Balancer명 : LBa
+VPC : VPCa
+크기 : SMALL
+LB 서비스 IP대역 : 192.168.5.0/27
+LB Link IP 대역 : 192.168.254.28/30    # 사용자지정으로 설정
+FIrewall : 사용안함
+Firewall로깅 : 사용안함
 ```
 
 </br>
 
-<h3>2. 서브넷 생성</h3>
+<h3>02. LB서비스 생성</h3>
 
 ```bash
-BASTIONdmz  192.168.0.0/24
-TESTa       192.168.11.0/24
-TESTb       192.168.21.0/24
+모든상품 > Networking > Load Balancer > LB서비스 > LB 서비스 생성
+
+Load Balanceer 선택 : LBa
+서비스명 : LBSERVICEa
+서비스 IP : 신규 IP할당
+서비스 구분 : L7(HTTP)
+서비스 포트 : 80
+전달 포트 : 80
+NAT IP : 사용
+URL 처리 : 기본값
+프로파일 : 기본값
+액세스 로그저장 : 사용안함
 ```
 
 </br>
 
-<h3>3. Internet Gateway 생성</h3>
+<h3>03. LB서버그룹 생성</h3>
 
-```bash
-IGW_VPCdmz  (VPCdmz)
-IGW_VPCa    (VPCa)
-IGW_VPCb    (VPCb)
+```baash
+모든상품 > Networking > Load Balancer > LB서비스 > LB 서버그룹 생성
+
+Load Balancer 선택 : LBa
+서버그룹명 : LBSERVICEGROUPa
+부하분산 : Round robin
+1. 대상서버 : weba1, 프로토콜 TCP, 헬스체크포트 80, 나머지기본값
+2. 대상서버 : 192.168.21.2(TestVM Private IP), 프로토콜 TCP, 헬스체크포트 80, 나머지기본값
+HTTp1.1 : 사용
+
+# 생성 후 LB서비스에 서버그룹 등록
 ```
 
 </br>
 
-<h3>4. Security Group 생성</h3>
+<h3>04. Security Group 규칙 추가</h3>
 
 ```bash
-SGdmz  (VPCdmz)
-SGa    (VPCa)
-SGb    (VPCc)
+WEBaSG (VPCa)
+    - Inbound  : 80 (LB Link IP)
+    - Outbound : 0.0.0.0/0
+
+K8SbSG (VPCb)
+    - Inbound  : 80 (LB Link IP)
+    - Outbound : 0.0.0.0/0
 ```
 
 </br>
 
-<h3>6. Virtual Server 생성</h3>
+<h3>05. VPC Peering</h3>
 
 ```bash
-BASTIONdmz  (VPCdmz)
-TESTa       (VPCa)
-TESTb       (VPCb)
-```
-
-</br>
-
-<h3>7. Load Balancer 생성</h3>
-
-```bash
-Load Balancer   : LBdmz (192.168.5.0/27)
-LB Link IP      : 192.168.254.28/30
-
-LB Service      : 80Port 허용
-LB Server Group : Virtual Server (TESTa, TESTb 추가)
-```
-
-</br>
-
-<h3>8. Security Group 규칙 설정</h3>
-
-```bash
-SGdmz  (VPCdmz)
-    - Inbound   : 3389(My IP)
-    - OUTbound  : 0.0.0.0/0
-
-SGa    (VPCa)
-    - Inbound   : 22,80(192.168.0.0/24, [LB Link IP])
-    - OUTbound  : 0.0.0.0/0
-SGb    (VPCc)
-    - Inbound   : 22,80(192.168.0.0/24, [LB Link IP])
-    - OUTbound  : 0.0.0.0/0
-```
-
-</br>
-
-<h3>9. VPC Peering</h3>
-
-```bash
-: VPCdmz <--Peering--> VPCa
+: VPCa <--Peering--> VPCb
   Routing_Table_VPCdmz (192.168.11.0/24), Routing_Table_VPCa (192.168.0.0/24,192.168.254.28/30)
 
-: VPCdmz <--Peering--> VPCb
-  Routing_Table_VPCdmz (192.168.21.0/24), Routing_Table_VPCb (192.168.0.0/24,192.168.254.28/30)
+: VPCa <--Peering--> VPCb
+ Routing_Table_VPCa : 추가설정 x
+ Routing_Table_VPCb : 192.168.254.28/30 # VPCb -> LB로가는 라우팅설정
 ```
 
 </br>
