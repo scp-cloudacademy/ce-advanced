@@ -3,100 +3,111 @@
 </br>
 </br>
 
-<h3>1. VPC 생성</h3>
+<h1>VPC_Peering</h1>
+</br>
+</br>
+</br>
+
+<h3>01. 생성된 VPC & 서브넷 확인</h3>
 
 ```bash
-VPCdmz (WEST)
-VPCa   (WEST)
-VPCb   (WEST)
-VPCdr  (EAST-1)
+모든상품 > Networking > VPC > 서브넷
+
+VPCdmz
+    - BASTIONdmz : 192.168.0.0/24
+
+VPCa
+    - WEBa : 192.168.11.0/24
+    - APPa : 192.168.12.0/24
+    - Dba  : 192.168.13.0/24
+
+VPCb
+    - K8Sb : 192.168.21.0/24
+
+VPCdr
+    - BASTIONdr : 192.168.30.0/24
+    - WEBdr     : 192.168.31.0/24
+    - APPdr     : 192.168.32.0/24
+    - Dbdr      : 192.168.33.0/24
+```
+
+</br> 
+
+<h3>02. VPC Peering생성</h3>
+
+```bash
+모든상품 > Networking > VPC > VPC Peering > VPC Peering생성
+
+1. VPCa, VPCb Peering (생성 후 승인 VPC에서 > 연결된 자원 > 승인필요)
+요청 VPC : VPCa
+승인 VPC : VPCb
+
+2. VPCa, VPCdr Peering (생성 후 승인 VPC에서 > 연결된 자원 > 승인필요)
+요청 VPC : VPCa
+승인 VPC : VPCdr
+
+```
+
+<h3>03. VPC Peering Routing Table설정</h3>
+
+```bash
+: VPCa <--Peering--> VPCb
+ Routing_Table_VPCa : 192.168.21.0/24    # VPCa -> VPCb로가는 라우팅설정
+ Routing_Table_VPCb : 192.168.11.0/24, 192.168.12.0/24, 192.168.13.0/24    # VPCb -> VPCa로가는 라우팅설정
+ 
+: VPCa <--Peering--> VPCdr
+  Routing_Table_VPCa  : 192.168.30.0/24, 192.168.31.0/24, 192.168.32.0/24, 192.168.33.0/24    # VPCa -> VPCdr로 가는 라우팅 설정
+  Routing_Table_VPCdr : 192.168.11.0/24, 192.168.12.0/24, 192.168.13.0/24    # VPCdr -> VPCa로 가는 라우팅 설정
 ```
 
 </br>
 
-<h3>2. Subnet 생성</h3>
-
-```bash
-BASTIONdmz (VPCdmz, Public, 192.168.0.0/24)
-WEBa       (VPCa, Private, 192.168.11.0/24)
-K8Sb       (VPCb, Private, 192.168.21.0/24)
-VPCdr      (VPCdr, Private, 192.168.31.0/24)
-```
+<h1>Transit_Gateway</h1>
+</br>
+</br>
 </br>
 
-<h3>3. Internet Gateway 생성</h3>
+<h3>04. Transit Gateway</h3>
 
 ```bash
-IGW_VPCdmz  (VPCdmz)
+모든상품 > Networking > Transit Gateway > 상품신청
+
+Transit Gateway명 : TGce
+Uplink : 사용 안함
 ```
 
 </br>
 
-<h3>4. Security Group (22 Port Open)</h3>
+<h3>05. Transit Gateway_VPC연결</h3>
 
 ```bash
-BASTIONdmz
-    - Inbound   : (192.168.11.0/24, 192.168.21.0/24, 192.168.31.0/24)
-    - OUTbound  : (192.168.11.0/24, 192.168.21.0/24, 192.168.31.0/24)
-WEBa
-    - Inbound   : (192.168.0.0/24, 192.168.21.0/24, 192.168.31.0/24)
-    - OUTbound  : (192.168.0.0/24, 192.168.21.0/24, 192.168.31.0/24)
-K8Sb
-    - Inbound   : (192.168.0.0/24, 192.168.11.0/24, 192.168.31.0/24)
-    - OUTbound  : (192.168.0.0/24, 192.168.11.0/24, 192.168.31.0/24)
-WEBdr
-    - Inbound   : (192.168.0.0/24, 192.168.11.0/24, 192.168.21.0/24)
-    - OUTbound  : (192.168.0.0/24, 192.168.11.0/24, 192.168.21.0/24)
+모든상품 > Networking > Transit Gateway > TGW>VPC연결 > TGW-VPC 연결 생성
+
+1. TGce, VPCdmz 연결 (연결 후 VPC에서 > 연결된 자원 > 승인필요)
+Transit Gateway : TGce
+VPC : VPCdmz
+
+2. TGce, VPCa 연결 (연결 후 VPC에서 > 연결된 자원 > 승인필요)
+Transit Gateway : TGce
+VPC : VPCa
 ```
 
 </br>
 
-<h3>5. Virtual Server</h3>
+<h3>06. Transit Gateway_Routing_table설정</h3>
 
 ```bash
-BASTIONdmz  (VPC : VPCdmz Subnet : BASTIONdmz SG : BASTIONdmz)
-WEBa        (VPC : VPCa   Subnet : WEBa       SG : WEBa)
-K8Sb        (VPC : VPCb   Subnet : K8Sb       SG : K8sb)
-WEBdr       (VPC : VPCdr  Subnet : K8sb       SG : WEBdr)
+ : TGce <--연결--> VPCdmz
+  Routung_Table_TGce_VPCdmz : 192.168.0.0/24    # TGce -> VPCdmz로 가는 라우팅 설정
+  Routing_Table_VPCdmz      : 192.168.11.0/24, 192.168.12.0/24, 192.168.13.0/24    # VPCdmz -> VPCa로 가는 라우팅 설정
+
+ : TGce <--연결--> VPCa
+  Routung_Table_TGce_VPCa : 192.168.11.0/24, 192.168.12.0/24, 192.168.13.0/24    # TGce -> VPCa로 가는 라우팅 설정
+  Routing_Table_VPCa      : 192.168.0.0/24    # VPCa -> VPCdmz로 가는 라우팅 설정
+
 ```
 
-</br>
-
-<h3>6. VPC Peering</h3>
-
-```bash
-: VPCdmz <--Peering--> VPCa
-  Routing_Table_VPCdmz (192.168.11.0/24), Routing_Table_VPCa (192.168.0.0/24)
-: VPCdmz <--Peering--> VPCdr
-  Routing_Table_VPCdmz (192.168.31.0/24), Routing_Table_VPCdr (192.168.0.0/24)
-```
-
-</br>
-
-<h3>7. Transit Gateway 생성</h3>
-
-```bash
-TGce    (WEST)
-TGce01  (EAST-1)
-```
-
-</br>
-
-<h3>8. Transit Gateway Peering</h3>
-
-```bash
-: TGce   <--TGW_VPC_연결--> VPCdmz, VPCa, VPCb
-    Routung_Table_TGce_VPCdmz (192.168.0.0/24), Routing_Table_VPCdmz (192.168.11.0/24, 192.168.21.0/24, 192.168.31.0/24)
-    Routung_Table_TGce_VPCa (192.168.11.0/24), Routing_Table_VPCa (192.168.0.0/24, 192.168.21.0/24, 192.168.31.0/24)
-    Routung_Table_TGce_VPCb (192.168.21.0/24), Routing_Table_VPCb (192.168.0.0/24, 192.168.11.0/24, 192.168.31.0/24)
-
-: TGce01 <--TGW_VPC_연결--> VPCdr
-    Routung_Table_TGce_VPCdr (192.168.31.0/24), Routing_Table_VPCdr (192.168.11.0/24, 192.168.11.0/24, 192.168.21.0/24)
-```
-
-</br>
-
-<h3>SSH 명령어 (원격 접속)</h3>
+<h3>07. SSH 명령어 (원격 접속)</h3>
 
 ```bash
 ssh -i /키페어/파일/위치 vmuser@호스트 주소
@@ -104,7 +115,7 @@ ssh -i /키페어/파일/위치 vmuser@호스트 주소
 
 </br>
 
-<h3>SCP 명령어 (파일 복제)</h3>
+<h3>08. SCP 명령어 (파일 복제)</h3>
 
 ```bash
 SCP -i /키페어/파일/위치 /로컬/파일/경로 vmuser@호스트주소:/원격/디렉토리/경로
