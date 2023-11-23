@@ -42,11 +42,20 @@ sudo yum -y install openssl mod_ssl
 sudo vi /etc/httpd/conf.d/ssl.conf
 ```
 
-  DocumentRoot "/var/www/html/..."
-  ServerName "도메인:443"
+```
+DocumentRoot "/var/www/html/..."
+ServerName "도메인:443"
 
-  - SSLCertificateFile /etc/letsencrypt/archive/도메인/cert1.pem
-  - SSLCertificateKeyFile /etc/letsencrypt/archive/도메인/privkey1.pem
-  - SSLCertificateChainFile /etc/letsencrypt/archive/도메인/chain1.pem
-  - SSLCACertificateFile /etc/letsencrypt/archive/도메인/fullchain1.pem
-    
+- SSLCertificateFile /etc/letsencrypt/archive/도메인/cert1.pem
+- SSLCertificateKeyFile /etc/letsencrypt/archive/도메인/privkey1.pem
+- SSLCertificateChainFile /etc/letsencrypt/archive/도메인/chain1.pem
+- SSLCACertificateFile /etc/letsencrypt/archive/도메인/fullchain1.pem
+```
+
+6) Apache 설정에서 ssl.conf 추가
+```
+sudo vi /etc/httpd/conf/httpd.conf
+```
+IncludeOptional conf.d/*.conf 주석해제(확인할 것)
+
+#### 3. SSL 유효성 체크
