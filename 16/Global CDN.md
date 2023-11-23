@@ -10,3 +10,4 @@ CDN 생성이 완료가 되면, 방화벽 또는 Security Group 설정이 필요
 1) 레포지토리 조회
   yum repolist | grep epel
 
+
