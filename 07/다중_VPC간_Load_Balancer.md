@@ -83,6 +83,7 @@ K8SbSG (VPCb)
 </br>
 
 <h3>아파치 설치 명령어</h3>
+
 ```bash
 sudo yum update
 sudo yum install httpd
@@ -94,6 +95,7 @@ sudo systemctl status httpd
 </br>
 
 <h3>방화벽 설정</h3>
+
 ```bash
 sudo systmectl status firewalld
 sudo systmectl start firewalld
