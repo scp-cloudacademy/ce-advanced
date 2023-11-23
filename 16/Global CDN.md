@@ -29,3 +29,24 @@ sudo systemctl stop httpd
 sudo certbot --standalone -d (발급받을 도메인주소)
 ```
 * 한번에 여러개의 도메인의 인증서를 발급받을 수 있으며 "-d 발급받을 도메인주소"를 넣어주면 된다.
+* 해당 명령어 입력하면 이메일 주소를 넣게 되어있으며, 발급에 동의를 해주고, 이메일 수신여부를 체크해준다.
+
+일련의 과정이 끝나면 발급이 완료가 된다.</br>
+
+4) SSL 패키지 설치
+```
+sudo yum -y install openssl mod_ssl
+```
+5) SSL 설정변경
+```
+sudo vi /etc/httpd/conf.d/ssl.conf
+```
+
+  DocumentRoot "/var/www/html/..."
+  ServerName "도메인:443"
+
+  - SSLCertificateFile /etc/letsencrypt/archive/도메인/cert1.pem
+  - SSLCertificateKeyFile /etc/letsencrypt/archive/도메인/privkey1.pem
+  - SSLCertificateChainFile /etc/letsencrypt/archive/도메인/chain1.pem
+  - SSLCACertificateFile /etc/letsencrypt/archive/도메인/fullchain1.pem
+    
