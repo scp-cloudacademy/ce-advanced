@@ -67,7 +67,7 @@ VPCdr
 </br>
 </br>
 
-<h3>04. Transit Gateway</h3>
+<h3>04. Transit Gateway 생성</h3>
 
 ```bash
 모든상품 > Networking > Transit Gateway > 상품신청
