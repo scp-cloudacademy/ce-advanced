@@ -47,8 +47,6 @@ example) scp-tool-cli configure set access-secret Bk1fp6BlWGhN
 
 #### 7. List current project setting and set project to work at
 
-    scp-tool-cli project list-project-summaries-v3
-
 example) scp-tool-cli configure set project-id PROJECT-Q8ob-g8rt8pO
 
     scp-tool-cli configure set project-id ${ProjectID} 
