@@ -19,6 +19,12 @@ yum repolist | grep epel
 ```
 sudo yum install certbot python2-certbot-apache
 ```
-
 ###### ※ 인증서는 절차가 간소한 standalone 방식으로 발급예정이며, 발급 전 웹서버 서비스를 잠시 중지시켜야 한다.
+```
+sudo systemctl stop httpd
+```
 
+3) 인증서 발급
+```
+sudo certbot --standalone -d (발급받을 도메인주소)
+```
