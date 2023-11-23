@@ -69,7 +69,7 @@ K8SbSG (VPCb)
 
 </br>
 
-<h3>05. VPC Peering</h3>
+<h3>05. VPC Peering 규칙 추가</h3>
 
 ```bash
 : VPCa <--Peering--> VPCb
