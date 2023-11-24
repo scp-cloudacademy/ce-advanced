@@ -75,9 +75,8 @@ IncludeOptional conf.d/*.conf 주석해제(확인할 것)
 
 인증서명을 넣어주고, 각 항목에 맞는 인증서 정보를 조회한 후, 값을 넣어준다.</br>
 항목에 값을 모두 넣어준뒤 인증서 유효체크를 하고, 다음을 눌러 생성을 해준다.
-
-※ 인증서 등록 간 유의사항
-세가지 항목 중 Certificate Chain값의 경
+(SCP 인증서 등록가이드)[https://cloud.samsungsds.com/manual/ko/scp_user_guide.html#4741ae3ae409b228]
+※ Certificat Chain 값을 넣을 때는 Certificate Chain은 Intermediate CA(Subordinate CA) → Root CA 순서로 입력을 하고, 해당 내용 관련 SCP 인증서 가이드 참고 </br>
 
 
 
