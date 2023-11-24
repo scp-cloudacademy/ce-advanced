@@ -71,10 +71,14 @@ IncludeOptional conf.d/*.conf 주석해제(확인할 것)
 
 모든상품 ▶ Security ▶ Certificate Manager 상품신청을 클릭해준다.
 
-![image](https://github.com/scp-cloudacademy/ce-advanced/assets/147478897/64063bd7-b896-440a-9ae4-49a1c0cb6daf)
+![image](https://github.com/scp-cloudacademy/ce-advanced/assets/147478897/1c34bb1a-62cf-4e71-9de9-113609bee82c)
 
 인증서명을 넣어주고, 각 항목에 맞는 인증서 정보를 조회한 후, 값을 넣어준다.</br>
-항목에 값을 모두 넣어준뒤 인증서 유효체크를 하여, 유효함을 확인해준다.
+항목에 값을 모두 넣어준뒤 인증서 유효체크를 하고, 다음을 눌러 생성을 해준다.
+
+※ 인증서 등록 간 유의사항
+세가지 항목 중 Certificate Chain값의 경
+
 
 
 
