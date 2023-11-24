@@ -73,3 +73,17 @@ IncludeOptional conf.d/*.conf 주석해제(확인할 것)
 ```
 sudo openssl crl2pkcs7 -nocrl -certfile /etc/letsencrypt/archive/등록도메인/cert1.pem | openssl pkcs7 -print_certs -noout
 ```
+2 Step
+```
+sudo openssl x509 -noout -modulus -in /etc/letsencrypt/archive/등록도메인/cert1.pem | openssl md5
+sudo openssl rsa -noout -modulus -in /etc/letsencrypt/archive/등록도메인/privkey1.pem | openssl md5
+```
+두개의 값이 일치하는지 확인해준다</br>
+3 Step
+```
+sudo openssl x509 -noout -in /etc/letsencrypt/archive/test.scpcloud.net/cert1.pem -dates
+```
+4 Step
+```
+sudo openssl verify -CAfile /etc/letsencrypt/archive/등록도메인/chain1.pem /etc/letsencrypt/archive/등록도메인/cert1.pem
+```
