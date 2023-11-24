@@ -120,4 +120,5 @@ sudo cp /etc/letsencrypt/archive/등록 도메인/chain1.pem /etc/letsencrypt/ar
 3. Chain1.pem의 Root Certificate 부부을 self-signed root certificate(1에 다운로드 파일내용으로 복사 후 넣어주면 됨)로 변경
 4. 4th Step의 명령어를 다시입력</br>
 결과값에 '/etc/letsencrypt/archive/등록 도메인/cert1.pem: OK' 라고 나오면 완료
-![image](https://github.com/scp-cloudacademy/ce-advanced/assets/147478897/01c87504-9e3a-4bbd-a80a-100a8a51cf27)
+![image](https://github.com/scp-cloudacademy/ce-advanced/assets/147478897/617cbca8-2835-407d-83f9-15855aa9caec)
+
