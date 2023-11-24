@@ -108,3 +108,16 @@ sudo openssl verify -CAfile /etc/letsencrypt/archive/등록도메인/chain1.pem 
 4번째까지 명령어를 입력을 하면 에러가 생성됨
 ![image](https://github.com/scp-cloudacademy/ce-advanced/assets/147478897/b2868ebd-df47-45da-bd8c-d681dfdff0e7)
 
+■ 해결방법
+1. self-signed Root certificate download
+```
+sudo wget https://letsencrypt.org/certs/isrgrootx1.pem --no-check-certificate
+```
+2. Chain1.pem 파일을 복제한다.
+```
+sudo cp /etc/letsencrypt/archive/등록 도메인/chain1.pem /etc/letsencrypt/archive/등록 도메인/chain1_copy.pem
+```
+3. Chain1.pem의 Root Certificate 부부을 self-signed root certificate(1에 다운로드 파일내용으로 복사 후 넣어주면 됨)로 변경
+4. 4th Step의 명령어를 다시입력</br>
+결과값에 '/etc/letsencrypt/archive/등록 도메인/cert1.pem: OK' 라고 나오면 완료
+![image](https://github.com/scp-cloudacademy/ce-advanced/assets/147478897/01c87504-9e3a-4bbd-a80a-100a8a51cf27)
