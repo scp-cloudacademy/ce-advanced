@@ -42,3 +42,16 @@ DR복제본을 저장할 Object Storage를 선택하고 [확인]
 상세정보창 하단에서 DR동기화 상태를 확인할 수 있음
 
 <h3>DBaaS Read Replica</h3>
+
+ - 시작에 앞서 해당 과정은 원본 DBaaS가 생성된 VPC와 다른 위치의 DR용 VPC가 Peering 연결이 된 상태에서 진행할 수 있습니다.
+
+자원관리 > Database > MySQL(DBaaS)에서 원본 DB를 클릭
+
+![image](https://github.com/scp-cloudacademy/ce-advanced/assets/147478897/4fc8c72a-ae41-4820-9676-47cb7fc23540)<br>
+상세정보창 우측의 ...을 클릭하여 [Replica 구성] 클릭
+
+![image](https://github.com/scp-cloudacademy/ce-advanced/assets/147478897/0e274926-1dde-4e71-ac3d-8791663db6ad)<br>
+필수정보를 입력하고 반드시 Other-Region 설정을 체크하여 위치를 확인한 뒤 생성
+
+![image](https://github.com/scp-cloudacademy/ce-advanced/assets/147478897/935db186-2f8b-4f77-8edf-5ca1ed8769c1)<br>
+다른 위치에 생성된 Replica를 확인
