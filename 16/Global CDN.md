@@ -23,7 +23,7 @@ yum repolist | grep epel
 ```
 sudo yum install certbot python2-certbot-apache
 ```
-###### ※ 인증서는 절차가 간소한 standalone 방식으로 발급예정이며, 발급 전 웹서버 서비스를 잠시 중지시켜야 한다.
+###### ※ 인증서는 절차가 간소한 standalone 방식으로 발급하며, 발급 전 웹서버 서비스를 잠시 중지시켜야 한다.
 ```
 sudo systemctl stop httpd
 ```
@@ -36,6 +36,11 @@ sudo certbot --standalone -d (발급받을 도메인주소)
 * 해당 명령어 입력하면 이메일 주소를 넣게 되어있으며, 발급에 동의를 해주고, 이메일 수신여부를 체크해준다.
 
 일련의 과정이 끝나면 발급이 완료가 된다.</br>
+
+* ※ 발급이 완료가 되면, 인증서 및 키가 저장된 위치를 확인할 수 있으며, 해당 위치는 잘 기억할 수 있도록 해준다.
+```
+ls -l /etc/letsencrypt/archive/도메인
+```
 
 4) SSL 패키지 설치
 ```
@@ -63,3 +68,8 @@ sudo vi /etc/httpd/conf/httpd.conf
 IncludeOptional conf.d/*.conf 주석해제(확인할 것)
 
 #### 3. SSL 유효성 체크
+
+1 Step
+```
+sudo openssl crl2pkcs7 -nocrl -certfile /etc/letsencrypt/archive/등록도메인/cert1.pem | openssl pkcs7 -print_certs -noout
+```
