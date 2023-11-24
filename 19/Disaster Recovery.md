@@ -2,7 +2,7 @@
 
 <h3>Virtual Server Backup</h3>
 가상머신 백업 Service를 생성<br>
-자원관리 > Storage > Backup > 상품 신청을 클릭
+자원관리 > Storage > Backup > [상품신청] 클릭
 
 ![image](https://github.com/scp-cloudacademy/ce-advanced/assets/147478897/166a37fc-b920-4863-9a4f-cde28a80b5d2)<br>
 Backup명, Backup 대상, 보관기간 및 Backup 스케쥴을 지정하고 DR사용을 체크한 뒤 Backup을 생성.
@@ -24,5 +24,21 @@ DR복제본 Backup 파일로 Virtual Server를 복구할 때 VM명, 네트워크
 원본 Backup 파일로 복구할 경우에는 네트워크 설정 없이 Backup 대상 서버와 동일한 위치에 복구됩니다.
 
 <h3>Object Storage DR 동기화</h3>
+자원관리 > Storage > Object Storage > [상품신청] 클릭
+
+![image](https://github.com/scp-cloudacademy/ce-advanced/assets/147478897/6626e220-3f18-44e4-90d1-ae6966819d56)<br>
+위치를 확인하고 버킷명을 입력, 버전관리를 설정한 뒤 Object Storage를 생성.
+
+![image](https://github.com/scp-cloudacademy/ce-advanced/assets/147478897/c0410784-2a4b-478b-a9e3-dddf2207a9e0)<br>
+각기 다른 위치에 Object Storage를 2개 생성하고 원본이 될 Object Storage를 클릭
+
+![image](https://github.com/scp-cloudacademy/ce-advanced/assets/147478897/c158457f-3060-4c7f-975e-70b31bb889eb)<br>
+상세정보창 상단의 [DR동기화] 클릭
+
+![image](https://github.com/scp-cloudacademy/ce-advanced/assets/147478897/337c75f2-6bda-4eb5-b72e-1f42c19b6a8f)<br>
+DR복제본을 저장할 Object Storage를 선택하고 [확인]
+
+![image](https://github.com/scp-cloudacademy/ce-advanced/assets/147478897/d975aa2f-2e9d-426c-8720-3c7f166b56c0)<br>
+상세정보창 하단에서 DR동기화 상태를 확인할 수 있음
 
 <h3>DBaaS Read Replica</h3>
