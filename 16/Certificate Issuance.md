@@ -105,3 +105,6 @@ sudo openssl x509 -noout -in /etc/letsencrypt/archive/등록도메인/cert1.pem 
 ```
 sudo openssl verify -CAfile /etc/letsencrypt/archive/등록도메인/chain1.pem /etc/letsencrypt/archive/등록도메인/cert1.pem
 ```
+4번째까지 명령어를 입력을 하면 에러가 생성됨
+![image](https://github.com/scp-cloudacademy/ce-advanced/assets/147478897/b2868ebd-df47-45da-bd8c-d681dfdff0e7)
+
