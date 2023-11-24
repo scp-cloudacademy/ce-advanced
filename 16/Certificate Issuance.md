@@ -62,10 +62,14 @@ ServerName "도메인:443"
 ```
 sudo vi /etc/httpd/conf/httpd.conf
 ```
-IncludeOptional conf.d/*.conf 주석해제(확인할 것)
+IncludeOptional conf.d/*.conf 주석해제(확인할 것) </br>
 
-모든 일련의 과정이 끝나면 인증서발급이 완료가 되고, 해당 내용을 바탕으로 SCP에 등록을 해준다.
-
+모든 과정이 끝나면 중지시켰던 HTTP서비스를 재부팅해준다.
+```
+sudo systemctl restart httpd
+```
+일련의 모든과정이 완료되면, 인증서 발급이 완료가되고,</br>
+해당내용을 근거로 SCP에 인증서를 등록해준다.
 
 ### 2. SCP 인증서 등록하기
 
@@ -109,7 +113,7 @@ sudo openssl verify -CAfile /etc/letsencrypt/archive/등록도메인/chain1.pem 
 ![image](https://github.com/scp-cloudacademy/ce-advanced/assets/147478897/8584edea-a682-4d47-9003-70980db960ea)
 
 
-■ 해결방법
+■ 해결방법 ■
 1. self-signed Root certificate download
 ```
 sudo wget https://letsencrypt.org/certs/isrgrootx1.pem --no-check-certificate
