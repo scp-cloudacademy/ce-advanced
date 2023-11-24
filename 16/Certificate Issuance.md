@@ -65,6 +65,7 @@ IncludeOptional conf.d/*.conf 주석해제(확인할 것)
 
 모든 일련의 과정이 끝나면 인증서발급이 완료가 되고, 해당 내용을 바탕으로 SCP에 등록을 해준다.
 
+
 ### 2. SCP 인증서 등록하기
 
 모든상품 ▶ Security ▶ Certificate Manager 상품신청을 클릭해준다.
