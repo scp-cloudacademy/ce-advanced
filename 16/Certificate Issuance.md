@@ -76,8 +76,32 @@ IncludeOptional conf.d/*.conf 주석해제(확인할 것)
 인증서명을 넣어주고, 각 항목에 맞는 인증서 정보를 조회한 후, 값을 넣어준다.</br>
 항목에 값을 모두 넣어준뒤 인증서 유효체크를 하고, 다음을 눌러 생성을 해준다.</br>
 
-※ Certificat Chain 값을 넣을 때는 Certificate Chain은 Intermediate CA(Subordinate CA) → Root CA 순서로 입력을 하고, 해당 내용 관련 SCP 인증서 가이드 참고 </br>
+※ Certificat Chain 값을 넣을 때는 Certificate Chain은 Intermediate CA(Subordinate CA) → Root CA 순서로 입력을 하고,</br> 
+해당 내용 관련 SCP 인증서 가이드 참고 </br>
 [SCP 인증서 등록가이드](https://cloud.samsungsds.com/manual/ko/scp_user_guide.html#4741ae3ae409b228)
 
+### 3. SSL 유효성 체크
+SCP 인증서까지 등록이 완료가 되면, 서버에서 SSL 유효성 체크를 실시한다.</br>
 
+1st Step
+```
+sudo openssl crl2pkcs7 -nocrl -certfile /etc/letsencrypt/archive/등록도메인/cert1.pem | openssl pkcs7 -print_certs -noout
+```
 
+2nd Step
+```
+sudo openssl x509 -noout -modulus -in /etc/letsencrypt/archive/등록도메인/cert1.pem | openssl md5
+sudo openssl rsa -noout -modulus -in /etc/letsencrypt/archive/등록도메인/privkey1.pem | openssl md5
+```
+두개의 값이 일치하는지 확인
+
+3rd Step
+```
+sudo openssl x509 -noout -in /etc/letsencrypt/archive/등록도메인/cert1.pem -dates
+```
+인증서 유효기간 확인 기간이 지나면 갱신필요
+
+4th Step
+```
+sudo openssl verify -CAfile /etc/letsencrypt/archive/등록도메인/chain1.pem /etc/letsencrypt/archive/등록도메인/cert1.pem
+```
