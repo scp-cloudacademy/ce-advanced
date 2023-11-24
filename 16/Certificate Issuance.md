@@ -48,6 +48,7 @@ ls -l /etc/httpd/modules/
 ```
 sudo vi /etc/httpd/conf.d/ssl.conf
 ```
+```
 DocumentRoot "/var/www/html/..."
 ServerName "도메인:443"
 
