@@ -1,7 +1,5 @@
 ## 1. Global CDN 생성하기
-[CDN 가이드](https://cloud.samsungsds.com/manual/ko/scp_user_guide.html#getting_started_with_global_cdn)
-
-* 가이드를 참고하여 생성하면 된다. </br>
+[CDN 가이드](https://cloud.samsungsds.com/manual/ko/scp_user_guide.html#getting_started_with_global_cdn) : 가이드를 참고하여 생성하면 된다. </br>
 
 모든상품 ▶ Newrorking ▶  Global CDN 상품신청 
 
