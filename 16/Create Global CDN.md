@@ -1,4 +1,4 @@
-#### 1. Global CDN 생성하기
+## 1. Global CDN 생성하기
 [CDN 가이드](https://cloud.samsungsds.com/manual/ko/scp_user_guide.html#getting_started_with_global_cdn)
 
 가이드를 참고하여 생성하면 된다. 이때 주의사항은 Forward host header 및 Cache key hostname은 Origin Hostname으로 설정해준다.</br>
