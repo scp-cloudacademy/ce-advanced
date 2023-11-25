@@ -15,8 +15,7 @@ sudo yum install yum-utils -y
 sudo systemctl stop httpd
 sudo vi /etc/yum.repos.d/nginx.repo
 ```
-Type i 
-Copy following contents and paste. 
+Type [i] , then copy following contents and paste to vi. 
 ```
 [nginx-stable]
 name=nginx stable repo
