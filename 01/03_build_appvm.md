@@ -62,3 +62,9 @@ PHP 버전 정보 숨기기
 
 참고  https://scbyun.com/entry/PHP-PHP-FPM-%EC%B5%9C%EC%8B%A0php-fpm-81-%EB%B2%84%EC%A0%84-%EC%84%A4%EC%B9%98%ED%95%98%EA%B8%B0
 
+
+sudo vi /etc/php-fpm.d/www.conf
+
+listen.allowed_clients = 127.0.0.1, 192.168.0.0/16
+
+
