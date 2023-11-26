@@ -31,10 +31,6 @@ Remi 저장소를 활성화하고, PHP 8.1을 설치합니다.
     
     yum-config-manager --enable remi-php81
 
-
-    yum-config-manager --enable remi-php81
-
-
 PHP(php-fpm) 8.1 설치
 
     yum install -y php php-cli php-common php-devel php-pear php-fpm
