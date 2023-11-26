@@ -48,11 +48,32 @@ https://www.stephenrlang.com/2018/02/centos-7-apache-2-4-with-php-fpm/
 
     mysql -u root -p
 
-    ALTER USER 'root'@'localhost' IDENTIFIED BY '비밀번호';
+```mysql
+ALTER USER 'root'@'localhost' IDENTIFIED BY '비밀번호';
+```
 
 # 외부 접속 허용
 
-    use mysql;
+```mysql
+use mysql;
+select host,user from user;
+```
+
+```mysql
+grant all privileges on *.* to 'root'@'%';
+```
+
+```mysql
+flush privileges
+```
+
+```mysql
+select host, user form user;
+```
+
+```bash
+sudo systemctl restart mysqld
+```
 
 #Step 2 – Install Apache2
 
