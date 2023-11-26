@@ -25,11 +25,34 @@ https://www.stephenrlang.com/2018/02/centos-7-apache-2-4-with-php-fpm/
 #Step 1 – Prerequsitis
 
     sudo yum -y install epel-release      # Remi 저장소를 설치하고 활성화한다.
-    sudo yum -y install http://rpms.remirepo.net/enterprise/remi-release-7.rpm
+    sudo yum -y install https://dev.mysql.com/get/mysql80-community-release-el7-11.noarch.rpm
 
-# yum 패키지를 관리
+# MySQL 8.0.35 설치
 
-    sudo yum -y install yum-utils
+    sudo yum install mysql-server
+    
+# 버전체크
+
+    mysqld -V
+
+# MySQL 시작 및 자동 실행 등록
+
+    systemctl start mysqld
+    systemctl enable mysqld
+
+# 초기 비밀번호 확인
+
+    grep 'temporary password' /var/log/mysqld.log
+
+# 비밀번호 변경
+
+    mysql -u root -p
+
+    ALTER USER 'root'@'localhost' IDENTIFIED BY '비밀번호';
+
+# 외부 접속 허용
+
+    use mysql;
 
 #Step 2 – Install Apache2
 
