@@ -43,6 +43,8 @@ sudo systemctl stop nginx
 sudo vi /etc/nginx/nginx.confd/default.conf
 
 ```
+
+```
 server {
     listen       80;
     server_name  localhost;
