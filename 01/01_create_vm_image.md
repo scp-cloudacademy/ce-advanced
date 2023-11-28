@@ -28,7 +28,7 @@
   log in as root account,
 
  ```
-yum update -y
+sudo set default multiuser.target ## CLI 모드로 부팅
 shutdown now
 ```
 
