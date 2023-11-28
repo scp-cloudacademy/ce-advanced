@@ -9,11 +9,12 @@
 ### 1. Install web server
 Start webvm in the VMware Workstation Pro and Log in as root account
 
+Login as root
 Install nginx
 ```
-sudo yum install yum-utils -y
-sudo systemctl stop httpd
-sudo vi /etc/yum.repos.d/nginx.repo
+yum install yum-utils -y
+systemctl stop httpd
+vi /etc/yum.repos.d/nginx.repo
 ```
 Type [i] , then copy following contents and paste to vi. 
 ```
@@ -38,13 +39,13 @@ Type [ESC] key and type :wq! to exit
 Install NGINX
 
 ```
-sudo yum install nginx
-sudo systemctl stop nginx
+yum install nginx
+systemctl stop nginx
 ```
 
 ### 2. Import Web Source
 ```
-cd /var/www/html
+cd /usr/share/nginx/html
 wget https://github.com/scp-cloudacademy/ce-advanced/raw/main/01/web.tar
 tar -xvf web.tar
 sudo systemctl start nginx
