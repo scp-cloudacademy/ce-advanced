@@ -17,7 +17,7 @@
 
 ### 2. Download CentOS 7.8
 
-[CentOS 7.8.2003 Download Link](https://ftp.iij.ad.jp/pub/linux/centos-vault/7.8.2003/isos/x86_64/CentOS-7-x86_64-Minimal-2003.iso)
+[CentOS 7.8.2003 Download Link](https://ftp.iij.ad.jp/pub/linux/centos-vault/7.8.2003/isos/x86_64/CentOS-7-x86_64-DVD-2003.iso)
 
 ### 3. Install CentOS 7.8 
 
