@@ -28,7 +28,7 @@
   log in as root account,
 
  ```
-sudo set default multiuser.target ## CLI 모드로 부팅
+sudo SYSTEMCTL set-default multiuser.target ## CLI 모드로 부팅
 shutdown now
 ```
 
