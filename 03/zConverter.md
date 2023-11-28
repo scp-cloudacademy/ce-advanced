@@ -6,7 +6,7 @@ Source VM : VMware Workstation </br>
 Target VM : Samsung Cloud Platform </br>
 
 - bastion-dmz의 Security Group과 IGW F/W 사용 PORT </br>
-관리포탈 사용 포트 : 58080/inbound</br>
+관리포탈 사용 포트 : 58080/in-out
 Agent 확인 포트 : 50001,50000/inbound</br>
 마이그레이션 포트 : 50005/in-out</br>
 
