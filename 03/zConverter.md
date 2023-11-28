@@ -15,6 +15,9 @@ Agent 확인 포트 : 50001,50000/inbound</br>
 Agent 확인 포트 : 50001,50000/outbound</br>
 마이그레이션 포트 : 50005/in-out</br>
 
+- ZConverter 설치
+[다운로드](https://objectstorage.ap-seoul-1.oraclecloud.com/p/1n9M3ZGv_raosujWb2EExwKV3FfsFQyn02gsLvr2R5ttpnESDGFBXYXqYrqXFYAc/n/idffti7li8cs/b/ZConverter_Bucket/o/ZConverter_CloudManager_Setup_v4.1_2023_0619_private.exe)
+
 <h3>Source Agent 설치</h3>
 
 ```bash
