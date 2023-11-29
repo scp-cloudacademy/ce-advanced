@@ -132,17 +132,26 @@ sudo vi /etc/sysconfig/network-scripts/route-[네트워크어댑터이름]
 [AWS VPN 로컬 주소공간] via [확인한 IP 정보의 게이트웨이]
 ```
 
-<h3>File Storage 배포 및 마운트</h3>
+<h2>Mount</h2>
+<h3>EFS 마운트</h3>
+
+마운트 전 필요한 유틸 및 마운트 위치 생성
 
 ```bash
 sudo yum install nfs-utils -y    # nfs 유틸 설치
 sudo mkdir /efs                  # 마운트할 dir 생
-sudo mount -t nfs -o vers=3,noresvport [FileStorage마운트정보] [마운트경로]
 ```
 
-<h2>Migration</h2>
-<h3>EFS 마운트</h3>
 EFS에서 [연결]에서 확인할 수 있는 마운트 정보로 마운트
+
+![image](https://github.com/scp-cloudacademy/ce-advanced/assets/147478897/375b56fe-1087-45ef-9235-ff90e140bd74)<br>
+마운트 결과
+
+<h3>File Storage 배포 및 마운트</h3>
+
+```bash
+sudo mount -t nfs -o vers=3,noresvport [FileStorage마운트정보] [마운트경로]
+```
 
 <h3>rsync 실행</h3>
 
