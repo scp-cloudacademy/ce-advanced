@@ -5,6 +5,9 @@
 Source VM : VMware Workstation </br>
 Target VM : Samsung Cloud Platform </br>
 
+- Target Server Public Subnet에 생성(dbdmz1)
+  Data Disk 연결 필수
+  
 - VM Migration을 위한 네트워크 규칙</br>
   관리포탈 사용 포트 : 58080</br>
   Agent 확인 포트 : 50001,50000</br>
