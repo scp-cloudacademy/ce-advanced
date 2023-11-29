@@ -83,17 +83,26 @@ AWS의 VPN 구성파일에서 정보를 확인하여 입력. (Ctrl+F 활용)<br>
 
 <h3>VM 배포 및 설정</h3>
 
-File Storage Migration 작업을 위해 VPCdmz에 Linux Virtual Server 배
-VPN 상세에서 Local Subnet 추가 후 IP 및 MAC 확인</br>
-IP정보 확인
+File Storage Migration 작업을 위해 Samsung Cloud Platform VPCdmz에 Linux Virtual Server 배포
+
+![image](https://github.com/scp-cloudacademy/ce-advanced/assets/147478897/c5f092fd-d6f1-45a7-8809-fbc25af07bfd)<br>
+자원관리 > Netwroking > VPN 에서 Local Subnet에 File Storage Migration 작업을 위해 배포한 Virtual Server 추가
+
+![image](https://github.com/scp-cloudacademy/ce-advanced/assets/147478897/9b9b6df9-241a-4711-b7dd-12a7cb48822a)<br>
+추가된 Virtual Server의 IP 및 MAX 확인<br>
+
+![image](https://github.com/scp-cloudacademy/ce-advanced/assets/147478897/9294a0b1-8708-4e06-a8b9-ac89895f8764)<br>
+이후 배포한 Virtual Server에 접속하여 IP정보 확인, VPN에서 확인한것과 동일한 MAC 주소를 가진 네트워크 어댑터를 확인.
 
 ```bash
-$ ip addr
+ip addr
 ```
-콘솔에서 확인한 MAC과 동일한 주소를 가진 네트워크 어댑터 확인 설정파일 작성
+
+![image](https://github.com/scp-cloudacademy/ce-advanced/assets/147478897/f3ad567c-e0a9-4511-b7ac-06f3e8330999)<br>
+확인한 MAC과 동일한 주소를 가진 네트워크 어댑터 이름의 설정파일 작성
 
 ```bash
-$ vi /etc/sysconfig/network-scripts/ifcfg-[네트워크어댑터이름]
+vi /etc/sysconfig/network-scripts/ifcfg-[네트워크어댑터이름]
 ```
 설정파일에 입력
 
@@ -106,10 +115,12 @@ NAME=[네트워크어댑터이름]
 DEVICE=[네트워크어댑터이름]
 ONBOOT=yes
 ```
+
+![image](https://github.com/scp-cloudacademy/ce-advanced/assets/147478897/377d1038-2a4b-4c06-bf4e-b0d86f14b952)<br>
 라우팅 설정 추가
 
 ```bash
-vi etc/sysconfig/network-scripts/route-[네트워크어댑터이름]
+vi /etc/sysconfig/network-scripts/route-[네트워크어댑터이름]
 ```
 
 ```bash
