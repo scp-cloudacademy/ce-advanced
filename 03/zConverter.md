@@ -11,8 +11,10 @@ Agent 확인 포트 : 50001,50000</br>
 마이그레이션 포트 : 50005</br>
 
 - Network 정책 파일 다운로드
-  [Security Group](https://github.com/scp-cloudacademy/ce-advanced/raw/main/03/sg_cea_03_vm_migration.xlsx)
 
+  [Security Group](https://github.com/scp-cloudacademy/ce-advanced/raw/main/03/sg_cea_03_vm_migration.xlsx)
+  [Internet Gateway Firewall](https://github.com/scp-cloudacademy/ce-advanced/raw/main/03/fw_cea_03_vm_migration.xlsx)
+  
 - ZConverter 설치
 [다운로드](https://objectstorage.ap-seoul-1.oraclecloud.com/p/1n9M3ZGv_raosujWb2EExwKV3FfsFQyn02gsLvr2R5ttpnESDGFBXYXqYrqXFYAc/n/idffti7li8cs/b/ZConverter_Bucket/o/ZConverter_CloudManager_Setup_v4.1_2023_0619_private.exe)
 
