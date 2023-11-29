@@ -102,7 +102,7 @@ ip addr
 확인한 MAC과 동일한 주소를 가진 네트워크 어댑터 이름의 설정파일 작성
 
 ```bash
-vi /etc/sysconfig/network-scripts/ifcfg-[네트워크어댑터이름]
+sudo vi /etc/sysconfig/network-scripts/ifcfg-[네트워크어댑터이름]
 ```
 설정파일에 입력
 
@@ -120,7 +120,7 @@ ONBOOT=yes
 라우팅 설정 추가
 
 ```bash
-vi /etc/sysconfig/network-scripts/route-[네트워크어댑터이름]
+sudo vi /etc/sysconfig/network-scripts/route-[네트워크어댑터이름]
 ```
 
 ```bash
@@ -130,8 +130,9 @@ vi /etc/sysconfig/network-scripts/route-[네트워크어댑터이름]
 <h3>File Storage 배포 및 마운트</h3>
 
 ```bash
-$ yum install nfs-utils -y
-$ mount -t nfs -o vers=3,noresvport [FileStorage마운트정보] [마운트경로]
+sudo yum install nfs-utils -y    # nfs 유틸 설치
+sudo mkdir /efs                  # 마운트할 dir 생
+sudo mount -t nfs -o vers=3,noresvport [FileStorage마운트정보] [마운트경로]
 ```
 
 <h2>Migration</h2>
