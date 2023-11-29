@@ -1,4 +1,5 @@
-![image](https://github.com/scp-cloudacademy/ce-advanced/assets/147478897/96e2acb7-c997-439a-960d-0abc1ff37003)<h1>File Storage Migration</h1>
+
+<h1>File Storage Migration</h1>
 </br>
 AWS의 EFS를 SCP의 File Storage로 Migration 합니다.</br>
 AWS와 SCP 사이에 VPN 연결이 필요합니다.
