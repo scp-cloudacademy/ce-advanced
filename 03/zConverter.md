@@ -6,14 +6,9 @@ Source VM : VMware Workstation </br>
 Target VM : Samsung Cloud Platform </br>
 
 - bastion-dmz의 Security Group과 IGW F/W 사용 PORT </br>
-관리포탈 사용 포트 : 58080/in-out
-Agent 확인 포트 : 50001,50000/inbound</br>
-마이그레이션 포트 : 50005/in-out</br>
-
-- DB security Group
-관리포탈 사용 포트 : 58080/outbound</br>
-Agent 확인 포트 : 50001,50000/outbound</br>
-마이그레이션 포트 : 50005/in-out</br>
+관리포탈 사용 포트 : 58080
+Agent 확인 포트 : 50001,50000</br>
+마이그레이션 포트 : 50005</br>
 
 - ZConverter 설치
 [다운로드](https://objectstorage.ap-seoul-1.oraclecloud.com/p/1n9M3ZGv_raosujWb2EExwKV3FfsFQyn02gsLvr2R5ttpnESDGFBXYXqYrqXFYAc/n/idffti7li8cs/b/ZConverter_Bucket/o/ZConverter_CloudManager_Setup_v4.1_2023_0619_private.exe)
