@@ -5,11 +5,11 @@
 Source VM : VMware Workstation </br>
 Target VM : Samsung Cloud Platform </br>
 
-- VM Migration을 위한 네트워크 규칙
-  관리포탈 사용 포트 : 58080
+- VM Migration을 위한 네트워크 규칙</br>
+  관리포탈 사용 포트 : 58080</br>
   Agent 확인 포트 : 50001,50000</br>
   마이그레이션 포트 : 50005</br>
-  [Security Group](https://github.com/scp-cloudacademy/ce-advanced/raw/main/03/sg_cea_03_vm_migration.xlsx)
+  [Security Group](https://github.com/scp-cloudacademy/ce-advanced/raw/main/03/sg_cea_03_vm_migration.xlsx) </br>
   [Internet Gateway Firewall](https://github.com/scp-cloudacademy/ce-advanced/raw/main/03/fw_cea_03_vm_migration.xlsx)
   
 - ZConverter 설치
