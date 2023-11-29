@@ -27,7 +27,7 @@ VPC > 보안그룹에서 파일시스템에 사용한 보안그룹의 설정을 
 
 <h3>라우팅 테이블 설정</h3>
 
-![image](https://github.com/scp-cloudacademy/ce-advanced/assets/147478897/c14b0dc1-2677-4d13-8269-6fd7409ee707)<br>
+![image](https://github.com/scp-cloudacademy/ce-advanced/assets/147478897/e5eeda49-f9b0-4a6e-a163-af450564b927)<br>
 인터넷 게이트웨이로 향하게 되어있는 규칙을 가상 프라이빗 게이트웨이로 변경
 
 <h3>AWS VPN 구성</h3>
