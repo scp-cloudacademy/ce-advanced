@@ -139,10 +139,11 @@ sudo vi /etc/sysconfig/network-scripts/route-[네트워크어댑터이름]
 
 ```bash
 sudo yum install nfs-utils -y    # nfs 유틸 설치
-sudo mkdir /efs                  # 마운트할 dir 생
+sudo mkdir /efs                  # 마운트할 dir 생성
 ```
 
-EFS에서 [연결]에서 확인할 수 있는 마운트 정보로 마운트
+![image](https://github.com/scp-cloudacademy/ce-advanced/assets/147478897/45db65fc-647d-4048-9007-ab0b98c8e707)<br>
+EFS에서 [연결]에서 확인할 수 있는 마운트 정보 확인
 
 ![image](https://github.com/scp-cloudacademy/ce-advanced/assets/147478897/375b56fe-1087-45ef-9235-ff90e140bd74)<br>
 마운트 결과
