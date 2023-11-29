@@ -43,7 +43,7 @@ VPC 선택 후 [VPC에 연결]
 ![image](https://github.com/scp-cloudacademy/ce-advanced/assets/147478897/dbb976e5-1383-4321-a85b-1493020aa371)<br>
 자원관리 > Networking > VPN에서 [상품 신청]<br>
 VPN Gateway 이름과 Local Subnet IP대역을 입력하고 [다음]<br>
-신청 정보를 확인한 뒤 [생성]
+신청 정보를 확인한 뒤 [완료]
 
 ![image](https://github.com/scp-cloudacademy/ce-advanced/assets/147478897/71826a6a-566b-428f-9010-f46efdc03d24)<br>
 생성된 VPN Gateway의 Public IP 주소 확인
@@ -59,6 +59,22 @@ AWS 콘솔에서 VPC > 고객 게이트웨이 > 고객 게이트웨이 생성
 ![image](https://github.com/scp-cloudacademy/ce-advanced/assets/147478897/1430d27b-bcb2-472d-8cfa-133e6c8cd82d)<br>
 AWS 콘솔에서 VPC > Site to Site VPN 연결 > VPN 연결 생성
 
+![image](https://github.com/scp-cloudacademy/ce-advanced/assets/147478897/ff50ae2a-b0e7-43a6-9c66-71d04e8cfc4b)<br>
+연결의 이름을 입력하고 생성한 가상 프라이빗 게이트웨이와 고객 게이트웨이를 선택한 뒤 [생성]
+
+![image](https://github.com/scp-cloudacademy/ce-advanced/assets/147478897/50b976cf-cc1d-470b-aa58-c7dfaf7fbc5d)<br>
+생성된 연결을 선택하고 [구성 다운로드]
+
+![image](https://github.com/scp-cloudacademy/ce-advanced/assets/147478897/4bdec799-519b-44e4-8f4d-07a01f84729e)<br>
+다음과 같이 선택한 뒤 [다운로드]
+
+![image](https://github.com/scp-cloudacademy/ce-advanced/assets/147478897/b8c2a064-5ed1-4059-8be2-3a1d68b35c33)<br>
+다운로드 받은 구성 파일을 토대로 Samsung Cloud Platform에서 연결 진행.
+
+![image](https://github.com/scp-cloudacademy/ce-advanced/assets/147478897/833cfde5-37a7-41c0-a0bc-8a99bed795a9)<br>
+Samsung Cloud Platform에서 자원관리 > Networking > VPN > VPN Tunnel > [상품신청]<br>
+AWS의 VPN 구성파일에서 정보를 확인하여 입력. (Ctrl+F 활용)<br>
+정보 입력 후 [다음] 및 신청정보 검토 후 [완료]
 
 
 
