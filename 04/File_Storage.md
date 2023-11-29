@@ -148,7 +148,9 @@ EFS에서 [연결]에서 확인할 수 있는 마운트 정보 확인
 ![image](https://github.com/scp-cloudacademy/ce-advanced/assets/147478897/375b56fe-1087-45ef-9235-ff90e140bd74)<br>
 마운트 결과
 
-<h3>File Storage 배포 및 마운트</h3>
+<h3>Samsung Cloud Platform File Storage 배포 및 마운트</h3>
+
+콘솔에서 File Storage 배포
 
 ```bash
 sudo mount -t nfs -o vers=3,noresvport [FileStorage마운트정보] [마운트경로]
