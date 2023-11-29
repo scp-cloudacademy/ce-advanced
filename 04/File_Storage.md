@@ -76,9 +76,14 @@ Samsung Cloud Platform에서 자원관리 > Networking > VPN > VPN Tunnel > [상
 AWS의 VPN 구성파일에서 정보를 확인하여 입력. (Ctrl+F 활용)<br>
 정보 입력 후 [다음] 및 신청정보 검토 후 [완료]
 
+![image](https://github.com/scp-cloudacademy/ce-advanced/assets/147478897/ba0c5f8e-5762-4983-b5a3-5033c1d1ba0a)<br>
+![image](https://github.com/scp-cloudacademy/ce-advanced/assets/147478897/3a7091a4-a6a4-4fef-b532-85749630c756)<br>
+결과 상태 up으로 올라온 Samsung Cloud Platform VPN Tunnel과 AWS Site to Site 연결을 확인
 
 
 <h3>VM 배포 및 설정</h3>
+
+File Storage Migration 작업을 위해 VPCdmz에 Linux Virtual Server 배
 VPN 상세에서 Local Subnet 추가 후 IP 및 MAC 확인</br>
 IP정보 확인
 
