@@ -5,13 +5,10 @@
 Source VM : VMware Workstation </br>
 Target VM : Samsung Cloud Platform </br>
 
-- bastion-dmz의 Security Group과 IGW F/W 사용 PORT </br>
-관리포탈 사용 포트 : 58080
-Agent 확인 포트 : 50001,50000</br>
-마이그레이션 포트 : 50005</br>
-
-- Network 정책 파일 다운로드
-
+- VM Migration을 위한 네트워크 규칙
+  관리포탈 사용 포트 : 58080
+  Agent 확인 포트 : 50001,50000</br>
+  마이그레이션 포트 : 50005</br>
   [Security Group](https://github.com/scp-cloudacademy/ce-advanced/raw/main/03/sg_cea_03_vm_migration.xlsx)
   [Internet Gateway Firewall](https://github.com/scp-cloudacademy/ce-advanced/raw/main/03/fw_cea_03_vm_migration.xlsx)
   
