@@ -16,9 +16,9 @@ df -k
 ```
 sudo vi /etc/fstab
 ```
-
+```
 "198.19.212.11:/fsxy_yqgphp /var/www/html	nfs	default	0 0" </br> 
-
+```
 추가 후 저장해준다.
 
 ###### 5. 마운트 완료 후 마운트 한 위치에 github에 올려놓은 자료를 다운로드 해준다.
