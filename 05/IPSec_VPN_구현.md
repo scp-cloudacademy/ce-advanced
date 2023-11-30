@@ -191,6 +191,11 @@ strongswan statusall	# 연결이 안될경우 reboot
 
 </br>
 
+Linux 설정
+vi /etc/sysconfig/network-scripts/ifcfg-ens224
+
+Windows 설정
+
 <h3>12. 연결된 Virtual Server 내부 설정</h3>
 
 ```bash
