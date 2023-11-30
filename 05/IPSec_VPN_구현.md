@@ -264,7 +264,7 @@ sudo vi /etc/sysconfig/network-scripts/ifcfg-[새로 생성된 네트워크 어�
 ```
 TYPE=Ethernet
 BOOTPROTO=static
-IPADDR= Local Sunbet에서 할당 받은 IP (예, 10.100.10.2)
+IPADDR=Local Sunbet에서 할당 받은 IP (예, 10.100.10.2)
 PREFIX=24
 NAME=ens224
 DEVICE=ens224
@@ -288,6 +288,26 @@ systemctl restart network
 
 [CentOS Subnt 대역] via [SCP VPN Gateway IP(VPN-Local Sunbet에서 조회)]
 ```
+VMware Workstation Pro의 다른 VM에서 원격접속 
+
+VM에서 다음 명령어 입력
+예시) ip route add 10.100.0.0/24 via 192.168.139.129
+```
+ip route add [SCP Local Subnet IP 대역] via [Strongswan VPN을 구성한 VM의 Private IP]
+ip route
+ssh vmuser@[SCP에 VPN 연결한 Virtual Server의 Local Subnet IP]
+```
+
+Local PC에서 테스트(Powershell 관리자 모드로 실행]
+
+예시) route add 10.100.0.0 MASK 255.255.255.0 192.168.139.1 METRIC 1
+
+```
+route add [SCP Local Subnet IP 대역] MASK 255.255.255.0 [Windows 네트워크 환경에서 확인한 VMware Virtual Adapter IP 주소]  METRIC 1
+route print
+```
+
+
 
 <h3>12. 연결된 Virtual Server 내부 설정(Windows Server 설정)</h3>
 
