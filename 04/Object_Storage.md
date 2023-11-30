@@ -3,7 +3,7 @@
 <h3>Rclone 설치</h3>
 
 ```bash
-sudo yum install rclone -y                      // Oracle 계열 Linux
+sudo yum install rclone -y                      // Redhat/CentOS 계열 Linux
 curl https://rclone.org/install.sh | sudo bash  // 기타 Linux
 ```
 
