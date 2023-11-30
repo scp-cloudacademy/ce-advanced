@@ -193,6 +193,19 @@ strongswan statusall	# 연결이 안될경우 reboot
 
 Linux 설정
 vi /etc/sysconfig/network-scripts/ifcfg-ens224
+TYPE=Ethernet
+BOOTPROTO=static
+IPADDR=Local_Sunbet_IP 대역 (SCP)
+PREFIX=24
+NAME=ens224
+DEVICE=ens224
+ONBOOT=yes
+
+vi /etc/sysconfig/network-scripts/route-ens224
+
+192.168.139.0/24 via 10.100.0.1
+[CentOS Subnt 대역] via [SCP VPN Gateway IP(VPN-Local Sunbet에서 조회)]
+
 
 Windows 설정
 
