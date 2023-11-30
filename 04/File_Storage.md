@@ -175,5 +175,8 @@ sudo mount -t nfs -o vers=3,noresvport [FileStorage마운트정보] [마운트�
 <h3>rsync 실행</h3>
 
 ```bash
-$ rsync -avzh --delete [source] [destination]
+sudo yum install rsync -y
+sudo rsync -avzh --delete [source경로] [destination경로]
 ```
+![image](https://github.com/scp-cloudacademy/ce-advanced/assets/147478897/dacbd225-87ba-4a0d-b0e0-c34c2adfa16c)<br>
+명령어를 통해 Migration을 실행.
