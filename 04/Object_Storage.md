@@ -1,9 +1,19 @@
+사전 준비
+- Samsung Cloud Platform 내 Object Storage Bucket 구성
+
+  Bucket 이름, Public Endpoint, 인증키(access key, access secret key) 
+
+- Samsung Cloud Platfrom 내 Linux Virtual Server 구성(CentOS)
+
+- Azure Storage Account 내 Object Storage를 위한 컨테이너 구성
+
+  Storage Account 이름, Access key, 컨테이너 이름
+
 <h1>Object Storage Migration</h1>
 
 <h3>Rclone 설치</h3>
 
 ```bash
-sudo yum install rclone -y                      // Redhat/CentOS 계열 Linux
 curl https://rclone.org/install.sh | sudo bash  // 기타 Linux
 ```
 
