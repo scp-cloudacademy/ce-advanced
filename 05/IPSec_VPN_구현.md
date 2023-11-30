@@ -3,7 +3,7 @@
 </br>
 </br>
 
-<h3>00. VMwaare 생성</h3>
+<h3>00. VMware 생성</h3>
 
 </br>
 
