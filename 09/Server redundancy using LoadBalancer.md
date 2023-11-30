@@ -37,5 +37,9 @@ VM 신청정보를 입력하고 완료를 누릅니다..</br>
 서버그룹은 미리 생성한 그룹으로 설정을 하과 다음버튼을 누릅니다.</br>
 ![image](https://github.com/scp-cloudacademy/ce-advanced/assets/147478897/742bd48e-7456-4370-af98-67830064f6ef)
 신청정보를 확인 후 완료를 눌러 서비스를 생성해 줍니다.</br>
+서비스가 생성이 되고 좀 기다리면 상태가 up으로 변경됨을 확인 할 수 있습니다.</br>
+![image](https://github.com/scp-cloudacademy/ce-advanced/assets/147478897/b176ac03-ad3c-4934-bf47-d2268c7864c4)
+상세정보를 확인해보면 서버상탱에 2개의 서버상태가 UP으로 되어있음을 확인할 수 있습니다.
+![image](https://github.com/scp-cloudacademy/ce-advanced/assets/147478897/e5512877-dde9-41a5-a790-0f3741f23f75)
 
 
