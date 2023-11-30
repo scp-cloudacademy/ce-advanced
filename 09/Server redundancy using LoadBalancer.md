@@ -10,7 +10,7 @@
 #### 2. Costom Image를 이용한 VM 만들기
 
 모든상품 ▶ virtual Server ▶ 상품신청을 클릭합니다.</br>
-
+![image](https://github.com/scp-cloudacademy/ce-advanced/assets/147478897/6e7f8d97-c695-4e10-869f-bb32a04612fa)
 이미지 선택 시, Custom을 클릭하고 생성한 custom Image를 선택후 다음버튼을 누릅니다.</br>
 ![image](https://github.com/scp-cloudacademy/ce-advanced/assets/147478897/e6287b52-2df7-48a0-9acc-7d8e99448a5c)
 VM 신청정보를 입력하고 완료를 누릅니다..</br>
