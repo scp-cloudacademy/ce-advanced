@@ -133,6 +133,10 @@ sudo vi /etc/sysconfig/network-scripts/route-[네트워크어댑터이름]
 [AWS VPN 로컬 주소공간] via [확인한 IP 정보의 게이트웨이]
 ```
 
+```bash
+sudo systemctl restart network
+```
+
 <h2>Mount</h2>
 <h3>EFS 마운트</h3>
 
