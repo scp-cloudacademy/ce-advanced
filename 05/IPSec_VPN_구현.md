@@ -1,9 +1,5 @@
-<h1>VMware</h1>
-</br>
-</br>
-</br>
-
-<h3>00. VMware 생성</h3>
+- 사전 구성 환경 </br>
+VMware Workstation Pro 설치</br>
 
 </br>
 
