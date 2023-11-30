@@ -21,9 +21,14 @@
 웹,앱 서버 모두 서버를 만들고 나서 LoadBalancer 설정을 한다.
 
 #### 3.  LoadBalancer 
+
 ##### 3.1 서버그룹 생성하기
 ![image](https://github.com/scp-cloudacademy/ce-advanced/assets/147478897/83b924ea-dbf8-4fee-8629-fc29388495ae)
 기존에 생성한 서버와 custom image로 생성한 두개의 서버를 그룹으로 묶은 후서비스 포트를 설정 후 다음버튼을 클릭한다.</br>
 ![image](https://github.com/scp-cloudacademy/ce-advanced/assets/147478897/60a23e33-0753-48c1-8099-4096edcd9995)
 모든 설정 확인 후 완료를 누르면 서버그룹이 생성이 된다.</br>
 
+##### 3.2 LB서비스 생성하기
+![image](https://github.com/scp-cloudacademy/ce-advanced/assets/147478897/e4225360-2c44-4232-b8b4-c2326c701bd9)
+
+![image](https://github.com/scp-cloudacademy/ce-advanced/assets/147478897/77518b21-f8d8-4bbf-bb15-ccacc2f792b2)
