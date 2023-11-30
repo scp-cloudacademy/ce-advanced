@@ -1,9 +1,10 @@
 - 사전 구성 환경 </br>
 VMware Workstation Pro 설치</br>
-
+실습 PC의 VMware Workstation Pro에서 신규 VM 생성
 </br>
 
 <h3>01. 방화벽 활성화</h3>
+
 
 ```bash
 sudo 
