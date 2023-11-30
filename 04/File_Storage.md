@@ -170,7 +170,7 @@ sudo mkdir /files                  # 마운트할 dir 생성
 sudo mount -t nfs -o vers=3,noresvport [FileStorage마운트정보] [마운트경로]
 ```
 ![image](https://github.com/scp-cloudacademy/ce-advanced/assets/147478897/3288c3f5-24aa-4d2b-8529-3d5765bf3170)<br>
-mount된 것을 확인
+마운트된 것을 확인
 
 <h3>rsync 실행</h3>
 
