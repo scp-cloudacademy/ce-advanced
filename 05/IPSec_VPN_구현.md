@@ -175,7 +175,7 @@ strongswan statusall	# 연결이 안될경우 reboot
 </br>
 </br>
 
-<h3>10. Security Group 규칙생성</h3>
+<h3>10. Security Group 규칙 추가/수정</h3>
 
 ```bash
   Inbound : 3389,22 Port (CentOS Private IP)	# [VMware Public IP],[VMware Private IP]
@@ -183,33 +183,113 @@ strongswan statusall	# 연결이 안될경우 reboot
 
 </br>
 
-<h3>11. VPN에 Virtual Server 연결</h3>
+<h3>11. VPN에 Virtual Server 연결(Linux)</h3>
+
+SCP에서 VPN 연결할 Virtual Server에 SSH 접속해서 아래의 명령어로 네트워크 정보 확인
 
 ```bash
-모든상품 > Networking > VPN > VPN > VPNce 선택[배포되어있는 VPN] > Local Subnet > VPN 연결 추가 > Virtual Server 연결	# VPN 연결 추가시 가상머신 내부에 새로운 Ethernet이 생성됨
+ifconfig
+```
+일반적으로 두개의 네트워크 연결이 보여짐.
+예시
+
+```
+ens192: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+        inet 192.168.0.6  netmask 255.255.255.0  broadcast 192.168.0.255
+        inet6 fe80::250:56ff:fe94:636b  prefixlen 64  scopeid 0x20<link>
+        ether 00:50:56:94:63:6b  txqueuelen 1000  (Ethernet)
+        RX packets 13547  bytes 106599545 (101.6 MiB)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 11721  bytes 29749541 (28.3 MiB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+lo: flags=73<UP,LOOPBACK,RUNNING>  mtu 65536
+        inet 127.0.0.1  netmask 255.0.0.0
+        inet6 ::1  prefixlen 128  scopeid 0x10<host>
+        loop  txqueuelen 1000  (Local Loopback)
+        RX packets 0  bytes 0 (0.0 B)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 0  bytes 0 (0.0 B)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+```
+상태 확인 후 모든상품 > Networking > VPN > VPN > VPNce 선택[배포되어있는 VPN] > Local Subnet > VPN 연결 추가 > Virtual Server 연결	
+
+VPN 연결 추가시 가상머신 내부에 새로운 Ethernet이 생성
+다시 아래의 명령어로 네트워크 상태 확인
+
+```bash
+ifconfig
+```
+아래와 같이 2개에서 3개의 네트워크 구성 정보가 나타남
+
+```
+ens192: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+        inet 192.168.0.6  netmask 255.255.255.0  broadcast 192.168.0.255
+        inet6 fe80::250:56ff:fe94:636b  prefixlen 64  scopeid 0x20<link>
+        ether 00:50:56:94:63:6b  txqueuelen 1000  (Ethernet)
+        RX packets 13583  bytes 106602199 (101.6 MiB)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 11756  bytes 29771996 (28.3 MiB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+ens224: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+        inet6 fe80::807:e6fe:c233:7e54  prefixlen 64  scopeid 0x20<link>
+        ether 00:50:56:94:9e:82  txqueuelen 1000  (Ethernet)
+        RX packets 22  bytes 1620 (1.5 KiB)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 13  bytes 1614 (1.5 KiB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+lo: flags=73<UP,LOOPBACK,RUNNING>  mtu 65536
+        inet 127.0.0.1  netmask 255.0.0.0
+        inet6 ::1  prefixlen 128  scopeid 0x10<host>
+        loop  txqueuelen 1000  (Local Loopback)
+        RX packets 0  bytes 0 (0.0 B)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 0  bytes 0 (0.0 B)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
 ```
 
 </br>
 
-Linux 설정
-vi /etc/sysconfig/network-scripts/ifcfg-ens224
+<h3>12. 연결된 Virtual Server 내부 설정(Linux 설정)</h3>
+
+아래의 명령어를 실행해서 이더넷 구성 설정
+예시) sudo vi /etc/sysconfig/network-scripts/ifcfg-ens224
+
+```
+sudo vi /etc/sysconfig/network-scripts/ifcfg-[새로 생성된 네트워크 어댑터 명]
+```
+
+```
 TYPE=Ethernet
 BOOTPROTO=static
-IPADDR=Local_Sunbet_IP 대역 (SCP)
+IPADDR= Local Sunbet에서 할당 받은 IP (예, 10.100.10.2)
 PREFIX=24
 NAME=ens224
 DEVICE=ens224
 ONBOOT=yes
+```
+네트워크 라우팅 설정
+예시) vi /etc/sysconfig/network-scripts/route-ens224
 
-vi /etc/sysconfig/network-scripts/route-ens224
+```
+vi /etc/sysconfig/network-scripts/route-[새로 생성된 네트워크 어댑터 명]
+```
+아래의 항목을 추가
+예시) 192.168.139.0/24 via 10.100.0.1
 
-192.168.139.0/24 via 10.100.0.1
+```
+네트워크 재설정 명령
+
+'''
+systemctl restart network
+'''
+
 [CentOS Subnt 대역] via [SCP VPN Gateway IP(VPN-Local Sunbet에서 조회)]
+```
 
-
-Windows 설정
-
-<h3>12. 연결된 Virtual Server 내부 설정</h3>
+<h3>12. 연결된 Virtual Server 내부 설정(Windows Server 설정)</h3>
 
 ```bash
 1. c:\> ipconfig/all	# VPN용 네트워크 어댑터 정보를 확인(VPN 연결 추가시 새로 생성됨)
