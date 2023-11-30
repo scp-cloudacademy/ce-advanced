@@ -4,10 +4,9 @@
 ![image](https://github.com/scp-cloudacademy/ce-advanced/assets/147478897/db6906f5-3441-402f-b8d4-3e213d978645)
 ![image](https://github.com/scp-cloudacademy/ce-advanced/assets/147478897/731b873a-cd29-49d4-998a-7b6ca7f6eb36)
 
-이미지 명을 정하고, 완료를 누른다. </br>
+이미지 명을 정하고, 완료를 누른다.</br>
 ![image](https://github.com/scp-cloudacademy/ce-advanced/assets/147478897/3b571056-c64f-412d-8746-0f5fcc1279e6)
-
-모든 과정이 끝나면 위와같이 이미지가 생성이 된다.</br>
+</br>모든 과정이 끝나면 위와같이 이미지가 생성이 된다.</br>
 
 #### 2. Costom Image를 이용한 VM 만들기
 
