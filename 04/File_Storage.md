@@ -151,11 +151,26 @@ EFS에서 [연결]에서 확인할 수 있는 마운트 정보 확인
 
 <h3>Samsung Cloud Platform File Storage 배포 및 마운트</h3>
 
-콘솔에서 File Storage 배포
+Samsung Cloud Platform에서 File Storage 배포
+
+![image](https://github.com/scp-cloudacademy/ce-advanced/assets/147478897/253444b7-80bb-4c8b-96ec-c2e566977984)<br>
+자원관리 > Storage > File Storage(new) > 상품신청<br>
+
+![image](https://github.com/scp-cloudacademy/ce-advanced/assets/147478897/7c35e1e7-2c3c-4f6e-8783-7846e5fd3347)<br>
+생성된 File Storage의 상세정보에서 적용서버란의 [수정] 클릭
+
+![image](https://github.com/scp-cloudacademy/ce-advanced/assets/147478897/9f4e7f41-1168-4102-b218-239ae7121fbf)<br>
+Migration에 사용할 Virtual Server를 선택하여 [확인]
+
+![image](https://github.com/scp-cloudacademy/ce-advanced/assets/147478897/835f5984-b56b-4ce3-a5fb-e35db4a73901)<br>
+적용서버에 등록된 것을 확인하고 마운트 정보를 확인, 이는 Virtual Server에 마운트할때 사용됨
 
 ```bash
+sudo mkdir /files                  # 마운트할 dir 생성
 sudo mount -t nfs -o vers=3,noresvport [FileStorage마운트정보] [마운트경로]
 ```
+![image](https://github.com/scp-cloudacademy/ce-advanced/assets/147478897/3288c3f5-24aa-4d2b-8529-3d5765bf3170)<br>
+mount된 것을 확인
 
 <h3>rsync 실행</h3>
 
