@@ -19,7 +19,7 @@ VM 신청정보를 입력하고 완료를 누릅니다..</br>
 ![image](https://github.com/scp-cloudacademy/ce-advanced/assets/147478897/9dee6a66-5891-4496-be65-e57550f732e7)
 </br> 모든 과정이 끝난 후 custom image로 생성된 vm을 확인할 수 있습니다.
 ![image](https://github.com/scp-cloudacademy/ce-advanced/assets/147478897/66b04752-5b1b-42fc-9663-867a2a5b06d2)
-웹서버도 동일한 방법으로 서버를 생성해 주고 로드밸런서를 설정해 줍니다.
+
 
 #### 3.  LoadBalancer 
 
