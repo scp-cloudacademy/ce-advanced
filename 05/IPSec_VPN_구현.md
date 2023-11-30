@@ -7,10 +7,10 @@ VMware Workstation Pro 설치</br>
 
 
 ```bash
-sudo 
-sudo systemctl status firewalld
-sudo systemctl start firewalld
-sudo systemctl enable firewalld
+
+systemctl status firewalld
+systemctl start firewalld
+systemctl enable firewalld
 ```
 
 </br>
@@ -18,9 +18,9 @@ sudo systemctl enable firewalld
 <h3>02. Port오픈</h3>
 
 ```bash
-sudo firewall-cmd --zone=public --add-port=3389/tcp --permanent
-sudo firewall-cmd --reload
-sudo firewall-cmd --list-ports
+firewall-cmd --zone=public --add-port=3389/tcp --permanent
+firewall-cmd --reload
+firewall-cmd --list-ports
 ```
 </br>
 
@@ -39,12 +39,13 @@ sudo yum install strongswan
 </br>
 
 <h3>04. VPN 생성</h3>
+모든 상품 - Networjing - VPN - VPN 에서 상품 신청
 
 ```bash
 VPN Gateway명 : VPNce
 QoS 대역폭 : 10 Mbps
-Public IP : 123.37.255.139		# VPN 에서 사용하는 Public IP
-Local subnet IP : 192.168.50.0/24	# VPN Gateway가 사용할 Local subnet 대역
+Public IP : 자동 할당	         	# VPN 에서 사용하는 Public IP
+Local subnet IP : 10.100.0.0/24	        # VPN Gateway가 사용할 Local subnet 대역
 ```
 
 </br>
@@ -55,11 +56,11 @@ Local subnet IP : 192.168.50.0/24	# VPN Gateway가 사용할 Local subnet 대역
 # 필수 정보 입력
 VPN Gateway : VPNce
 VPN Tunnel명 : VPNTunnelce
-Peer VPN GW IP : 121.166.171.190  	# VMware Public IP
+Peer VPN GW IP : My PC Public IP  	# VMware Public IP (Google - What is my ip)
 Local tunnel IP : 169.254.200.6/30	# VPN Tunnel 인터페이스에 할당하는 IP 주소
-Peer tunnel IP : 169.254.200.5		# 상대방 VPN Gateway의 VPN Tunnel 인터페이스에 할당하는 IP 주소
-Remote subnet : 192.168.45.0/24   	# VMware Subnet IP대역
-Pre-shared key :			# VPN Gateway간 IKE 상호 인증에 사용할 공유키
+Peer tunnel IP : 자동 설정		# 상대방 VPN Gateway의 VPN Tunnel 인터페이스에 할당하는 IP 주소
+Remote subnet :  직접 입력        	# Local VM에서 $ Ip addr 실행 후 Broadcast 에 사용하는 nic의 inet 정보 기입(예, inet 192.168.139.0/24 
+Pre-shared key : 8-64자리 영숫자 임의 설정 	# VPN Gateway간 IKE 상호 인증에 사용할 공유키
 
 # IKE 추가 설정
 IKE version : IKE_V2
@@ -101,7 +102,9 @@ vi /etc/sysctl.conf				# 경로
 net.ipv4.ip_forward = 1 			# IP포워딩 활성화 (리눅스 시스템이 다른 네트워크로 패킷을 전달 할 수 있게 도와줌)
 net.ipv4.conf.all.accept_redirects = 0 		# ICMP Redirect 메시지를 수락하지 않도록 설정 (보안강화 및 중간자 공격을 방지)
 net.ipv4.conf.all.send_redirects = 0		# ICMP Redirect 메시지를 보내지 않도록 설정 (보안강화)
-
+```
+esc 입력 후 wq! 로 vi 저장 후 나옴.
+```
 sysctl -p 					# 설정값 적용
 ```
 
@@ -118,11 +121,11 @@ config setup
 	charondebug="cfg 2, ike 2, knl 2"
 
 conn SCP-VPN
-	left=192.168.45.131		# VMware Private IP
-	leftid=121.166.171.190		# Local Public IP
-	right=123.37.255.139		# VPN Public IP
-	rightsubnet=192.168.50.0/24	# VPN Local Subnet (CIDR)
-	leftsubnet=192.168.45.0/24   	# VMware Subnet IP
+	left=CentOS Private IP  	# CentOS에서 $ifconfig 조회
+	leftid=My PC Public IP		# Google What is my IP
+	right=123.37.255.139		# VPN Public IP (SCP VPN 콘솔 상세정보에서 Public IP 확인) 
+	rightsubnet=192.168.50.0/24	# SCP Local Subnet IP 대역(SCP VPN 콘솔 상세정보에서 Local Subnet 확인) 
+	leftsubnet=CentOS Private IP대역 # CentOS에서 $ifconfig 조회
 	ike=aes256-sha256-modp1024!
 	keyexchange=ikev2
 	reauth=yes
@@ -147,8 +150,12 @@ conn SCP-VPN
 
 ```bash
 vi /etc/strongswan/ipsec.secrets	# 경로
+```
+vi 에서 아래의 정보를 순서대로 추가
 
-192.168.45.131 123.37.255.139 121.166.171.190 : PSK "########"
+예시) 192.168.45.131 123.37.255.139 121.166.171.190 : PSK "abcde1234"
+
+```
 [VMware Private IP]  [VPN Public IP] [Local Public IP] : PSK "Password"
 ```
 
@@ -171,7 +178,7 @@ strongswan statusall	# 연결이 안될경우 reboot
 <h3>10. Security Group 규칙생성</h3>
 
 ```bash
-  Inbound : 3389 Port (121.166.171.190,192.168.45.131)	# [VMware Public IP],[VMware Private IP]
+  Inbound : 3389,22 Port (CentOS Private IP)	# [VMware Public IP],[VMware Private IP]
 ```
 
 </br>
