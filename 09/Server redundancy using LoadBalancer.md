@@ -15,6 +15,10 @@
 ![image](https://github.com/scp-cloudacademy/ce-advanced/assets/147478897/e6287b52-2df7-48a0-9acc-7d8e99448a5c)
 신청정보를 입력하고 나서 확인 후 완료를 누르면 기존에 생성한 웹서버와 동일한 VM이 추가로 생성이 된다.</br>
 ![image](https://github.com/scp-cloudacademy/ce-advanced/assets/147478897/ab5286ef-8edd-4c4d-bc05-c7059208afae)
+![image](https://github.com/scp-cloudacademy/ce-advanced/assets/147478897/5cdbd984-3cf2-4a31-bd36-88c0b0b7eef3)
+![image](https://github.com/scp-cloudacademy/ce-advanced/assets/147478897/9dee6a66-5891-4496-be65-e57550f732e7)
+</br> 모든 과정이 끝난 후 custom image로 생성된 vm을 확인할 수 있다.
+![image](https://github.com/scp-cloudacademy/ce-advanced/assets/147478897/66b04752-5b1b-42fc-9663-867a2a5b06d2)
 
 
 웹,앱 서버 모두 서버를 만들고 나서 LoadBalancer 설정을 한다.
