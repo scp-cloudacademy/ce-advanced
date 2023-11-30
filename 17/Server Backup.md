@@ -14,4 +14,4 @@ Backup명, Backup 대상, 보관기간 등 필수정보와 Backup 스케줄을 �
 Backup 복구대상 탭에서는 Backup 파일을 선택하여 Restore를 진행 가능
 
 ![image](https://github.com/scp-cloudacademy/ce-advanced/assets/147478897/a5b37837-652a-4ad8-9cd8-4aef9a8d393e)<br>
-Restore될 Virtual Server의 이름을 입력하면 원본과 동일한 위치에 생성됨
+Restore될 Virtual Server의 이름을 입력하면 원본 Virtual Server와 동일한 위치에 생성됨
