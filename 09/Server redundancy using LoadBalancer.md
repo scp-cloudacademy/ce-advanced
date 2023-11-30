@@ -1,6 +1,6 @@
 #### 1. Custom Image 생성하기
 
-기존에 생성한 웹, 앱 virtual Ser의 Custom Image를 생성헙니다.</br>
+기존에 생성한 웹, 앱 virtual Ser의 Custom Image를 생성합니다.</br>
 ![image](https://github.com/scp-cloudacademy/ce-advanced/assets/147478897/db6906f5-3441-402f-b8d4-3e213d978645)
 ![image](https://github.com/scp-cloudacademy/ce-advanced/assets/147478897/731b873a-cd29-49d4-998a-7b6ca7f6eb36)
 이미지 명을 정하고, 완료를 누릅니다.</br>
