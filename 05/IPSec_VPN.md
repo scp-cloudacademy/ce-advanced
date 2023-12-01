@@ -56,10 +56,10 @@ Local subnet IP : 10.100.0.0/24	        # VPN Gateway가 사용할 Local subnet 
 # 필수 정보 입력
 VPN Gateway : VPNce
 VPN Tunnel명 : VPNTunnelce
-Peer VPN GW IP : My PC Public IP  	# VMware Public IP (Google - What is my ip)
-Local tunnel IP : 169.254.200.6/30	# VPN Tunnel 인터페이스에 할당하는 IP 주소
-Peer tunnel IP : 자동 설정		# 상대방 VPN Gateway의 VPN Tunnel 인터페이스에 할당하는 IP 주소
-Remote subnet :  직접 입력        	# Local VM에서 $ Ip addr 실행 후 Broadcast 에 사용하는 nic의 inet 정보 기입(예, inet 192.168.139.0/24 
+Peer VPN GW IP : My PC Public IP  		# VMware Public IP (Google - What is my ip)
+Local tunnel IP : 169.254.200.6/30		# VPN Tunnel 인터페이스에 할당하는 IP 주소
+Peer tunnel IP : 자동 설정			# 상대방 VPN Gateway의 VPN Tunnel 인터페이스에 할당하는 IP 주소
+Remote subnet :  직접 입력        		# Local VM에서 $ Ip addr 실행 후 Broadcast 에 사용하는 nic의 inet 정보 기입(예, inet 192.168.139.0/24 
 Pre-shared key : 8-64자리 영숫자 임의 설정 	# VPN Gateway간 IKE 상호 인증에 사용할 공유키
 
 # IKE 추가 설정
@@ -103,7 +103,7 @@ net.ipv4.ip_forward = 1 			# IP포워딩 활성화 (리눅스 시스템이 다�
 net.ipv4.conf.all.accept_redirects = 0 		# ICMP Redirect 메시지를 수락하지 않도록 설정 (보안강화 및 중간자 공격을 방지)
 net.ipv4.conf.all.send_redirects = 0		# ICMP Redirect 메시지를 보내지 않도록 설정 (보안강화)
 ```
-esc 입력 후 wq! 로 vi 저장 후 나옴.
+Esc 입력 후 wq! 로 Vi 저장 후 나옴.
 ```
 sysctl -p 					# 설정값 적용
 ```
@@ -121,11 +121,11 @@ config setup
 	charondebug="cfg 2, ike 2, knl 2"
 
 conn SCP-VPN
-	left=CentOS Private IP  	# CentOS에서 $ifconfig 조회
-	leftid=My PC Public IP		# Google What is my IP
-	right=123.37.255.139		# VPN Public IP (SCP VPN 콘솔 상세정보에서 Public IP 확인) 
-	rightsubnet=192.168.50.0/24	# SCP Local Subnet IP 대역(SCP VPN 콘솔 상세정보에서 Local Subnet 확인) 
-	leftsubnet=CentOS Private IP대역 # CentOS에서 $ifconfig 조회
+	left=CentOS Private IP  		# CentOS에서 $ifconfig 조회
+	leftid=My PC Public IP			# Google What is my IP
+	right=123.37.255.139			# VPN Public IP (SCP VPN 콘솔 상세정보에서 Public IP 확인) 
+	rightsubnet=192.168.50.0/24	 	# SCP Local Subnet IP 대역(SCP VPN 콘솔 상세정보에서 Local Subnet 확인) 
+	leftsubnet=CentOS Private IP대역	# CentOS에서 $ifconfig 조회
 	ike=aes256-sha256-modp1024!
 	keyexchange=ikev2
 	reauth=yes
@@ -255,6 +255,7 @@ lo: flags=73<UP,LOOPBACK,RUNNING>  mtu 65536
 <h3>12. 연결된 Virtual Server 내부 설정(Linux 설정)</h3>
 
 아래의 명령어를 실행해서 이더넷 구성 설정
+
 예시) sudo vi /etc/sysconfig/network-scripts/ifcfg-ens224
 
 ```
@@ -264,19 +265,22 @@ sudo vi /etc/sysconfig/network-scripts/ifcfg-[새로 생성된 네트워크 어�
 ```
 TYPE=Ethernet
 BOOTPROTO=static
-IPADDR=Local Sunbet에서 할당 받은 IP (예, 10.100.10.2)
+IPADDR=[Local Sunbet에서 할당 받은 IP] (예, 10.100.10.2)
 PREFIX=24
 NAME=ens224
 DEVICE=ens224
 ONBOOT=yes
 ```
+</br>
 네트워크 라우팅 설정
+
 예시) vi /etc/sysconfig/network-scripts/route-ens224
 
 ```
 vi /etc/sysconfig/network-scripts/route-[새로 생성된 네트워크 어댑터 명]
 ```
 아래의 항목을 추가
+
 예시) 192.168.139.0/24 via 10.100.0.1
 
 ```
