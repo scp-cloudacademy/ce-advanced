@@ -1,5 +1,4 @@
 #### 1. launch Configuration 생성
-
 오토스케일용 wwb, app 서버의 커스텀 이미지를 생성해줍니다.</br>
 ![image](https://github.com/scp-cloudacademy/ce-advanced/assets/147478897/114fb95c-7b25-497d-a1ab-943b66d2e6c1)
 생성이 끝이나면 Launch Configuration 생성합니다.</br>
