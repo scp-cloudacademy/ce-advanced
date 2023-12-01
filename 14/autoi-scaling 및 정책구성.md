@@ -17,4 +17,17 @@
 ![image](https://github.com/scp-cloudacademy/ce-advanced/assets/147478897/84d12a21-a026-442c-8086-aedaef7d0eb5)
 생성한 Launch Configuration을 선택 후 다음버튼을 클릭합니다.</br>
 ![image](https://github.com/scp-cloudacademy/ce-advanced/assets/147478897/720d3df1-d6f7-49c7-bd2c-484e46b2038a)
+필수정보를 입력하고 다음을 클릭합니다.</br>
+서버수는 최소 2대, 목표 2대, 최대 4대로 지정을하고, LoadBalancer에 사용체크를 하고, 미리 생성해둔 LB서비스를 지정해 줍니다.
+![image](https://github.com/scp-cloudacademy/ce-advanced/assets/147478897/762244cd-8182-48aa-9d10-a69b94bb0fc1)
+다음으로 넘어가면 Scaling 정책, 스케쥴, 알림설정등이 있지만, 추후 추가할 예정이므로, 나중에 설정을 선택 후 다음으로 넘어갑니다.
+![image](https://github.com/scp-cloudacademy/ce-advanced/assets/147478897/37600344-3e6b-41e8-9b20-b774aa1f8d13)
+![image](https://github.com/scp-cloudacademy/ce-advanced/assets/147478897/64116bbb-4979-4b38-96e7-80e4772707b2)
+![image](https://github.com/scp-cloudacademy/ce-advanced/assets/147478897/e9b77a1a-c6ab-409f-97f3-08fec503844f)
+신청정보를 확인 후 완료를 눌러줍니다. 그리고 나면 신청한 오토 스케일링을 확인할 수 있습니다.
+![image](https://github.com/scp-cloudacademy/ce-advanced/assets/147478897/a936926c-6e34-47f0-a096-74b1b3bec23b)
+![image](https://github.com/scp-cloudacademy/ce-advanced/assets/147478897/04e9bdf5-58fc-48f8-ab29-77a64b8b2371)
+
+#### 3. Saling 정책
+###### 3.1 Scale-Out 정책
 
