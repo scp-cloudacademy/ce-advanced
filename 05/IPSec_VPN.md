@@ -254,7 +254,13 @@ lo: flags=73<UP,LOOPBACK,RUNNING>  mtu 65536
 
 <h3>12. 연결된 Virtual Server 내부 설정(Linux 설정)</h3>
 
-아래의 명령어를 실행해서 이더넷 구성 설정
+가상 머신연결 후 새로 생성된 어댑터의 네트워크 및 라우팅 설정이 필요함
+
+</br>
+
+<h3>12-1. 아래의 명령어를 실행해서 이더넷 네트워크 설정</h3>
+
+</br>
 
 예시) sudo vi /etc/sysconfig/network-scripts/ifcfg-ens224
 
@@ -272,7 +278,10 @@ DEVICE=ens224
 ONBOOT=yes
 ```
 </br>
-네트워크 라우팅 설정
+
+<h3>12-2. 네트워크 라우팅 설정</h3>
+
+</br>
 
 예시) vi /etc/sysconfig/network-scripts/route-ens224
 
@@ -282,8 +291,7 @@ vi /etc/sysconfig/network-scripts/route-[새로 생성된 네트워크 어댑터
 아래의 항목을 추가
 
 예시) 192.168.139.0/24 via 10.100.0.1
-```
-192.168.139.0/24 via 10.100.0.1
+```bash
 [CentOS Subnt 대역] via [SCP VPN Gateway IP(VPN-Local Sunbet에서 조회)]
 ```
 ```
@@ -292,7 +300,10 @@ vi /etc/sysconfig/network-scripts/route-[새로 생성된 네트워크 어댑터
 systemctl restart network
 ```
 </br>
-VMware Workstation Pro의 다른 VM에서 원격접속 
+
+<h3>12-3. VMware Workstation Pro의 다른 VM에서 원격접속 설정</h3>
+
+</br>
 
 VM에서 다음 명령어 입력
 
@@ -303,7 +314,9 @@ ip route
 ssh vmuser@[SCP에 VPN 연결한 Virtual Server의 Local Subnet IP]
 ```
 
-Local PC에서 테스트(Powershell 관리자 모드로 실행)
+<h3>12-4. Local PC에서 테스트(Powershell 관리자 모드로 실행)</h3>
+
+</br>
 
 예시) route add 10.100.0.0 MASK 255.255.255.0 192.168.139.1 METRIC 1
 
@@ -316,6 +329,14 @@ route print
 
 <h3>13. 연결된 Virtual Server 내부 설정(Windows Server 설정)</h3>
 
+가상 머신연결 후 새로 생성된 어댑터의 네트워크 및 라우팅 설정이 필요함
+
+</br>
+
+<h3>13-1. 새로 생성된 어댑터 네트워크 설정</h3>
+
+</br>
+
 ```bash
 1. c:\> ipconfig/all	# VPN용 네트워크 어댑터 정보를 확인(VPN 연결 추가시 새로 생성됨)
 2. Search > Control Panel > Network and internet > Network and sharing Center > Change adapter settings > VPN용 어댑터 확인 후 속성
@@ -327,6 +348,11 @@ route print
 ```
 
 </br>
+
+<h3>13-2. 라우팅 설정</h3>
+
+</br>
+
 CMD창에서 다음 명령어 입력
 
 예시) route add 192.168.139.0 mask 255.255.255.0 10.100.0.1
@@ -334,12 +360,14 @@ CMD창에서 다음 명령어 입력
 route add [CentOS Subnt 대역] MASK 255.255.255.0 [SCP VPN Gateway IP(VPN-Local Sunbet에서 조회)]
 ```
 
+</br>
+
 <h1>VMware</h1>
 </br>
 </br>
 </br>
 
-<h3>13. Linux -> Windows RDP 연결 환경 세팅</h3>
+<h3>14. Linux -> Windows RDP 연결 환경 세팅</h3>
 
 ```bash
 # GUI GroupInstall
@@ -364,7 +392,7 @@ reboot
 
 </br>
 
-<h3>14. 원격 접속 설정</h3>
+<h3>15. 원격 접속 설정</h3>
 
 ```bash
 # XRDP Install
@@ -375,7 +403,7 @@ sudo systemctl enable xrdp && systemctl start xrdp
 
 </br>
 
-<h3>15. rdesktop 설치</h3>
+<h3>16. rdesktop 설치</h3>
 
 ```bash
 # 컴파일러와 openssl-devel 이 패키지 컴파일 선행조건입니다.
@@ -388,7 +416,7 @@ sudo systemctl enable xrdp && systemctl start xrdp
  make install
 ```
 
-<h3>16. VMware -> Virtual Server 접속</h3>
+<h3>17. VMware -> Virtual Server 접속</h3>
 
 ```bash
 rdesktop -u vmuser 192.168.50.2	# rdesktop -u [User] [ip]
