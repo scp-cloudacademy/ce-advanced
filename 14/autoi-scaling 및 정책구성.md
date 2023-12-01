@@ -1,4 +1,4 @@
-#### 1. launch Configuration 생성
+### 1. launch Configuration 생성
 오토스케일용 wwb, app 서버의 커스텀 이미지를 생성해줍니다.</br>
 ![image](https://github.com/scp-cloudacademy/ce-advanced/assets/147478897/114fb95c-7b25-497d-a1ab-943b66d2e6c1)
 생성이 끝이나면 Launch Configuration 생성합니다.</br>
@@ -10,7 +10,7 @@
 ![image](https://github.com/scp-cloudacademy/ce-advanced/assets/147478897/76e60076-9642-4ff6-8065-97e8c88767e7)
 ![image](https://github.com/scp-cloudacademy/ce-advanced/assets/147478897/b0186486-70f0-4c85-8bd4-6fb287aa18c8)
 
-#### 2. Auto-Scaling 생성하기
+### 2. Auto-Scaling 생성하기
 로드밸런서 생성 전, Auto-Scale에 적용할 LB서비스를 먼저 생성합니다.</br>
 이전실습과 동일한 과정으로 생성하면 되고, 차이점이 있다면 서버그룹은 미지정으로 하고 생성을 합니다.</br>
 모든상품 ▶ Auto-Scaling ▶ 상품신청을 클릭합니다.
@@ -28,8 +28,8 @@
 ![image](https://github.com/scp-cloudacademy/ce-advanced/assets/147478897/a936926c-6e34-47f0-a096-74b1b3bec23b)
 ![image](https://github.com/scp-cloudacademy/ce-advanced/assets/147478897/04e9bdf5-58fc-48f8-ab29-77a64b8b2371)
 
-#### 3. Saling 정책
-###### 3.1 Scale-Out 정책
+### 3. Saling 정책
+##### 3.1 Scale-Out 정책
 생성한 오토스케일의 상세정보에서 정책탭을 누르고, 정책추가를 눌러줍니다.
 ![image](https://github.com/scp-cloudacademy/ce-advanced/assets/147478897/cbf1765f-6268-4c3a-9086-d7f4053fea1a)
 실행조건을 설정하고 확인을 클릭합니다.
@@ -37,7 +37,7 @@
 생성이 되고, 시간이 지나면 scale-out상태로 변경되며, virtual Server탭을 클릭하면, 서버 대수가 지정한 대 수만큼 늘어남을 확인할 수 있습니다.
 ![image](https://github.com/scp-cloudacademy/ce-advanced/assets/147478897/7af5e7ad-58bf-4a12-be06-a92d61cec342)
 
-###### 3.2 Scale-In 정책
+##### 3.2 Scale-In 정책
 서버가 정책에 맞게 생성됨을 확인하고 이제, 줄어드는 정책을 생성합니다. 정책을 생성하기 전, scale-out 정책은 삭제를 해줍니다.
 ![image](https://github.com/scp-cloudacademy/ce-advanced/assets/147478897/dcecbdec-133d-4cfe-8f86-fc970119589c)
 정책이 삭제가 되면 이번엔 Scale-in 정책을 설정해 줍니다.
