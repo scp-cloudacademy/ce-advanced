@@ -53,9 +53,8 @@ Auto-scaling 상세에서 스케쥴 버튼을 클릭하여 스케쥴 추가를 �
 ![image](https://github.com/scp-cloudacademy/ce-advanced/assets/147478897/62bd84ab-8ce3-4412-9232-51759a9e37a9)
 ![image](https://github.com/scp-cloudacademy/ce-advanced/assets/147478897/0f582fda-89c3-41e7-ad19-b4ccf8328405)
 
-Auto-scale이 적용여부는 상세화면에서 이벤트탭에 들어가면, 확인할 수 있습니다.
-![image](https://github.com/scp-cloudacademy/ce-advanced/assets/147478897/326337c9-e692-4f24-a679-7900442acb18)
-
+Auto-scaling 상세 화면에서 이벤트탭에 들어가보면 설정한 스케쥴 주기에 맞춰 이벤트 실행함을 확인하실수 있으며,
+이전에 Scale-out/scale-in 정책이 실행된 결과도 확인하실수 있습니다.
 
 
 
