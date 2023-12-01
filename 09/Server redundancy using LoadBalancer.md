@@ -55,8 +55,7 @@ Firewall 사용은 모두 해제를 합니다. 모든 설정이 끝나면 다음
 서버그룹은 미리 생성한 그룹으로 설정을 하과 다음버튼을 누릅니다.</br>
 ![image](https://github.com/scp-cloudacademy/ce-advanced/assets/147478897/742bd48e-7456-4370-af98-67830064f6ef)
 신청정보를 확인 후 완료를 눌러 서비스를 생성해 줍니다.</br>
-![image](https://github.com/scp-cloudacademy/ce-advanced/assets/147478897/7f84aca0-3038-4392-b2ee-8604215bb186)
-![image](https://github.com/scp-cloudacademy/ce-advanced/assets/147478897/e09fb85a-c258-4744-ad5d-5dd42a316b3d)
+![image](https://github.com/scp-cloudacademy/ce-advanced/assets/147478897/8e9f25d6-0edf-475e-acf6-390d4a8ba357)
 서비스 상태가 완료가 되면 Active상태로 되었다가 시간이 조금 지나면, up 상태로 활성화 됩니다..
 ![image](https://github.com/scp-cloudacademy/ce-advanced/assets/147478897/8836b9ca-feb2-4cd5-8c13-96334a15428c)
 서비스 상세정보를 보면 설정한 포트와 함께, 서버그룹에 포함된 2개의 서비스 상태가 up임을 확인할 수 있습니다.
