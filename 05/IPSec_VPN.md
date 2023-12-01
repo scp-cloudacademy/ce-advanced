@@ -314,6 +314,8 @@ ip route
 ssh vmuser@[SCP에 VPN 연결한 Virtual Server의 Local Subnet IP]
 ```
 
+</br>
+
 <h3>12-4. Local PC에서 테스트(Powershell 관리자 모드로 실행)</h3>
 
 </br>
