@@ -37,9 +37,12 @@ Firewall 사용은 모두 해제를 합니다. 모든 설정이 끝나면 다음
 생성이 끝이나면 Firewall과 Security Group에 규칙을 추가해 줍니다.</br>
 1) Firewall 규칙추가
    인터넷에서 로드밸런서 IP로 인바운드 규칙을 생성합니다. (http,https 포트)
+   ![image](https://github.com/scp-cloudacademy/ce-advanced/assets/147478897/91aee9a9-4646-41bf-885f-0a0c30d71d52)
+
 2) Security Group 규칙추가
    Load Balancer는 VPC 내부의 자원들과 통신하기 위한 내부IP 즉 LB Link IP를 가지고 있습니다.</br>
    따라서 웹서버와 앱이 통신을 하기 위해 Security 규칙에 Link IP 인바운드를 허용해야 합니다.</br>
+
 우선 LoadBalancer 상세화면에서 LinkIP를 확인합니다.
 ![image](https://github.com/scp-cloudacademy/ce-advanced/assets/147478897/d67fb46b-0c23-4c19-948d-981994bf0e8e)
 
