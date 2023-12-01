@@ -59,7 +59,7 @@ Firewall 사용은 모두 해제를 합니다. 모든 설정이 끝나면 다음
 ![image](https://github.com/scp-cloudacademy/ce-advanced/assets/147478897/e09fb85a-c258-4744-ad5d-5dd42a316b3d)
 서비스 상태가 완료가 되면 Active상태로 되었다가 시간이 조금 지나면, up 상태로 활성화 됩니다..
 ![image](https://github.com/scp-cloudacademy/ce-advanced/assets/147478897/8836b9ca-feb2-4cd5-8c13-96334a15428c)
-서비스 상세정보를 보면 설정한 포트와 함께, 서버그룹에 포함된 2개의 서비스 상태가 up임을 확인할 수 있습니.
+서비스 상세정보를 보면 설정한 포트와 함께, 서버그룹에 포함된 2개의 서비스 상태가 up임을 확인할 수 있습니다.
 
 
 
