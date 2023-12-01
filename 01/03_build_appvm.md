@@ -63,5 +63,5 @@ PHP 버전 정보 숨기기
 
     cd /etc/php-fpm.d/www.conf
 
-    https://github.com/scp-cloudacademy/ce-advanced/raw/main/01/was.tar
+    wget https://github.com/scp-cloudacademy/ce-advanced/raw/main/01/was.tar
 
