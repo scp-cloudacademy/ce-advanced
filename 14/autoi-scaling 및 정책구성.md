@@ -45,7 +45,17 @@
 완료를 눌러 생성이 됨을 확인하고, 시간이 지나면, virtual server수가 감소함을 확인할 수 있습니다.
 ![image](https://github.com/scp-cloudacademy/ce-advanced/assets/147478897/2077a6bb-9acd-47de-a140-e65526994e91)
 일정 시간이 되면 최소 대수만 남은것을 확인할 수 있습니다.
-![image](https://github.com/scp-cloudacademy/ce-advanced/assets/147478897/efa0e7ac-4536-4b02-94fb-50b94a2677aa)
+![image](https://github.com/scp-cloudacademy/ce-advanced/assets/147478897/7f9a8c39-6684-46ca-bc6e-d25769b268ed)
+
+##### 3.3 Schedule 정책
+Auto-scaling 상세에서 스케쥴 버튼을 클릭하여 스케쥴 추가를 눌러줍니다.</br>
+서버수 및 주기, 시간대를 정하고 확인을 누르면 생성됨을 확인할 수 있습니다.
+![image](https://github.com/scp-cloudacademy/ce-advanced/assets/147478897/62bd84ab-8ce3-4412-9232-51759a9e37a9)
+![image](https://github.com/scp-cloudacademy/ce-advanced/assets/147478897/0f582fda-89c3-41e7-ad19-b4ccf8328405)
+
+
+
+
 
 
 
