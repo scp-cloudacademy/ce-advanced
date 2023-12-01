@@ -30,4 +30,23 @@
 
 #### 3. Saling 정책
 ###### 3.1 Scale-Out 정책
+생성한 오토스케일의 상세정보에서 정책탭을 누르고, 정책추가를 눌러줍니다.
+![image](https://github.com/scp-cloudacademy/ce-advanced/assets/147478897/cbf1765f-6268-4c3a-9086-d7f4053fea1a)
+실행조건을 설정하고 확인을 클릭합니다.
+![image](https://github.com/scp-cloudacademy/ce-advanced/assets/147478897/12d88d5e-4686-4f7b-8ee0-77ec6ac53633)
+생성이 되고, 시간이 지나면 scale-out상태로 변경되며, virtual Server탭을 클릭하면, 서버 대수가 지정한 대 수만큼 늘어남을 확인할 수 있습니다.
+![image](https://github.com/scp-cloudacademy/ce-advanced/assets/147478897/7af5e7ad-58bf-4a12-be06-a92d61cec342)
+
+###### 3.2 Scale-In 정책
+서버가 정책에 맞게 생성됨을 확인하고 이제, 줄어드는 정책을 생성합니다. 정책을 생성하기 전, scale-out 정책은 삭제를 해줍니다.
+![image](https://github.com/scp-cloudacademy/ce-advanced/assets/147478897/dcecbdec-133d-4cfe-8f86-fc970119589c)
+정책이 삭제가 되면 이번엔 Scale-in 정책을 설정해 줍니다.
+![image](https://github.com/scp-cloudacademy/ce-advanced/assets/147478897/8491bf0f-b7dc-405e-b455-c29bd8814b5b)
+완료를 눌러 생성이 됨을 확인하고, 시간이 지나면, virtual server수가 감소함을 확인할 수 있습니다.
+![image](https://github.com/scp-cloudacademy/ce-advanced/assets/147478897/2077a6bb-9acd-47de-a140-e65526994e91)
+일정 시간이 되면 최소 대수만 남은것을 확인할 수 있습니다.
+![image](https://github.com/scp-cloudacademy/ce-advanced/assets/147478897/efa0e7ac-4536-4b02-94fb-50b94a2677aa)
+
+
+
 
