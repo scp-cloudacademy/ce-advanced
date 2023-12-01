@@ -97,8 +97,12 @@ server {
 ```
 
 ```
-
+firewall-cmd --zone=public --permanent --add-port=22/tcp    # 22번 포트 오픈
+firewall-cmd --zone=public --permanent --add-port=80/tcp    # 80번 포트 오픈
+firewall-cmd --reload                                       # 리로드
+firewall-cmd --zone=public --list-all                       # 리스트 불러오기
 ```
+
 ```
 ```
 
