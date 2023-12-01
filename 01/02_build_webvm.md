@@ -39,7 +39,7 @@ Type [ESC] key and type :wq! to exit
 Install NGINX
 
 ```
-yum install nginx
+yum install nginx -y
 systemctl stop nginx
 ```
 
