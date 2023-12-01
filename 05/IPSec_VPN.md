@@ -314,7 +314,7 @@ route print
 
 </br>
 
-<h3>12. 연결된 Virtual Server 내부 설정(Windows Server 설정)</h3>
+<h3>13. 연결된 Virtual Server 내부 설정(Windows Server 설정)</h3>
 
 ```bash
 1. c:\> ipconfig/all	# VPN용 네트워크 어댑터 정보를 확인(VPN 연결 추가시 새로 생성됨)
@@ -327,6 +327,12 @@ route print
 ```
 
 </br>
+CMD창에서 다음 명령어 입력
+
+예시) route add 192.168.139.0 mask 255.255.255.0 10.100.0.1
+```bash
+route add [CentOS Subnt 대역] MASK 255.255.255.0 [SCP VPN Gateway IP(VPN-Local Sunbet에서 조회)]
+```
 
 <h1>VMware</h1>
 </br>
