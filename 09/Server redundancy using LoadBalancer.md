@@ -1,4 +1,5 @@
-![image](https://github.com/scp-cloudacademy/ce-advanced/assets/147478897/f37235d1-a9c2-4d1e-82ce-bf17bb157faa)#### 1. Custom Image 생성하기
+#### 1. Custom Image 생성하기
+![image](https://github.com/scp-cloudacademy/ce-advanced/assets/147478897/f37235d1-a9c2-4d1e-82ce-bf17bb157faa)
 
 기존에 생성한 웹, 앱 virtual Ser의 Custom Image를 생성합니다.</br>
 ![image](https://github.com/scp-cloudacademy/ce-advanced/assets/147478897/db6906f5-3441-402f-b8d4-3e213d978645)
