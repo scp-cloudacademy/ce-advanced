@@ -282,19 +282,20 @@ vi /etc/sysconfig/network-scripts/route-[새로 생성된 네트워크 어댑터
 아래의 항목을 추가
 
 예시) 192.168.139.0/24 via 10.100.0.1
-
+```
+192.168.139.0/24 via 10.100.0.1
+[CentOS Subnt 대역] via [SCP VPN Gateway IP(VPN-Local Sunbet에서 조회)]
+```
 ```
 네트워크 재설정 명령
 
-'''
 systemctl restart network
-'''
-
-[CentOS Subnt 대역] via [SCP VPN Gateway IP(VPN-Local Sunbet에서 조회)]
 ```
+</br>
 VMware Workstation Pro의 다른 VM에서 원격접속 
 
 VM에서 다음 명령어 입력
+
 예시) ip route add 10.100.0.0/24 via 192.168.139.129
 ```
 ip route add [SCP Local Subnet IP 대역] via [Strongswan VPN을 구성한 VM의 Private IP]
@@ -302,7 +303,7 @@ ip route
 ssh vmuser@[SCP에 VPN 연결한 Virtual Server의 Local Subnet IP]
 ```
 
-Local PC에서 테스트(Powershell 관리자 모드로 실행]
+Local PC에서 테스트(Powershell 관리자 모드로 실행)
 
 예시) route add 10.100.0.0 MASK 255.255.255.0 192.168.139.1 METRIC 1
 
@@ -311,7 +312,7 @@ route add [SCP Local Subnet IP 대역] MASK 255.255.255.0 [Windows 네트워크 
 route print
 ```
 
-
+</br>
 
 <h3>12. 연결된 Virtual Server 내부 설정(Windows Server 설정)</h3>
 
