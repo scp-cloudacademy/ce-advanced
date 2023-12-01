@@ -131,6 +131,7 @@ font-family: Tahoma, Verdana, Arial, sans-serif; }
 cd /usr/share/nginx/html
 wget https://github.com/scp-cloudacademy/ce-advanced/raw/main/01/web.tar
 tar -xvf web.tar
+rm -f web.tar
 sudo systemctl start nginx
 ```
 
