@@ -34,7 +34,17 @@ Firewall 사용은 모두 해제를 합니다. 모든 설정이 끝나면 다음
 ![image](https://github.com/scp-cloudacademy/ce-advanced/assets/147478897/35a8607a-b007-4dcd-8a95-089b1c7a5b51)
 ![image](https://github.com/scp-cloudacademy/ce-advanced/assets/147478897/02d64f09-fbe5-49db-a7b4-2c99e3dd3c79)
 
+생성이 끝이나면 Firewall과 Security Group에 규칙을 추가해 줍니다.</br>
+1) Firewall 규칙추가
+   인터넷에서 로드밸런서 IP로 인바운드 규칙을 생성합니다. (http,https 포트)
+2) Security Group 규칙추가
+   Load Balancer는 VPC 내부의 자원들과 통신하기 위한 내부IP 즉 LB Link IP를 가지고 있습니다.</br>
+   따라서 웹서버와 앱이 통신을 하기 위해 Security 규칙에 Link IP 인바운드를 허용해야 합니다.</br>
+우선 LoadBalancer 상세화면에서 LinkIP를 확인합니다.
+![image](https://github.com/scp-cloudacademy/ce-advanced/assets/147478897/d67fb46b-0c23-4c19-948d-981994bf0e8e)
 
+이제 웹서버 및 앱의 Security Group 규칙에 Link IP의 인바운드 허용규칙을 추가합니다.
+![image](https://github.com/scp-cloudacademy/ce-advanced/assets/147478897/d498127b-cce4-4fbb-a245-ecaee749f550)
 
 
 ##### 3.2 서버그룹 생성하기
