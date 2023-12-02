@@ -3,7 +3,7 @@ VMware Workstation Pro 설치</br>
 실습 PC의 VMware Workstation Pro에서 신규 VM 생성
 </br>
 
-<h3>01. 방화벽 활성화</h3>
+<h3>01. On-premise VM 방화벽 활성화</h3>
 
 
 ```bash
@@ -15,7 +15,7 @@ systemctl enable firewalld
 
 </br>
 
-<h3>02. Port오픈</h3>
+<h3>02. On-premise VM Port오픈</h3>
 
 ```bash
 firewall-cmd --zone=public --add-port=3389/tcp --permanent
@@ -25,7 +25,7 @@ firewall-cmd --list-ports
 ```
 </br>
 
-<h3>03. strongswan 설치</h3>
+<h3>03. On-premise VM strongswan 설치</h3>
 
 ```bash
 sudo yum install epel-release
@@ -34,12 +34,8 @@ sudo yum install strongswan
 
 </br>
 
-<h1>SCP Console</h1>
-</br>
-</br>
-</br>
 
-<h3>04. VPN 생성</h3>
+<h3>04. Samsung Cloud Platform VPN 생성</h3>
 모든 상품 - Networjing - VPN - VPN 에서 상품 신청
 
 ```bash
@@ -51,7 +47,7 @@ Local subnet IP : 10.100.0.0/24	        # VPN Gateway가 사용할 Local subnet 
 
 </br>
 
-<h3>05. VPN Tunnel 생성</h3>
+<h3>05. Samsung Cloud Platform VPN Tunnel 생성</h3>
 
 ```bash
 # 필수 정보 입력
@@ -90,12 +86,7 @@ TCP MSS value : AUTO
 
 </br>
 
-<h1>VMware</h1>
-</br>
-</br>
-</br>
-
-<h3>06. 패킷 포워딩 활성화 설정</h3>
+<h3>06. On-premise VM 패킷 포워딩 활성화 설정</h3>
 
 ```bash
 vi /etc/sysctl.conf				# 경로
@@ -111,7 +102,7 @@ sysctl -p 					# 설정값 적용
 
 </br>
 
-<h3>07. VPN 환경 설정</h3>
+<h3>07. On-premise VM VPN 환경 설정</h3>
 
 ```bash
 vi /etc/strongswan/ipsec.conf		# 경로
@@ -147,7 +138,7 @@ conn SCP-VPN
 
 </br>
 
-<h3>08. VPN 환경 설정</h3>
+<h3>08. On-premise VM VPN 환경 설정</h3>
 
 ```bash
 vi /etc/strongswan/ipsec.secrets	# 경로
@@ -162,7 +153,7 @@ vi 에서 아래의 정보를 순서대로 추가
 
 </br>
 
-<h3>09. IPSec 연결 및 디버깅</h3>
+<h3>09. On-premise VM IPSec 연결 및 디버깅</h3>
 
 ```bash
 strongswan start
@@ -176,7 +167,7 @@ strongswan statusall	# 연결이 안될경우 reboot
 </br>
 </br>
 
-<h3>10. Security Group 규칙 추가/수정</h3>
+<h3>10. Samsung Cloud Platform Security Group 규칙 추가/수정</h3>
 
 ```bash
   Inbound : 3389,22 Port (CentOS Private IP)	# [VMware Public IP],[VMware Private IP]
@@ -184,7 +175,7 @@ strongswan statusall	# 연결이 안될경우 reboot
 
 </br>
 
-<h3>11. VPN에 Virtual Server 연결(Linux)</h3>
+<h3>11. Samsung Cloud Platform VPN에 Virtual Server 연결(Linux)</h3>
 
 SCP에서 VPN 연결할 Virtual Server에 SSH 접속해서 아래의 명령어로 네트워크 정보 확인
 
@@ -259,7 +250,7 @@ lo: flags=73<UP,LOOPBACK,RUNNING>  mtu 65536
 
 </br>
 
-<h3>12-1. 아래의 명령어를 실행해서 이더넷 네트워크 설정</h3>
+<h3>12-1. Samsung Cloud Platform 이더넷 네트워크 설정</h3>
 
 </br>
 
@@ -280,7 +271,7 @@ ONBOOT=yes
 ```
 </br>
 
-<h3>12-2. 네트워크 라우팅 설정</h3>
+<h3>12-2. Samsung Cloud Platform 네트워크 라우팅 설정</h3>
 
 </br>
 
@@ -302,7 +293,7 @@ systemctl restart network
 ```
 </br>
 
-<h3>12-3. VMware Workstation Pro의 다른 VM에서 원격접속 설정</h3>
+<h3>12-3. On-premise의 다른 VM에서 원격접속 설정</h3>
 
 </br>
 
