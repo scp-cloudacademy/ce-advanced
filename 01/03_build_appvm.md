@@ -1,63 +1,114 @@
 # Configure PHP Applicattion Server 
 
+Edit Local domain for php-fpm listening
+
+     if [[ -n "$(hostname -I)" ]]; then
+        echo "$(hostname -I | awk '{print $1}') was.suntaeidea.php4autoscaling" | sudo tee -a /etc/hosts
+     fi
+     sudo systemctl restart NetworkManager
+
 ## Install EPEL and YUM Utilities Package
 
-    yum -y install -y epel-release yum-utils
+    sudo yum -y install -y epel-release yum-utils
 
 ## Install Remi Repo
 
-    yum install -y http://rpms.remirepo.net/enterprise/remi-release-7.rpm
+    sudo yum install -y http://rpms.remirepo.net/enterprise/remi-release-7.rpm
 
 ## Enable PHP 8 Remi Repo
-    yum-config-manager --disable remi-php54
-    yum-config-manager --enable remi-php81
+    sudo yum-config-manager --disable remi-php54
+    sudo yum-config-manager --enable remi-php81
 
-## Install PHP(php-fpm) 8.1 설치
+## Install PHP(php-fpm) 8.1
 
-    yum install -y php php-cli php-common php-devel php-pear php-fpm
-PHP 확장 모듈 추가 설치
+    sudo yum install -y php php-cli php-common php-devel php-pear php-fpm
+    sudo yum install -y php-mysqlnd php-mysql php-mysqli php-zip php-gd php-curl php-xml php-json php-intl php-mbstring php-mcrypt php-posix php-shmop php-soap php-sysvmsg php-sysvsem php-sysvshm php-xmlrpc php-opcache
+    sudo php-fpm -version
 
-    yum install -y php-mysqlnd php-mysql php-mysqli php-zip php-gd php-curl php-xml php-json php-intl php-mbstring php-mcrypt php-posix php-shmop php-soap php-sysvmsg php-sysvsem php-sysvshm php-xmlrpc php-opcache
+## Enabling PHP-FPM 
 
-PHP(php-fpm) 버전 정보 확인
+    sudo systemctl --now enable php-fpm
 
-    php-fpm -version
+## Configuring php.ini
 
-PHP-FPM 서비스 시작 및 활성화
-PHP-FPM 서비스를 시작하고, 부팅 시 자동으로 실행되도록 설정합니다.
+    sudo vi  /etc/php.ini
+    
+Include the lines in the end of php.ihi
 
-    systemctl --now enable php-fpm
+    [Database]
+    mysql.host=db.cesvc.net
+    mysql.username=vmuser
+    mysql.passwd=VMuser1@
+    mysql.dbname=cosmetic
+    mysql.port=3306
 
-PHP 설정 파일 위치 확인
-php.ini 파일 경로 찾기
-
-    php --ini | egrep "Loaded Configuration File"
-
-Loaded Configuration File:         /etc/php.ini
-
-    vi  /etc/php.ini
-
-PHP 버전 정보 숨기기
+## (Option) Hiding PHP version info
 
     sed -i "s/expose_php = On/expose_php = Off/g" /etc/php.ini
 
+## Configuring PHP-FPM
 
     vi /etc/php-fpm.d/www.conf
 
-설정 변경
+- Change the parameters in the listed lines
 
-if [[ -n "$(hostname -I)" ]]; then
-    echo "$(hostname -I | awk '{print $1}') was.suntaeidea.php4autoscaling" | sudo tee -a /etc/hosts
-fi
-sudo systemctl restart NetworkManager
+; Unix user/group of processes
 
-```
+; Note: The user is mandatory. If the group is not set, the default user's group
 
-```
+;       will be used.
 
-    mkdir /usr/share/nginx
-    mkdir /usr/share/nginx/html
-    cd /usr/share/nginx/html
+; RPM: apache user chosen to provide access to the same directories as httpd
+
+    user = vmuser
+    
+; RPM: Keep a group allowed to write in log dir.
+
+    group = vmuser
+    
+; The address on which to accept FastCGI requests.
+
+; Valid syntaxes are:
+
+;   'ip.add.re.ss:port'    - to listen on a TCP socket to a specific IPv4 address on
+
+;                            a specific port;
+
+;   '[ip:6:addr:ess]:port' - to listen on a TCP socket to a specific IPv6 address on
+
+;                            a specific port;
+
+;   'port'                 - to listen on a TCP socket to all addresses
+
+;                            (IPv6 and IPv4-mapped) on a specific port;
+
+;   '/path/to/unix/socket' - to listen on a unix socket.
+
+; Note: This value is mandatory.
+
+    listen = was.suntaeidea.php4autoscaling:9000
+
+; Set listen(2) backlog.
+
+; Default Value: 511
+
+;listen.backlog = 511
+
+; Set permissions for unix socket, if one is used. In Linux, read/write
+
+; permissions must be set in order to allow connections from a web server.
+
+; Default Values: user and group are set as the running user
+
+;                 mode is set to 0660
+
+    listen.owner = vmuser
+    listen.group = vmuser
+    listen.mode = 0660
+
+## Download PHP Source Files
+
+    cd /usr/share/
     wget https://github.com/scp-cloudacademy/ce-advanced/raw/main/01/was.tar
     tar -xvf was.tar
     sudo chown -R vmware:vmware /usr/share/nginx/html/
