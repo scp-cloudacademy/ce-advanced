@@ -118,8 +118,8 @@ vi /usr/share/nginx/html/index.html
 <!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="refresh" content="0;url=http://www.cesvc.net/index.php">  # 헤더 쪽에 이 라인 추가
-<title>Welcome to nginx!</title>
+<meta http-equiv="refresh" content="0;url=http://localhost/index.php">  # 헤더 쪽에 이 >라인 추가
+<title>Welcome to Cosmetic Evolution</title>
 <style>
 html { color-scheme: light dark; }
 body { width: 35em; margin: 0 auto;
