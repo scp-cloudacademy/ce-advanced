@@ -6,6 +6,7 @@ VMware Workstation Pro 설치</br>
 <h3>01. On-premise VM 방화벽 활성화</h3>
 
 
+
 ```bash
 
 systemctl status firewalld
