@@ -290,6 +290,12 @@ sudo vi /etc/sysconfig/network-scripts/route-[새로 생성된 네트워크 어�
 
 sudo systemctl restart network
 ```
+
+설정확인
+```bash
+ip addr
+ip route
+```
 </br>
 
 <h3>12-3. On-premise의 다른 VM에서 원격접속 설정</h3>
