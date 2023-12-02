@@ -6,22 +6,6 @@
 
   **Prerequisition :** Windows 10 above, VM Workstation Pro, [CentOS 7.9 VM Image](https://github.com/scp-cloudacademy/ce-advanced/blob/main/01/02_build_vm_image.md))
 
-### 1. Install HTTPD
-
-
-
-
-https://link2me.tistory.com/1838
-
-https://cwiki.apache.org/confluence/display/HTTPD/PHPFPMWordpress
-
-https://www.stephenrlang.com/2018/02/centos-7-apache-2-4-with-php-fpm/
-
-## Setup Database Server
-
-    sudo yum update -y
-
-
 #Step 1 – Prerequsitis
 
     sudo yum -y install epel-release      # Remi 저장소를 설치하고 활성화한다.
