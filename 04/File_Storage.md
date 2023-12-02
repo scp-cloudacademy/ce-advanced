@@ -136,25 +136,6 @@ sudo vi /etc/sysconfig/network-scripts/route-[네트워크어댑터이름]
 ```bash
 sudo systemctl restart network
 ```
-
-<h2>Mount</h2>
-<h3>EFS 마운트</h3>
-
-마운트 전 필요한 유틸 및 마운트 위치 생성
-
-```bash
-sudo yum install nfs-utils -y    # nfs 유틸 설치
-sudo mkdir /efs                  # 마운트할 dir 생성
-```
-
-![image](https://github.com/scp-cloudacademy/ce-advanced/assets/147478897/45db65fc-647d-4048-9007-ab0b98c8e707)<br>
-EFS에서 [연결]에서 확인할 수 있는 마운트 정보 확인
-
-![image](https://github.com/scp-cloudacademy/ce-advanced/assets/147478897/375b56fe-1087-45ef-9235-ff90e140bd74)<br>
-마운트 결과
-
-<h3>Samsung Cloud Platform File Storage 배포 및 마운트</h3>
-
 Samsung Cloud Platform에서 File Storage 배포
 
 ![image](https://github.com/scp-cloudacademy/ce-advanced/assets/147478897/253444b7-80bb-4c8b-96ec-c2e566977984)<br>
@@ -175,6 +156,25 @@ sudo mount -t nfs -o vers=3,noresvport [FileStorage마운트정보] [마운트�
 ```
 ![image](https://github.com/scp-cloudacademy/ce-advanced/assets/147478897/3288c3f5-24aa-4d2b-8529-3d5765bf3170)<br>
 마운트된 것을 확인
+
+<h2>Mount</h2>
+<h3>EFS 마운트</h3>
+
+마운트 전 필요한 유틸 및 마운트 위치 생성
+
+```bash
+sudo yum install nfs-utils -y    # nfs 유틸 설치
+sudo mkdir /efs                  # 마운트할 dir 생성
+```
+
+![image](https://github.com/scp-cloudacademy/ce-advanced/assets/147478897/45db65fc-647d-4048-9007-ab0b98c8e707)<br>
+EFS에서 [연결]에서 확인할 수 있는 마운트 정보 확인
+
+![image](https://github.com/scp-cloudacademy/ce-advanced/assets/147478897/375b56fe-1087-45ef-9235-ff90e140bd74)<br>
+마운트 결과
+
+<h3>Samsung Cloud Platform File Storage 배포 및 마운트</h3>
+
 
 <h3>rsync 실행</h3>
 
