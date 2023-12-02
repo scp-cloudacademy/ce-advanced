@@ -506,6 +506,8 @@ php_value[soap.wsdl_cache_dir]  = /var/lib/php/wsdlcache
 ;php_value[opcache.file_cache]  = /var/lib/php/opcache
 ```
 
-
+    mkdir /usr/share/nginx
+    mkdir /usr/share/nginx/html
+    cd /usr/share/nginx/html
     wget https://github.com/scp-cloudacademy/ce-advanced/raw/main/01/was.tar
 
