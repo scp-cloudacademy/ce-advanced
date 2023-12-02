@@ -19,6 +19,7 @@ systemctl enable firewalld
 
 ```bash
 firewall-cmd --zone=public --add-port=3389/tcp --permanent
+firewall-cmd --zone=public --add-port=22/tcp --permanent
 firewall-cmd --reload
 firewall-cmd --list-ports
 ```
