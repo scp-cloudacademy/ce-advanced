@@ -138,7 +138,7 @@ conn SCP-VPN
 
 </br>
 
-<h3>08. On-premise VM VPN 환경 설정</h3>
+<h3>08. On-premise VM VPN 연결 정보 설정</h3>
 
 ```bash
 vi /etc/strongswan/ipsec.secrets	# 경로
@@ -157,14 +157,12 @@ vi 에서 아래의 정보를 순서대로 추가
 
 ```bash
 strongswan start
-strongswan statusall	# 연결이 안될경우 reboot
+```
+아래의 명령어로 연결 확인, 연결이 안되었을 경우 reboot 실행
+```
+strongswan statusall	
 ```
 
-</br>
-
-<h1>SCP Console</h1>
-</br>
-</br>
 </br>
 
 <h3>10. Samsung Cloud Platform Security Group 규칙 추가/수정</h3>
