@@ -288,7 +288,7 @@ sudo vi /etc/sysconfig/network-scripts/route-[새로 생성된 네트워크 어�
 ```
 네트워크 재설정 명령
 
-systemctl restart network
+sudo systemctl restart network
 ```
 </br>
 
