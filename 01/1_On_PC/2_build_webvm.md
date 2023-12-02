@@ -129,7 +129,7 @@ font-family: Tahoma, Verdana, Arial, sans-serif; }
 ### 2. Import Web Source
 ```
 cd /usr/share/nginx/html
-wget https://github.com/scp-cloudacademy/ce-advanced/raw/main/01/web.tar
+wget https://github.com/scp-cloudacademy/ce-advanced/raw/main/01/1_On_PC/web.tar
 tar -xvf web.tar
 rm -f web.tar
 sudo chown -R vmuser:vmuser /usr/share/nginx/html/
