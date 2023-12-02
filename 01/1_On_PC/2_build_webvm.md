@@ -49,6 +49,7 @@ Type vi command
 ```
 vi /etc/nginx/conf.d/default.conf
 ```
+Refer below script and change the configuration 
 
 ```
 server {
@@ -59,7 +60,7 @@ server {
     #access_log  /var/log/nginx/host.access.log  main;
 
     location / {
-        index  index.html index.htm index.php;                                       # index.php 추가   
+        index index.php index.html index.htm;                                           # index.php 추가   
     }
 
     error_page  404              /404.html;
@@ -80,12 +81,12 @@ server {
     # pass the PHP scripts to FastCGI server listening on 127.0.0.1:9000
     #
     
-    location ~ \.php$ {                                                               # 이 라인부터 아래 표시 라인까지 주석 삭제
-        fastcgi_pass   192.168.11.6:9000;                                             # app server 주소:9000
+    location ~ \.php$ {                                                                # 이 라인부터 아래 표시 라인까지 주석 삭제
+        fastcgi_pass   was.cesvc.net:9000;                                             # app server 주소:9000
         fastcgi_index  index.php;
-        fastcgi_param  SCRIPT_FILENAME  	$document_root$fastcgi_script_name;   # 표기 대로 수정
+        fastcgi_param  SCRIPT_FILENAME  	$document_root$fastcgi_script_name;    # 표기 대로 수정
 	include        fastcgi_params;    
-    }                                                                                 # 이 라인까지 주석 삭제
+    }                                                                                  # 이 라인까지 주석 삭제
 
     # deny access to .htaccess files, if Apache's document root
     # concurs with nginx's one
@@ -94,6 +95,7 @@ server {
     #    deny  all;
     #}
 }
+
 ```
 
 Configure Firewall
