@@ -7,36 +7,39 @@
   **Prerequisition :** Windows 10 above, VM Workstation Pro, [CentOS 7.9 VM Image](https://github.com/scp-cloudacademy/ce-advanced/blob/main/01/02_build_vm_image.md))
 
 #Step 1 – Prerequsitis
+Install and enable Remi 
 
     sudo yum -y install epel-release      # Remi 저장소를 설치하고 활성화한다.
     sudo yum -y install https://dev.mysql.com/get/mysql80-community-release-el7-11.noarch.rpm
 
-# MySQL 8.0.35 설치
+# Install MySQL 8.0.35
 
     sudo yum install mysql-server
     
-# 버전체크
+# Check Version
 
     mysqld -V
 
-# MySQL 시작 및 자동 실행 등록
+# Start and Enable MySQL 
 
     systemctl start mysqld
     systemctl enable mysqld
 
-# 초기 비밀번호 확인
+# Check initial password
 
     grep 'temporary password' /var/log/mysqld.log
 
-# 비밀번호 변경
+# Change password
 
     mysql -u root -p
+
+example) ALTER USER 'root'@'localhost' IDENTIFIED BY 'abcd1234';
 
 ```mysql
 ALTER USER 'root'@'localhost' IDENTIFIED BY '비밀번호';
 ```
 
-# 외부 접속 허용
+# Allow access from external
 
 ```mysql
 use mysql;
