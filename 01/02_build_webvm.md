@@ -132,6 +132,7 @@ cd /usr/share/nginx/html
 wget https://github.com/scp-cloudacademy/ce-advanced/raw/main/01/web.tar
 tar -xvf web.tar
 rm -f web.tar
+sudo chown -R vmuser:vmuser /usr/share/nginx/html/
 sudo systemctl start nginx
 ```
 
