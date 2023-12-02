@@ -277,7 +277,7 @@ ONBOOT=yes
 예시) vi /etc/sysconfig/network-scripts/route-ens224
 
 ```
-vi /etc/sysconfig/network-scripts/route-[새로 생성된 네트워크 어댑터 명]
+sudo vi /etc/sysconfig/network-scripts/route-[새로 생성된 네트워크 어댑터 명]
 ```
 아래의 항목을 추가
 
