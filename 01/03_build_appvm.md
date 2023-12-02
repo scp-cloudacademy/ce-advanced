@@ -510,4 +510,6 @@ php_value[soap.wsdl_cache_dir]  = /var/lib/php/wsdlcache
     mkdir /usr/share/nginx/html
     cd /usr/share/nginx/html
     wget https://github.com/scp-cloudacademy/ce-advanced/raw/main/01/was.tar
+    tar -xvf was.tar
+    sudo chown -R vmware:vmware /usr/share/nginx/html/
 
