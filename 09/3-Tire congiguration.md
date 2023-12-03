@@ -288,7 +288,7 @@ select host,user from user;
 ```
 
 ```mysql
-grant all privileges on *.* to 'root'@'%';
+GRANT all privileges on *.* to 'root'@'%';
 ```
 
 ```mysql
