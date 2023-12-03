@@ -184,7 +184,7 @@ sudo systemctl restart mysqld
 ```
 
 # 4. Configuring php.ini
-
+※ WAS Server에서 실시한다</br>
     sudo vi  /etc/php.ini
     
 Include the lines in the end of php.ihi
