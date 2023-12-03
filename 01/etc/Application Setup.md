@@ -14,6 +14,12 @@ https://www.stephenrlang.com/2018/02/centos-7-apache-2-4-with-php-fpm/
 ]]
 
 
+
+if [[ -n "$(hostname -I)" ]]; then
+    echo "$(hostname -I | awk '{print $1}') was.suntaeidea.php4autoscaling" | sudo tee -a /etc/hosts
+fi
+
+
 https://link2me.tistory.com/1838
 
 https://cwiki.apache.org/confluence/display/HTTPD/PHPFPMWordpress
