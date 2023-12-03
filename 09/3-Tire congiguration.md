@@ -20,7 +20,7 @@
 ![image](https://github.com/scp-cloudacademy/ce-advanced/assets/147478897/233cd8f9-35b2-4988-8dfc-a7ff9a1547e9)
 동일한 방법으로 앱서버 및 DB VM을 생성해 줍니다.
 
-생성이 완료가 되면, Bastion Server에 접속하여 리눅스로 접속하고, 웹서버를 구성합니다.</br>
+생성이 완료가 되면, Bastion Serve로 접속하여 각 서버를 구성합니다.</br>
 
 Install nginx
 ```
@@ -114,7 +114,7 @@ server {
 sudo systemctl enable nginx
 sudo systemctl start nginx
 ```
-##(Important) Web Server 이미지를 복제하여 서버를 생성할 때 다음을 init script에 삽입 
+##(Important) Web Server 이미지를 복제하여 서버를 생성할 때 다음을 init script에 삽입합니다. 
 
     #!/bin/bash
     sudo systemctl start nginx
@@ -238,7 +238,7 @@ Include the lines in the end of php.ihi
     sudo systemctl start php-fpm
     
 
-## <Important > 지금 서버를 생성할 때는 사용하지 않고, Custom Image를 사용하여 Virtual Server를 생성할 때 init script에 아래를 반드시 삽입
+## <Important > 지금 서버를 생성할 때는 사용하지 않고, Custom Image를 사용하여 Virtual Server를 생성할 때 init script에 아래를 반드시 삽입합니다.
 
     #!/bin/bash
     sudo systemctl stop php-fpm
@@ -331,23 +331,6 @@ Firewall 사용은 모두 해제를 합니다. 모든 설정이 끝나면 다음
 ![image](https://github.com/scp-cloudacademy/ce-advanced/assets/147478897/35a8607a-b007-4dcd-8a95-089b1c7a5b51)
 ![image](https://github.com/scp-cloudacademy/ce-advanced/assets/147478897/02d64f09-fbe5-49db-a7b4-2c99e3dd3c79)
 
-생성이 끝이나면 Firewall과 Security Group에 규칙을 추가해 줍니다.</br>
-1) Firewall 규칙추가
-   인터넷에서 로드밸런서 IP로 인바운드 규칙을 생성합니다. (http,https 포트)
-   ![image](https://github.com/scp-cloudacademy/ce-advanced/assets/147478897/91aee9a9-4646-41bf-885f-0a0c30d71d52)
-
-2) Security Group 규칙추가
-   Load Balancer는 VPC 내부의 자원들과 통신하기 위한 내부IP 즉 LB Link IP를 가지고 있습니다.</br>
-   따라서 웹서버와 앱이 통신을 하기 위해 Security 규칙에 Link IP 인바운드를 허용해야 합니다.</br>
-
-우선 LoadBalancer 상세화면에서 LinkIP를 확인합니다.
-![image](https://github.com/scp-cloudacademy/ce-advanced/assets/147478897/36dda3b4-0862-43c3-8b42-328bf059e452)
-
-
-이제 웹서버 및 앱의 Security Group 규칙에 Link IP의 인바운드 허용규칙을 추가합니다.
-![image](https://github.com/scp-cloudacademy/ce-advanced/assets/147478897/d498127b-cce4-4fbb-a245-ecaee749f550)
-
-
 ## 7.2 서버그룹 생성하기
 
 생성된 로드밸런서의 상세정보에서 연결된 자원버튼을 클릭합니다.
@@ -372,6 +355,14 @@ Firewall 사용은 모두 해제를 합니다. 모든 설정이 끝나면 다음
 ![image](https://github.com/scp-cloudacademy/ce-advanced/assets/147478897/8836b9ca-feb2-4cd5-8c13-96334a15428c)
 서비스 상세정보를 보면 설정한 포트와 함께, 서버그룹에 포함된 2개의 서비스 상태가 up임을 확인할 수 있습니다.
 
+## 7.4 DNS 및 App Setting
+
+web: www.cesvc.net
+app: was.cesvc.net
+db: db.cesvc.net
+
+## 7.5 Service test
+가동중인 서버 중 1개를 중지시켰을 때도, 서비스가 작동하는지 확인합니다.
 
 1. firewall 규칙설정
 192.168.12.0/24 0.0.0.0/0 80,443 out
