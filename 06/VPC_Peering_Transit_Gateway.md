@@ -128,6 +128,47 @@ SCP -i /키페어/파일/위치 /로컬/파일/경로 vmuser@호스트주소:/�
 
 
 
+VPCdmz Bastiondmz(192.168.0.0/24) bastiondmz 3389, 22 outbound
+VPCa WEBa(192.168.11.0/24) vpcatestvm 22 in/out
+VPCb K8Sb(192.168.21.0/24) vpcbtestvm 22 in
+KR-EAST-1 VPCdr Bastiondr(192.168.30.0/24) vpcdrtestvm 22 in
+
+서브넷에 Virtual Server 생성 및 확인
+VPCdmz bastiondmz(Win)
+VPCa WEBa a-testvm 
+VPCb K8Sb b-testbvm
+VPCdr BASTIONdr dr-testvm
+
+Peering 생성
+VPCa WEBa(192.168.11.0/24) a-testvm 22 
+VPCb K8Sb(192.168.21.0/24) b-testvm 22
+VPCdr Bastiondr(192.168.30.0/24) dr-testvm 22
+
+Peering routing
+VPCa    Peer_ VPCa_VPCb 192.168.21.0/24 
+          Peer_ VPCa_VPCdr 192.168.30.0/24
+VPCb    Peer_ VPCa_VPCb 192.168.11.0/24
+VPCdr   Peer_ VPCa_VPCdr 192.168.11.0/24     
+
+Tramsit Gateway 생성
+
+TG 연결 메뉴 에서 요청 승인 각각에 설정해줘야 합니다.
+
+1. TGdmz 측 요청 라우팅 설정,  TG_VPCdmz_VPCa 192.168.0.0/24
+                 승인 라우팅 설정  TG_VPCdmz_VPCa 192.168.11.0/24
+    
+1. TGa 측 요청 라우팅 설정,  TG_VPCdmz_VPCa 192.168.11.0/24
+                 승인 라우팅 설정  TG_VPCdmz_VPCa 192.168.0.0/24
+
+Security Group
+Bastiondmz outbound 192.168.11.0/24 22
+Weba inbound 192.168.0.0/24 22
+        outbound 192.168.21.0/24, 192.168.31.0/24 22
+K8Sb   inbound 192.168.11.0/24 22
+Bastiondr  inbound 192.168.0.0/24 22
+
+bastiondmz -> a-testvm -> b-testvm
+                               -> dr-testvm
 
 
 
