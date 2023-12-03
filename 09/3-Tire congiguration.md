@@ -1,5 +1,5 @@
-# 사전준비
-## 0. 방화벽 규칙설정 : 아래의 파일을 참조
+# 0. 사전준비
+## 방화벽 규칙설정 : 아래의 파일을 참조
 [Internet Gateway](https://github.com/scp-cloudacademy/ce-advanced/raw/main/09/fw_cea_09.%203-tier%20configuration.xlsx)
 
 [WebaSG](https://github.com/scp-cloudacademy/ce-advanced/raw/main/09/WebSG_cea_09.%203-tier%20configuration.xlsx)
