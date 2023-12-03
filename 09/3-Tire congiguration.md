@@ -101,6 +101,10 @@ server {
 ```
 sudo systemctl enable nginx
 sudo systemctl start nginx
+cd /usr/share/nginx/html/
+sudo wget https://github.com/scp-cloudacademy/ce-advanced/raw/main/01/1_On_PC/web.tar
+sudo tar -xvf web.tar
+sudo chown -R vmuser:vmuser /usr/share/nginx/html/
 ```
 ##(Important) Web Server 이미지를 복제하여 서버를 생성할 때 다음을 init script에 삽입합니다. 
 
