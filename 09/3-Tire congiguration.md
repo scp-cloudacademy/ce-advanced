@@ -16,9 +16,9 @@
 Login as root
 Install nginx
 ```
-yum install yum-utils -y
-systemctl stop httpd
-vi /etc/yum.repos.d/nginx.repo
+sudo yum install yum-utils -y
+sudo systemctl stop httpd
+sudo vi /etc/yum.repos.d/nginx.repo
 ```
 Type [i] , then copy following contents and paste to vi. 
 ```
@@ -43,15 +43,15 @@ Type [ESC] key and type :wq! to exit
 Install NGINX
 
 ```
-yum install nginx -y
-systemctl stop nginx
+sudo yum install nginx -y
+sudo systemctl stop nginx
 ```
 Config NGINX
 
 Type vi command
 
 ```
-vi /etc/nginx/conf.d/default.conf
+sudo vi /etc/nginx/conf.d/default.conf
 ```
 Refer below script and change the configuration 
 
