@@ -82,7 +82,7 @@ server {
     #
     
     location ~ \.php$ {                                                                # 이 라인부터 아래 표시 라인까지 주석 삭제
-        fastcgi_pass   was.cesvc.net:9000;                                             # app server 주소:9000
+        fastcgi_pass   was.cesvcs.net:9000;                                             # app server 주소:9000
         fastcgi_index  index.php;
         fastcgi_param  SCRIPT_FILENAME  	$document_root$fastcgi_script_name;    # 표기 대로 수정
 	include        fastcgi_params;    
@@ -144,8 +144,8 @@ sudo systemctl stop php-fpm
 Include the lines in the end of php.ihi
 
     [Database]
-    mysql.host=db.cesvc.net
-    mysql.username=vmuser
+    mysql.host=db.cesvcs.net
+    mysql.username=root
     mysql.passwd=VMuser1@
     mysql.dbname=cosmetic
     mysql.port=3306
@@ -350,9 +350,9 @@ Firewall 사용은 모두 해제를 합니다. 모든 설정이 끝나면 다음
 
 ## 7.4 DNS 및 App Setting
 
-web: www.cesvc.net
-app: was.cesvc.net
-db: db.cesvc.net
+web: www.cesvcs.net
+app: was.cesvcs.net
+db: db.cesvcs.net
 
 ## 7.5 Service test
 가동중인 서버 중 1개를 중지시켰을 때도, 서비스가 작동하는지 확인합니다.
@@ -411,10 +411,10 @@ cewebsvc 80
 ceappsvc 9000
 
 9. dns 
-cesvc.net 쇼윙
-web: www.cesvc.net
-app: was.cesvc.net
-db: db.cesvc.net
+cesvcs.net 쇼윙
+web: www.cesvcs.net
+app: was.cesvcs.net
+db: db.cesvcs.net
 
 app setting
 도메인 정리해서 넣어줄 것
