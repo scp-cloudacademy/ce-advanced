@@ -288,7 +288,7 @@ flush privileges
 ```
 
 ```mysql
-select host, user form user;
+select host, user from user;
 ```
 
 ```bash
