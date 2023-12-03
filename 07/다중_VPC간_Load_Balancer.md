@@ -103,3 +103,62 @@ sudo firewall-cmd --reload
 
 sudo firewall-cmd --list-all
 ```
+
+
+
+
+[Load Balancer]
+LBa 
+192.168.14.0/27
+Link IP 
+192.168.254.0/30
+
+[Inetnet Gateway Firewall] 
+VPCa lb Service IP 80 S: 0.0.0.0/0 t:192.168.14.0/27
+       IGW_FW 80,443 outbound S: 192.168.11.0/24 0.0.0.0/0 허용
+ 
+VPCb IGW_FW 80,443 outbound S: 192.168.21.0/24 0.0.0.0/0 허용
+
+[Security Group]
+WebaSG 0.0.0.0/0 80,443 outbound 허용
+           192.168.254.0/30 inbound 허용
+WebaSG 0.0.0.0/0 80,443 outbound 허용
+           192.168.254.0/30 inbound 허용            
+
+NAT Gateway
+
+Remote 접속
+Web Server Nginx 설치 진행
+VPCa Server
+VPCb Server
+
+[VPC Peering]
+VPCB의 라우팅테이블에 LB Link IP 대역 등록
+
+
+[Load Balancer]
+LB 서버그룹 구성
+LB 서비스 구성
+
+테스트
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
