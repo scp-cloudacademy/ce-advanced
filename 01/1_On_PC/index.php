@@ -1,5 +1,6 @@
 // NOTEPAD의 "바꾸기"로 "./web" > "https://obj2.kr-west-1.samsungsdscloud.com:8443/weba/web"
 // web 폴더의 경로를 ObjectStorage로 바꾸는것으로 ObjectStorage의 파일 활용 가능
+// "https://obj2.kr-west-1.samsungsdscloud.com:8443/weba/web"는 ObjectStorage의 PublicEndpoint/ + bucket/ + folder
 
 <!DOCTYPE html>
 <html>
