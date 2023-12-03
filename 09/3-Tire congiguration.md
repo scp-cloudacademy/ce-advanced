@@ -304,7 +304,8 @@ Firewall 사용은 모두 해제를 합니다. 모든 설정이 끝나면 다음
    따라서 웹서버와 앱이 통신을 하기 위해 Security 규칙에 Link IP 인바운드를 허용해야 합니다.</br>
 
 우선 LoadBalancer 상세화면에서 LinkIP를 확인합니다.
-![image](https://github.com/scp-cloudacademy/ce-advanced/assets/147478897/d67fb46b-0c23-4c19-948d-981994bf0e8e)
+![image](https://github.com/scp-cloudacademy/ce-advanced/assets/147478897/36dda3b4-0862-43c3-8b42-328bf059e452)
+
 
 이제 웹서버 및 앱의 Security Group 규칙에 Link IP의 인바운드 허용규칙을 추가합니다.
 ![image](https://github.com/scp-cloudacademy/ce-advanced/assets/147478897/d498127b-cce4-4fbb-a245-ecaee749f550)
