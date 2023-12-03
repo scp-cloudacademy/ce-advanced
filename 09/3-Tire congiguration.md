@@ -251,16 +251,16 @@ Install and enable Remi
 
 # Start and Enable MySQL 
 
-    systemctl start mysqld
-    systemctl enable mysqld
+    sudo systemctl start mysqld
+    sudo systemctl enable mysqld
 
 # Check initial password
 
-    grep 'temporary password' /var/log/mysqld.log
+    sudo grep 'temporary password' /var/log/mysqld.log
 
 # Change password
 
-    mysql -u root -p
+    sudo mysql -u root -p
 
 example) ALTER USER 'root'@'localhost' IDENTIFIED BY 'abcd1234';
 
