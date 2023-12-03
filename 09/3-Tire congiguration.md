@@ -217,7 +217,7 @@ Include the lines in the end of php.ini
 ## Download PHP Source Files
 
     cd /usr/share/
-    wget https://github.com/scp-cloudacademy/ce-advanced/raw/main/01/was.tar
+    wget https://github.com/scp-cloudacademy/ce-advanced/raw/main/01/1_On_PC/was.tar
     tar -xvf was.tar
     sudo chown -R vmware:vmware /usr/share/nginx/html/
     sudo systemctl stop php-fpm
