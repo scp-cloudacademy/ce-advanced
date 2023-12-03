@@ -86,7 +86,7 @@ Include the lines in the end of php.ihi
 
 ; Note: This value is mandatory.
 
-    listen = was.suntaeidea.php4autoscaling:9000
+    listen = was.php4autoscaling:9000
 
 ; Set listen(2) backlog.
 
@@ -112,4 +112,17 @@ Include the lines in the end of php.ihi
     wget https://github.com/scp-cloudacademy/ce-advanced/raw/main/01/was.tar
     tar -xvf was.tar
     sudo chown -R vmware:vmware /usr/share/nginx/html/
+    sudo systemctl stop php-fpm
+    sudo sh -c 'echo "$(hostname -I | awk "{print \$1}") was.php4autoscaling" >> /etc/hosts'
+    sudo systemctl restart network
+    sudo systemctl start php-fpm
+    
+
+## <Important > Custom Image를 사용하여 Virtual Server를 생성할 때 init script에 아래를 반드시 삽입
+
+    #!/bin/bash
+    sudo systemctl stop php-fpm
+    sudo sh -c 'echo "$(hostname -I | awk "{print \$1}") was.php4autoscaling" >> /etc/hosts'
+    sudo systemctl restart network
+    sudo systemctl start php-fpm
 
