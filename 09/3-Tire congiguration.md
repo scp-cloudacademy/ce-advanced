@@ -156,7 +156,7 @@ Include the lines in the end of php.ini
 
 ## Configuring PHP-FPM
 
-    vi /etc/php-fpm.d/www.conf
+    sudo vi /etc/php-fpm.d/www.conf
 
 - Change the parameters in the listed lines
 
