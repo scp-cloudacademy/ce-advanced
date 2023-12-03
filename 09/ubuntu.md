@@ -50,6 +50,22 @@ sudo service apache2 restart
 
 
 
+# 2. Configure Web Server
+모든상품 ▶ virtual Server ▶ 상품신청을 클릭합니다.</br>
+![image](https://github.com/scp-cloudacademy/ce-advanced/assets/147478897/6e7f8d97-c695-4e10-869f-bb32a04612fa)
+이미지는 표준의 Centos 7.8로 선택 후 다음버튼을 클릭합니다.</br>
+![image](https://github.com/scp-cloudacademy/ce-advanced/assets/147478897/15bdec22-476f-4a42-b6fe-e9b9abb60e7d)
+기본정보를 입력합니다.</br>
+![image](https://github.com/scp-cloudacademy/ce-advanced/assets/147478897/c60e0f98-0019-4e15-b405-8c41317ef245)
+![image](https://github.com/scp-cloudacademy/ce-advanced/assets/147478897/e328642c-2c47-4626-b44d-991109ea5427)
+생성정보를 확인 후 완료를 클릭합니다.</br>
+![image](https://github.com/scp-cloudacademy/ce-advanced/assets/147478897/233cd8f9-35b2-4988-8dfc-a7ff9a1547e9)
+동일한 방법으로 앱서버 및 DB VM을 생성해 줍니다.
+
+생성이 완료가 되면, Bastion Serve로 접속하여 각 서버를 구성합니다.</br>
+
+
+
 
 
 
