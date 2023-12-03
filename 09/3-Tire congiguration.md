@@ -1,5 +1,5 @@
 
-#### 1. Web Server 구성
+# 1. Configure Web Server
 Login as root
 Install nginx
 ```
@@ -87,4 +87,92 @@ server {
     #}
 }
 
+```
+
+# 2. Configure PHP Applicattion Server 
+
+Edit Local domain for php-fpm listening
+
+     if [[ -n "$(hostname -I)" ]]; then
+        echo "$(hostname -I | awk '{print $1}') was.suntaeidea.php4autoscaling" | sudo tee -a /etc/hosts
+     fi
+     sudo systemctl restart NetworkManager
+
+## Install EPEL and YUM Utilities Package
+
+    sudo yum -y install -y epel-release yum-utils
+
+## Install Remi Repo
+
+    sudo yum install -y http://rpms.remirepo.net/enterprise/remi-release-7.rpm
+
+## Enable PHP 8 Remi Repo
+    sudo yum-config-manager --disable remi-php54
+    sudo yum-config-manager --enable remi-php81
+
+## Install PHP(php-fpm) 8.1
+
+    sudo yum install -y php php-cli php-common php-devel php-pear php-fpm
+    sudo yum install -y php-mysqlnd php-mysql php-mysqli php-zip php-gd php-curl php-xml php-json php-intl php-mbstring php-mcrypt php-posix php-shmop php-soap php-sysvmsg php-sysvsem php-sysvshm php-xmlrpc php-opcache
+    sudo php-fpm -version
+
+## Enabling PHP-FPM 
+
+    sudo systemctl --now enable php-fpm
+
+# 3. Building Database
+#Step 1 – Prerequsitis
+Install and enable Remi 
+
+    sudo yum -y install epel-release      # Remi 저장소를 설치하고 활성화한다.
+    sudo yum -y install https://dev.mysql.com/get/mysql80-community-release-el7-11.noarch.rpm
+
+# Install MySQL 8.0.35
+
+    sudo yum install mysql-server
+    
+# Check Version
+
+    mysqld -V
+
+# Start and Enable MySQL 
+
+    systemctl start mysqld
+    systemctl enable mysqld
+
+# Check initial password
+
+    grep 'temporary password' /var/log/mysqld.log
+
+# Change password
+
+    mysql -u root -p
+
+example) ALTER USER 'root'@'localhost' IDENTIFIED BY 'abcd1234';
+
+```mysql
+ALTER USER 'root'@'localhost' IDENTIFIED BY '비밀번호';
+```
+
+# Allow access from external
+
+```mysql
+use mysql;
+select host,user from user;
+```
+
+```mysql
+grant all privileges on *.* to 'root'@'%';
+```
+
+```mysql
+flush privileges
+```
+
+```mysql
+select host, user form user;
+```
+
+```bash
+sudo systemctl restart mysqld
 ```
