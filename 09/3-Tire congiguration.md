@@ -219,7 +219,7 @@ Include the lines in the end of php.ini
     cd /usr/share/
     sudo wget https://github.com/scp-cloudacademy/ce-advanced/raw/main/01/1_On_PC/was.tar
     sudo tar -xvf was.tar
-    sudo chown -R vmware:vmware /usr/share/nginx/html/
+    sudo chown -R vmuser:vmuser /usr/share/nginx/html/
     sudo systemctl stop php-fpm
     sudo sh -c 'echo "$(hostname -I | awk "{print \$1}") was.php4autoscaling" >> /etc/hosts'
     sudo systemctl restart network
