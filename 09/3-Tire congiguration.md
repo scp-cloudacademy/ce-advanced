@@ -280,11 +280,12 @@ select host, user from user;
 ```
 
 ```mysql
-grant all privileges on *.* to 'root'@'%';
+CREATE USER 'root'@'%' IDENTIFIED BY 'your_password';
+GRANT ALL PRIVILEGES ON *.* TO 'root'@'%';
 ```
 
 ```mysql
-flush privileges
+FLUSH PRIVILEGES;
 ```
 
 ```mysql
