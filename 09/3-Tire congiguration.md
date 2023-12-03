@@ -1,4 +1,4 @@
-# 0. 사전준비
+# 1. 사전준비
 ## 방화벽 규칙설정 : 아래의 파일을 참조
 [Internet Gateway](https://github.com/scp-cloudacademy/ce-advanced/raw/main/09/fw_cea_09.%203-tier%20configuration.xlsx)
 
@@ -8,7 +8,7 @@
 
 [DBaSG](https://github.com/scp-cloudacademy/ce-advanced/raw/main/09/DBSG_cea_09.%203-tier%20configuration.xlsx)
 
-# 1. Configure Web Server
+# 2. Configure Web Server
 모든상품 ▶ virtual Server ▶ 상품신청을 클릭합니다.</br>
 ![image](https://github.com/scp-cloudacademy/ce-advanced/assets/147478897/6e7f8d97-c695-4e10-869f-bb32a04612fa)
 이미지는 표준의 Centos 7.8로 선택 후 다음버튼을 클릭합니다.</br>
@@ -22,7 +22,6 @@
 
 생성이 완료가 되면, Bastion Server에 접속하여 리눅스로 접속하고, 웹서버를 구성합니다.</br>
 
-Login as root
 Install nginx
 ```
 sudo yum install yum-utils -y
@@ -121,7 +120,7 @@ sudo systemctl start nginx
     sudo systemctl start nginx
     echo
     
-# 2. Configure PHP Applicattion Server 
+# 3. Configure PHP Applicattion Server 
 
 ## Install EPEL and YUM Utilities Package
 
@@ -146,8 +145,6 @@ sudo systemctl start nginx
     sudo systemctl --now enable php-fpm
 
 # 4. Configuring php.ini
-※ WAS Server에서 실시한다</br>
-구성을 변경하기 전, php-fpm 상태를 확인하고, 실행중에 있다면 우선 중지를 시켜준다.</br>
 
 ```
 sudo systemctl status php-fpm
@@ -249,7 +246,7 @@ Include the lines in the end of php.ihi
     sudo systemctl restart network
     sudo systemctl start php-fpm
 
-# 3. Building Database
+# 5. Building Database
 #Step 1 – Prerequsitis
 Install and enable Remi 
 
@@ -314,16 +311,16 @@ sudo systemctl restart mysqld
 [Movie data](https://github.com/scp-cloudacademy/ce-advanced/raw/main/09/cosmetic_MOVIES.sql)
 
 
-# 5. Create Custom Image
+# 6. Create Custom Image
 생성한 웹,앱 virtual Server의 Custom Image를 생성합니다.
-# 6. Custom Image를 이용한 VM 만들기
+## Custom Image를 이용한 VM 만들기
 모든상품 ▶ virtual Server ▶ 상품신청을 클릭합니다.</br>
 ![image](https://github.com/scp-cloudacademy/ce-advanced/assets/147478897/6e7f8d97-c695-4e10-869f-bb32a04612fa)
 이미지 선택 시, Custom을 클릭하고 생성한 custom Image를 선택후 다음버튼을 누릅니다.</br>
 
-# 6.  LoadBalancer 
+# 7.  LoadBalancer 
 
-## 6.1 LoadBalancer 생성하기
+## 7.1 LoadBalancer 생성하기
 서버의 부하분산을 위해 로드밸런서를 생성합니다.</br>
 모든상품 ▶ Networking ▶ Loadbalancer ▶ 상품신청을 클릭합니다.
 ![image](https://github.com/scp-cloudacademy/ce-advanced/assets/147478897/7b794a96-cc21-4966-bda1-53a685b7e839)
@@ -351,7 +348,7 @@ Firewall 사용은 모두 해제를 합니다. 모든 설정이 끝나면 다음
 ![image](https://github.com/scp-cloudacademy/ce-advanced/assets/147478897/d498127b-cce4-4fbb-a245-ecaee749f550)
 
 
-## 6.2 서버그룹 생성하기
+## 7.2 서버그룹 생성하기
 
 생성된 로드밸런서의 상세정보에서 연결된 자원버튼을 클릭합니다.
 ![image](https://github.com/scp-cloudacademy/ce-advanced/assets/147478897/f3b7459e-e47b-4465-9686-7048d56dfb88)
@@ -363,14 +360,17 @@ Firewall 사용은 모두 해제를 합니다. 모든 설정이 끝나면 다음
 모든 설정 확인 후 완료를 누르면 서버그룹이 생성됨을 확인할 수 있습니다.</br>
 ![image](https://github.com/scp-cloudacademy/ce-advanced/assets/147478897/c292227d-713b-46b5-8036-a10c1eaeefdf)
 
-## 6.3 LB서비스 생성하기
+## 7.3 LB서비스 생성하기
 서비스명을 정하고 서비스 포트는 그룹 생성 시, 사용한 포트를 넣습니다.</br>
 ![image](https://github.com/scp-cloudacademy/ce-advanced/assets/147478897/c87920a5-5528-4c5e-a8d5-867c62e7e796)
 서버그룹은 미리 생성한 그룹으로 설정을 하과 다음버튼을 누릅니다.</br>
 ![image](https://github.com/scp-cloudacademy/ce-advanced/assets/147478897/742bd48e-7456-4370-af98-67830064f6ef)
 신청정보를 확인 후 완료를 눌러 서비스를 생성해 줍니다.</br>
 ![image](https://github.com/scp-cloudacademy/ce-advanced/assets/147478897/8e9f25d6-0edf-475e-acf6-390d4a8ba357)
-서비스 상태가 완료가 되면 Active상태로 되었다가 시간이 조금 지나면, up 상태로 활성화 됩니다..
+서비스 상태가 완료가 되면 Active상태로 되었다가 시간이 조금 지나면, up 상태로 활성화 됩니다.
+
+![image](https://github.com/scp-cloudacademy/ce-advanced/assets/147478897/8836b9ca-feb2-4cd5-8c13-96334a15428c)
+서비스 상세정보를 보면 설정한 포트와 함께, 서버그룹에 포함된 2개의 서비스 상태가 up임을 확인할 수 있습니다.
 
 
 1. firewall 규칙설정
@@ -436,6 +436,3 @@ app setting
 도메인 정리해서 넣어줄 것
 
 테스트 죽이는 거
-
-![image](https://github.com/scp-cloudacademy/ce-advanced/assets/147478897/8836b9ca-feb2-4cd5-8c13-96334a15428c)
-서비스 상세정보를 보면 설정한 포트와 함께, 서버그룹에 포함된 2개의 서비스 상태가 up임을 확인할 수 있습니다.
