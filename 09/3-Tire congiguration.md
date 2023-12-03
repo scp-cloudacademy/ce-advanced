@@ -185,6 +185,13 @@ sudo systemctl restart mysqld
 
 # 4. Configuring php.ini
 ※ WAS Server에서 실시한다</br>
+구성을 변경하기 전, php-fpm 상태를 확인하고, 실행중에 있다면 우선 중지를 시켜준다.</br>
+
+```
+sudo systemctl status php-fpm
+sudo systemctl stop php-fpm
+```
+
     sudo vi  /etc/php.ini
     
 Include the lines in the end of php.ihi
