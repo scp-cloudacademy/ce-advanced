@@ -347,5 +347,71 @@ Firewall 사용은 모두 해제를 합니다. 모든 설정이 끝나면 다음
 신청정보를 확인 후 완료를 눌러 서비스를 생성해 줍니다.</br>
 ![image](https://github.com/scp-cloudacademy/ce-advanced/assets/147478897/8e9f25d6-0edf-475e-acf6-390d4a8ba357)
 서비스 상태가 완료가 되면 Active상태로 되었다가 시간이 조금 지나면, up 상태로 활성화 됩니다..
+
+
+1. firewall 규칙설정
+192.168.12.0/24 0.0.0.0/0 80,443 out
+192.168.13.0/24 0.0.0.0/0 80,443 out
+
+2. Security Group
+WebSG
+22 out 192.168.11.0/24 web
+22 in   192.168.11.0/24 web
+22 out 192.168.12.0/24 app
+22 out 192.168.13.0/24 db
+80 in 192.168.254.2 lb
+
+AppSG
+22 in   192.168.11.0/24 web
+80,443 out 0.0.0.0/0 
+9000 in 192.168.254.2 lb
+3306 out 192.168.13.0/24
+
+DBSg
+22 in   192.168.11.0/24 web
+80,443 out 0.0.0.0/0 
+3306 in 192.168.12.0/24
+3306 in 192.168.0.0/24
+
+3. nat gateway 
+app, db
+
+3-1 TG 
+VPCdmz VPCa 192.168.12.0/24
+                     192.168.13.0/24
+             
+VPCa      TG 192.168.12.0/24
+                  192.168.13.0/24 
+ 
+4. 서버 생성
+webser  weba1
+appserver appa1
+db server dba1
+
+5. Custom image 생성
+
+6. VM 생성
+web weba2
+app appa2
+
+7. LB 서버 그룹
+cewebsvrgrp 80, round robin weba1, weba2
+ceappsvergrp 서버 9000, round robin, appa1, appa2
+
+8. LB 서비스
+cewebsvc 80
+ceappsvc 9000
+
+9. dns 
+cesvc.net 쇼윙
+web: www.cesvc.net
+app: was.cesvc.net
+db: db.cesvc.net
+
+app setting
+도메인 정리해서 넣어줄 것
+
+테스트 죽이는 거
+
 ![image](https://github.com/scp-cloudacademy/ce-advanced/assets/147478897/8836b9ca-feb2-4cd5-8c13-96334a15428c)
 서비스 상세정보를 보면 설정한 포트와 함께, 서버그룹에 포함된 2개의 서비스 상태가 up임을 확인할 수 있습니다.
