@@ -1,3 +1,4 @@
+
 #### 1. Web Server 구성
 Login as root
 Install nginx
