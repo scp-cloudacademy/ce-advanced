@@ -141,7 +141,7 @@ sudo systemctl stop php-fpm
     
     sudo vi  /etc/php.ini
     
-Include the lines in the end of php.ihi
+Include the lines in the end of php.ini
 
     [Database]
     mysql.host=db.cesvcs.net
