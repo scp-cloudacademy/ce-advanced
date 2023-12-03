@@ -1,6 +1,12 @@
 # 사전준비
-## 1. 방화벽 규칙설정
+## 0. 방화벽 규칙설정 : 아래의 파일을 참조
+[Internet Gateway](https://github.com/scp-cloudacademy/ce-advanced/raw/main/09/fw_cea_09.%203-tier%20configuration.xlsx)
 
+[WebaSG](https://github.com/scp-cloudacademy/ce-advanced/raw/main/09/WebSG_cea_09.%203-tier%20configuration.xlsx)
+
+[APPaSG](https://github.com/scp-cloudacademy/ce-advanced/raw/main/09/AppSG_cea_09.%203-tier%20configuration.xlsx)
+
+[DBaSG](https://github.com/scp-cloudacademy/ce-advanced/raw/main/09/DBSG_cea_09.%203-tier%20configuration.xlsx)
 
 # 1. Configure Web Server
 모든상품 ▶ virtual Server ▶ 상품신청을 클릭합니다.</br>
@@ -104,7 +110,17 @@ server {
 }
 
 ```
+##NGINX 활성화 및 시작
+```
+sudo systemctl enable nginx
+sudo systemctl start nginx
+```
+##(Important) Web Server 이미지를 복제하여 서버를 생성할 때 다음을 init script에 삽입 
 
+    #!/bin/bash
+    sudo systemctl start nginx
+    echo
+    
 # 2. Configure PHP Applicattion Server 
 
 ## Install EPEL and YUM Utilities Package
@@ -225,7 +241,7 @@ Include the lines in the end of php.ihi
     sudo systemctl start php-fpm
     
 
-## <Important > Custom Image를 사용하여 Virtual Server를 생성할 때 init script에 아래를 반드시 삽입
+## <Important > 지금 서버를 생성할 때는 사용하지 않고, Custom Image를 사용하여 Virtual Server를 생성할 때 init script에 아래를 반드시 삽입
 
     #!/bin/bash
     sudo systemctl stop php-fpm
@@ -291,6 +307,11 @@ sudo systemctl restart mysqld
 ```
 
 ## Databae Schema Setup
+아래의 SQL 스키마를 다운 받아 Bastion Host에서 Schema 생성 작업
+
+[cosmetic data](https://github.com/scp-cloudacademy/ce-advanced/raw/main/09/cosmetic_COSMETIC.sql)
+
+[Movie data](https://github.com/scp-cloudacademy/ce-advanced/raw/main/09/cosmetic_MOVIES.sql)
 
 
 # 5. Create Custom Image
