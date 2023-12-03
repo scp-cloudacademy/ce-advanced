@@ -1,3 +1,6 @@
+# 사전준비
+## 1. 방화벽 규칙설정
+
 
 # 1. Configure Web Server
 모든상품 ▶ virtual Server ▶ 상품신청을 클릭합니다.</br>
