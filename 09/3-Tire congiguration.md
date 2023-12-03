@@ -9,6 +9,7 @@
 ![image](https://github.com/scp-cloudacademy/ce-advanced/assets/147478897/e328642c-2c47-4626-b44d-991109ea5427)
 생성정보를 확인 후 완료를 클릭합니다.</br>
 ![image](https://github.com/scp-cloudacademy/ce-advanced/assets/147478897/233cd8f9-35b2-4988-8dfc-a7ff9a1547e9)
+동일한 방법으로 앱서버 및 DB VM을 생성해 줍니다.
 
 생성이 완료가 되면, Bastion Server에 접속하여 리눅스로 접속하고, 웹서버를 구성합니다.</br>
 
