@@ -129,63 +129,6 @@ server {
 
     sudo systemctl --now enable php-fpm
 
-# 3. Building Database
-#Step 1 – Prerequsitis
-Install and enable Remi 
-
-    sudo yum -y install epel-release      # Remi 저장소를 설치하고 활성화한다.
-    sudo yum -y install https://dev.mysql.com/get/mysql80-community-release-el7-11.noarch.rpm
-
-# Install MySQL 8.0.35
-
-    sudo yum install mysql-server
-    
-# Check Version
-
-    mysqld -V
-
-# Start and Enable MySQL 
-
-    systemctl start mysqld
-    systemctl enable mysqld
-
-# Check initial password
-
-    grep 'temporary password' /var/log/mysqld.log
-
-# Change password
-
-    mysql -u root -p
-
-example) ALTER USER 'root'@'localhost' IDENTIFIED BY 'abcd1234';
-
-```mysql
-ALTER USER 'root'@'localhost' IDENTIFIED BY '비밀번호';
-```
-
-# Allow access from external
-
-```mysql
-use mysql;
-select host,user from user;
-```
-
-```mysql
-grant all privileges on *.* to 'root'@'%';
-```
-
-```mysql
-flush privileges
-```
-
-```mysql
-select host, user form user;
-```
-
-```bash
-sudo systemctl restart mysqld
-```
-
 # 4. Configuring php.ini
 ※ WAS Server에서 실시한다</br>
 구성을 변경하기 전, php-fpm 상태를 확인하고, 실행중에 있다면 우선 중지를 시켜준다.</br>
@@ -289,6 +232,66 @@ Include the lines in the end of php.ihi
     sudo sh -c 'echo "$(hostname -I | awk "{print \$1}") was.php4autoscaling" >> /etc/hosts'
     sudo systemctl restart network
     sudo systemctl start php-fpm
+
+# 3. Building Database
+#Step 1 – Prerequsitis
+Install and enable Remi 
+
+    sudo yum -y install epel-release      # Remi 저장소를 설치하고 활성화한다.
+    sudo yum -y install https://dev.mysql.com/get/mysql80-community-release-el7-11.noarch.rpm
+
+# Install MySQL 8.0.35
+
+    sudo yum install mysql-server
+    
+# Check Version
+
+    mysqld -V
+
+# Start and Enable MySQL 
+
+    systemctl start mysqld
+    systemctl enable mysqld
+
+# Check initial password
+
+    grep 'temporary password' /var/log/mysqld.log
+
+# Change password
+
+    mysql -u root -p
+
+example) ALTER USER 'root'@'localhost' IDENTIFIED BY 'abcd1234';
+
+```mysql
+ALTER USER 'root'@'localhost' IDENTIFIED BY '비밀번호';
+```
+
+# Allow access from external
+
+```mysql
+use mysql;
+select host,user from user;
+```
+
+```mysql
+grant all privileges on *.* to 'root'@'%';
+```
+
+```mysql
+flush privileges
+```
+
+```mysql
+select host, user form user;
+```
+
+```bash
+sudo systemctl restart mysqld
+```
+
+## Databae Schema Setup
+
 
 # 5. Create Custom Image
 생성한 웹,앱 virtual Server의 Custom Image를 생성합니다.
