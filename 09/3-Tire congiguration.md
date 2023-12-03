@@ -103,6 +103,8 @@ server {
 
 # 2. Configure PHP Applicattion Server 
 
+
+
 Edit Local domain for php-fpm listening
 
      if [[ -n "$(hostname -I)" ]]; then
