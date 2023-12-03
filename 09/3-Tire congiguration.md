@@ -272,7 +272,7 @@ ALTER USER 'root'@'localhost' IDENTIFIED BY '비밀번호';
 
 ```mysql
 use mysql;
-select host. user from user;
+select host, user from user;
 ```
 
 ```mysql
