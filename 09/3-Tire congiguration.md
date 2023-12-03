@@ -191,7 +191,7 @@ sudo systemctl restart mysqld
 sudo systemctl status php-fpm
 sudo systemctl stop php-fpm
 ```
-
+    
     sudo vi  /etc/php.ini
     
 Include the lines in the end of php.ihi
