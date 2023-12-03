@@ -254,8 +254,12 @@ Install and enable Remi
     sudo systemctl start mysqld
     sudo systemctl enable mysqld
 
+# Change to Super User
+    sudo passwd root
+    su root
+    
 # Check initial password
-
+    
     sudo grep 'temporary password' /var/log/mysqld.log
 
 # Change password
