@@ -14,7 +14,7 @@
 </head>
 
 <body align="center" bgcolor="#FFFFFF">
-<div class="topZone"><img src='./web'></div>
+<div class="topZone"><img src='./web/images/main_logo.png'></div>
 <div class="topWrap">
 
 <table style="margin-left: auto; margin-right: auto;">
