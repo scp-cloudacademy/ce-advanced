@@ -104,15 +104,6 @@ server {
 
 # 2. Configure PHP Applicattion Server 
 
-
-
-Edit Local domain for php-fpm listening
-
-     if [[ -n "$(hostname -I)" ]]; then
-        echo "$(hostname -I | awk '{print $1}') was.suntaeidea.php4autoscaling" | sudo tee -a /etc/hosts
-     fi
-     sudo systemctl restart NetworkManager
-
 ## Install EPEL and YUM Utilities Package
 
     sudo yum -y install -y epel-release yum-utils
