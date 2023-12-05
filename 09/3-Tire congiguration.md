@@ -54,7 +54,7 @@ select host, user from user;
 ```
 
 ```mysql
-CREATE USER 'root'@'%' IDENTIFIED BY 'your_password';
+CREATE USER 'vmuser'@'%' IDENTIFIED BY 'your_password';
 GRANT ALL PRIVILEGES ON *.* TO 'root'@'%';
 ```
 
