@@ -8,6 +8,10 @@
 
 [DBaSG](https://github.com/scp-cloudacademy/ce-advanced/raw/main/09/DBSG_cea_09.%203-tier%20configuration.xlsx)
 
+## Transit Gateway Routing 설정
+VPCdmz Routing 192.168.14.0/17 추가
+VPCa측 TG Routing 192.168.14.0/27 추가
+
 # 2. Building Database
 #Step 1 – Prerequsitis
 Install and enable Remi 
@@ -250,7 +254,7 @@ Refer below script and change the configuration
 server {
     listen       80;
     server_name localhost;
-    root   /usr/share/nginx/html;
+    root   /usr/share/nginx/html;                                                     #아래에서 위치 변경
 
     #access_log  /var/log/nginx/host.access.log  main;
 
@@ -277,7 +281,7 @@ server {
     #
     
     location ~ \.php$ {                                                                # 이 라인부터 아래 표시 라인까지 주석 삭제
-        fastcgi_pass   was.cesvcs.net:9000;                                             # app server 주소:9000
+        fastcgi_pass   was.cesvcs.net:9000;                                            # app server 주소:9000
         fastcgi_index  index.php;
         fastcgi_param  SCRIPT_FILENAME  	$document_root$fastcgi_script_name;    # 표기 대로 수정
 	include        fastcgi_params;    
