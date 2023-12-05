@@ -1,20 +1,28 @@
-# Creating VM Image
+# Create and Connect Kubernetes Cluster
 
-  **Scenario :** Cosmetic Evolution Shoppingmall severs
+  **Scenario :** 
 
   **Hands-on Location :** Your Labtop
 
-  **Prerequisition :** Windows 10 above 
+  **Prerequisition :** 
 
 ---
 
 
-## VM Environment
+## Create Required Services
 
-### 1. Download and Install VMware Workstation pro 
+### 1. Create File Storage for K8s
 
-    https://www.vmware.com/products/workstation-pro/workstation-pro-evaluation.html
+    Name: fsb
 
+### 2. Create Load Balancer for K8s
+
+### 1. Create File Storage for API Server client 
+
+    Server Name: lbastiondmz
+    Image: CentOS
+    Security Group: BASTIONdmzSG (allow 22 port inbound/outbound for servers in bastion subnet)
+   
 ### 2. Download CentOS 7.8
 
 [CentOS 7.8.2003 Download Link](https://ftp.iij.ad.jp/pub/linux/centos-vault/7.8.2003/isos/x86_64/CentOS-7-x86_64-DVD-2003.iso)
