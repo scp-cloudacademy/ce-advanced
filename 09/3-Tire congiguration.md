@@ -353,13 +353,15 @@ Firewall 사용은 모두 해제를 합니다. 모든 설정이 끝나면 다음
 
 ## 7.4 DNS 및 App Setting
 
-web: www.cesvcs.net
-app: was.cesvcs.net
-db: db.cesvcs.net
+web: www.cesvcs.net </br>
+app: was.cesvcs.net </br>
+db: db.cesvcs.net </br>
 
 ## 7.5 Service test
 가동중인 서버 중 1개를 중지시켰을 때도, 서비스가 작동하는지 확인합니다.
 
+
+-----------------------------------------------------------+
 1. firewall 규칙설정
 192.168.12.0/24 0.0.0.0/0 80,443 out
 192.168.13.0/24 0.0.0.0/0 80,443 out
@@ -414,7 +416,7 @@ cewebsvc 80
 ceappsvc 9000
 
 9. dns 
-cesvcs.net 쇼윙
+cesvcs.net 
 web: www.cesvcs.net
 app: was.cesvcs.net
 db: db.cesvcs.net
