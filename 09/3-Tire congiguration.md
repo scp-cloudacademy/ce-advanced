@@ -17,7 +17,7 @@ Install and enable Remi
 
 # Install MySQL 8.0.35
 
-    sudo yum install mysql-server
+    sudo yum -y install mysql-server
     
 # Check Version
 
