@@ -8,110 +8,75 @@
 
 [DBaSG](https://github.com/scp-cloudacademy/ce-advanced/raw/main/09/DBSG_cea_09.%203-tier%20configuration.xlsx)
 
-# 2. Configure Web Server
+# 2. Building Database
+#Step 1 – Prerequsitis
+Install and enable Remi 
 
-Install nginx
-```
-sudo yum install yum-utils -y
-sudo systemctl stop httpd
-sudo vi /etc/yum.repos.d/nginx.repo
-```
-Type [i] , then copy following contents and paste to vi. 
-```
-[nginx-stable]
-name=nginx stable repo
-baseurl=http://nginx.org/packages/centos/$releasever/$basearch/
-gpgcheck=1
-enabled=1
-gpgkey=https://nginx.org/keys/nginx_signing.key
-module_hotfixes=true
+    sudo yum -y install epel-release      # Remi 저장소를 설치하고 활성화한다.
+    sudo yum -y install https://dev.mysql.com/get/mysql80-community-release-el7-11.noarch.rpm
 
-[nginx-mainline]
-name=nginx mainline repo
-baseurl=http://nginx.org/packages/mainline/centos/$releasever/$basearch/
-gpgcheck=1
-enabled=0
-gpgkey=https://nginx.org/keys/nginx_signing.key
-module_hotfixes=true
-```
-Type [ESC] key and type :wq! to exit
+# Install MySQL 8.0.35
 
-Install NGINX
-
-```
-sudo yum install nginx -y
-sudo systemctl stop nginx
-```
-Config NGINX
-
-Type vi command
-
-```
-sudo vi /etc/nginx/conf.d/default.conf
-```
-Refer below script and change the configuration 
-
-```
-server {
-    listen       80;
-    server_name localhost;
-    root   /usr/share/nginx/html;
-
-    #access_log  /var/log/nginx/host.access.log  main;
-
-    location / {
-        index index.php index.html index.htm;                                           # index.php 추가   
-    }
-
-    error_page  404              /404.html;
-
-    # redirect server error pages to the static page /50x.html
-    #
-    error_page   500 502 503 504  /50x.html;
-    location = /50x.html {
-        root   /usr/share/nginx/html;
-    }
-
-    # proxy the PHP scripts to Apache listening on 127.0.0.1:80
-    #
-    #location ~ \.php$ {
-    #    proxy_pass   http://127.0.0.1;
-    #}
-
-    # pass the PHP scripts to FastCGI server listening on 127.0.0.1:9000
-    #
+    sudo yum install mysql-server
     
-    location ~ \.php$ {                                                                # 이 라인부터 아래 표시 라인까지 주석 삭제
-        fastcgi_pass   was.cesvcs.net:9000;                                             # app server 주소:9000
-        fastcgi_index  index.php;
-        fastcgi_param  SCRIPT_FILENAME  	$document_root$fastcgi_script_name;    # 표기 대로 수정
-	include        fastcgi_params;    
-    }                                                                                  # 이 라인까지 주석 삭제
+# Check Version
 
-    # deny access to .htaccess files, if Apache's document root
-    # concurs with nginx's one
-    #
-    #location ~ /\.ht {
-    #    deny  all;
-    #}
-}
+    mysqld -V
 
-```
-##NGINX 활성화 및 시작
-```
-sudo systemctl enable nginx
-sudo systemctl start nginx
-cd /usr/share/nginx/html/
-sudo wget https://github.com/scp-cloudacademy/ce-advanced/raw/main/01/1_On_PC/web.tar
-sudo tar -xvf web.tar
-sudo chown -R vmuser:vmuser /usr/share/nginx/html/
-```
-##(Important) Web Server 이미지를 복제하여 서버를 생성할 때 다음을 init script에 삽입합니다. 
+# Start and Enable MySQL 
 
-    #!/bin/bash
-    sudo systemctl start nginx
-    echo
+    sudo systemctl start mysqld
+    sudo systemctl enable mysqld
+
+# Change to Super User
+    sudo passwd root
+    su root
     
+# Check initial password
+    
+    sudo grep 'temporary password' /var/log/mysqld.log
+
+# Change password
+
+    sudo mysql -u root -p
+
+example) ALTER USER 'root'@'localhost' IDENTIFIED BY 'abcd1234';
+
+```mysql
+ALTER USER 'root'@'localhost' IDENTIFIED BY '비밀번호';
+```
+
+# Allow access from external
+
+```mysql
+use mysql;
+select host, user from user;
+```
+
+```mysql
+CREATE USER 'root'@'%' IDENTIFIED BY 'your_password';
+GRANT ALL PRIVILEGES ON *.* TO 'root'@'%';
+```
+
+```mysql
+FLUSH PRIVILEGES;
+```
+
+```mysql
+select host, user from user;
+```
+
+```bash
+sudo systemctl restart mysqld
+```
+
+## Databae Schema Setup
+아래의 SQL 스키마를 다운 받아 Bastion Host에서 Schema 생성 작업
+
+[cosmetic data](https://github.com/scp-cloudacademy/ce-advanced/raw/main/09/cosmetic_COSMETIC.sql)
+
+[Movie data](https://github.com/scp-cloudacademy/ce-advanced/raw/main/09/cosmetic_MOVIES.sql)
+
 # 3. Configure PHP Applicattion Server 
 
 ## Install EPEL and YUM Utilities Package
@@ -238,75 +203,109 @@ Include the lines in the end of php.ini
     sudo systemctl restart network
     sudo systemctl start php-fpm
 
-# 5. Building Database
-#Step 1 – Prerequsitis
-Install and enable Remi 
+# 5. Configure Web Server
 
-    sudo yum -y install epel-release      # Remi 저장소를 설치하고 활성화한다.
-    sudo yum -y install https://dev.mysql.com/get/mysql80-community-release-el7-11.noarch.rpm
+Install nginx
+```
+sudo yum install yum-utils -y
+sudo systemctl stop httpd
+sudo vi /etc/yum.repos.d/nginx.repo
+```
+Type [i] , then copy following contents and paste to vi. 
+```
+[nginx-stable]
+name=nginx stable repo
+baseurl=http://nginx.org/packages/centos/$releasever/$basearch/
+gpgcheck=1
+enabled=1
+gpgkey=https://nginx.org/keys/nginx_signing.key
+module_hotfixes=true
 
-# Install MySQL 8.0.35
+[nginx-mainline]
+name=nginx mainline repo
+baseurl=http://nginx.org/packages/mainline/centos/$releasever/$basearch/
+gpgcheck=1
+enabled=0
+gpgkey=https://nginx.org/keys/nginx_signing.key
+module_hotfixes=true
+```
+Type [ESC] key and type :wq! to exit
 
-    sudo yum install mysql-server
+Install NGINX
+
+```
+sudo yum install nginx -y
+sudo systemctl stop nginx
+```
+Config NGINX
+
+Type vi command
+
+```
+sudo vi /etc/nginx/conf.d/default.conf
+```
+Refer below script and change the configuration 
+
+```
+server {
+    listen       80;
+    server_name localhost;
+    root   /usr/share/nginx/html;
+
+    #access_log  /var/log/nginx/host.access.log  main;
+
+    location / {
+        index index.php index.html index.htm;                                           # index.php 추가   
+    }
+
+    error_page  404              /404.html;
+
+    # redirect server error pages to the static page /50x.html
+    #
+    error_page   500 502 503 504  /50x.html;
+    location = /50x.html {
+        root   /usr/share/nginx/html;
+    }
+
+    # proxy the PHP scripts to Apache listening on 127.0.0.1:80
+    #
+    #location ~ \.php$ {
+    #    proxy_pass   http://127.0.0.1;
+    #}
+
+    # pass the PHP scripts to FastCGI server listening on 127.0.0.1:9000
+    #
     
-# Check Version
+    location ~ \.php$ {                                                                # 이 라인부터 아래 표시 라인까지 주석 삭제
+        fastcgi_pass   was.cesvcs.net:9000;                                             # app server 주소:9000
+        fastcgi_index  index.php;
+        fastcgi_param  SCRIPT_FILENAME  	$document_root$fastcgi_script_name;    # 표기 대로 수정
+	include        fastcgi_params;    
+    }                                                                                  # 이 라인까지 주석 삭제
 
-    mysqld -V
+    # deny access to .htaccess files, if Apache's document root
+    # concurs with nginx's one
+    #
+    #location ~ /\.ht {
+    #    deny  all;
+    #}
+}
 
-# Start and Enable MySQL 
-
-    sudo systemctl start mysqld
-    sudo systemctl enable mysqld
-
-# Change to Super User
-    sudo passwd root
-    su root
-    
-# Check initial password
-    
-    sudo grep 'temporary password' /var/log/mysqld.log
-
-# Change password
-
-    sudo mysql -u root -p
-
-example) ALTER USER 'root'@'localhost' IDENTIFIED BY 'abcd1234';
-
-```mysql
-ALTER USER 'root'@'localhost' IDENTIFIED BY '비밀번호';
 ```
-
-# Allow access from external
-
-```mysql
-use mysql;
-select host, user from user;
+##NGINX 활성화 및 시작
 ```
-
-```mysql
-CREATE USER 'root'@'%' IDENTIFIED BY 'your_password';
-GRANT ALL PRIVILEGES ON *.* TO 'root'@'%';
+sudo systemctl enable nginx
+sudo systemctl start nginx
+cd /usr/share/nginx/html/
+sudo wget https://github.com/scp-cloudacademy/ce-advanced/raw/main/01/1_On_PC/web.tar
+sudo tar -xvf web.tar
+sudo chown -R vmuser:vmuser /usr/share/nginx/html/
 ```
+##(Important) Web Server 이미지를 복제하여 서버를 생성할 때 다음을 init script에 삽입합니다. 
 
-```mysql
-FLUSH PRIVILEGES;
-```
-
-```mysql
-select host, user from user;
-```
-
-```bash
-sudo systemctl restart mysqld
-```
-
-## Databae Schema Setup
-아래의 SQL 스키마를 다운 받아 Bastion Host에서 Schema 생성 작업
-
-[cosmetic data](https://github.com/scp-cloudacademy/ce-advanced/raw/main/09/cosmetic_COSMETIC.sql)
-
-[Movie data](https://github.com/scp-cloudacademy/ce-advanced/raw/main/09/cosmetic_MOVIES.sql)
-
+    #!/bin/bash
+    sudo systemctl start nginx
+    echo
 
 # 6. Create Custom Image
 생성한 웹,앱 virtual Server의 Custom Image를 생성합니다.
