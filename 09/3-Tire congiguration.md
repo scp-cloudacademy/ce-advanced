@@ -61,7 +61,7 @@ Adding 192.168.14.0/27 in VPCa TG Routing
     was       WASLB Private IP
     db        DB server Private IP
 
-#7. In Bation Host, Connnet and configure DB Server
+# 7. In Bation Host, Connnet and configure DB Server
 
 #Step 1 – Prerequsitis
 Install and enable Remi 
@@ -129,12 +129,12 @@ In Bation Host, Install and launch Workbench and upload schema
 
 
 
-#8. In Bation Host, Connnet and configure App Server
+# 8. In Bation Host, Connnet and configure App Server
 
 	sudo systemctl enable php-fpm
   	sudo systemctl start php-fpm
 
-#9. In Bation Host, Connnet and configure Web Server
+# 9. In Bation Host, Connnet and configure Web Server
 
 	sudo systemctl enable nginx
 	sudo systemctl start nginx
@@ -142,7 +142,7 @@ In Bation Host, Install and launch Workbench and upload schema
 
 # 10. Create Custom Image and Create addtional Web / App Servers
 
-# 11. Enroll Web/App Server to each LB Server Group
+#11. Enroll Web/App Server to each LB Server Group
 
-# 12. Public Domain Setup and Service Test / HA Test
+#12. Public Domain Setup and Service Test / HA Test
 
