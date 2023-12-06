@@ -2,11 +2,11 @@
 
 [Internet Gateway](https://github.com/scp-cloudacademy/ce-advanced/raw/main/09/firewall.xlsx)
 
-[WebaSG](https://github.com/scp-cloudacademy/ce-advanced/raw/main/09/web.xlsx)
+[Firewall-web](https://github.com/scp-cloudacademy/ce-advanced/raw/main/09/web.xlsx)
 
-[APPaSG](https://github.com/scp-cloudacademy/ce-advanced/raw/main/09/app.xlsx)
+[Firewall-APP](https://github.com/scp-cloudacademy/ce-advanced/raw/main/09/app.xlsx)
 
-[DBaSG](https://github.com/scp-cloudacademy/ce-advanced/raw/main/09/db.xlsx)
+[Firewall-DB](https://github.com/scp-cloudacademy/ce-advanced/raw/main/09/db.xlsx)
 
 
 # 2. Create Nat Gateway for Web/App/DB Subnet
