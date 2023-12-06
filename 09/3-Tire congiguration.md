@@ -131,6 +131,9 @@ In Bation Host, Install and launch Workbench and upload schema
 
 # 8. In Bation Host, Connnet and configure App Server
 
+	sudo systemctl stop php-fpm
+	sudo sh -c 'echo "$(hostname -I | awk "{print \$1}") was.php4autoscaling" >> /etc/hosts'
+	sudo systemctl restart network
 	sudo systemctl enable php-fpm
   	sudo systemctl start php-fpm
 
