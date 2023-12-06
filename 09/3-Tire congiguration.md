@@ -25,6 +25,7 @@ cd /
 sudo wget https://github.com/scp-cloudacademy/ce-advanced/raw/main/09/web.tar
 sudo tar -xvf web.tar
 sudo chmod -R 755 /usr/share/nginx/html/web
+echo
 ```
 
 ### WAS Server Init Script
@@ -46,6 +47,7 @@ sudo chown -R vmuser:vmuser /var/lib/php/session
 sudo systemctl stop php-fpm
 sudo sh -c 'echo "$(hostname -I | awk "{print \$1}") was.php4autoscaling" >> /etc/hosts'
 sudo systemctl restart network
+echo
 ```
 
 # 4. Adding Server Group and LB Service for Web / App
