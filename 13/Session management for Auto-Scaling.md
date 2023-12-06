@@ -11,8 +11,11 @@
 # Redis(DBaaS)를 이용한 PHP세션 이중화 구성
 1. PHP 세션 저장을 위하 Redis 연동설정</br>
 경로: /etc/php.ini</br>
-   session.save_handler = redis </br>
-   sesstion.save_phth = "tcp://redis ip:6378?auth='PASSPHRASE'"
+```
+session.save_handler = redis </br>
+sesstion.save_phth = "tcp://redis ip:6378?auth='PASSPHRASE'"
+```
+
 2. Session 이중화 구성 </br>
 PHP 구성된 서버를 절체하면서, Session ID가 유지되지는지 확인! </br>
 해당경로에 아래 출력코드를 입력 후 저장해준다 </br>
