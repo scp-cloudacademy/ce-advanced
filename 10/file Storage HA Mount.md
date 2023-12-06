@@ -6,6 +6,8 @@
 
 ###### 2. 마운트 정보 확인 후 마운트 실시
 ```
+sudo yum -y install nfs-utils
+
 sudo mount -t nfs -o ver=3 [마운트 정보] [마운트 위치]
 ```
 ###### 3. 마운트 확인
