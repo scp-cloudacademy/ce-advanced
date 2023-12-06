@@ -38,13 +38,13 @@ sudo systemctl start php-fpm
 
 # 1. 사전준비
 ## 방화벽 규칙설정 : 아래의 파일을 참조
-[Internet Gateway](https://github.com/scp-cloudacademy/ce-advanced/raw/main/09/fw_cea_09.%203-tier%20configuration.xlsx)
+[Internet Gateway](https://github.com/scp-cloudacademy/ce-advanced/raw/main/09/firewall.xlsx)
 
-[WebaSG](https://github.com/scp-cloudacademy/ce-advanced/raw/main/09/WebSG_cea_09.%203-tier%20configuration.xlsx)
+[WebaSG](https://github.com/scp-cloudacademy/ce-advanced/raw/main/09/web.xlsx)
 
-[APPaSG](https://github.com/scp-cloudacademy/ce-advanced/raw/main/09/AppSG_cea_09.%203-tier%20configuration.xlsx)
+[APPaSG](https://github.com/scp-cloudacademy/ce-advanced/raw/main/09/app.xlsx)
 
-[DBaSG](https://github.com/scp-cloudacademy/ce-advanced/raw/main/09/DBSG_cea_09.%203-tier%20configuration.xlsx)
+[DBaSG](https://github.com/scp-cloudacademy/ce-advanced/raw/main/09/db.xlsx)
 
 ## Transit Gateway Routing 설정
 VPCdmz Routing 192.168.14.0/17 추가
