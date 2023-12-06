@@ -63,31 +63,31 @@ Adding 192.168.14.0/27 in VPCa TG Routing
 
 # 7. In Bation Host, Connnet and configure DB Server
 
-#Step 1 – Prerequsitis
-Install and enable Remi 
+### Step 1 – Prerequsitis
+### Install and enable Remi 
 
     sudo yum -y install epel-release      # Remi 저장소를 설치하고 활성화한다.
     sudo yum -y install https://dev.mysql.com/get/mysql80-community-release-el7-11.noarch.rpm
 
-# Install MySQL 8.0.35
+### Install MySQL 8.0.35
 
     sudo yum -y install mysql-server
     
-# Check Version
+### Check Version
 
     mysqld -V
 
-# Start and Enable MySQL 
+### Start and Enable MySQL 
 
     sudo systemctl start mysqld
     sudo systemctl enable mysqld
 
     
-# Check initial password
+### Check initial password
     
     sudo grep 'temporary password' /var/log/mysqld.log
 
-# Change password
+### Change password
 
     sudo mysql -u root -p
 
@@ -97,7 +97,7 @@ example) ALTER USER 'root'@'localhost' IDENTIFIED BY 'abcd1234';
 ALTER USER 'root'@'localhost' IDENTIFIED BY 'VMuser1@';
 ```
 
-# Allow access from external
+### Allow access from external
 
 ```mysql
 use mysql;
@@ -142,7 +142,7 @@ In Bation Host, Install and launch Workbench and upload schema
 
 # 10. Create Custom Image and Create addtional Web / App Servers
 
-#11. Enroll Web/App Server to each LB Server Group
+# 11. Enroll Web/App Server to each LB Server Group
 
-#12. Public Domain Setup and Service Test / HA Test
+# 12. Public Domain Setup and Service Test / HA Test
 
