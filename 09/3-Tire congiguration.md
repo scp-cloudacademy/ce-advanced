@@ -38,6 +38,8 @@ sudo yum-config-manager --enable remi-php81
 sudo yum install -y php php-cli php-common php-devel php-pear php-fpm
 sudo yum install -y php-mysqlnd php-mysql php-mysqli php-zip php-gd php-curl php-xml php-json php-intl php-mbstring php-mcrypt php-posix php-shmop php-soap php-sysvmsg php-sysvsem php-sysvshm php-xmlrpc php-opcache
 sudo cd /
+sudo curl -o https://github.com/scp-cloudacademy/ce-advanced/raw/main/09/was.tar
+또는
 sudo wget https://github.com/scp-cloudacademy/ce-advanced/raw/main/09/was.tar
 sudo tar -xvf was.tar
 sudo chmod -R 755 /usr/share/nginx/html
