@@ -14,7 +14,27 @@ sudo systemctl enable nginx
 sudo systemctl start nginx 
 ```
 
-
+was server
+```
+#!/bin/bash
+sudo yum -y install -y epel-release yum-utils
+sudo yum install -y http://rpms.remirepo.net/enterprise/remi-release-7.rpm
+sudo yum-config-manager --disable remi-php54
+sudo yum-config-manager --enable remi-php81
+sudo yum install -y php php-cli php-common php-devel php-pear php-fpm
+sudo yum install -y php-mysqlnd php-mysql php-mysqli php-zip php-gd php-curl php-xml php-json php-intl php-mbstring php-mcrypt php-posix php-shmop php-soap php-sysvmsg php-sysvsem php-sysvshm php-xmlrpc php-opcache
+sudo cd /
+sudo wget https://github.com/scp-cloudacademy/ce-advanced/raw/main/09/was.tar
+sudo tar -xvf was.tar
+sudo chmod -R 755 /usr/share/nginx/html
+sudo chmod -R 777 /var/lib/php/session
+sudo chown -R vmuser:vmuser /usr/share/nginx/html
+sudo chown -R vmuser:vmuser /var/lib/php/session
+sudo systemctl stop php-fpm
+sudo sh -c 'echo "$(hostname -I | awk "{print \$1}") was.php4autoscaling" >> /etc/hosts'
+sudo systemctl restart network
+sudo systemctl start php-fpm
+```
 
 # 1. 사전준비
 ## 방화벽 규칙설정 : 아래의 파일을 참조
