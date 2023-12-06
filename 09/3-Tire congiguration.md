@@ -1,15 +1,20 @@
 web server
 ```
+#!/bin/bash
 sudo yum install yum-utils -y
 sudo systemctl stop httpd
-sudo cd /etc/yum.repos.d/
-sudo curl -o /etc/yum.repos.d/nginx.repo https://github.com/scp-cloudacademy/ce-advanced/raw/main/09/nginx.repo
+sudo cd /etc/yum.repos.d
+sudo wget https://github.com/scp-cloudacademy/ce-advanced/raw/main/09/nginx.repo
 sudo yum install nginx -y
 cd /
 sudo wget https://github.com/scp-cloudacademy/ce-advanced/raw/main/09/web.tar
 sudo tar -xvf web.tar
 sudo chmod -R 755 /usr/share/nginx/html/web
+sudo systemctl enable nginx
+sudo systemctl start nginx 
 ```
+
+
 
 # 1. 사전준비
 ## 방화벽 규칙설정 : 아래의 파일을 참조
