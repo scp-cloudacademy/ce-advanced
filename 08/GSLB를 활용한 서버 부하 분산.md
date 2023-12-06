@@ -9,9 +9,9 @@
 모든상품 > Networking > GSLB > 상품신청
 
 용도 : PUBLIC
-도메인명 : cosmeticsevolution
+도메인명 : gslbtestce
 연결 대상 추가
- - IP : GSLB에 연결한 가상머신의 PUBLIC IP
+ - IP : 123.37.4.75(drtest), 123.41.128.11(bastiondr)    # GSLB에 연결한 가상머신의 PUBLIC IP
  - 위치 : 가상머신 위치
 
 부하 분산 정책 설정
@@ -20,46 +20,54 @@
 연결 대상 모니터링 설정
  - Health check : TCP
  - Interval : 5
- - Timeout : 60
+ - Timeout : 7
  - Probe timeout : 5
  - Service port : 80
 ```
 
 </br>
 
-<h3>02. Security Group 규칙 추가</h3>
+<h3>02. IGW_Firewall_추가/수정</h3>
 
-```bash
 GSLB가 연결 대상을 모니터링하기 위해서는 Firewall 및 Security Group에 허용 규칙을 추가해야함
 
-GSLB IP대역 (112.106.155.0/24, 112.107.100.0/24)
-모니터링 서비스 포트
+```bash
+모든상품 > Networking > Firewall
+
+FIrewall명 : FW_IGW_VPCdrtest
+출발지 IP : 112.106.155.0/24, 112.107.100.0/24
+목적지 IP : 192.168.1.0/24
+프로토콜 : TCp
+허용포트 : 80
+방향 : Inbound
+
+FIrewall명 : FW_IGW_VPCdr
+출발지 IP : 112.106.155.0/24, 112.107.100.0/24
+목적지 IP : 192.168.30.0/24
+프로토콜 : TCp
+허용포트 : 80
+방향 : Inbound
+
 ```
 
+</br>
 
+<h3>03. Security Group 규칙 추가/수정</h3>
 
+GSLB가 연결 대상을 모니터링하기 위해서는 Firewall 및 Security Group에 허용 규칙을 추가해야함
 
-DR 서버 환경 구성
+```bash
+모든상품 > Networking > Security Group
 
-서버 NAT IP 연결
+Security Group명 : drtestSG
+방향 : Inbound
+대상 주소 : 112.106.155.0/24, 112.107.100.0/24
+프로토콜 : TCP
+허용 포트 : 80
 
-인터넷게이트웨이
-인바운드 80
-아웃바운드 80,443
-
-SG
-인바운드 80
-아웃바운드 80,443
-인바운드 112.106.155.0/24, 112.107.100.0/24   80
-
-서버 접속 nginx 설치
-
-GSLB  생성
-서버 등록
-Ratio 테스트
-
-
-
-
-
-
+Security Group명 : BASTIONdrSG
+방향 : Inbound
+대상 주소 : 112.106.155.0/24, 112.107.100.0/24
+프로토콜 : TCP
+허용 포트 : 80 
+``` 
