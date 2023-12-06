@@ -6,7 +6,7 @@
 
 [App Security Group](https://github.com/scp-cloudacademy/ce-advanced/raw/main/09/app.xlsx)
 
-[DB Security Group](https://github.com/scp-cloudacademy/ce-advanced/raw/main/09/db.xlsx)
+[DB Security Group]()
 
 
 # 2. Create Nat Gateway for Web/App/DB Subnet
