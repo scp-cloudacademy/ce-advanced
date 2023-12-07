@@ -16,6 +16,8 @@ cd /usr/share/nginx/html
     sudo yum -y install nfs-utils
 #### 4. 서버 마운트
     sudo mount -t nfs -o =ver=3 [마운트정보] [마운트 위치]    # 서버 마운트
-    df -k    # 마운트 확인
+    df -h    # 마운트 확인
 #### 5. 이동한 자료를 마운트 된 서버로 이동
     sudo mv web1/* web
+#### 6. 작업한 경로에서 권한설정 (파일 디렉토리에 대한 쓰기권한 부여)
+    sudo chmod 777 file
