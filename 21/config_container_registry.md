@@ -1,1 +1,118 @@
+# Create and Connect Kubernetes Cluster
 
+  **Scenario :** 
+
+  **Hands-on Location :** Your Labtop
+
+  **Prerequisition :** 
+
+---
+
+
+## 1. Update Repo
+
+    sudo yum install -y yum-utils
+    sudo yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
+
+### 2. Install and start Docker
+
+    sudo yum install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+    sudo systemctl start docker
+
+### 3. Login
+아이디로 로그인하기
+Samsung Cloud Platform의 콘솔 아이디와 비밀번호, 레지스트리 엔드포인트를 사용하여 로그인합니다.
+
+레지스트리 엔드포인트: "Container Registry 상세" 페이지에서 확인할 수 있습니다.
+
+퍼블릭 엔드포인트: registryname-registryid.scr.region.samsungsdscloud.com
+
+프라이빗 엔드포인트: registryname-registryid.scr.region.scp-in.com
+
+helm registry login <registry_endpoint>
+Username: <scp_console_id(email)>
+Password: <scp_console_password>
+인증키로 로그인하기
+인증키, SecretKey와 레지스트리 엔드포인트를 사용하여 로그인합니다.
+
+레지스트리 엔드포인트: "Container Registry 상세" 페이지에서 확인할 수 있습니다.
+
+퍼블릭 엔드포인트: registryname-registryid.scr.region.samsungsdscloud.com
+
+프라이빗 엔드포인트: registryname-registryid.scr.region.scp-in.com
+
+helm registry login <registry_endpoint>
+Username: <accessKey>
+Password: <secretKey>
+
+
+
+퍼블릭 엔드포인트: registryname-registryid.scr.region.samsungsdscloud.com
+
+프라이빗 엔드포인트: registryname-registryid.scr.region.scp-in.com
+
+helm registry login <registry_endpoint>
+Username: <scp_console_id(email)>
+Password: <scp_console_password>
+
+
+
+Pull image from SCR
+
+    docker pull registryname-registryid.scr.region.samsungsdscloud.com/repository:tag
+
+ 
+Download Kubectl Client Program
+(클러스터 버전과 일치할것을 권고, CLI와 클러스터 간 +-1 버전만 지원)
+
+    sudo curl -LO https://dl.k8s.io/release/v1.26.8/bin/linux/amd64/kubectl
+
+Install client program
+
+    sudo install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl
+
+If it's not root, run commads to give permissions,
+
+    sudo chmod +x kubectl 
+    sudo mkdir -p ~/.local/bin
+    sudo mv ./kubectl ~/.local/bin/kubectl
+
+Run commnands for Kubernetes client to connect Kubernetes cluster API Server
+
+     sudo mkdir ~/.kube
+     sudo vi ~/.kube/config
+
+In Kubernetes cluster console check private endpoint and download and copy kubeconfig(yaml) file contents
+It looks like,
+
+```yaml
+apiVersion: v1
+clusters:
+- cluster:
+    certificate-authority-data: LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSURBRENDQWVpZ0F3SUJBZ0lCQURBTkJna3Foa2lHOXcwQkFRc0ZBREFWTVJNd0VRWURWUVFERXdwcmRXSmwKY201bGRHVnpNQ0FYRFRJek1USXdOVEV6TURFMU1Gb1lEekl3TlRNeE1USTNNVE13TVRVd1dqQVZNUk13RVFZRApWUVFERXdwcmRXSmxjbTVsZEdWek1JSUJJakFOQmdrcWhraUc5dzBCQVFFRkFBT0NBUThBTUlJQkNnS0NBUUVBCjBWeDA1WHdldWkvWkUwVVdGdTdZVjNmT01QTWlCMml3NnMzYnB2OUc5QnRZbnJGditJUEVzTjhiYlR4UEpPRlQKamduTVNMdVd6TjlSNnVoajE2S1p4VERlaVF0dmpES1dJUW9wVTc4bmFVSWxvenFxYkNpdE9HTmJhbnNFRzVGcApxejRyR1hZL0FCNCtWSlZKRFJLeWFueTFZaUptRyt1QUlKUXRNM1ZrVHE2NzA1UDVUTUloT3BRRkJGWUcrRzF2Ckt5OElZdU92MENrQWsyeitWTCtqemJZaHFrZHlURnNCb2U2Ym40QzNxb1dON2gwWHpXQmpXNFNXcENCSEZkVDMKaWlvTFZBU2FpR1g3WGczbHJCTUFaMnQ1M05EejlKNG5pb0dsNnlrQ0V1Z0VmVE1VcGFkb1ZhQ0FxZEtDNmFnTApzQlhTbnlrZ3pTa0ZHNHlmMnhmUlh3SURBUUFCbzFrd1Z6QU9CZ05WSFE4QkFmOEVCQU1DQXFRd0R3WURWUjBUCkFRSC9CQVV3QXdFQi96QWRCZ05WSFE0RUZnUVV1OW82SDhsRWIybkdhaDJHVEo1NVZsWjJSMkV3RlFZRFZSMFIKQkE0d0RJSUthM1ZpWlhKdVpYUmxjekFOQmdrcWhraUc5dzBCQVFzRkFBT0NBUUVBZGUxVGRDWFRWOEJneXhFeQozcXNmVGVnRXhxNmVTc1NxbWREQW9xTm55dWwvdUE3OEJveXVQNzFRS3BsWmk1RjMrZVF4NE1tT2hRVlg0aUQ2CnVSMGE1UHJPYXg3bGNxbHdCajg4a1hHNWhkNE5jRFNtWFdkUFZTdUEzVXZCWllHV1pBYnRTdWVMNTFOTXk1alIKSHhtV2taRjRXMGJFbDIzRTFQVExhS09iWlQ2d3B1N0EraVhnbkpvM0ZHYWhwQy92cjBSaGlPZm5qM0h2Yks1WgpPSXV1SFYzUDljZGJaOVNJOGVvNmFRWFN6bFRCTW1xR2dqMC9mK0ZPbUJtcGJqUU9PNFB4aUpjcVNLOFJVbDFtCm9rWFROSTEzcnhIVmQxMUtiQUdHZnNHZUxkN3p4Y2FtY1JXNmE1QlpmRXltYU9Tb1JSWmlEcTFQWHROSzlGUmoKME9qMkVRPT0KLS0tLS1FTkQgQ0VSVElGSUNBVEUtLS0tLQo=
+    server: https://k8sclb-1f0q8.ske.kr-west.scp-in.com:6443
+  name: k8sclb-1f0q8
+contexts:
+- context:
+    cluster: k8sclb-1f0q8
+    user: user
+  name: user@k8sclb-1f0q8
+current-context: user@k8sclb-1f0q8
+kind: Config
+preferences: {}
+users:
+- name: user
+  user:
+    client-certificate-data: LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSURGekNDQWYrZ0F3SUJBZ0lJZlQyMlJDbHk3WjB3RFFZSktvWklodmNOQVFFTEJRQXdGVEVUTUJFR0ExVUUKQXhNS2EzVmlaWEp1WlhSbGN6QWdGdzB5TXpFeU1EVXhNekF4TlRCYUdBOHlNRFV6TVRFeU56RXpNREUxTTFvdwpLREVYTUJVR0ExVUVDaE1PYzNsemRHVnRPbTFoYzNSbGNuTXhEVEFMQmdOVkJBTVRCSFZ6WlhJd2dnRWlNQTBHCkNTcUdTSWIzRFFFQkFRVUFBNElCRHdBd2dnRUtBb0lCQVFDc25JSGFpUkdNUEtIcVZwUlROVW5mejhxNll5STQKTHlJbE9DTlBNUHUycURxOGNUTnJQRW14V21mQ1ZFeEhScGJIdVovcUhMVHQ1OWd1QW4yWEV5MUZ5OUVQRWlYSgpFanB0U2k4dklPL2FNOVpvTWdzK09RSHBWZGlzUE8wS2g1aks4Q2crc2ZpWUk3SzZGMEo4ZlllNHVNVDJ0ekRqCllpalhaK2lWV0ZFQW01OFErdExySEFYbVZ6UzlOMmVhRmdoOVBPQ2U2STNxTGVUUWlud0dxQjlpcFRRNm4zaTIKRU1zZnhiYXJFOGR2NHZVOE1PU2s1c25Qd2k0eVgxOXBMMGFTUHBRcTNIeVRUVTlpSFhDcUV3cC9VcHZGY0lFWAorbTRFSUlYRWNTMnEwQlBqUDBDTzliZ3JYRjVSRHFYc01sREVXUS82SnpHbmZXWE1scFA1Q1gvL0FnTUJBQUdqClZqQlVNQTRHQTFVZER3RUIvd1FFQXdJRm9EQVRCZ05WSFNVRUREQUtCZ2dyQmdFRkJRY0RBakFNQmdOVkhSTUIKQWY4RUFqQUFNQjhHQTFVZEl3UVlNQmFBRkx2YU9oL0pSRzlweG1vZGhreWVlVlpXZGtkaE1BMEdDU3FHU0liMwpEUUVCQ3dVQUE0SUJBUUMzOUNRa0xEWmluaW5IUzBudllxSzl0TFpsR3dabjBMWW8rOHBpSUpVYnliV2loM01iCjZ5VGJSeFM0VGQ5OVg2dmhQa2EyMEs1NjdaU0FhdTc1Q1Q1TnRYbDlEZ1Jmb2FmbU9UNnNFMW9vQ3N4Z0xLbDMKUml2TmNLUkxrNmludjZHbUNkQy9ZTEZ4djdXVTkvWmNlQ1Q1cVg2SU1qVlM2N3NwSWxYWmRCK1FmdjhuNnhFVgpXenBsM0svZ3dIYmpiclQ4bFAySXoxMHdML1FSM2pJMHk5bGRjMmN3STQ4bStnZVJaOHZtU3VYVXVVTkVqVnNCCmlORkQ4UlhRVjNwakJMdW8rL0xzUlFQRmllMFFKeHhGV1ZSZmQ2bWdFTnJzZEpyeHhaLzhKbDdvUlNIZ3NxSzcKWW1sTHFSUGQrMnY5d1RucGV1KzVGUG9QY1hFWGlxT0hzTWNDCi0tLS0tRU5EIENFUlRJRklDQVRFLS0tLS0K
+    client-key-data: LS0tLS1CRUdJTiBSU0EgUFJJVkFURSBLRVktLS0tLQpNSUlFb2dJQkFBS0NBUUVBckp5QjJva1JqRHloNmxhVVV6VkozOC9LdW1NaU9DOGlKVGdqVHpEN3RxZzZ2SEV6CmF6eEpzVnBud2xSTVIwYVd4N21mNmh5MDdlZllMZ0o5bHhNdFJjdlJEeElseVJJNmJVb3ZMeUR2MmpQV2FESUwKUGprQjZWWFlyRHp0Q29lWXl2QW9Qckg0bUNPeXVoZENmSDJIdUxqRTlyY3c0MklvMTJmb2xWaFJBSnVmRVByUwo2eHdGNWxjMHZUZG5taFlJZlR6Z251aU42aTNrMElwOEJxZ2ZZcVUwT3A5NHRoRExIOFcycXhQSGIrTDFQRERrCnBPYkp6OEl1TWw5ZmFTOUdrajZVS3R4OGswMVBZaDF3cWhNS2YxS2J4WENCRi9wdUJDQ0Z4SEV0cXRBVDR6OUEKanZXNEsxeGVVUTZsN0RKUXhGa1AraWN4cDMxbHpKYVQrUWwvL3dJREFRQUJBb0lCQUJYeE0wU2ZoZjZJdXFCNgpieEtBeEtwUjFOaUt2NC9hMWdGYk9JblpsVFhyL3NOenRIQ2VVbFBjUlRKYjJ2SjRrN1JCOFlVbUx3M0xHaDBICkxnWGxaeXpuTXVVeWptRVlFeHRQZ2Q0QTF0eXJHRWRZalR0VXJkeUdrQ3VjOXhrT2thckNpcXNsbm85Z2dsakwKbWlVUEpCQ2tWRTEwamg5cG0vMTk5UC8vSVJUdGZmTk93NjlObnkxVWVyb0ZBdGRXTXR4MGlkaUtuVDlqK3JJcwpsQ2hQNEY1QjdlMkxINWhJNGtjSE5qM0Q2Wm1kTWVYTnF3b3BlN0tKak1zQ2Q5aWFybHNQZXVaZ0NCUFExNkpICndMd1kyMW5hL2ZHWjA4NXE1TUdjclViK1JtTForUGVubjhCbVA4aE1mSzRpOElBcGRSaWVYdHRuakhuSm5zMkQKcXpSOGl1RUNnWUVBM0VQT2hlQ210d21URW1TMk5rU1o1b3p6cjFLa0VtejBjSldveFBibHZnQ0xUM3lNTDNjYgpYR05QcjZaczhwRW5Xc21NRXRxUXppY1cxb1VmbHNkbExpUXZoV0xBSW1TK1o2Q1A3RzM4S1hKMmRjL24zK01yCmp5RGtyR2JTU2ozTkk2T0hKcXh3YThFbENhTG8xajZPNHM3L0hJLzVNazVQMkd5K1A5RlZQakVDZ1lFQXlKMkYKa1ZrMHkwRFVPL1ZDWTBIWkhIckVkMnNMSGxuQnM3WHBIRWp4dGxmN2QyMGlkamhXWFRGZVMvRnhDNVRlR0liLwozNGdCNmZWa0ducVpzelpBL0ZJNVI3SU11bTIxUGFPRTRaK2h3alVpZGlSK2VnenVmQ3Y4WGdBZ2xRaUVsb2huCnBDSFNWRnRWMEcrWWtDRGZPQzVXcmRKR2xZSTZlSWxJanVkR0pTOENnWUFQT1ppaTVGNWh0SVczOWNJcWloOWgKTWtqOXkyYVA1M3dWOUNKUVN3aWlVNE5Ob1R4SFk2SStocGJSZTExNGZ0UUxrSGJnTHI5bm9JZ1JsKzRSREFOUQpaeXZwdW1PeGZPazBYSUxXUXR2MU9YWTZ1bjQ2bVljL1EzVEsvZWgzUFVKYXZranZRV2diNnFQV3dLMzdjU09MClJlZVlYOU5IeU9YMy9ieEF5UVZ0WVFLQmdCMWJINDV6VlV4Z3dpMjc1K2tLVzdEVkxpYWpYVThscHppYTUrK2gKcE8wZjFzWlZDL1Bzcm9hWWtNbmdITUNyR2d6UXhHUjdUSHhsMGk0bHZwUUEzbVdOeXAvNUorK24yaHVZNy9ycwpGd21LS083TXpFMGowMG9NVGJPYnBTanB4QzBhN0wrUnkydFlxaWdFREhrYXRrOU1TSmJLN0ZVNFowSDRKTXYwCmY4azFBb0dBSHl2MXpzNE5GVVV1UUhkN0RnNlpiTGFEVXpwdlNNeXhoWU5SeTJCeERnZnRrSnFuRk5oRU5RVDAKUFozTUl1cTNIbCtSeUZ2bFdxTG93aDR4R3l2TmpEYnlhS0dSMzZIRjVOT2VwQkhSOVM2QlpkbDB4M09jQWRKWQp6akI0WXZjR2pGcitEL1Nxc2hMTTNOOWJBU1drUm81dzRjVVZFTVpKSVUvbzJpSDl6YXM9Ci0tLS0tRU5EIFJTQSBQUklWQVRFIEtFWS0tLS0tCg==
+```
+
+Run commands where it is connected correctly
+
+    kubectl version
+    kubectl get nodes
+    
+- Test Kubectl commands in the link 
+
+[https://kubernetes.io/ko/docs/reference/kubectl/cheatsheet/](https://kubernetes.io/ko/docs/reference/kubectl/cheatsheet/) 
+ 
