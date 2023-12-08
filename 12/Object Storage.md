@@ -1,6 +1,6 @@
 # File storage에 저장된 콘텐츠를 Object Storage로 Migration
 ## 1. object Storage 생성
-구성
+configuration
 1) Multi AZ: 사용
 2) 제공범위: 공용
 
@@ -23,5 +23,3 @@ AWS Cli를 이용 </br>
     public Acess 권한부여
 ### (4) Source code 반영
     index.php 의 파일경로를 [./web] → [endpoint/버킷명] 일괄변경
-    
-    
