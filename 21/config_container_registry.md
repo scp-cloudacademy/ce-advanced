@@ -37,8 +37,10 @@
     kubectl create namespace cemall
 
 secret name : cecred
+
 namespace : cemall
-docker-server : <<SCR private endpoint>>
+
+docker-server : SCR private endpoint
 
      kubectl create secret docker-registry <<secret name>> \
     --docker-server=<your-registry-server> \
