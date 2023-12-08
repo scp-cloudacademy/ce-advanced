@@ -32,12 +32,3 @@ sudo systemctl restart php-fpm
 
 ### DNS 변경
 DB DNS의 레코드 설정값을 DBaaS VIP 정보로 변경한다.
-
-    
-
-
-
-
-
-
-
