@@ -11,8 +11,7 @@
 
 ## 2. File migration
 AWS Cli를 이용 </br>
-※ 아직 설치가 되어있지 않다면, [링크](https://aws.amazon.com/ko/cli/)클릭하여 다운 및 설치를 진행한다.</br>
-설치 및 사용법에 대한 내용은 [내용참조](https://inpa.tistory.com/entry/AWS-%F0%9F%93%9A-AWS-CLI-%EC%84%A4%EC%B9%98-%EC%82%AC%EC%9A%A9%EB%B2%95-%EC%89%BD%EA%B3%A0-%EB%B9%A0%EB%A5%B4%EA%B2%8C)
+※ 아직 설치가 되어있지 않다면, [다운로드](https://aws.amazon.com/ko/cli/)클릭하여 다운 및 설치를 진행한다.</br>
 
 ### (1) AWS Cli configuration
     aws configure
