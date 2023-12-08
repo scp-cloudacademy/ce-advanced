@@ -1,4 +1,4 @@
-# Create and Connect Kubernetes Cluster
+# Create and use Container Registry
 
   **Scenario :** 
 
