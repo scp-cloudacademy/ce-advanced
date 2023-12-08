@@ -1,4 +1,4 @@
-# Create and use Container Registry
+# Configure Container Registry
 
   **Scenario :** 
 
