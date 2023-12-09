@@ -32,7 +32,7 @@ https://www.putty.org/
 
 ## Download APP Source code 
 
-    wget https://github.com/scp-cloudacademy/ce-advanced/raw/main/09/was.tar
+    wget https://github.com/scp-cloudacademy/ce-advanced/raw/main/01/1_On_PC/was.tar
     cd /
     tar -xvf /home/vmuser/was.tar
 
