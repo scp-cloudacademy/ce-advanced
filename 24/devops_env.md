@@ -1,15 +1,13 @@
 
 # 1. Create Certificates
 
+### Public Subnet에 NAT IP가 연결된 CentOS Virtual Server를 생성하고 DNS에 등록
 
-[Internet Gateway](https://github.com/scp-cloudacademy/ce-advanced/raw/main/09/firewall.xlsx)
+``` 
+apps.cosmeticevolution.net
+```
 
-[Web Security Group](https://github.com/scp-cloudacademy/ce-advanced/raw/main/09/web.xlsx)
-
-[App Security Group](https://github.com/scp-cloudacademy/ce-advanced/raw/main/09/app.xlsx)
-
-[DB Security Group](https://github.com/scp-cloudacademy/ce-advanced/raw/main/09/db.xlsx)
-
+### Virtual Server에서 다음 명령어 실행 
 
 # 2. Create Nat Gateway for Web/App/DB Subnet
 
