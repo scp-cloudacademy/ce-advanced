@@ -36,7 +36,7 @@ sudo systemctl stop nginx
 ```
 
 3) 인증서 발급
-
+아래 명령어 실행 전에 IGW FW, SG에 80 Inbound 개방 여부 확인
 ```
 sudo certbot certonly --standalone -d apps.cosmeticevolution.net # apps.cosmeticevolution.net는 각자 등록한 도메인으로 설정
 ```
