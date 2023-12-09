@@ -13,7 +13,7 @@
 
 ### 1. Install php-redis
 
-    sudo apt install php-redis
+    sudo yum install php-redis
 
 ### 2. Patching Redis to PHP database source
 
