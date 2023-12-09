@@ -64,6 +64,18 @@ select host, user from user;
 ```bash
 sudo systemctl restart mysqld
 ```
+Open Firewall port
+
+```
+firewall-cmd --zone=public --permanent --add-port=3306/tcp    # 22번 포트 오픈
+firewall-cmd --zone=public --permanent --add-port=22/tcp    # 80번 포트 오픈
+firewall-cmd --reload                                       # 리로드
+firewall-cmd --zone=public --list-all                       # 리스트 불러오기
+```
+
+Download and Install MySQL Workbench
+
+
 In Bation Host, Install and launch Workbench and upload schema
 
 [cosmetic data](https://github.com/scp-cloudacademy/ce-advanced/raw/main/09/cosmetic_COSMETIC.sql)
