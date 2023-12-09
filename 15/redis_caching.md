@@ -16,6 +16,11 @@
     sudo apt install php-redis
 
 ### 2. Patching Redis to PHP database source
+
+[apiDatabase.php]
+
+
+
 ```php
 <?php
 header('Content-Type: text/html; charset=UTF-8');
