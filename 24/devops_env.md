@@ -27,7 +27,7 @@ sudo yum repolist | grep epel
   ```
 2) Certbot 설치
 ```
-sudo yum install certbot python2-certbot-nginx
+sudo yum install certbot python2-certbot-nginx -y
 ```
 
 ###### ※ 인증서는 절차가 간소한 standalone 방식으로 발급하며, 발급 전 웹서버 서비스를 잠시 중지시켜야 한다.
