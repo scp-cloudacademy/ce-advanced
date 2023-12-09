@@ -75,6 +75,7 @@ firewall-cmd --zone=public --list-all                       # 리스트 불러�
 
 Download and Install MySQL Workbench
 
+[https://www.mysql.com/products/workbench/](https://www.mysql.com/products/workbench/)
 
 In Bation Host, Install and launch Workbench and upload schema
 
