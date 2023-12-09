@@ -1,11 +1,16 @@
 # Configure PHP Applicattion Server 
 
-Edit Local domain for php-fpm listening
+## Open Firewall port
 
-     if [[ -n "$(hostname -I)" ]]; then
-        echo "$(hostname -I | awk '{print $1}') was.suntaeidea.php4autoscaling" | sudo tee -a /etc/hosts
-     fi
-     sudo systemctl restart NetworkManager
+```
+firewall-cmd --zone=public --permanent --add-port=9000/tcp    # 3306번 포트 오픈
+firewall-cmd --zone=public --permanent --add-port=22/tcp      # 22번 포트 오픈
+firewall-cmd --reload                                         # 리로드
+firewall-cmd --zone=public --list-all                         # 리스트 불러오기
+```
+## Download Putty and connect App server
+
+https://www.putty.org/
 
 ## Install EPEL and YUM Utilities Package
 
@@ -126,3 +131,10 @@ Include the lines in the end of php.ihi
     sudo systemctl restart network
     sudo systemctl start php-fpm
 
+
+## Edit Local domain for php-fpm listening
+
+     if [[ -n "$(hostname -I)" ]]; then
+        echo "$(hostname -I | awk '{print $1}') was.suntaeidea.php4autoscaling" | sudo tee -a /etc/hosts
+     fi
+     sudo systemctl restart NetworkManager
