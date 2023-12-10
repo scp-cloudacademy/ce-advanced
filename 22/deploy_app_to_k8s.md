@@ -18,7 +18,11 @@ https://github.com/scp-cloudacademy/ce-advanced/raw/main/22/ceweb.dockerfile
     sudo docker tag ceweb cecr-goqhrszn.scr.kr-west.scp-in.com/app/ceweb:v1
     sudo docker push cecr-goqhrszn.scr.kr-west.scp-in.com/app/ceweb:v1
 
-## Image를 
+## Deploy Image to Kubernetes Cluster
+Download YAML file run the deploymet command at the bastion
+
+    sudo kubectl apply -f 
+    
 
 
 
