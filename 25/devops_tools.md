@@ -8,7 +8,15 @@ kuverctl get pods -n devopstools
 kubectl exec -it -n devopstools gitlab --bash
 /etc/gitlab/cat initial_root_password
 ```
+```
+kubectl get secret -n=kube-system
 
+# cmp-token을 확인
+
+kubectl get secret -n=kube-system cmp-token -ojsonpath='{.data.ca\.crt}'
+
+kubectl describe secret -n=kube-system cmp-token
+```
 
 K8S Apps에서
 툴세팅K8s Ingress 와는 다른 namespace 신규 생성 cedevopstools
