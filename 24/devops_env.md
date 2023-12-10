@@ -4,10 +4,7 @@
 ### 인증서 발급을 위한 서버 생성
 Public Subnet(WEBa)에 NAT IP가 연결된 CentOS Virtual Server를 생성
 ```
-sudo yum install yum-utils -y
-sudo cd /etc/yum.repos.d
-sudo wget https://github.com/scp-cloudacademy/ce-advanced/raw/main/09/nginx.repo
-sudo yum install nginx -y
+sudo yum install httpd -y
 ```
 ### NAT IP를 DNS에 등록
 ```
@@ -27,7 +24,7 @@ sudo yum repolist | grep epel
   ```
 2) Certbot 설치
 ```
-sudo yum install certbot python2-certbot-nginx -y
+sudo yum install certbot python2-certbot-apache -y
 ```
 
 ###### ※ 인증서는 절차가 간소한 standalone 방식으로 발급하며, 발급 전 웹서버 서비스를 잠시 중지시켜야 한다.
