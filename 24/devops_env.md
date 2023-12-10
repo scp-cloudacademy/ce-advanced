@@ -131,8 +131,11 @@ SCM Repository
   - 사용자 인증 타입 ID/Password
 
   - 인증 확인을 위해서 리눅스 배스천 서버에 들어가서 Kubectl Client로
-kubectl exec -it -n devopstoos deveopsgitplab --bash
+```
+kuverctl get pods -n devopstools
+kubectl exec -it -n devopstools gitlab --bash
 /etc/gitlab/cat initial_root_password
+```
 패스워드를 확인해서
 Gitlab으로 접속 root / 패스워드 입력
 로그인 해서 패스워드 변경
