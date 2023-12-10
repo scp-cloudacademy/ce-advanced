@@ -3,12 +3,7 @@
 
 ### 인증서 발급을 위한 서버 생성
 Public Subnet(WEBa)에 NAT IP가 연결된 CentOS Virtual Server를 생성
-```
-sudo yum install yum-utils -y
-sudo cd /etc/yum.repos.d
-sudo wget https://github.com/scp-cloudacademy/ce-advanced/raw/main/09/nginx.repo
-sudo yum install nginx -y
-```
+
 ### NAT IP를 DNS에 등록
 ```
 cosmeticevolution.net   # apps.cosmeticevolution.net는 각자 등록한 도메인으로 설정
@@ -141,7 +136,12 @@ Gitlab으로 접속 root / 패스워드 입력
 로그인 해서 패스워드 변경
 
 
-
+```
+sudo yum install yum-utils -y
+sudo cd /etc/yum.repos.d
+sudo wget https://github.com/scp-cloudacademy/ce-advanced/raw/main/09/nginx.repo
+sudo yum install nginx -y
+```
 
 
 
