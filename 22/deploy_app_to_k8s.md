@@ -21,7 +21,9 @@ https://github.com/scp-cloudacademy/ce-advanced/raw/main/22/ceweb.dockerfile
 ## Deploy Image to Kubernetes Cluster
 Download YAML file run the deploymet command at the bastion
 
-    sudo kubectl apply -f 
+https://github.com/scp-cloudacademy/ce-advanced/raw/main/22/nginx_deployment.yaml
+
+    sudo kubectl apply -f nginx_deployment.yaml
     
 
 
