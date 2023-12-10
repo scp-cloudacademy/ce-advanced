@@ -7,7 +7,7 @@ https://github.com/scp-cloudacademy/ce-advanced/raw/main/22/ceweb.dockerfile
 
 ### Buld docker Image
 
-    sudo docker build buildx -t ceweb -f ceweb.dockerfile .
+    sudo docker buildx build -t ceweb -f ceweb.dockerfile .
 
 ### Run docker cotainer with image
 
