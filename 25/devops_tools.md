@@ -87,8 +87,9 @@ Gitlab으로 접속 root / 패스워드 입력
 로그인 해서 패스워드 변경
 
 
+scr
 
-
+![image](https://github.com/scp-cloudacademy/ce-advanced/assets/147478897/b7a21953-32e1-4b3f-b921-18a2b039a788)
 
 
 
