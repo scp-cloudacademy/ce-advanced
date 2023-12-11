@@ -40,7 +40,7 @@ https://github.com/scp-cloudacademy/ce-advanced/raw/main/22/ceweb.dockerfile
 
 ## Secret to allow k8s cluster to access SCR
 
-    $ kubectl create secret docker-registry cewebsecret --docker-server=<your-registry-server> --docker-username=<your-SCP-console-ID> --docker-password=<your-SCP-console-password> -n ceweb 
+    kubectl create secret docker-registry cewebsecret --docker-server=<your-registry-server> --docker-username=<your-SCP-console-ID> --docker-password=<your-SCP-console-password> -n ceweb 
 
 ## Deploy web image to K8s cluster
 
