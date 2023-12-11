@@ -61,6 +61,11 @@ Server: SCR Private Endpoint
     kubectl get pod -n ceweb
 
     kubectl exec ceweb-1.0-7d9db75f56-6srsw -n ceweb -- printenv PORT
+
+    sudo wget https://github.com/scp-cloudacademy/ce-advanced/raw/main/22/ceweb-ingress.yaml
+
+    kubectl apply -f ceweb-ingress.yaml
+
     
     
 
