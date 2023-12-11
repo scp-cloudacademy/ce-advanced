@@ -38,7 +38,10 @@ https://github.com/scp-cloudacademy/ce-advanced/raw/main/22/ceweb.dockerfile
 
 ## Allow K8s Servers in Private Endpoint Access Control
 
-## 
+## Deploy web image to K8s cluster
+
+    sudo wget 
+    kubectl apply -f 
 
 
 
