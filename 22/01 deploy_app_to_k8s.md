@@ -20,7 +20,7 @@ https://github.com/scp-cloudacademy/ce-advanced/raw/main/22/ceweb.dockerfile
 
 ## Create namespace
 
-    kubectl create namespace cemall
+    kubectl create namespace ceweb
 
 ## Download and apply service.yaml to create service nodeport
 
@@ -28,13 +28,13 @@ https://github.com/scp-cloudacademy/ce-advanced/raw/main/22/ceweb.dockerfile
     
     kubectl apply -f service-nodeport.yaml
     
-    kubectl get svc -n cemall
+    kubectl get svc -n ceweb
 
-    kubectl get endpoints -n cemall   
+    kubectl get endpoints -n ceweb   
 
-    sudo wget https://github.com/scp-cloudacademy/ce-advanced/raw/main/22/cemall_HTTP_PORT
+    sudo wget https://github.com/scp-cloudacademy/ce-advanced/raw/main/22/ceweb_HTTP_PORT
 
-    kubectl create configmap port-config -n cemall --from-file=cemall_HTTP_PORT 
+    kubectl create configmap port-config -n cemall --from-file=ceweb_HTTP_PORT 
 
     
 
