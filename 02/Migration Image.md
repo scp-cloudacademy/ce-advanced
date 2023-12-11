@@ -48,3 +48,5 @@ aws s3 cp [파일명] s3://[버킷명]/ --endpoint-url [Public Endpoint명]
 Samsung Cloud Platform 콘솔 > 자원관리 > Compute > Virtual Server > Migration Image<br>
 
 <h3>Virtual Server 배포</h3>
+Samsung CLoud Platform 콘솔 > 자원관리 > Compute > Virtual Server<br>
+이미지 선택창의 [Migration]탭에서 생성한 이미지 사용
