@@ -3,7 +3,7 @@
 
 ### Download docker file at the bastion
 
-https://github.com/scp-cloudacademy/ce-advanced/raw/main/22/ceweb.dockerfile
+    sudo wget https://github.com/scp-cloudacademy/ce-advanced/raw/main/22/ceweb.dockerfile
 
 ### Buld docker Image
 
