@@ -17,6 +17,8 @@ spec:
       containers:
       - name: ceweb
         image: cecr-goqhrszn.scr.kr-west.scp-in.com/apps/ceweb:v1
+        imagePullSecrets:
+        - name: cewebsecret
         resources:
           limits:
             memory: "64Mi"
