@@ -1,21 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: cemall-1.0
-  namespace: cemall
+  name: ceweb-1.0
+  namespace: ceweb
 spec:
   selector:
     matchLabels:
-      app: cemall
+      app: ceweb
       version: "1.0"
   template:
     metadata:
       labels:
-        app: cemall
+        app: ceweb
         version: "1.0"
     spec:
       containers:
-      - name: cemall
+      - name: ceweb
         image: cecr-goqhrszn.scr.kr-west.scp-in.com/apps/ceweb:v1
         resources:
           limits:
@@ -27,5 +27,5 @@ spec:
           - name: PORT
             valueFrom:
               configMapKeyRef:
-                key: cemall_HTTP_PORT
+                key: ceweb_HTTP_PORT
                 name: port-config
