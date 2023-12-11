@@ -44,5 +44,5 @@ https://github.com/scp-cloudacademy/ce-advanced/raw/main/22/ceweb.dockerfile
     
     kubectl apply -f deployment-ceweb.yaml
 
-
+    kubectl get deployment -n ceweb
 
