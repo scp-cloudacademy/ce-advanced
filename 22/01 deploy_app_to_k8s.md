@@ -25,14 +25,24 @@
 ## Download and apply service.yaml to create service nodeport
 
     sudo wget https://github.com/scp-cloudacademy/ce-advanced/raw/main/22/service-nodeport.yaml
-    
+
+서비스 노드 포트 생성
+
     kubectl apply -f service-nodeport.yaml
-    
+
+생성 확인
+
     kubectl get svc -n ceweb
+
+엔드포인트 없음 확인
 
     kubectl get endpoints -n ceweb   
 
+ConfigMap 다운로드
+
     sudo wget https://github.com/scp-cloudacademy/ce-advanced/raw/main/22/ceweb_HTTP_PORT
+
+ConfigMap 설정
 
     kubectl create configmap port-config -n ceweb --from-file=ceweb_HTTP_PORT 
 
@@ -51,18 +61,32 @@ Server: SCR Private Endpoint
 ## Deploy web image to K8s cluster
 
     sudo wget https://github.com/scp-cloudacademy/ce-advanced/raw/main/22/deployment-ceweb.yaml
+
+이미지 파일 배포
     
     kubectl apply -f deployment-ceweb.yaml
 
+배포 확인
+
     kubectl get deployment -n ceweb
+
+엔드포인트 확인
 
     kubectl get endpoints ceweb-app -n ceweb
 
+파드 현황 확인
+
     kubectl get pod -n ceweb
+
+내부 포트 확인
 
     kubectl exec ceweb-1.0-7d9db75f56-6srsw -n ceweb -- printenv PORT
 
+인그레이스 다운로드
+
     sudo wget https://github.com/scp-cloudacademy/ce-advanced/raw/main/22/ceweb-ingress.yaml
+
+인그레스 개시
 
     kubectl apply -f ceweb-ingress.yaml
 
