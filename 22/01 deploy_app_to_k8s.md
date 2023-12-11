@@ -67,12 +67,15 @@ Server: SCR Private Endpoint
     kubectl apply -f ceweb-ingress.yaml
 
     
-## Change Nodeport to LoadBalancer
-
-## Check Created LB Service NAT IP and enroll DNS(cosmeticevolution.net) with ceweb A record
+### Change Nodeport to LoadBalancer
 
 
 
+### Check Created LB Service NAT IP and enroll DNS(cosmeticevolution.net) with ceweb A record
+
+Browse http://ceweb.cosmeticevolution.net and find it fails and run command below and retry
+
+    kubectl port-forward service/ceweb-app 8080:80 -n ceweb
 
    
    
