@@ -40,8 +40,9 @@ https://github.com/scp-cloudacademy/ce-advanced/raw/main/22/ceweb.dockerfile
 
 ## Deploy web image to K8s cluster
 
-    sudo wget 
-    kubectl apply -f 
+    sudo wget https://github.com/scp-cloudacademy/ce-advanced/raw/main/22/deployment-ceweb.yaml
+    
+    kubectl apply -f deployment-ceweb.yaml
 
 
 
