@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ceweb-1.0
+  namespace: ceweb
+spec:
+  selector:
+    matchLabels:
+      app: ceweb
+      version: "1.0"
+  template:
+    metadata:
+      labels:
+        app: ceweb
+        version: "1.0"
+    spec:
+      containers:
+      - name: ceweb
+        image: cecr-goqhrszn.scr.kr-west.scp-in.com/apps/ceweb:v1
+        imagePullSecrets:
+        - name: cewebsecret
+        resources:
+          limits:
+            memory: "64Mi"
+            cpu: "50m"
+        ports:
+        - containerPort: 8080
+        env:
+        - name: PORT
+          valueFrom:
+            configMapKeyRef:
+              key: ceweb_HTTP_PORT
+              name: port-config
