@@ -36,7 +36,9 @@ https://github.com/scp-cloudacademy/ce-advanced/raw/main/22/ceweb.dockerfile
 
     kubectl create configmap port-config -n cemall --from-file=ceweb_HTTP_PORT 
 
-    
+## Allow K8s Servers in Private Endpoint Access Control
+
+## 
 
 
 
