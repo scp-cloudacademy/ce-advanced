@@ -32,6 +32,8 @@ https://github.com/scp-cloudacademy/ce-advanced/raw/main/22/ceweb.dockerfile
 
     kubectl get endpoints -n cemall   
 
+    sudo wget https://github.com/scp-cloudacademy/ce-advanced/raw/main/22/cemall_HTTP_PORT
+
     kubectl create configmap port-config -n cemall --from-file=cemall_HTTP_PORT 
 
     
