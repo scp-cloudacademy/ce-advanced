@@ -45,6 +45,6 @@ aws s3 cp [파일명] s3://[버킷명]/ --endpoint-url [Public Endpoint명]
 ```
 
 <h3>OVA 파일을 Migration Image로 만들기</h3>
-Samsung Cloud Platform 콘솔 > 자원관리 > 
+Samsung Cloud Platform 콘솔 > 자원관리 > Compute > Virtual Server > Migration Image<br>
 
 <h3>Virtual Server 배포</h3>
