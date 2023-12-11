@@ -67,7 +67,15 @@ Server: SCR Private Endpoint
     kubectl apply -f ceweb-ingress.yaml
 
     
-    
+## Change Nodeport to LoadBalancer
+
+## Check Created LB Service NAT IP and enroll DNS(cosmeticevolution.net) with ceweb A record
+
+
+
+
+   
+   
 
 
 
