@@ -8,7 +8,6 @@ AWS Cli</br>
 다운로드 링크 : https://docs.aws.amazon.com/ko_kr/cli/latest/userguide/getting-started-install.html</br>
 </br>
 </br>
-</br>
 
 <h3>vm tools 설치</h3>
 
