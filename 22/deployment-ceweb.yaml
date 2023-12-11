@@ -4,6 +4,7 @@ metadata:
   name: ceweb-1.0
   namespace: ceweb
 spec:
+  replicas: 1
   selector:
     matchLabels:
       app: ceweb
@@ -16,18 +17,14 @@ spec:
     spec:
       containers:
       - name: ceweb
-        image: cecr-goqhrszn.scr.kr-west.scp-in.com/apps/ceweb:v1
-        imagePullSecrets:
-        - name: cewebsecret
-        resources:
-          limits:
-            memory: "64Mi"
-            cpu: "50m"
+        image: cecr-goqhrszn.scr.kr-west.scp-in.com/app/ceweb:v1
         ports:
         - containerPort: 8080
         env:
-          - name: PORT
-            valueFrom:
-              configMapKeyRef:
-                key: ceweb_HTTP_PORT
-                name: port-config
+        - name: PORT
+          valueFrom:
+            configMapKeyRef:
+              key: ceweb_HTTP_PORT
+              name: port-config
+      imagePullSecrets:
+      - name: cewebsecret
