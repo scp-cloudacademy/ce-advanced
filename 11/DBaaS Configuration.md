@@ -11,9 +11,9 @@ pw: 사용자 지정
 DataBase Port번호: 2866 (default)
 ```
 # 2. Security Group 규칙 추가
-1) DBSG 3306 inbound 규칙에 들어가서, 2866포트 추가
-2) BastionSG 규칙추가 192.168.13.0/24 outbound 2866포트 추가
-3) AppSG 3306 outbound 규칙에서 2866포트 추가
+1) [BastionSG](https://github.com/scp-cloudacademy/ce-advanced/files/13632697/Bastion.xlsx)
+2) [AppSG]()
+3) [DBSG]()
 
 # 3. 워크벤치로 테스트 통신
 기존 데이터 베이스 자료를 새로 생성한 DBaaS에 마이그레이션 실시
