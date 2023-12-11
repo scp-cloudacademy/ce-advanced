@@ -1,22 +1,22 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: order-1.0
-  namespace: order
+  name: cemall-1.0
+  namespace: cemall
 spec:
   selector:
     matchLabels:
-      app: order
+      app: cemall
       version: "1.0"
   template:
     metadata:
       labels:
-        app: order
+        app: cemall
         version: "1.0"
     spec:
       containers:
-      - name: order
-        image: yoonjeong/snackbar-order:1.0
+      - name: cemall
+        image: cecr-goqhrszn.scr.kr-west.scp-in.com/apps/ceweb:v1
         resources:
           limits:
             memory: "64Mi"
@@ -27,5 +27,5 @@ spec:
           - name: PORT
             valueFrom:
               configMapKeyRef:
-                key: ORDER_HTTP_PORT
+                key: cemall_HTTP_PORT
                 name: port-config
