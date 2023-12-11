@@ -56,6 +56,14 @@ Server: SCR Private Endpoint
 
     kubectl get deployment -n ceweb
 
+    kubectl get endpoints ceweb-app -n ceweb
+
+    kubectl get pod -n ceweb
+
+    kubectl exec ceweb-1.0-7d9db75f56-6srsw -n ceweb -- printenv PORT
+    
+    
+
 
 
 Kubernetes 에 SCR 로 push 해둔 nginx image 를 배포하기에 앞서 Container Registry 
