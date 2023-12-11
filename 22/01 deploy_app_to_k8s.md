@@ -39,6 +39,12 @@ https://github.com/scp-cloudacademy/ce-advanced/raw/main/22/ceweb.dockerfile
 ## Allow K8s Servers in Private Endpoint Access Control
 
 ## Secret to allow k8s cluster to access SCR
+secret name : cewebsecret
+
+namespace : ceweb
+
+Server: SCR Private Endpoint 
+
 
     kubectl create secret docker-registry cewebsecret --docker-server=<your-registry-server> --docker-username=<your-SCP-console-ID> --docker-password=<your-SCP-console-password> -n ceweb 
 
@@ -55,9 +61,7 @@ https://github.com/scp-cloudacademy/ce-advanced/raw/main/22/ceweb.dockerfile
 Kubernetes 에 SCR 로 push 해둔 nginx image 를 배포하기에 앞서 Container Registry 
 Image 를 사용하기 위해 다음과 같이 Secret 을 생성하겠습니다. 배포할 deployment 와
 secret 은 동일한 namespace 에 위치해야 합니다.
- secret name : scrcred
- namespace : scrtest
- docker-server : scpsupport-uizcndda.scr.kr-west.scp-in.com
+
 Copyright 2023. Samsung SDS Co., Ltd. All rights reserved. 10
 $ kubectl create secret docker-registry <<secret name>> \
 --docker-server=<your-registry-server> \
