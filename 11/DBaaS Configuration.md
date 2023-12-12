@@ -17,6 +17,8 @@ DataBase Port번호: 2866 (default)
 
 # 3. 워크벤치로 테스트 통신
 기존 데이터 베이스 자료를 새로 생성한 DBaaS에 마이그레이션 실시
+VIP정보를 확인 후, 접속한다.
+
 ### 새로운 데이터 베이스 전환
     sudo vi /etc/php.ini  #php 정보수정
     [Database]
