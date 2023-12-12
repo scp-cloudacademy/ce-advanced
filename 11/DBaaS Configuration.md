@@ -19,18 +19,5 @@ DataBase Port번호: 2866 (default)
 기존 데이터 베이스 자료를 새로 생성한 DBaaS에 마이그레이션 실시
 VIP정보를 확인 후, 접속한다.
 
-### 새로운 데이터 베이스 전환
-    sudo vi /etc/php.ini  #php 정보수정
-    [Database]
-    mysqli.host=db.cesvc.net
-    mysqli.username=vmuser
-    mysqli.dbname=cosmetic
-    mysqli.port=2866  #포트변경
-
-저장 후 php-mfm 재부팅 </br>
-```
-sudo systemctl restart php-fpm
-```    
-
 ### DNS 변경
 DB DNS의 레코드 설정값을 DBaaS VIP 정보로 변경한다.
