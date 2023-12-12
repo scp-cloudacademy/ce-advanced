@@ -11,7 +11,7 @@ pw: 사용자 지정
 DataBase Port번호: 2866 (default)
 ```
 # 2. Security Group 규칙 추가
-1) [BastionSG](https://github.com/scp-cloudacademy/ce-advanced/files/13632697/Bastion.xlsx)
+1) [BastionSG](https://github.com/scp-cloudacademy/ce-advanced/raw/main/11/Bastion.xlsx)
 2) [AppSG](https://github.com/scp-cloudacademy/ce-advanced/raw/main/11/app.xlsx)
 3) [DBSG](https://github.com/scp-cloudacademy/ce-advanced/raw/main/11/db.xlsx)
 
