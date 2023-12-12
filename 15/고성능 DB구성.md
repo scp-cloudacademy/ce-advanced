@@ -1,8 +1,8 @@
 # 1. Replica 구성하기
 # 2. Redis-caching 구성하기
 ## Security 규칙 추가
-[AppSG]()
-[DBSG]()
+[AppSG](https://github.com/scp-cloudacademy/ce-advanced/raw/main/15/app.xlsx) </br>
+[DBSG](https://github.com/scp-cloudacademy/ce-advanced/raw/main/15/db.xlsx)
 # 3. Redis-cache 구성하기
 ## Server Setup
 
