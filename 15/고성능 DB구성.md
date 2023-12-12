@@ -20,5 +20,10 @@ sudo wget https://github.com/scp-cloudacademy/ce-advanced/raw/main/15/apiDatabas
 sudo mv apiDatabase.php apiDatabase.php.bak
 sudo mv apiDatabase_redis.php apiDatabase.php 
 sudo chown vmuser:vmuser apiDatabase.php
+sudo chmod 755 apiDatabase.php
 sudo systemctl restart php-fpm
 ```
+### Reference
+https://www.digitalocean.com/community/tutorials/how-to-set-up-redis-as-a-cache-for-mysql-with-php-on-ubuntu-20-04
+
+# 4. 브라우저 테스트
