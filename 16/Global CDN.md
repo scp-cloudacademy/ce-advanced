@@ -1,5 +1,5 @@
 # Global CDN 생성하기
-[CDN 가이드](https://cloud.samsungsds.com/manual/ko/scp_user_guide.html#getting_started_with_global_cdn) : 가이드 참고 </br>
+[CDN 가이드 참조](https://cloud.samsungsds.com/manual/ko/scp_user_guide.html#getting_started_with_global_cdn) 
 
 ### configure
 ```
