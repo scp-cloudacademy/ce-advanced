@@ -5,6 +5,10 @@
 Source VM : VMware Workstation </br>
 Target VM : Samsung Cloud Platform </br>
 
+- Zconverter 계정 및 등록 관련 문의
+
+  sales@zconverter.com
+  
 - Target Server Public Subnet에 생성(dbdmz1)
   Data Disk 연결 필수
   
