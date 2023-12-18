@@ -26,7 +26,7 @@ https://www.vmware.com/products/workstation-pro/workstation-pro-evaluation.html
   log in as root account and open terminal
 
 ```
-sudo SYSTEMCTL set-default multiuser.target ## enable CLI boot mode
+SYSTEMCTL set-default multiuser.target ## enable CLI boot mode
 shutdown now
 ```
 
