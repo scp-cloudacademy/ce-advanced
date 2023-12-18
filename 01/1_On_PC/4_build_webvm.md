@@ -36,10 +36,9 @@ systemctl stop httpd
 cd /etc/yum.repos.d
 wget https://github.com/scp-cloudacademy/ce-advanced/raw/main/09/nginx.repo
 yum install nginx -y
-cd /home/vmuser
-wget https://github.com/scp-cloudacademy/ce-advanced/raw/main/01/1_On_PC/web.tar
 cd /
-tar -xvf /root/web.tar
+wget https://github.com/scp-cloudacademy/ce-advanced/raw/main/01/1_On_PC/web.tar
+tar -xvf web.tar
 chmod -R 755 /usr/share/nginx/html/web
 systemctl start nginx
 ```
