@@ -10,12 +10,12 @@
 ### Step 1 – Prerequsitis
 ### Install and enable Remi 
 
-    sudo yum -y install epel-release      # Remi 저장소를 설치하고 활성화한다.
-    sudo yum -y install https://dev.mysql.com/get/mysql80-community-release-el7-11.noarch.rpm
+    yum -y install epel-release      # Remi 저장소를 설치하고 활성화한다.
+    yum -y install https://dev.mysql.com/get/mysql80-community-release-el7-11.noarch.rpm
 
 ### Install MySQL 8.0.35
 
-    sudo yum -y install mysql-server
+    yum -y install mysql-server
     
 ### Check Version
 
@@ -23,17 +23,17 @@
 
 ### Start and Enable MySQL 
 
-    sudo systemctl start mysqld
-    sudo systemctl enable mysqld
+    systemctl start mysqld
+    systemctl enable mysqld
 
     
 ### Check initial password
     
-    sudo grep 'temporary password' /var/log/mysqld.log
+    grep 'temporary password' /var/log/mysqld.log
 
 ### Change password
 
-    sudo mysql -u root -p
+    mysql -u root -p
 
 example) ALTER USER 'root'@'localhost' IDENTIFIED BY 'abcd1234';
 
@@ -62,7 +62,7 @@ select host, user from user;
 ```
 
 ```bash
-sudo systemctl restart mysqld
+systemctl restart mysqld
 ```
 Open Firewall port
 
