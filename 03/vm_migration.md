@@ -74,35 +74,35 @@ In Management Portal, Run migration by registering source server and target serv
 In the browser, open Management Portal ( http://[management portal server public IP]:58080 )
 
 ![image](https://github.com/scp-cloudacademy/ce-advanced/assets/147478897/a1f16857-a4c2-404d-9ca0-291bfa9f1497)<br>
-대시보드 확인, 좌측의 설정 > [환경설정]
+In Dashboard menu, Setting(설정) > Environmnet Setting(환경설정)
 
 ![image](https://github.com/scp-cloudacademy/ce-advanced/assets/147478897/b0412a68-e469-4e97-a363-fee55e47ef43)<br>
-환경설정 페이지에서 ZCM ID 확인
+Check and memorize ZCM ID in environment page.
 
 ![image](https://github.com/scp-cloudacademy/ce-advanced/assets/147478897/f4ee78c1-e375-4427-b96b-cdcf954c0f2c)<br>
-확인한 ZCM ID를 가지고 ZConverter 라이선스 신청<br>
-라이선스 신청 페이지 : https://ziacloud.net:55051/promotion
+Request ZConverter license with ZCM ID<br>
+License request page : https://ziacloud.net:55051/promotion
 
 ![image](https://github.com/scp-cloudacademy/ce-advanced/assets/147478897/76a69a69-28bc-4116-a569-c3dbc04982df)<br>
-발급받은 라이선스를 설정 > [라이선스] 에서 [추가]
+Add license in setting(설정) > License(라이선스)
 
 ![image](https://github.com/scp-cloudacademy/ce-advanced/assets/147478897/a22c74ad-801d-4c94-af7e-391ec7977360)<br>
-추가된 라이선스 확인
+Check License
 
 ![image](https://github.com/scp-cloudacademy/ce-advanced/assets/147478897/0a28030b-67ba-44bb-81d9-70c46ad3b082)<br>
-좌측의 클라우드 마이그레이션 > [삼성]에서 Source VM 정보를 입력한뒤 [다음]
+In Cloud Migration(클라우드 마이그레이션) > Samsung(삼성), input Source VM information and click next(다음)
 
 ![image](https://github.com/scp-cloudacademy/ce-advanced/assets/147478897/c386bd71-7ca6-4ffa-b511-1cb979c28c66)<br>
-Target VM정보를 입력한 뒤 [다음]
+After input Target VM information and click next(다음)
 
 ![image](https://github.com/scp-cloudacademy/ce-advanced/assets/147478897/617536f3-1002-48f2-b3bf-8e6375eb76a1)<br>
-사용할 라이선스를 [선택]
+Select the license
 
 ![image](https://github.com/scp-cloudacademy/ce-advanced/assets/147478897/44f41661-083e-430e-99ae-b6b514e1d98e)<br>
-이후 포트 연결 상태와, VM의 여유공간 확인 후 [확인]
+Check port connection status, available storage space and confirm(확인)인]
 
 ![image](https://github.com/scp-cloudacademy/ce-advanced/assets/147478897/5b77eea6-ff80-419d-a363-6959a1edd584)<br>
-마이그레이션이 진행됨.
+Proceeding migration.
 
 ![image](https://github.com/scp-cloudacademy/ce-advanced/assets/147478897/22dcbf1c-3390-4f87-a21c-3e29b4d14134)<br>
-완료시 스크린샷과 같은 완료 화면을 확인 가능.
+Check completion page.
