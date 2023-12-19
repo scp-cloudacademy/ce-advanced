@@ -1,31 +1,32 @@
 <h1>ZConverter</h1>
 
-- 환경 </br>
-사용 OS : CentOS 7.8 </br>
+- Lab environment </br>
+OS : CentOS 7.8 </br>
 Source VM : VMware Workstation </br>
 Target VM : Samsung Cloud Platform </br>
 
-- Zconverter 계정 및 등록 관련 문의
+- Zconverter account and registration
 
   sales@zconverter.com
   
-- Target Server Public Subnet에 생성(dbdmz1)
-  Data Disk 연결 필수
+- Request Target Server in Public Subnet(dbdmz1)
+  require additional data disk
   
-- VM Migration을 위한 네트워크 규칙</br>
-  관리포탈 사용 포트 : 58080</br>
-  Agent 확인 포트 : 50001,50000</br>
-  마이그레이션 포트 : 50005</br>
+- Firewall and Security Group rule</br>
+  Management Portal: 58080 port</br>
+  Agent : 50001,50000 port</br>
+  Migration : 50005 port</br>
   [Security Group](https://github.com/scp-cloudacademy/ce-advanced/raw/main/03/sg_cea_03_vm_migration.xlsx) </br>
   [Internet Gateway Firewall](https://github.com/scp-cloudacademy/ce-advanced/raw/main/03/fw_cea_03_vm_migration.xlsx)
   
-- ZConverter 설치
-[다운로드](https://objectstorage.ap-seoul-1.oraclecloud.com/p/1n9M3ZGv_raosujWb2EExwKV3FfsFQyn02gsLvr2R5ttpnESDGFBXYXqYrqXFYAc/n/idffti7li8cs/b/ZConverter_Bucket/o/ZConverter_CloudManager_Setup_v4.1_2023_0619_private.exe)
+- Download and install ZConverter 
+[Download](https://objectstorage.ap-seoul-1.oraclecloud.com/p/1n9M3ZGv_raosujWb2EExwKV3FfsFQyn02gsLvr2R5ttpnESDGFBXYXqYrqXFYAc/n/idffti7li8cs/b/ZConverter_Bucket/o/ZConverter_CloudManager_Setup_v4.1_2023_0619_private.exe)
+if the link doesn't work, contact sales@zconverter.com
 
-<h3>Source Agent 설치</h3>
+<h3>Install Source Agent</h3>
 
 ```bash
-wget http://[zconverter 관리포탈]:58080/Download/ZConverter_CloudSourceClient_Setup_V4.1_Build_4003.tar.gz
+wget http://[zconverter management portal server IP]:58080/Download/ZConverter_CloudSourceClient_Setup_V4.1_Build_4003.tar.gz
 tar -xzf ZConverter_CloudSourceClient_Setup_V4.1_Build_4003.tar.gz
 cd zconverter_install_source/
 ./install.sh
@@ -34,15 +35,15 @@ cd zconverter_install_source/
 Enter
 
 ![image](https://github.com/scp-cloudacademy/ce-advanced/assets/147478897/a4c44cde-37f1-48ac-bf31-a7a384664754)<br>
-2. ZCM 선택
+2. Select ZCM
 
 ![image](https://github.com/scp-cloudacademy/ce-advanced/assets/147478897/6b3d140d-4c57-41fc-b1ed-c9ccb62ae9af)<br>
-관리포탈 IP 입력
+Input Management Portal IP
 
 ![image](https://github.com/scp-cloudacademy/ce-advanced/assets/147478897/ae5e605d-73a5-4d6f-a480-648eecace0fe)<br>
-관리포탈 접속 ID 입력
+Input Management Portal ID
 
-<h3>Target Agent 설치</h3>
+<h3>Install Target Agent</h3>
 
 ```bash
 wget http://[zconverter 관리포탈]:58080/Download/ZConverter_CloudTargetClient_Setup_V4.1_Build_4003.tar.gz
