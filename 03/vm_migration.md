@@ -5,7 +5,7 @@ OS : CentOS 7.8 </br>
 Source VM : VMware Workstation </br>
 Target VM : Samsung Cloud Platform </br>
 
-- Zconverter account and registration
+- Before lab, contact Zconverter to get account and registration
 
   sales@zconverter.com
   
