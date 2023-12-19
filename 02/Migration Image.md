@@ -1,52 +1,52 @@
 <h1>Migration Image</h1> 
 
-사용 OS : CentOS 7.8</br>
-사용 Tools</br>
+OS : CentOS 7.8</br>
+Tools</br>
 VMware Workstation Pro 17</br>
-다운로드 링크 : https://www.vmware.com/kr/products/workstation-pro/workstation-pro-evaluation.html</br>
+Download Link : https://www.vmware.com/kr/products/workstation-pro/workstation-pro-evaluation.html</br>
 AWS Cli</br>
-다운로드 링크 : https://docs.aws.amazon.com/ko_kr/cli/latest/userguide/getting-started-install.html</br>
+Download Link : https://docs.aws.amazon.com/ko_kr/cli/latest/userguide/getting-started-install.html</br>
 </br>
 </br>
 
 <h3>vm tools 설치</h3>
 
 ```bash
-yum install open-vm-tools         # vm tools 설치
-yum install perl –y               # perl 패키지 설치
-reboot now                        # 재부팅
+yum install open-vm-tools         # Install vm tools 
+yum install perl –y               # Install perl Package
+reboot now                        
 ```
 </br>
 
-<h3>방화벽 포트 오픈</h3>
+<h3>Firewall for Web, App Server</h3> 
 
 ```bash
-firewall-cmd --zone=public --permanent --add-port=22/tcp    # 22번 포트 오픈
-firewall-cmd --zone=public --permanent --add-port=80/tcp    # 80번 포트 오픈
-firewall-cmd --reload                                       # 리로드
-firewall-cmd --zone=public --list-all                       # 리스트 불러오기
+firewall-cmd --zone=public --permanent --add-port=22/tcp    # 22 for SSH Web/App
+firewall-cmd --zone=public --permanent --add-port=80/tcp    # 80 for Web
+firewall-cmd --reload                                       
+firewall-cmd --zone=public --list-all                       
 ```
 </br>
 
 
-<h3>버전 확인</h3>
+<h3>Check version</h3>
 
 ```bash
-cat /etc/*release*                 # OS 버전 확인
+cat /etc/*release*                 
 ```
 </br>
 
-<h3>OVA로 Export 하기</h3>
+<h3>Export OVA file</h3>
 
-<h3>OVA 파일 Object Storage에 업로드 하기</h3>
+<h3>Upload OVA file to Object Storage</h3>
 
 ```bash
-aws s3 cp [파일명] s3://[버킷명]/ --endpoint-url [Public Endpoint명]
+aws s3 cp [file name] s3://[bucket name]/ --endpoint-url [Public Endpoint명]
 ```
 
-<h3>OVA 파일을 Migration Image로 만들기</h3>
-Samsung Cloud Platform 콘솔 > 자원관리 > Compute > Virtual Server > Migration Image<br>
+<h3>Convert OVA file with Migration Image</h3>
+Samsung Cloud Platform Console > Resource Management > Compute > Virtual Server > Migration Image<br>
 
-<h3>Virtual Server 배포</h3>
-Samsung CLoud Platform 콘솔 > 자원관리 > Compute > Virtual Server<br>
-이미지 선택창의 [Migration]탭에서 생성한 이미지 사용
+<h3>Request Virtual Server</h3>
+Samsung CLoud Platform Console > Resource Management > Compute > Virtual Server<br>
+Select Image at [Migration] tap
