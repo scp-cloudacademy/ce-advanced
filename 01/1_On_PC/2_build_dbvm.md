@@ -67,10 +67,10 @@ systemctl restart mysqld
 Open Firewall port
 
 ```
-firewall-cmd --zone=public --permanent --add-port=3306/tcp    # 3306번 포트 오픈
-firewall-cmd --zone=public --permanent --add-port=22/tcp      # 22번 포트 오픈
-firewall-cmd --reload                                         # 리로드
-firewall-cmd --zone=public --list-all                         # 리스트 불러오기
+firewall-cmd --zone=public --permanent --add-port=3306/tcp    # 3306 for MySQL
+firewall-cmd --zone=public --permanent --add-port=22/tcp      # 22 for SSH
+firewall-cmd --reload                                         
+firewall-cmd --zone=public --list-all                         
 ```
 
 Download and Install MySQL Workbench
