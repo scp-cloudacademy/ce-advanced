@@ -56,22 +56,22 @@ cd zconverter_install_target/
 Enter<br>
 
 <img src=https://github.com/scp-cloudacademy/ce-advanced/assets/147478897/e6dc9346-1ce5-4fb1-bd9b-267bb9ee298b><br>
-2. ZCM 선택<br>
+2. Select ZCM
 
 <img src=https://github.com/scp-cloudacademy/ce-advanced/assets/147478897/3107e7ab-4247-4187-ad8a-f4962e76b0a8><br>
-관리포탈 IP 입력<br>
+Input Management Portal IP
 
 <img src=https://github.com/scp-cloudacademy/ce-advanced/assets/147478897/9eb4085f-82c2-4dec-aeb6-ed4f9e39daf4><br>
-관리포탈 접속 ID 입력<br>
+Input Management Portal ID
 
 <img src=https://github.com/scp-cloudacademy/ce-advanced/assets/147478897/f24e959e-4365-4b44-96a5-89dcfee12c3b><br>
-Target VM에 구성될 ZConverter 저장소 추가 확인<br>
+Check additional disk at Target VM for ZConverter storage<br>
 
 <h3>ZConverter</h3>
-관리포탈에서 "클라우드 마이그레이션" 메뉴에서 소스 서버와 타겟 서버를 등록하여 마이그레이션 실행
+In Management Portal, Run migration by registering source server and target server
 <br>
 <br>
-관리포탈에 공인IP, 58080포트 접속
+In the browser, open Management Portal ( http://[management portal server public IP]:58080 )
 
 ![image](https://github.com/scp-cloudacademy/ce-advanced/assets/147478897/a1f16857-a4c2-404d-9ca0-291bfa9f1497)<br>
 대시보드 확인, 좌측의 설정 > [환경설정]
