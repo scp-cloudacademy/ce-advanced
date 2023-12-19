@@ -14,7 +14,7 @@ Target VM : Samsung Cloud Platform </br>
   
 - Firewall and Security Group rule</br>
   Management Portal: 58080 port</br>
-  Agent : 50001,50000 port</br>
+  Agent : 50001, 50000 port</br>
   Migration : 50005 port</br>
   [Security Group](https://github.com/scp-cloudacademy/ce-advanced/raw/main/03/sg_cea_03_vm_migration.xlsx) </br>
   [Internet Gateway Firewall](https://github.com/scp-cloudacademy/ce-advanced/raw/main/03/fw_cea_03_vm_migration.xlsx)
