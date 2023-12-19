@@ -9,7 +9,7 @@
 [DB Security Group](https://github.com/scp-cloudacademy/ce-advanced/raw/main/09/db.xlsx)
 
 
-# 2. Create Nat Gateway for Web/App/DB Subnet
+# 2. Create Nat Gateway for App/DB Subnet
 
 # 3. Create Virtual Servers
 
