@@ -1,5 +1,7 @@
-- 사전 구성 환경 </br>
-VMware Workstation Pro 설치</br>
+# IPSec VPN Connection
+
+## Prerequisition
+VMware Workstation Pro 
 실습 PC의 VMware Workstation Pro에서 신규 VM 생성
 </br>
 
