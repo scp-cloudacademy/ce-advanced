@@ -1,51 +1,40 @@
 # IPSec VPN Connection
 
 ## Prerequisition
-VMware Workstation Pro 
-실습 PC의 VMware Workstation Pro에서 신규 VM 생성
-</br>
+VMware Workstation Pro </br>
 
-<h3>01. On-premise VM 방화벽 활성화</h3>
+## 01. Create VM for VPN on Workstation Pro
 
+- clone VM from VM Image
+- name: vpnvm
 
+## 02. Enable and open ports on VM firewall
 
 ```bash
-
 systemctl status firewalld
 systemctl start firewalld
 systemctl enable firewalld
-```
-
-</br>
-
-<h3>02. On-premise VM Port오픈</h3>
-
-```bash
-firewall-cmd --zone=public --add-port=3389/tcp --permanent
 firewall-cmd --zone=public --add-port=22/tcp --permanent
 firewall-cmd --reload
 firewall-cmd --list-ports
 ```
-</br>
 
-<h3>03. On-premise VM strongswan 설치</h3>
+## 03. Install strongswan on On-premise VM
 
 ```bash
 sudo yum install epel-release
 sudo yum install strongswan
 ```
 
-</br>
+## 04. Request VPN service on Samsung Cloud Platform
 
-
-<h3>04. Samsung Cloud Platform VPN 생성</h3>
-모든 상품 - Networjing - VPN - VPN 에서 상품 신청
+All products > Network > VPN, Request VPN
 
 ```bash
-VPN Gateway명 : VPNce
+VPN Gateway name : VPNce
 QoS 대역폭 : 10 Mbps
-Public IP : 자동 할당	         	# VPN 에서 사용하는 Public IP
-Local subnet IP : 10.100.0.0/24	        # VPN Gateway가 사용할 Local subnet 대역
+Public IP : Auto allocated	      	
+Local subnet(CIDR): 192.168.5.0/24	        # IP band for Local subnet
 ```
 
 </br>
