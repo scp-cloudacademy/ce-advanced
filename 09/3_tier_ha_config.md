@@ -126,6 +126,8 @@ sudo systemctl restart mysqld
 ```
 In Bation Host, Install and launch Workbench and upload schema
 
+[Workbench Download](https://dev.mysql.com/get/Downloads/MySQLGUITools/mysql-workbench-community-8.0.34-winx64.msi)
+
 [cosmetic data](https://github.com/scp-cloudacademy/ce-advanced/raw/main/09/cosmetic_COSMETIC.sql)
 
 [Movie data](https://github.com/scp-cloudacademy/ce-advanced/raw/main/09/cosmetic_MOVIES.sql)
