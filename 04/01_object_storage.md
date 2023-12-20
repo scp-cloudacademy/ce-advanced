@@ -85,7 +85,7 @@ Type [enter] for default<br>
 <img src=https://github.com/scp-cloudacademy/ce-advanced/assets/147478897/033f1e48-97c4-4693-8db0-a6fc62d2262e><br>
 Review the configuration and type [enter] if it is correct<br>
 <img src=https://github.com/scp-cloudacademy/ce-advanced/assets/147478897/896cb876-07d7-45d2-875f-2e491c97d4b0><br>
-Check Bucket information as shown in the image.
+Check Bucket information as shown in the image.<br>
 <img src=https://github.com/scp-cloudacademy/ce-advanced/assets/147478897/c109a14e-20d2-49c9-9a18-2afc9cbdbe2a><br>
 
 
