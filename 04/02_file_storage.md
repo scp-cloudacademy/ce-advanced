@@ -1,41 +1,44 @@
 
 <h1>File Storage Migration</h1>
 </br>
-AWS의 EFS를 SCP의 File Storage로 Migration 합니다.</br>
-AWS와 SCP 사이에 VPN 연결이 필요합니다.
 
-<h3>EFS 배포</h3>
-AWS 콘솔에서 진행</br>
+## Prerequisition
+- Create AWS EFS and store contents</br>
+- Establish VPN connection between Samsung Cloud Platform and AWS.
 
-![image](https://github.com/scp-cloudacademy/ce-advanced/assets/147478897/5425e115-6b07-424a-8516-179dd4e12387)<br>
-파일시스템 생성 > [사용자 지정]
+* These prerequisition will not be covered at the lecture. To run this part, you need to complete section 1. Create AWS EFS and 2. Establish VPN connection between Samsung Cloud Platform and AWS.
 
-![image](https://github.com/scp-cloudacademy/ce-advanced/assets/147478897/e0d64ea6-cbda-4726-8fb5-23db7eb861ff)<br>
-생성할 파일시스템의 이름을 입력한 뒤 [다음]
+<h3>1. Create AWS EFS</h3>
+In AWS Console, Create File System > Customize </br>
 
-![image](https://github.com/scp-cloudacademy/ce-advanced/assets/147478897/6edc9b5d-7d67-4cc0-958d-5289ce89fa58)<br>
-파일시스템이 생성될 VPC 및 서브넷, 보안그룹을 설정하고 [다음]
+<img width="601" alt="image" src="https://github.com/scp-cloudacademy/ce-advanced/assets/147478897/5146b79a-73f3-4783-a26d-83de46cee360">
 
-![image](https://github.com/scp-cloudacademy/ce-advanced/assets/147478897/649e7f58-83d8-49bc-872d-2f991f6f54c9)<br>
-정책 설정 단계는 디폴트로 두고 [다음]<br>
-검토 및 생성 단계에서 내용 확인 후 [생성]
+Type Name of File system like: efsce and click [Next] </br>
+<img width="1641" alt="image" src="https://github.com/scp-cloudacademy/ce-advanced/assets/147478897/877d31e9-d994-404a-a664-646e1ede6341">
 
-<h3>보안그룹 설정</h3>
+Configure VPC, Subnet and Security Group and click [Next] </br>
+<img width="1313" alt="image" src="https://github.com/scp-cloudacademy/ce-advanced/assets/147478897/ac2d5872-74fa-4e22-b6e1-92ff059ba289">
 
-![image](https://github.com/scp-cloudacademy/ce-advanced/assets/147478897/9750cbe7-a4f6-4f49-a778-ec9551fa4c40)<br>
-VPC > 보안그룹에서 파일시스템에 사용한 보안그룹의 설정을 확인<br>
-테스트에서는 디폴트 보안그룹을 사용하여 전체 오픈되어 있으나 그렇지 않은 경우 2049 포트의 오픈이 필요.
+Leave File system policy without change and click [Next] </br>
+<img width="1311" alt="image" src="https://github.com/scp-cloudacademy/ce-advanced/assets/147478897/95d0fef3-876b-4734-8aa7-b69e101fa8b8">
 
-<h3>라우팅 테이블 설정</h3>
+Review and Create</br>
+<img width="1341" alt="image" src="https://github.com/scp-cloudacademy/ce-advanced/assets/147478897/c3eb1893-5061-4a15-971a-a7f647131c96">
+<img width="1335" alt="image" src="https://github.com/scp-cloudacademy/ce-advanced/assets/147478897/41a65904-28d8-4372-bffd-acf996889c97">
 
-![image](https://github.com/scp-cloudacademy/ce-advanced/assets/147478897/e5eeda49-f9b0-4a6e-a163-af450564b927)<br>
-인터넷 게이트웨이로 향하게 되어있는 규칙을 가상 프라이빗 게이트웨이로 변경
 
-<h3>AWS VPN 구성</h3>
-콘솔에서 진행</br>
+If you use default security group(open all), you can pass configuring security group.
 
+If you use your own security group, you need to allow 2049 port.
+
+<img width="1430" alt="image" src="https://github.com/scp-cloudacademy/ce-advanced/assets/147478897/d42de4be-a768-4ad1-af84-48c09772e8e4">
+
+
+<h3>2. Establish VPN connection between Samsung Cloud Platform and AWS</h3>
+
+VPC > Virtual Private Gateway > Create Virtual Private Gateway  [생성]
 ![image](https://github.com/scp-cloudacademy/ce-advanced/assets/147478897/008f09b3-b856-4d08-80db-ba806cd99953)<br>
-VPC > 가상 프라이빗 게이트웨이 > 가상 프라이빗 게이트웨이 생성에서 가상 프라이빗 게이트웨이의 이름 입력 후 [생성]
+
 
 ![image](https://github.com/scp-cloudacademy/ce-advanced/assets/147478897/f193741b-8d0b-49fd-bff3-cec17bdb3606)<br>
 생성된 가상 프라이빗 게이트웨이에서 [VPC에 연결]
@@ -53,6 +56,14 @@ VPN Gateway 이름과 Local Subnet IP대역을 입력하고 [다음]<br>
 
 ![image](https://github.com/scp-cloudacademy/ce-advanced/assets/147478897/71826a6a-566b-428f-9010-f46efdc03d24)<br>
 생성된 VPN Gateway의 Public IP 주소 확인
+
+<h3>Configure route table</h3>
+Change route table to forward outbound traffic for VPN Gateway 
+<img width="1429" alt="image" src="https://github.com/scp-cloudacademy/ce-advanced/assets/147478897/a3f1c242-f51b-4249-bc0b-37fd188f7a42">
+
+
+인터넷 게이트웨이로 향하게 되어있는 규칙을 가상 프라이빗 게이트웨이로 변경
+
 
 <h3>VPN 연결 구성</h3>
 
