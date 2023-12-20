@@ -16,7 +16,7 @@ Target VM : Samsung Cloud Platform </br>
   Management Portal: 58080 port</br>
   Agent : 50001, 50000 port</br>
   Migration : 50005 port</br>
-  [Security Group](https://github.com/scp-cloudacademy/ce-advanced/blob/main/03/03_security_group_rules.xlsx) </br>
+  [Security Group](https://github.com/scp-cloudacademy/ce-advanced/raw/main/03/03_security_group_rules.xlsx) </br>
   [Internet Gateway Firewall](https://github.com/scp-cloudacademy/ce-advanced/raw/main/03/03_firewall_rules.xlsx)
   
 - Download and install ZConverter 
