@@ -39,14 +39,14 @@ Local subnet(CIDR): 192.168.5.0/24	        # IP band for Local subnet
 
 </br>
 
-<h3>05. Samsung Cloud Platform VPN Tunnel 생성</h3>
+## 05. Request Samsung Cloud Platform VPN Tunnel
 
 ```bash
-# 필수 정보 입력
+# Type in information below
 VPN Gateway : VPNce
 VPN Tunnel명 : VPNTunnelce
 Peer VPN GW IP : My PC Public IP  		# VMware Public IP (Google - What is my ip)
-Local tunnel IP : 169.254.200.6/30		# VPN Tunnel 인터페이스에 할당하는 IP 주소
+Local tunnel IP : 169.254.200.6/30		# IP address to VPN Tunnel interface
 Peer tunnel IP : 자동 설정			# 상대방 VPN Gateway의 VPN Tunnel 인터페이스에 할당하는 IP 주소
 Remote subnet :  직접 입력        		# Local VM에서 $ Ip addr 실행 후 Broadcast 에 사용하는 nic의 inet 정보 기입(예, inet 192.168.139.0/24 
 Pre-shared key : 8-64자리 영숫자 임의 설정 	# VPN Gateway간 IKE 상호 인증에 사용할 공유키
