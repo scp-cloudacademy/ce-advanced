@@ -1,24 +1,28 @@
-# 1. File upload 장애테스트
-# 2. File Storage 공유 스토리지 생성
-※ 생성 후 확인사항
-1) 마운트정보 확인 
-2) 적용서버 추가 (마운트 될 서버 추가)
-3) 서버에 접속 후 마운트 위치로 이동 </br>
+# Mount File Storage to HA servers
+
+## 1. Test File upload 
+
+## 2. Create File Storage 
+
+※ Check list after creation
+1) Check mount information 
+2) Applied server
 ````
 cd /usr/share/nginx/html
 ````
-# 3. 서버 마운트
-#### 1. 자료가 중복되지 않도록 자료 이동시킴
+## 3. Mount Server
+
+#### 1. move data
     sudo mv web web1
-#### 2. 마운트 할 디렉토리 생성
+#### 2. Create directory
     sudo mkdir web
-#### 3. nfs-util 설치
+#### 3. Install nfs-util
     sudo yum -y install nfs-utils
-#### 4. 서버 마운트
-    sudo mount -t nfs -o =ver=3 [마운트정보] [마운트 위치]    # 서버 마운트
-    df -h    # 마운트 확인
-#### 5. 이동한 자료를 마운트 된 서버로 이동
+#### 4. Mount at servers
+    sudo mount -t nfs -o =ver=3 [Mount information] [Mount path]    
+    df -h    
+#### 5. move data to shared volume
     sudo mv web1/* web
-#### 6. 작업한 경로에서 권한설정 (파일 디렉토리에 대한 쓰기권한 부여)
+#### 6. Configure permission
     sudo chmod 777 file
-# 4. 파일 업로드 장애 테스트
+
