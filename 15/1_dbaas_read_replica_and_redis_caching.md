@@ -1,9 +1,11 @@
-# 1. Replica 구성하기
+# 1. Configure Read Replica
+
 # 2. Redis-caching 구성하기
-## Security 규칙 추가
-[AppSG](https://github.com/scp-cloudacademy/ce-advanced/raw/main/15/app.xlsx) </br>
-[DBSG](https://github.com/scp-cloudacademy/ce-advanced/raw/main/15/db.xlsx)
-# 3. Redis-cache 구성하기
+## Adding Security Group rules
+[AppSG](https://github.com/scp-cloudacademy/ce-advanced/raw/main/15/15_app_security_group.xlsx) </br>
+[DBSG](https://github.com/scp-cloudacademy/ce-advanced/raw/main/15/15_db_security_group.xlsx)
+
+# 3. Configure Redis-cache
 ## Server Setup
 
 ### 1. Install php-redis
@@ -26,4 +28,4 @@ sudo systemctl restart php-fpm
 ### Reference
 https://www.digitalocean.com/community/tutorials/how-to-set-up-redis-as-a-cache-for-mysql-with-php-on-ubuntu-20-04
 
-# 4. 브라우저 테스트
+# 4.Test
