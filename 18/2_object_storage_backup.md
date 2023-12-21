@@ -1,7 +1,7 @@
 
 <h1>Object Storage Backup</h1>
 
-<h3>버전관리 구성</h3>
+<h3>C</h3>
 
 자원관리 > Storage > ObjectStorage > 생성된 ObjectStorage [클릭]<br>
 
