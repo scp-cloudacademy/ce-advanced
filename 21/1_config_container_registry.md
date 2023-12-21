@@ -72,9 +72,9 @@ spec:
     spec:
       containers:
       - name: nginx
-        image: <<SCR private endpoint>>/sample/nginx:v1   # 콘솔에서 scr image 확인 후 변경
+        image: <<SCR private endpoint>>/sample/nginx:v1   # In console, check scr image address
       imagePullSecrets:
-      - name: cecred                                      # 위에서 생성한 secret name 작성
+      - name: cecred                                      # secret name created above작성
 ```
 
 Apply nginx-deployment.yaml
