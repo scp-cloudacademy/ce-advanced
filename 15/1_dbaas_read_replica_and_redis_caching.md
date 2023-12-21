@@ -1,6 +1,6 @@
 # 1. Configure Read Replica
 
-# 2. Redis-caching 구성하기
+# 2. Configure Redis-caching
 ## Adding Security Group rules
 [AppSG](https://github.com/scp-cloudacademy/ce-advanced/raw/main/15/15_app_security_group.xlsx) </br>
 [DBSG](https://github.com/scp-cloudacademy/ce-advanced/raw/main/15/15_db_security_group.xlsx)
