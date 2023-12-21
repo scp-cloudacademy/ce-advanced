@@ -70,7 +70,7 @@ Adding 192.168.14.0/27 in VPCa TG Routing
 ### Step 1 – Prerequsitis
 ### Install and enable Remi 
 
-    sudo yum -y install epel-release      # Remi 저장소를 설치하고 활성화한다.
+    sudo yum -y install epel-release      
     sudo yum -y install https://dev.mysql.com/get/mysql80-community-release-el7-11.noarch.rpm
 
 ### Install MySQL 8.0.35
