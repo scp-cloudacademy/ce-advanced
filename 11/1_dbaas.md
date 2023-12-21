@@ -18,5 +18,5 @@ DataBase Port: 2866 (default)
 # 3. Test Connection with workbench
 
 
-### Change DNS 
+# 4. Change DNS 
 DB DNS record to DBaaS VIP 
