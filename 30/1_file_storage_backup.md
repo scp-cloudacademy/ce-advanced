@@ -3,7 +3,7 @@
 
 <h3>Backup 구성</h3>
 
-자원관리 > Storage > File Storage(new) > 생성된 파일 스토리지 [클릭]<br>
+R > Storage > File Storage(new) > 생성된 파일 스토리지 [클릭]<br>
 
 ![image](https://github.com/scp-cloudacademy/ce-advanced/assets/147478897/5c4802c5-e332-45d9-a8d3-5e6607b09f74)<br>
 상세정보에서 스냅샷 스케줄 [수정]<br>
