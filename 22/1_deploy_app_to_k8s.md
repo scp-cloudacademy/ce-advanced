@@ -26,23 +26,23 @@
 
     sudo wget https://github.com/scp-cloudacademy/ce-advanced/raw/main/22/service-nodeport.yaml
 
-서비스 노드 포트 생성
+create service nodeport
 
     kubectl apply -f service-nodeport.yaml
 
-생성 확인
+check status
 
     kubectl get svc -n ceweb
 
-엔드포인트 없음 확인
+check no endpoints
 
     kubectl get endpoints -n ceweb   
 
-ConfigMap 다운로드
+Download ConfigMap 
 
     sudo wget https://github.com/scp-cloudacademy/ce-advanced/raw/main/22/ceweb_HTTP_PORT
 
-ConfigMap 설정
+Configure ConfigMap
 
     kubectl create configmap port-config -n ceweb --from-file=ceweb_HTTP_PORT 
 
@@ -62,31 +62,31 @@ Server: SCR Private Endpoint
 
     sudo wget https://github.com/scp-cloudacademy/ce-advanced/raw/main/22/deployment-ceweb.yaml
 
-이미지 파일 배포
+Deploy Image file
     
     kubectl apply -f deployment-ceweb.yaml
 
-배포 확인
+Check deployment
 
     kubectl get deployment -n ceweb
 
-엔드포인트 확인
+Check endpoint
 
     kubectl get endpoints ceweb-app -n ceweb
 
-파드 현황 확인
+Check pod status
 
     kubectl get pod -n ceweb
 
-내부 포트 확인
+Check internal port
 
     kubectl exec ceweb-1.0-7d9db75f56-6srsw -n ceweb -- printenv PORT
 
-인그레이스 다운로드
+Download Ingress
 
     sudo wget https://github.com/scp-cloudacademy/ce-advanced/raw/main/22/ceweb-ingress.yaml
 
-인그레스 개시
+Deploy Ingress
 
     kubectl apply -f ceweb-ingress.yaml
 
@@ -102,20 +102,3 @@ Browse http://ceweb.cosmeticevolution.net and find it fails and run command belo
     kubectl port-forward service/ceweb-app 8080:80 -n ceweb
 
    
-   
-
-
-
-Kubernetes 에 SCR 로 push 해둔 nginx image 를 배포하기에 앞서 Container Registry 
-Image 를 사용하기 위해 다음과 같이 Secret 을 생성하겠습니다. 배포할 deployment 와
-secret 은 동일한 namespace 에 위치해야 합니다.
-
-Copyright 2023. Samsung SDS Co., Ltd. All rights reserved. 10
-$ kubectl create secret docker-registry <<secret name>> \
---docker-server=<your-registry-server> \
---docker-username=<your-SCP-console-ID> \
---docker-password=<your-SCP-console-password> \
--n <<nameSpace name>> 
-docker-server 에 입력할 Container Registry 주소는 SCP Console 에서 확인할 수
-있습니다.
-Container > Container Registry > Container Registry 상세 – 프라이빗 엔드포인
