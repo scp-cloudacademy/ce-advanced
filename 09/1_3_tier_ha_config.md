@@ -1,12 +1,12 @@
 # 1. Adding Network Traffic Rules
 
-[Internet Gateway](https://github.com/scp-cloudacademy/ce-advanced/raw/main/09/firewall.xlsx)
+[Internet Gateway](https://github.com/scp-cloudacademy/ce-advanced/raw/main/09/09_igw_firewall.xlsx)
 
-[Web Security Group](https://github.com/scp-cloudacademy/ce-advanced/raw/main/09/web.xlsx)
+[Web Security Group](https://github.com/scp-cloudacademy/ce-advanced/raw/main/09/09_web_security_group.xlsx)
 
-[App Security Group](https://github.com/scp-cloudacademy/ce-advanced/raw/main/09/app.xlsx)
+[App Security Group](https://github.com/scp-cloudacademy/ce-advanced/raw/main/09/09_app_security_group.xlsx)
 
-[DB Security Group](https://github.com/scp-cloudacademy/ce-advanced/raw/main/09/db.xlsx)
+[DB Security Group](https://github.com/scp-cloudacademy/ce-advanced/raw/main/09/09_db_security_group.xlsx)
 
 
 # 2. Create Nat Gateway for App/DB Subnet
