@@ -19,7 +19,7 @@ cd /usr/share/nginx/html
 #### 3. Install nfs-util
     sudo yum -y install nfs-utils
 #### 4. Mount at servers
-    sudo mount -t nfs -o =ver=3 [Mount information] [Mount path]    
+    sudo mount -t nfs -o vers=3 [Mount information] [Mount path]    
     df -h    
 #### 5. move data to shared volume
     sudo mv web1/* web
