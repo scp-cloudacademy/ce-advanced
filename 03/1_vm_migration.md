@@ -3,8 +3,8 @@
 - Lab environment </br>
 OS : CentOS 7.8 </br>
 Source VM : VMware Workstation </br>
-Target VM : CentOS Virtual Server(</br>
-Bastion Host : Windows Server Virtual Server
+Bastion Host : Windows Server Virtual Server at VPCdmz
+Before start lab, Create Windows Server Bastion Host referring the following guide.
 Reference: https://cloud.samsungsds.com/serviceportal/assets/pdf/ko/SDS_tutorial_KuberenetesNodeCLI_kor.pdf (Korean)
            https://cloud.samsungsds.com/serviceportal/assets/pdf/en/SDS_tutorial_KuberenetesNodeCLI_en.pdf (English)
 
