@@ -3,7 +3,10 @@
 - Lab environment </br>
 OS : CentOS 7.8 </br>
 Source VM : VMware Workstation </br>
-Target VM : Samsung Cloud Platform </br>
+Target VM : CentOS Virtual Server(</br>
+Bastion Host : Windows Server Virtual Server
+Reference: https://cloud.samsungsds.com/serviceportal/assets/pdf/ko/SDS_tutorial_KuberenetesNodeCLI_kor.pdf (Korean)
+           https://cloud.samsungsds.com/serviceportal/assets/pdf/en/SDS_tutorial_KuberenetesNodeCLI_en.pdf (English)
 
 - Before lab, contact Zconverter to get account and registration
 
