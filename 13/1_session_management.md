@@ -6,8 +6,8 @@
 In App Server
 ```
 sudo vi /etc/php.ini
-sudo session.save_handler = redis
-sudo sesstion.save_phth = "tcp://redis ip:6378?auth='PASSPHRASE'"
+session.save_handler = redis
+sesstion.save_phth = "tcp://redis ip:6378?auth='PASSPHRASE'"
 ```
 
 ### 3. Configure Session management </br>
