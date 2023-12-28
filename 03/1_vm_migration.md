@@ -5,9 +5,9 @@ OS : CentOS 7.8 </br>
 Source VM : VMware Workstation </br>
 Bastion Host : Windows Server Virtual Server at VPCdmz
 Before start lab, Create Windows Server Bastion Host referring the following guide.
-
-Reference: https://cloud.samsungsds.com/serviceportal/assets/pdf/ko/SDS_tutorial_KuberenetesNodeCLI_kor.pdf (Korean)</br>
-           https://cloud.samsungsds.com/serviceportal/assets/pdf/en/SDS_tutorial_KuberenetesNodeCLI_en.pdf (English)
+Reference:
+https://cloud.samsungsds.com/serviceportal/assets/pdf/ko/SDS_tutorial_KuberenetesNodeCLI_kor.pdf (Korean)</br>
+https://cloud.samsungsds.com/serviceportal/assets/pdf/en/SDS_tutorial_KuberenetesNodeCLI_en.pdf (English)
 
 - Before lab, contact Zconverter to get account and registration
 
