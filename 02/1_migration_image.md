@@ -10,7 +10,7 @@ Download Link : https://docs.aws.amazon.com/ko_kr/cli/latest/userguide/getting-s
 </br>
 
 
-<h3>vm tools 설치</h3>
+<h3>Install vm tools</h3>
 
 ```bash
 yum install open-vm-tools         # Install vm tools 
