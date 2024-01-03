@@ -8,13 +8,17 @@ In App Server, Run commands below before creating Custom Image.
 ## 2. Create Launch Configuration
 ### init script 
 ##### WEB
-    sudo systemctl enable nginx
-    sudo systemctl start nginx
+    #!/bin/bash
+    sudo yum install wget -y
+    sudo wget https://github.com/scp-cloudacademy/ce-advanced/raw/main/14/asweb.sh
+    sudo chmod -R 755 ./
+    sudo chmod ./asweb.sh
 ##### App
     #!/bin/bash
-    sudo sh -c 'echo "$(hostname -I | awk "{print \$1}") was.php4autoscaling" >> /etc/hosts'
-    sudo systemctl enable php-fpm
-    sudo systemctl start php-fpm
+    sudo yum install wget -y
+    sudo wget https://github.com/scp-cloudacademy/ce-advanced/raw/main/14/aswas.sh
+    sudo chmod -R 755 ./
+    sudo chmod ./aswas.sh
 ## 3. Create LoadBalancer 
 ### Configuration
 ###### WEB
