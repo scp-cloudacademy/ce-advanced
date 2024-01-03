@@ -1,5 +1,10 @@
 # Auto-Scale
 ## 1. Create Custom Images
+In App Server, Run commands below before creating Custom Image.
+
+    cd /etc
+    sudo wget https://github.com/scp-cloudacademy/ce-advanced/raw/main/14/hosts 
+
 ## 2. Create Launch Configuration
 ### init script 
 ##### WEB
