@@ -136,6 +136,15 @@ In Bation Host, Install and launch Workbench and upload schema
 
 
 # 8. In Bation Host, Connnet and configure App Server
+Before run commands below, you need to change the domain with your own at below files.
+
+In Web Server,
+  
+/etc/nginx/default.conf : was.cesvc.net => (your own domain)
+
+In App Server,
+
+/etc/php.ini  : db.cesvc.net -> (your own domain)
 
 	sudo systemctl stop php-fpm
 	sudo sh -c 'echo "$(hostname -I | awk "{print \$1}") was.php4autoscaling" >> /etc/hosts'
