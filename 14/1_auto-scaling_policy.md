@@ -12,6 +12,7 @@ In App Server, Run commands below before creating Custom Image.
     sudo systemctl start nginx
 ##### App
     #!/bin/bash
+    sudo sh -c 'echo "$(hostname -I | awk "{print \$1}") was.php4autoscaling" >> /etc/hosts'
     sudo systemctl enable php-fpm
     sudo systemctl start php-fpm
 ## 3. Create LoadBalancer 
