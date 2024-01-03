@@ -16,16 +16,10 @@
 ### Web Server Init Script
 ```
 #!/bin/bash
-sudo yum install yum-utils -y
-sudo systemctl stop httpd
-cd /etc/yum.repos.d
-sudo wget https://github.com/scp-cloudacademy/ce-advanced/raw/main/09/nginx.repo
-sudo yum install nginx -y
-cd /
-sudo wget https://github.com/scp-cloudacademy/ce-advanced/raw/main/09/web.tar
-sudo tar -xvf web.tar
-sudo chmod -R 755 /usr/share/nginx/html/web
-echo
+sudo yum install wget -y
+sudo wget https://github.com/scp-cloudacademy/ce-advanced/raw/main/09/web.sh
+sudo chmod -R 755 ./
+sudo ./web.sh
 ```
 
 ### WAS Server Init Script
