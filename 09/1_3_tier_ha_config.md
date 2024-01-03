@@ -140,7 +140,7 @@ Before run commands below, you need to change the domain with your own at below 
 
 In Web Server,
   
-/etc/nginx/default.conf : was.cesvc.net => (your own domain)
+/etc/nginx/default.conf : was.cesvc.net -> (your own domain)
 
 In App Server,
 
