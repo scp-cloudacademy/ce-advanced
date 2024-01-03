@@ -25,25 +25,10 @@ sudo ./web.sh
 ### WAS Server Init Script
 ```
 #!/bin/bash
-sudo yum -y install -y epel-release yum-utils
-sudo yum install -y http://rpms.remirepo.net/enterprise/remi-release-7.rpm
-sudo yum-config-manager --disable remi-php54
-sudo yum-config-manager --enable remi-php81
-sudo yum install -y php php-cli php-common php-devel php-pear php-fpm
-sudo yum install -y php-mysqlnd php-mysql php-mysqli php-zip php-gd php-curl php-xml php-json php-intl php-mbstring php-mcrypt php-posix php-shmop php-soap php-sysvmsg php-sysvsem php-sysvshm php-xmlrpc php-opcache
-sudo systemctl stop php-fpm
-cd /
-sudo curl -o https://github.com/scp-cloudacademy/ce-advanced/raw/main/09/was.tar
-또는
-sudo wget https://github.com/scp-cloudacademy/ce-advanced/raw/main/09/was.tar
-sudo tar -xvf was.tar
-sudo chmod -R 755 /usr/share/nginx/html
-sudo chmod -R 777 /var/lib/php/session
-sudo chown -R vmuser:vmuser /usr/share/nginx/html
-sudo chown -R vmuser:vmuser /var/lib/php/session
-sudo sh -c 'echo "$(hostname -I | awk "{print \$1}") was.php4autoscaling" >> /etc/hosts'
-sudo systemctl restart network
-echo
+sudo yum install wget -y
+sudo wget https://github.com/scp-cloudacademy/ce-advanced/raw/main/09/was.sh
+sudo chmod -R 755 ./
+sudo ./was.sh
 ```
 
 # 4. Adding Server Group and LB Service for Web / App
