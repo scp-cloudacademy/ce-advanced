@@ -12,13 +12,13 @@ In App Server, Run commands below before creating Custom Image.
     sudo yum install wget -y
     sudo wget https://github.com/scp-cloudacademy/ce-advanced/raw/main/14/asweb.sh
     sudo chmod -R 755 ./
-    sudo chmod ./asweb.sh
+    sudo ./asweb.sh
 ##### App
     #!/bin/bash
     sudo yum install wget -y
     sudo wget https://github.com/scp-cloudacademy/ce-advanced/raw/main/14/aswas.sh
     sudo chmod -R 755 ./
-    sudo chmod ./aswas.sh
+    sudo ./aswas.sh
 ## 3. Create LoadBalancer 
 ### Configuration
 ###### WEB
