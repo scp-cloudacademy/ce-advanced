@@ -132,7 +132,7 @@ After change file, run these commands on App Server
 
 In Web Server,
   
-/etc/nginx/conf.d/default.conf : was.cesvc.net -> (your own domain)
+/etc/nginx/conf.d/default.conf : www.cesvc.net or was.cesvc.net -> (your own domain)
 
 	sudo systemctl enable nginx
 	sudo systemctl start nginx
