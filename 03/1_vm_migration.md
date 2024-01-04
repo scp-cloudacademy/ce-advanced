@@ -12,6 +12,10 @@ https://cloud.samsungsds.com/serviceportal/assets/pdf/en/SDS_tutorial_Kuberenete
 - Before lab, contact Zconverter to get account and registration
 
   sales@zconverter.com
+
+  현재 zconverter의 정책에 따라, sales@zconverter.com에  개인별로 신청하여 아이디 및 설치 가이드를 받는 것으로 변경되었습니다. 
+  불편함이 있으시더라도, 메일을 보내서 임시 계정을 요청하시면, zconverter 사에서 안내해드릴 것입니다.
+  (According to policy of ZConverter, lab user needs to contact ZConverter directly. Plaese contact sales@zconverter.com to request account id and installation guide.)
   
 - Request Target Server in Public Subnet(dbdmz1)
   require additional data disk
