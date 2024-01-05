@@ -65,5 +65,17 @@ Public Domain
 Web asg NAT IP
 ```
 ### 4. Stress Test  
-    
+In Web Servers,
+
+    sudo yum -y install epel-release
+    sudo yum -y install stress
+    stress -c 1 &
+    top
+
+In App Servers,
+
+    sudo yum -y install epel-release
+    sudo yum -y install stress
+    stress --vm 5 --vm-bytes 512m --timeout 450s &
+    top
      
