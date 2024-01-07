@@ -6,5 +6,7 @@ Download index.html [HERE](https://github.com/scp-cloudacademy/ce-advanced/raw/m
 
 ## Upload to Obect Storage at console
 
-Upload to ceweb/
+Upload index.html to **ceweb** bucket
+
+
 
