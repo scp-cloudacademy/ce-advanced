@@ -31,7 +31,7 @@
 
     sudo docker tag nginx <<SCR private endpoint>>/sample/nginx:v1
 
-    sudo docker push nginx <<SCR private endpoint>>/sample/nginx:v1
+    sudo docker push <<SCR private endpoint>>/sample/nginx:v1
 
 ### 5. Test deploying SCR image to Kubernetes Cluser 
 
