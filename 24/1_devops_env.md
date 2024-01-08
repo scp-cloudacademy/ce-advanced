@@ -1,3 +1,7 @@
+# 0. Download Cerrificates from Let
+
+https://letsencrypt.org/certificates/
+
 
 # 1. Create Certificates
 
