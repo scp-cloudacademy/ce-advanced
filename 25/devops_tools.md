@@ -1,7 +1,7 @@
 
-# 1. Gitlab Password 확인 및 변경
+# 1. Find Gitlab Password 
 
-- 인증 확인을 위해서 리눅스 배스천 서버에 들어가서 Kubectl Client로
+In bastion Server, Connect to lbastiondmz(Linux Bastion Host that installed kubectl client)
 
 ```
 kuverctl get pods -n devopstools
@@ -11,7 +11,7 @@ kubectl exec -it -n devopstools gitlab --bash
 ```
 kubectl get secret -n=kube-system
 
-# cmp-token을 확인
+## Check cmp-token
 
 kubectl get secret -n=kube-system cmp-token -ojsonpath='{.data.ca\.crt}'
 
