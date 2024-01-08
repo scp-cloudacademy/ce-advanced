@@ -54,8 +54,10 @@ Certificates name : cedevops_cosmeticevolution_net
 Usage : Operaion
 Register Certificates
 Private Key : privkey1.pem           # Certificates from Server
-Certificate body: fullchain1.pem     # Certificates from Server
-Certificate chain: intermediate / Root  #Root and Intermediate pem certificates Letsencrypt
+
+Certificate body: cert1.pem     # Certificates from Server
+
+Certificate chain: first boy of chain1.pem and root.pem  #Root and Intermediate pem certificates Letsencrypt
 
 # 2. Load Balancer LB Group/Service 443, ingress 443
 
