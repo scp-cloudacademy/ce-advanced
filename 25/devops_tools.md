@@ -4,8 +4,8 @@
 In bastion Server, Connect to lbastiondmz(Linux Bastion Host that installed kubectl client)
 
 ```
-kuverctl get pods -n devopstools
-kubectl exec -it -n devopstools gitlab --bash
+sudo kubectl get pods -n devopstools
+sudo kubectl exec -it -n devopstools gitlab --bash
 /etc/gitlab/cat initial_root_password
 ```
 ```
