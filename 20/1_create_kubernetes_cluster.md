@@ -29,7 +29,7 @@
 
  
 Download Kubectl Client Program
-(클러스터 버전과 일치할것을 권고, CLI와 클러스터 간 +-1 버전만 지원)
+(Recommend to match version with kubernetes engine cluster, supports +-1 version: 클러스터 버전과 일치할것을 권고, CLI와 클러스터 간 +-1 버전만 지원)
 
     sudo curl -LO https://dl.k8s.io/release/v1.26.8/bin/linux/amd64/kubectl
 
