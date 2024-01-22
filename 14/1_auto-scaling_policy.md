@@ -43,11 +43,11 @@ In App Server, Run commands below before creating Custom Image.
 ## 1. Scale in/out policy
 ### Configuration 
 #### Web
-    MAX  CPU usage  >=  60%  1분    # Scale out condition
-    Average  CPU usage  <=  30%  1분    #Scale In  condition
+    MAX  CPU usage  >=  60%  1min    # Scale out condition
+    Average  CPU usage  <=  30%  1min    #Scale In  condition
 #### App
-    Average  Memory usage  >=  60%  1분  # Scale out condition
-    Average  Memory usage  <=  20%  1분  # Scale In condition
+    Average  Memory usage  >=  60%  1min  # Scale out condition
+    Average  Memory usage  <=  20%  1min  # Scale In condition
     
 ## 2. Monitoring 
 ## 3. Check Service
