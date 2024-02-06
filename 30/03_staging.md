@@ -1,26 +1,34 @@
 <h1>VM Migration</h1>
 
-<h3> Lab environment </br>
+<h3> Prequiquisition </h3>
 OS : CentOS 7.8 </br>
-Source VM : VMware Workstation </br>
-Bastion Host : Windows Server Virtual Server at VPCdmz
-Before start lab, Create Windows Server Bastion Host referring the following guide.</br>
+Source VM : Web and App VM on VMware Workstation 
+
+Before starting lab,
+
+Prepare Virtual Server(Windows Server 2019) at Public Subnet referring the following guide. </br>
+This Virtual Server will be used for Zconverter management portal server.
+
 Reference:</br>
 https://cloud.samsungsds.com/serviceportal/assets/pdf/ko/SDS_tutorial_KuberenetesNodeCLI_kor.pdf (Korean)</br>
 https://cloud.samsungsds.com/serviceportal/assets/pdf/en/SDS_tutorial_KuberenetesNodeCLI_en.pdf (English)
 
-- Request Target Server in Public Subnet(dbdmz1)
-  require additional data disk
+Prepare Virtual Server(CentOS7.8) with additional data disk at Public Subnet.</br>
+This Virtual Server will be used for Target Server where to be migrated. 
   
-<h3> Firewall and Security Group rule</br>
+<h3> Firewall and Security Group rule</h3>
   Management Portal: 58080 port</br>
   Agent : 50001, 50000 port</br>
   Migration : 50005 port</br>
   [Security Group](https://github.com/scp-cloudacademy/ce-advanced/raw/main/03/03_security_group_rules.xlsx) </br>
   [Internet Gateway Firewall](https://github.com/scp-cloudacademy/ce-advanced/raw/main/03/03_firewall_rules.xlsx)
   
-<h3> Download and install ZConverter 
+<h3> Download and install ZConverter </h3>
+
+In Bation Host, download and install ZConverter
+
 [Download](https://objectstorage.ap-seoul-1.oraclecloud.com/p/QNEde7RjRlPcPrASvpu9BEbuXbbW-3Y-HNccECLYlPySFVZLZlQ4XjPuxT45aOxI/n/idffti7li8cs/b/ZConverter_Bucket/o/ZConverter_CloudManager_Setup_v4.1_SCP.exe)
+ZConverter
 
 If the link doesn't work, contact sales@zconverter.com for download link.
 
