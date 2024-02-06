@@ -21,7 +21,8 @@ https://cloud.samsungsds.com/serviceportal/assets/pdf/en/SDS_tutorial_Kuberenete
   
 - Download and install ZConverter 
 [Download](https://objectstorage.ap-seoul-1.oraclecloud.com/p/QNEde7RjRlPcPrASvpu9BEbuXbbW-3Y-HNccECLYlPySFVZLZlQ4XjPuxT45aOxI/n/idffti7li8cs/b/ZConverter_Bucket/o/ZConverter_CloudManager_Setup_v4.1_SCP.exe)
-if the link doesn't work, contact sales@zconverter.com for download link.
+
+If the link doesn't work, contact sales@zconverter.com for download link.
 
 <h3>Install Source Agent</h3>
 
