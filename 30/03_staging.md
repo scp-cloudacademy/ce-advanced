@@ -1,6 +1,6 @@
 <h1>VM Migration</h1>
 
-- Lab environment </br>
+<h3> Lab environment </br>
 OS : CentOS 7.8 </br>
 Source VM : VMware Workstation </br>
 Bastion Host : Windows Server Virtual Server at VPCdmz
@@ -12,14 +12,14 @@ https://cloud.samsungsds.com/serviceportal/assets/pdf/en/SDS_tutorial_Kuberenete
 - Request Target Server in Public Subnet(dbdmz1)
   require additional data disk
   
-- Firewall and Security Group rule</br>
+<h3> Firewall and Security Group rule</br>
   Management Portal: 58080 port</br>
   Agent : 50001, 50000 port</br>
   Migration : 50005 port</br>
   [Security Group](https://github.com/scp-cloudacademy/ce-advanced/raw/main/03/03_security_group_rules.xlsx) </br>
   [Internet Gateway Firewall](https://github.com/scp-cloudacademy/ce-advanced/raw/main/03/03_firewall_rules.xlsx)
   
-- Download and install ZConverter 
+<h3> Download and install ZConverter 
 [Download](https://objectstorage.ap-seoul-1.oraclecloud.com/p/QNEde7RjRlPcPrASvpu9BEbuXbbW-3Y-HNccECLYlPySFVZLZlQ4XjPuxT45aOxI/n/idffti7li8cs/b/ZConverter_Bucket/o/ZConverter_CloudManager_Setup_v4.1_SCP.exe)
 
 If the link doesn't work, contact sales@zconverter.com for download link.
