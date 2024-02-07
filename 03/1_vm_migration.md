@@ -1,35 +1,36 @@
 <h1>VM Migration</h1>
 
-- Lab environment </br>
+<h3> Prequiquisition </h3>
 OS : CentOS 7.8 </br>
-Source VM : VMware Workstation </br>
-Bastion Host : Windows Server Virtual Server at VPCdmz
-Before start lab, Create Windows Server Bastion Host referring the following guide.</br>
+Source VM : Web and App VM on VMware Workstation 
+
+Before starting lab,
+
+Prepare Virtual Server(Windows Server 2019) at Public Subnet referring the following guide. </br>
+This Virtual Server will be used for Zconverter management portal server.
+
 Reference:</br>
 https://cloud.samsungsds.com/serviceportal/assets/pdf/ko/SDS_tutorial_KuberenetesNodeCLI_kor.pdf (Korean)</br>
 https://cloud.samsungsds.com/serviceportal/assets/pdf/en/SDS_tutorial_KuberenetesNodeCLI_en.pdf (English)
 
-- Before lab, contact Zconverter to get account and registration
-
-  sales@zconverter.com
-
-  현재 zconverter의 정책에 따라, sales@zconverter.com에  개인별로 신청하여 아이디 및 설치 가이드를 받는 것으로 변경되었습니다. 
-  불편함이 있으시더라도, 메일을 보내서 임시 계정을 요청하시면, zconverter 사에서 안내해드릴 것입니다.
-  (According to policy of ZConverter, lab user needs to contact ZConverter directly. Plaese contact sales@zconverter.com to request account id and installation guide.)
+Prepare Virtual Server(CentOS7.8) with additional data disk at Public Subnet.</br>
+This Virtual Server will be used for Target Server where to be migrated. 
   
-- Request Target Server in Public Subnet(dbdmz1)
-  require additional data disk
-  
-- Firewall and Security Group rule</br>
+<h3> Firewall and Security Group rule</h3>
   Management Portal: 58080 port</br>
   Agent : 50001, 50000 port</br>
   Migration : 50005 port</br>
   [Security Group](https://github.com/scp-cloudacademy/ce-advanced/raw/main/03/03_security_group_rules.xlsx) </br>
   [Internet Gateway Firewall](https://github.com/scp-cloudacademy/ce-advanced/raw/main/03/03_firewall_rules.xlsx)
   
-- Download and install ZConverter 
+<h3> Download and install ZConverter </h3>
+
+In Windows Virtual Server, download and install ZConverter
+
 [Download](https://objectstorage.ap-seoul-1.oraclecloud.com/p/QNEde7RjRlPcPrASvpu9BEbuXbbW-3Y-HNccECLYlPySFVZLZlQ4XjPuxT45aOxI/n/idffti7li8cs/b/ZConverter_Bucket/o/ZConverter_CloudManager_Setup_v4.1_SCP.exe)
-if the link doesn't work, contact sales@zconverter.com
+ZConverter
+
+If the link doesn't work, contact sales@zconverter.com for download link.
 
 <h3>Install Source Agent</h3>
 
@@ -39,17 +40,23 @@ tar -xzf ZConverter_CloudSourceClient_Setup_V4.1_Build_4003.tar.gz
 cd zconverter_install_source/
 ./install.sh
 ```
+
+Type Enter
+
 ![image](https://github.com/scp-cloudacademy/ce-advanced/assets/147478897/de093b96-737b-43ff-aae8-7aac1e811fad)<br>
-Enter
+
+Select 2. Select ZCM
 
 ![image](https://github.com/scp-cloudacademy/ce-advanced/assets/147478897/a4c44cde-37f1-48ac-bf31-a7a384664754)<br>
-2. Select ZCM
 
-![image](https://github.com/scp-cloudacademy/ce-advanced/assets/147478897/6b3d140d-4c57-41fc-b1ed-c9ccb62ae9af)<br>
 Input Management Portal IP
 
+![image](https://github.com/scp-cloudacademy/ce-advanced/assets/147478897/6b3d140d-4c57-41fc-b1ed-c9ccb62ae9af)<br>
+
+Input Management Portal ID (scp@samsung.com)
+
 ![image](https://github.com/scp-cloudacademy/ce-advanced/assets/147478897/ae5e605d-73a5-4d6f-a480-648eecace0fe)<br>
-Input Management Portal ID
+
 
 <h3>Install Target Agent</h3>
 
@@ -60,57 +67,78 @@ cd zconverter_install_target/
 ./install.sh
 ```
 
+Type Enter
+
 <img src=https://github.com/scp-cloudacademy/ce-advanced/assets/147478897/38d31953-4504-41db-a93b-1af50b23fd29><br>
-Enter<br>
+
+
+Select 2. Select ZCM
 
 <img src=https://github.com/scp-cloudacademy/ce-advanced/assets/147478897/e6dc9346-1ce5-4fb1-bd9b-267bb9ee298b><br>
-2. Select ZCM
 
-<img src=https://github.com/scp-cloudacademy/ce-advanced/assets/147478897/3107e7ab-4247-4187-ad8a-f4962e76b0a8><br>
 Input Management Portal IP
 
+<img src=https://github.com/scp-cloudacademy/ce-advanced/assets/147478897/3107e7ab-4247-4187-ad8a-f4962e76b0a8><br>
+
+Input Management Portal ID (scp@samsung.com)
+
 <img src=https://github.com/scp-cloudacademy/ce-advanced/assets/147478897/9eb4085f-82c2-4dec-aeb6-ed4f9e39daf4><br>
-Input Management Portal ID
+
+Check additional disk at Target VM for ZConverter storage. Type "Y"<br>
 
 <img src=https://github.com/scp-cloudacademy/ce-advanced/assets/147478897/f24e959e-4365-4b44-96a5-89dcfee12c3b><br>
-Check additional disk at Target VM for ZConverter storage<br>
+
 
 <h3>ZConverter</h3>
-In Management Portal, Run migration by registering source server and target server
+In Management Portal, Run migration by registering source server and target server<br>
 <br>
-<br>
-In the browser, open Management Portal ( http://[management portal server public IP]:58080 )
+In the browser, open Management Portal ( http://[management portal server public IP]:58080 ) with following ID and Password
 
-![image](https://github.com/scp-cloudacademy/ce-advanced/assets/147478897/a1f16857-a4c2-404d-9ca0-291bfa9f1497)<br>
+  ID : scp@samsung.com
+
+  PW : !mig2scp
+
 In Dashboard menu, Setting(설정) > Environmnet Setting(환경설정)
 
-![image](https://github.com/scp-cloudacademy/ce-advanced/assets/147478897/b0412a68-e469-4e97-a363-fee55e47ef43)<br>
-Check and memorize ZCM ID in environment page.
+![image](https://github.com/scp-cloudacademy/ce-advanced/assets/147478897/a1f16857-a4c2-404d-9ca0-291bfa9f1497)<br>
 
-![image](https://github.com/scp-cloudacademy/ce-advanced/assets/147478897/f4ee78c1-e375-4427-b96b-cdcf954c0f2c)<br>
+Check and memorize ZCM ID in environment page
+
+![image](https://github.com/scp-cloudacademy/ce-advanced/assets/147478897/b0412a68-e469-4e97-a363-fee55e47ef43)<br>
+
 Request ZConverter license with ZCM ID<br>
 License request page : https://ziacloud.net:55051/promotion
 
-![image](https://github.com/scp-cloudacademy/ce-advanced/assets/147478897/76a69a69-28bc-4116-a569-c3dbc04982df)<br>
+![image](https://github.com/scp-cloudacademy/ce-advanced/assets/147478897/ddc03be2-6323-4821-8725-5313b0610089)<br>
+
 Add license in setting(설정) > License(라이선스)
 
-![image](https://github.com/scp-cloudacademy/ce-advanced/assets/147478897/a22c74ad-801d-4c94-af7e-391ec7977360)<br>
+![image](https://github.com/scp-cloudacademy/ce-advanced/assets/147478897/76a69a69-28bc-4116-a569-c3dbc04982df)<br>
+
 Check License
 
-![image](https://github.com/scp-cloudacademy/ce-advanced/assets/147478897/0a28030b-67ba-44bb-81d9-70c46ad3b082)<br>
+![image](https://github.com/scp-cloudacademy/ce-advanced/assets/147478897/a22c74ad-801d-4c94-af7e-391ec7977360)<br>
+
 In Cloud Migration(클라우드 마이그레이션) > Samsung(삼성), input Source VM information and click next(다음)
 
-![image](https://github.com/scp-cloudacademy/ce-advanced/assets/147478897/c386bd71-7ca6-4ffa-b511-1cb979c28c66)<br>
+![image](https://github.com/scp-cloudacademy/ce-advanced/assets/147478897/0a28030b-67ba-44bb-81d9-70c46ad3b082)<br>
+
 After input Target VM information and click next(다음)
 
-![image](https://github.com/scp-cloudacademy/ce-advanced/assets/147478897/617536f3-1002-48f2-b3bf-8e6375eb76a1)<br>
+![image](https://github.com/scp-cloudacademy/ce-advanced/assets/147478897/c386bd71-7ca6-4ffa-b511-1cb979c28c66)<br>
+
 Select the license
 
-![image](https://github.com/scp-cloudacademy/ce-advanced/assets/147478897/44f41661-083e-430e-99ae-b6b514e1d98e)<br>
-Check port connection status, available storage space and confirm(확인)인]
+![image](https://github.com/scp-cloudacademy/ce-advanced/assets/147478897/617536f3-1002-48f2-b3bf-8e6375eb76a1)<br>
 
-![image](https://github.com/scp-cloudacademy/ce-advanced/assets/147478897/5b77eea6-ff80-419d-a363-6959a1edd584)<br>
+Check port connection status, available storage space and confirm(확인)
+
+![image](https://github.com/scp-cloudacademy/ce-advanced/assets/147478897/44f41661-083e-430e-99ae-b6b514e1d98e)<br>
+
 Proceeding migration.
 
-![image](https://github.com/scp-cloudacademy/ce-advanced/assets/147478897/22dcbf1c-3390-4f87-a21c-3e29b4d14134)<br>
+![image](https://github.com/scp-cloudacademy/ce-advanced/assets/147478897/5b77eea6-ff80-419d-a363-6959a1edd584)<br>
+
 Check completion page.
+
+![image](https://github.com/scp-cloudacademy/ce-advanced/assets/147478897/22dcbf1c-3390-4f87-a21c-3e29b4d14134)<br>
