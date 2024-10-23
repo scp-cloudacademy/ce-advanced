@@ -1,4 +1,4 @@
-# 0. Download Cerrificates from Let
+# 0. Download Certificates from Let
 
 https://letsencrypt.org/certificates/
 
