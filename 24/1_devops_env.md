@@ -1,4 +1,5 @@
-# 0. Download Certificates from Letsencrypt
+# 0. Download CLI template and run CLI
+IF you don't install SCP CLI, take steps at this page.
 
 https://letsencrypt.org/certificates/
 
