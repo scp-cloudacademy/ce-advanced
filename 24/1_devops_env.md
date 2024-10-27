@@ -1,5 +1,5 @@
 # 0. Download CLI template and run CLI
-IF you don't install SCP CLI, take steps at this page.
+IF you don't install SCP CLI, take steps at [this page](https://github.com/scp-cloudacademy/ce-advanced/blob/main/01/2_On_SCP/1_config_cli.md).
 
 https://letsencrypt.org/certificates/
 
