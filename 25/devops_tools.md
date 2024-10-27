@@ -1,8 +1,7 @@
 
-# 1. Create Jenkins app in Kubernetes Apps 
+# 1. Find Password at Gitlab 
 
 ```
-name: jenkins
 sudo kubectl get pods -n devopstools
 sudo kubectl exec -it -n devopstools [gitlab pod ID] -- bash
 /etc/gitlab/cat initial_root_password
