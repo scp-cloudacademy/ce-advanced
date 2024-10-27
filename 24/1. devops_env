@@ -1,0 +1,41 @@
+# 0. You will start creating the environment for Devops in this lab. If you have and wish to use your Kubernetes Engine, move to 
+
+# 1. Download CLI template and run CLI 
+
+IF you don't install SCP CLI, take actions on the [LAB01](https://github.com/scp-cloudacademy/ce-advanced/blob/main/01/2_On_SCP/1_config_cli.md).
+
+Download [CLI template](https://github.com/scp-cloudacademy/ce-advanced/blob/main/24/cli_devops_env.xlsx)
+
+Run CLI line by line.
+
+# 2. Create Kubernetes Engine and add node pool
+### K8S Cluster
+    name: k8sdevops
+    version: v1.28.7
+### Node Pool
+    name: nodedevops
+    numbers: 2
+    type: Standard s1v4m32
+
+# 3. Create Container Registry
+    name: crdevops
+    endpint ACL : k8s nodes and DevOps Console
+
+# 4. Create Ingress Controller at Kubernetes Apps
+    namespace: ingress
+    APP: Ingress NGINX Controller Community
+    name: ingress-controller
+    PVC: use
+ After creating Ingress, change the NodePort to LoadBalancer at YAML file to register Ingress to Load Balancer
+    Container > Kubernetes Engine > Service and Ingress | Service - Ingress-Contoller 
+
+# 5. Enroll DNS Record
+
+Check NAT IP of LB Service for K8S 80 
+Create DNS record 
+  name : ceweb
+    Record: A
+    IP : [NAT IP]
+  name : devops
+    Record: A
+    IP : [NAT IP]  
