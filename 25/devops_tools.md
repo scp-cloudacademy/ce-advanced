@@ -1,9 +1,8 @@
 
-# 1. Find Gitlab Password 
-
-In bastion Server, Connect to lbastiondmz(Linux Bastion Host that installed kubectl client)
+# 1. Create Jenkins app in Kubernetes Apps 
 
 ```
+name: jenkins
 sudo kubectl get pods -n devopstools
 sudo kubectl exec -it -n devopstools [gitlab pod ID] -- bash
 /etc/gitlab/cat initial_root_password
