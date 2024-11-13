@@ -20,13 +20,7 @@
 
 ### Open url of index.html at browser.
 
-# 3. Create Mail service
-
-### Request Mail service 
-
-### Memorize Mail API endpoint and App key of Mail service right after creation.
-
-# 4. Create Cloud Functions
+# 3. Create Cloud Functions
 
 ### Request Cloud Functions
 
@@ -60,7 +54,7 @@ def handle_request(params):
     }
 
 ```
-# 5. Create API Gateway
+# 4. Create API Gateway
 ### Request API Gateway service
     API Gateway name: api 
 
