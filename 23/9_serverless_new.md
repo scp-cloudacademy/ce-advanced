@@ -65,8 +65,8 @@ def handle_request(params):
     API Gateway name: api 
 
 ### Create API
-    API name: mail
-    Context: mail
+    API name: message
+    Context: message
     Version: v1
     Endpoint: Cloud Functions
     Endpoint Security: Non security
