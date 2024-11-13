@@ -51,8 +51,8 @@ import os
 
 def handle_request(params):
     body = params.json
-    email = os.environ.get("cemail") ; 
     name = os.environ.get("cename") ; 
+    email = os.environ.get("cemail") ; 
     response_message = "Your Feedback -" + body.get('message') + "- was successfully submitted. Feel free to contact " + name + "(" + email + "), if you have any questions!"
     return {
         'statusCode': 200,
