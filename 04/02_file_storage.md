@@ -43,7 +43,7 @@ In AWS console,<br>
 VPC > Virtual Private Gateway > Create Virtual Private Gateway</br>
 <img width="740" alt="image" src="https://github.com/scp-cloudacademy/ce-advanced/assets/147478897/d7b19d03-793f-42d7-9a97-b4e63b7abe7f"> <br>
 
-Attach Virtual Vrivate Gateway to VPC
+Attach Virtual Private Gateway to VPC
 
 <img width="1454" alt="image" src="https://github.com/scp-cloudacademy/ce-advanced/assets/147478897/45b272ce-2df5-4ae3-bfec-ef5c9d881f7a"> <br>
 
